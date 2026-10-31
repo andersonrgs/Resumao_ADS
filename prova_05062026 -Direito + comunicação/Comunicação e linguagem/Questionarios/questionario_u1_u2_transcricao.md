@@ -92,9 +92,11 @@ III – Entre os dois textos não se estabelece relação de intertextualidade. 
 
 A partir desse texto, avalie as asserções a seguir e a relação proposta entre elas:
 
-**I)** De acordo com o Papa Francisco, a crise dos refugiados na Europa aponta, conforme menciona o primeiro parágrafo, apenas para uma pequena parte de um problema complexo que envolve um equivocado sistema de governo.
-**PORQUE**
-**II)** Os movimentos migratórios, mencionados no segundo parágrafo, podem colocar em risco a segurança dos países europeus, já que terroristas podem se infiltrar junto aos refugiados.
+De acordo com o Papa Francisco, a crise dos refugiados na Europa aponta, conforme menciona o primeiro parágrafo, apenas para uma pequena parte de um problema complexo que envolve um equivocado sistema de governo.
+
+PORQUE
+
+Os movimentos migratórios, mencionados no segundo parágrafo, podem colocar em risco a segurança dos países europeus, já que terroristas podem se infiltrar junto aos refugiados.
 
 **Alternativas:**
 - [ ] A. As asserções I e II são proposições falsas.
