@@ -7,11 +7,13 @@ Extraído dos prints oficiais (`QUESTIONARIO_U1N2_PERGUNTA1.png` a `QUESTIONARIO
 ## Questão 1 (0,4 / 0,4) — Gerenciamento do Escopo: Estrutura Analítica do Projeto (EAP)
 
 **Enunciado:**
-**I)** Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP).
-**PORQUE**
-**II)** A EAP é um diagrama que organiza e define o escopo total do projeto e apresenta o processo, a subdivisão do trabalho e das entregas do projeto em componentes menores.
+Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP).
 
-Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:
+PORQUE
+
+A EAP é um diagrama que organiza e define o escopo total do projeto e apresenta o processo, a subdivisão do trabalho e das entregas do projeto em componentes menores.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.
 
 **Alternativas:**
 - [x] **A. As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.** *(Correta)*
@@ -80,11 +82,13 @@ III - realização de uma viagem
 ## Questão 4 (0,4 / 0,4) — Gerenciamento de Riscos: Identificação dos Riscos
 
 **Enunciado:**
-**I)** A identificação dos riscos consiste em determinar aqueles que têm **menor** probabilidade de afetar o projeto e documentar as características de cada um.
-**PORQUE**
-**II)** Os riscos são mutáveis ao longo da execução do processo de identificação, o qual deve ser feito ao longo de todo o projeto.
+A identificação dos riscos consiste em determinar aqueles que têm **menor** probabilidade de afetar o projeto e documentar as características de cada um.
 
-Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:
+PORQUE
+
+Os riscos são mutáveis ao longo da execução do processo de identificação, o qual deve ser feito ao longo de todo o projeto.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.
 
 **Alternativas:**
 - [ ] A. As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.

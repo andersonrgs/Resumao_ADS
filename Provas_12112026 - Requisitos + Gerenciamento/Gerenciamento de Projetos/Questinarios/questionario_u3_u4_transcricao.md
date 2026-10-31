@@ -10,11 +10,13 @@ Extraído do arquivo `qUESTIONARIO_pRINTS.docx` (convertido em `QUESTIONARIO_U3N
 ## Pergunta 1 (0,4 Pontos) — Estrutura Organizacional como Fator Ambiental Interno
 
 **Enunciado:**
-**I)** A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida.
-**PORQUE**
-**II)** A estrutura organizacional define o modo como as equipes são formadas e como os projetos são conduzidos.
+A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida.
 
-Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:
+PORQUE
+
+A estrutura organizacional define o modo como as equipes são formadas e como os projetos são conduzidos.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.
 
 **Alternativas:**
 - [ ] A. As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.

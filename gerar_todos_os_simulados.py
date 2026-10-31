@@ -89,6 +89,13 @@ def inline(txt):
 def paragrafos(linhas):
     out, buf = [], []
     for ln in linhas:
+        ln_clean = ln.strip()
+        if ln_clean in ("PORQUE", "**PORQUE**"):
+            if buf:
+                out.append("<br>".join(buf))
+                buf = []
+            out.append('<div class="porque-separator">PORQUE</div>')
+            continue
         ln = re.sub(r"^\s*>\s?", "", ln).rstrip()
         if ln.strip() in ("", ">"):
             if buf:
@@ -118,7 +125,10 @@ def parse_markdown_questions(md_path, unidades):
         enun_linhas = []
         fonte_info = ""
         for l in linhas[1:primeira_alt]:
-            if l.strip().startswith("**Enunciado:**"):
+            s = l.strip()
+            if s.startswith("**Enunciado:**"):
+                continue
+            if s in ("**Alternativas:**", "Alternativas:"):
                 continue
             if "Fonte:" in l or "Página" in l or "página" in l:
                 fonte_info = l.strip().strip("*").strip("()").strip()
@@ -449,6 +459,16 @@ BLACKBOARD_CSS = """
             font-weight: 600;
             margin-bottom: 1rem;
             font-style: italic;
+        }
+
+        .porque-separator {
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: #212529;
+            letter-spacing: 2px;
+            margin: 1.25rem 0;
+            display: block;
         }
 
         /* Opções de Alternativas */
