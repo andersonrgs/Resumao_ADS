@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado: Métodos Estatísticos</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; margin: 0; }
+        .container { max-width: 850px; margin: auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); box-sizing: border-box; }
+        h1 { text-align: center; color: #1a4f8b; margin-bottom: 10px; font-size: 2em; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; font-size: 1em; }
+        .question { margin-bottom: 30px; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fafbfc; box-sizing: border-box; }
+        .question p { font-weight: 600; font-size: 1.05em; color: #24292e; margin-top: 0; white-space: pre-line; word-break: break-word; }
+        
+        /* Estilos para a tabela de dados */
+        .data-table { width: 100%; max-width: 500px; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; background-color: #fff; }
+        .data-table th, .data-table td { border: 1px solid #d1d5da; padding: 10px; text-align: center; }
+        .data-table th { background-color: #f3f4f6; color: #1a4f8b; font-weight: bold; }
+        .data-table tr:nth-child(even) { background-color: #fafbfc; }
+
+        .options { margin-top: 15px; }
+        .options label { display: flex; align-items: flex-start; margin-bottom: 10px; cursor: pointer; padding: 12px; border: 1px solid transparent; border-radius: 6px; transition: all 0.2s; box-sizing: border-box; }
+        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
+        .options label span { word-break: break-word; }
+        .letter-prefix { font-weight: bold; margin-right: 5px; color: #1a4f8b; flex-shrink: 0; }
+        .options label:hover { background: #f1f8ff; border-color: #c8e1ff; }
+        .btn-submit { display: block; width: 100%; padding: 18px; background: #2ea44f; color: white; border: none; border-radius: 8px; font-size: 1.2em; font-weight: bold; cursor: pointer; margin-top: 30px; box-shadow: 0 4px 6px rgba(46,164,79,0.2); transition: background 0.3s; box-sizing: border-box; }
+        .btn-submit:hover { background: #22863a; }
+        .result-box { margin-top: 30px; padding: 25px; font-size: 1.4em; text-align: center; border-radius: 8px; display: none; font-weight: bold; box-sizing: border-box; }
+        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        
+        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
+        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
+        
+        /* Estilos para o Feedback e Resolução */
+        .feedback { display: none; margin-top: 15px; font-size: 0.95em; box-sizing: border-box; }
+        .feedback-header { font-weight: bold; padding: 10px; border-radius: 5px 5px 0 0; }
+        .feedback-header.correct { color: #155724; background-color: #d4edda; }
+        .feedback-header.incorrect { color: #721c24; background-color: #f8d7da; }
+        .resolution { background-color: #f8f9fa; border: 1px solid #dee2e6; border-top: none; padding: 15px; border-radius: 0 0 5px 5px; color: #495057; }
+        .resolution h4 { margin-top: 0; color: #1a4f8b; margin-bottom: 10px; font-size: 1.05em;}
+        .math-block { background: #fff; padding: 10px; border-radius: 4px; border: 1px solid #e9ecef; margin: 10px 0; overflow-x: auto; text-align: center;}
+        
+        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 25px 20px; border-radius: 8px; }
+            h1 { font-size: 1.6em; }
+            .question { padding: 15px; margin-bottom: 20px; }
+            .btn-submit { padding: 15px; font-size: 1.1em; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .container { padding: 15px 10px; border-radius: 6px; box-shadow: none; }
+            h1 { font-size: 1.4em; }
+            .subtitle { margin-bottom: 20px; font-size: 0.9em; }
+            .question p { font-size: 1em; }
+            .options label { padding: 10px 6px; margin-bottom: 6px; font-size: 0.95em; }
+            .options input[type="radio"] { margin-right: 8px; transform: scale(1.1); }
+            .result-box { font-size: 1.2em; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simulado: Métodos Estatísticos</h1>
+    <div class="subtitle">Questionários Consolidados</div>
+    <div class="shuffle-note">🔄 As alternativas mudam de posição a cada carregamento para ajudar no estudo!</div>
+
+    <form id="quizForm">
+        
+        <div class="question" id="q1">
+            <p>1. Na fabricação de calçados femininos com saltos de 9 cm, existe um defeito recorrente na colocação do taco no salto. A probabilidade de ocorrência desse defeito é de 11%. Suponha que, em determinado dia foram fabricados 50 desses calçados. Qual a probabilidade de, nesse dia, encontrarmos pelo menos dois defeitos na colocação do taco no salto?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>97,88%</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>92,37%</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>5,52%</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>2,12%</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>7,63%</span></label>
+            </div>
+            <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Trata-se de um problema de <strong>Distribuição Binomial</strong>. Queremos calcular a probabilidade de ocorrer <em>pelo menos dois</em> defeitos, ou seja, \( P(X \ge 2) \).</p>
+                    <p>É mais fácil usar a probabilidade complementar: \( P(X \ge 2) = 1 - [P(X = 0) + P(X = 1)] \).</p>
+                    <div class="math-block">
+                        Fórmula Binomial: $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+                    </div>
+                    <ul>
+                        <li><strong>Dados:</strong> \(n = 50\), \(p = 0,11\) (sucesso = defeito), \(1-p = 0,89\).</li>
+                        <li><strong>Para \(k = 0\):</strong><br> $$P(X=0) = \binom{50}{0} (0,11)^0 (0,89)^{50} \approx 1 \cdot 1 \cdot 0,00293 = 0,00293$$</li>
+                        <li><strong>Para \(k = 1\):</strong><br> $$P(X=1) = \binom{50}{1} (0,11)^1 (0,89)^{49} \approx 50 \cdot 0,11 \cdot 0,00329 \approx 0,0181$$</li>
+                        <li><strong>Somando:</strong> \( P(X < 2) = 0,00293 + 0,0181 = 0,02103 \) (ou 2,1%).</li>
+                        <li><strong>Probabilidade desejada:</strong> 1 - 0,02103 = 0,97897, que corresponde a aproximadamente <strong>97,88%</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. Um gerente de tecnologia da informação está contratando um programador e, para isso, elaborou um teste para verificar as habilidades de dois candidatos. Ele solicitou a cada um deles que realizasse dez programas diferentes com os mesmos parâmetros. Depois da entrega dos dois candidatos, o gerente irá escolher o candidato que teve um desempenho mais homogêneo, ou seja, com resultados mais próximos à média, independentemente de um candidato ter cometido menos erros em média do que o outro. A média de números de erros e o desvio-padrão desses dados foram os seguintes:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Candidato</th>
+                        <th>Média (\(\bar{x}\))</th>
+                        <th>Desvio-padrão (\(s\))</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Candidato A</td>
+                        <td>11,4</td>
+                        <td>1,67</td>
+                    </tr>
+                    <tr>
+                        <td>Candidato B</td>
+                        <td>10,0</td>
+                        <td>1,58</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Seguindo os critérios estabelecidos pelo gerente e com base nos dados, qual dos candidatos deverá ser escolhido e porquê?</p>
+            <div class="options">
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O candidato B, pois ele teve o menor desvio-padrão.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O candidato B, pois ele cometeu menos erros.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O candidato B, pois ele obteve o maior coeficiente de variação.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O candidato A, pois ele teve o maior desvio-padrão.</span></label>
+                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>O candidato A, pois ele teve o menor coeficiente de variação.</span></label>
+            </div>
+            <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Para comparar a homogeneidade (dispersão relativa) de conjuntos de dados com médias diferentes, utiliza-se o <strong>Coeficiente de Variação (CV)</strong>. Quanto menor o CV, mais homogêneo é o desempenho.</p>
+                    <div class="math-block">
+                        Fórmula: $$CV = \frac{s}{\bar{x}} \times 100$$
+                    </div>
+                    <ul>
+                        <li><strong>Candidato A:</strong> $$CV_A = \frac{1,67}{11,4} \times 100 \approx 14,64\%$$</li>
+                        <li><strong>Candidato B:</strong> $$CV_B = \frac{1,58}{10,0} \times 100 = 15,80\%$$</li>
+                    </ul>
+                    <p>Como \(CV_A < CV_B\), o Candidato A possui o menor coeficiente de variação, indicando um desempenho mais homogêneo (mais consistente e próximo à sua própria média).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. Numa instituição de ensino, existem 250 estudantes no curso de Administração, dos quais 100 estão matriculados na disciplina de Contabilidade e 90 na disciplina de Estatística. Estes dados incluem 40 estudantes que estão matriculados em ambas as disciplinas. Um estudante é selecionado ao acaso. Com base nas informações apresentadas, assinale a alternativa correta.</p>
+            <div class="options">
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A probabilidade de o estudante selecionado estar matriculado somente em Contabilidade é de 25%.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A probabilidade de o estudante selecionado estar matriculado somente em Estatística é de 18%.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A probabilidade de o estudante selecionado não estar matriculado nem em Contabilidade nem em Estatística é de 50%.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A probabilidade de o estudante selecionado estar matriculado em ambas as disciplinas é de 15%.</span></label>
+                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>A probabilidade de o estudante selecionado estar matriculado em Contabilidade ou Estatística é de 60%.</span></label>
+            </div>
+            <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Este é um problema de probabilidade envolvendo Teoria dos Conjuntos (União de eventos).</p>
+                    <div class="math-block">
+                        Fórmula da União: $$P(C \cup E) = P(C) + P(E) - P(C \cap E)$$
+                    </div>
+                    <ul>
+                        <li>Total de alunos (\(\Omega\)): 250</li>
+                        <li>Contabilidade (\(C\)): 100</li>
+                        <li>Estatística (\(E\)): 90</li>
+                        <li>Ambas (\(C \cap E\)): 40</li>
+                    </ul>
+                    <p>Calculando a probabilidade de estar em Contabilidade <strong>OU</strong> Estatística (união):</p>
+                    <p>Total na união: 100 + 90 - 40 = 150 alunos.</p>
+                    <p>Probabilidade: 150 / 250 = 0,60 = 60%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. Um gerente de sistemas está selecionando os dados para formular um algoritmo com a finalidade de calcular o valor de seguros para carros. Entre tantas variáveis que podem estar presentes nesse algoritmo, podemos citar o local onde o carro fica estacionado, o número de pessoas com permissão para utilizar o veículo e o sexo do principal condutor. Essas três variáveis apresentadas podem ser corretamente classificadas quanto ao seu tipo, respectivamente, como:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>qualitativa nominal, quantitativa discreta e qualitativa nominal.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>qualitativa ordinal, quantitativa discreta e qualitativa ordinal.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>qualitativa nominal, quantitativa discreta e qualitativa ordinal.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>qualitativa nominal, quantitativa contínua e qualitativa nominal.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>qualitativa ordinal, quantitativa discreta e qualitativa nominal.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Classificação de Variáveis Estatísticas:</p>
+                    <ul>
+                        <li><strong>Local de estacionamento (Rua, Garagem fechada, etc):</strong> Categoria não numérica e sem ordem hierárquica natural. Logo, é <strong>Qualitativa Nominal</strong>.</li>
+                        <li><strong>Número de pessoas (1, 2, 3...):</strong> Dado numérico resultado de contagem (não aceita decimais). Logo, é <strong>Quantitativa Discreta</strong>.</li>
+                        <li><strong>Sexo do condutor (Masculino, Feminino):</strong> Categoria não numérica sem ordem hierárquica. Logo, é <strong>Qualitativa Nominal</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Uma coleta de dados em uma amostra de 30 algoritmos com o objetivo de verificar a quantidade de erros cometidos em cada um deles revelou os valores apresentados na tabela a seguir. Foram observados 30 algoritmos diferentes e anotadas as quantidades de erros cometidos em cada um deles:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Número de erros (\(x_i\))</th>
+                        <th>Frequência (\(f_i\))</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>4</td></tr>
+                    <tr><td>1</td><td>11</td></tr>
+                    <tr><td>2</td><td>8</td></tr>
+                    <tr><td>3</td><td>5</td></tr>
+                    <tr><td>4</td><td>2</td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>30</strong></td></tr>
+                </tbody>
+            </table>
+
+            <p>Calcule a média e a mediana para esses dados e assinale a alternativa que contém esses resultados respectivamente.</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>1,7 e 1,5.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>2,0 e 2,0.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>2,0 e 1,5.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>1,7 e 2,0.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>2,0 e 1,0.</span></label>
+            </div>
+            <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p><strong>Cálculo da Média Ponderada (\(\bar{x}\)):</strong></p>
+                    <div class="math-block">
+                         $$\bar{x} = \frac{\sum (x_i \cdot f_i)}{\sum f_i}$$
+                    </div>
+                    <p>$$\bar{x} = \frac{(0 \cdot 4) + (1 \cdot 11) + (2 \cdot 8) + (3 \cdot 5) + (4 \cdot 2)}{30}$$</p>
+                    <p>$$\bar{x} = \frac{0 + 11 + 16 + 15 + 8}{30} = \frac{50}{30} \approx 1,7$$</p>
+                    
+                    <p><strong>Cálculo da Mediana (\(Md\)):</strong></p>
+                    <p>Com n = 30 (par), a mediana é a média entre as posições 15ª e 16ª dos dados ordenados.</p>
+                    <ul>
+                        <li>Frequência Acumulada: 4 (0 erros), 4+11=15 (1 erro), 15+8=23 (2 erros).</li>
+                        <li>A 15ª posição é o valor "1".</li>
+                        <li>A 16ª posição cai na próxima classe, ou seja, o valor "2".</li>
+                    </ul>
+                    <div class="math-block">
+                        $$Md = \frac{1 + 2}{2} = 1,5$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. Uma central telefônica de cobrança, em um turno de quatro horas, tem duas chamadas que deixam de ser atendidas. Em uma hora de atendimento, a probabilidade de não haver chamadas não atendidas é de:</p>
+            <div class="options">
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>18,32%</span></label>
+                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>60,65%</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>27,07%</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>1,83%</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>7,58%</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Este é um problema de <strong>Distribuição de Poisson</strong>, que lida com a probabilidade de ocorrência de eventos em um intervalo contínuo de tempo.</p>
+                    <div class="math-block">
+                        Fórmula de Poisson: $$P(X = k) = \frac{e^{-\lambda} \cdot \lambda^k}{k!}$$
+                    </div>
+                    <ul>
+                        <li><strong>Taxa média original:</strong> 2 chamadas não atendidas a cada 4 horas.</li>
+                        <li><strong>Ajuste da taxa (\(\lambda\)):</strong> Para o intervalo de <strong>1 hora</strong>, a média é \(\lambda = 2 / 4 = 0,5\) chamadas/hora.</li>
+                        <li><strong>O que queremos:</strong> "não haver chamadas não atendidas", logo \(k = 0\).</li>
+                        <li>Constante de Euler (\(e\)) &approx; 2,71828</li>
+                    </ul>
+                    <p>$$P(X = 0) = \frac{e^{-0,5} \cdot 0,5^0}{0!} = \frac{e^{-0,5} \cdot 1}{1} = e^{-0,5}$$</p>
+                    <p>Calculando \(e^{-0,5}\), encontramos aproximadamente \(0,6065\), que equivale a <strong>60,65%</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q7">
+            <p>7. O teste de hipótese é uma técnica estatística que tem como objetivo testar uma afirmação sobre um parâmetro ou uma característica de determinada população. Ele examina duas hipóteses opostas sobre uma população: a hipótese nula e a hipótese alternativa. Quando se realiza um teste de hipóteses, existe a possibilidade de cometer-se um erro na decisão. Os erros tipo I e tipo II são contrabalanços e têm ações opostas.
+PORQUE
+Nos erros tipos I e tipo II, a diminuição na probabilidade de um não altera a probabilidade do outro.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.</p>
+            <div class="options">
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p><strong>Asserção I (Verdadeira):</strong> Os Erros Tipo I (rejeitar \(H_0\) quando é verdadeira, probabilidade \(\alpha\)) e Tipo II (aceitar \(H_0\) quando é falsa, probabilidade \(\beta\)) operam em balanço.</p>
+                    <p><strong>Asserção II (Falsa):</strong> A probabilidade de um erro afeta, sim, o outro. Em uma amostra de tamanho fixo, diminuir a probabilidade de cometer o Erro Tipo I (tornar o teste mais rigoroso diminuindo \(\alpha\)) inevitavelmente <strong>aumenta</strong> a probabilidade de cometer o Erro Tipo II (\(\beta\)).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. TEXTO I: A distribuição binomial, a de Poisson, também conta sucessos. Porém, ao invés de eles serem observados em um número de repetições, são feitos em um intervalo contínuo de tempo ou espaço. O sucesso da distribuição Poisson é observado em um intervalo contínuo, e o da binomial é em um número de repetições.
+TEXTO II: Um policial rodoviário resolveu fazer um levantamento a respeito do número de buracos em um determinado trecho de uma rodovia. Ele observou que a taxa de ocorrência era de dois buracos a cada km.
+
+Com base nas informações apresentadas, avalie as afirmações a seguir:
+I. A taxa de ocorrência para 5 km dessa mesma rodovia é de 10 buracos.
+II. A probabilidade de não encontrarmos buraco em um quilômetro dessa rodovia é de 13,53%.
+III. A probabilidade de encontrarmos um buraco em dois quilômetros dessa rodovia é de 27,07%.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, II e III</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I apenas</span></label>
+                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>I e II, apenas</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>II e III, apenas</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>III apenas</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Distribuição de Poisson: $$P(X=k) = \frac{e^{-\lambda} \cdot \lambda^k}{k!}$$</p>
+                    <ul>
+                        <li><strong>Afirmação I (Correta):</strong> A taxa de ocorrência (\(\lambda\)) é proporcional ao tamanho do intervalo analisado. Se a taxa observada é de 2 buracos para 1 km, para 5 km a taxa esperada é \(\lambda = 2 \times 5 = 10\) buracos.</li>
+                        <li><strong>Afirmação II (Correta):</strong> Para 1 km, \(\lambda = 2\). Queremos a probabilidade de 0 buracos (\(k=0\)).<br> $$P(X=0) = \frac{e^{-2} \cdot 2^0}{0!} = e^{-2} \approx 0,1353 \Rightarrow 13,53\%$$</li>
+                        <li><strong>Afirmação III (Incorreta):</strong> Para 2 km, a nova taxa média esperada é \(\lambda = 2 \times 2 = 4\). A probabilidade de encontrarmos examente 1 buraco (\(k=1\)) é:<br> $$P(X=1) = \frac{e^{-4} \cdot 4^1}{1!} = 4 \cdot e^{-4} \approx 4 \cdot 0,01831 \approx 0,0732 \Rightarrow 7,32\%$$</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. O tempo de duração de um determinado equipamento eletrônico tem uma vida útil considerada pequena. Esse equipamento tem uma média de vida útil de 120 horas e um desvio-padrão de 15 horas. O tempo de vida útil desse equipamento segue uma distribuição normal. A probabilidade de um desses equipamentos, selecionados ao acaso, durar mais de 125 horas é de:</p>
+            <div class="options">
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>61,79%</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>34,83%</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>62,93%</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>65,17%</span></label>
+                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>37,07%</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Problema de <strong>Distribuição Normal</strong>. Devemos padronizar a variável \(X\) para a Normal Padrão \(Z\).</p>
+                    <div class="math-block">
+                        Fórmula de Padronização (Escore Z): $$Z = \frac{X - \mu}{\sigma}$$
+                    </div>
+                    <ul>
+                        <li>Média (\(\mu\)) = 120</li>
+                        <li>Desvio-padrão (\(\sigma\)) = 15</li>
+                        <li>Valor desejado (\(X\)) = 125</li>
+                    </ul>
+                    <p>$$Z = \frac{125 - 120}{15} = \frac{5}{15} \approx 0,33$$</p>
+                    <p>Queremos a probabilidade de durar <em>mais</em> que 125 horas: \(P(Z > 0,33)\).</p>
+                    <p>Consultando a tabela da Distribuição Normal Padrão, a área entre o meio (0) e \(Z = 0,33\) é de aproximadamente <strong>0,1293</strong> (ou 12,93%).</p>
+                    <p>Como a metade direita da curva vale 50% (0,5000), a probabilidade de ser MAIOR que 0,33 é a cauda: <br>$$P(Z > 0,33) = 0,5000 - 0,1293 = 0,3707 = 37,07\%$$</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. Entre as distribuições teóricas de variável contínua, destaca-se a distribuição normal. Sobre as propriedades da distribuição normal, analise as afirmativas a seguir:
+
+I - Os parâmetros da distribuição normal são a média e o desvio-padrão.
+II - A distribuição normal é simétrica em torno da média.
+III - Quanto menor for o desvio-padrão, mais achatado será o gráfico da distribuição normal.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>I e III, apenas</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>II e III, apenas</span></label>
+                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>I e II, apenas</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>I apenas</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>III apenas</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <ul>
+                        <li><strong>I. Correta:</strong> A notação padrão é \(X \sim N(\mu, \sigma^2)\), onde a curva é totalmente definida pela média \(\mu\) (centro) e desvio-padrão \(\sigma\) (dispersão).</li>
+                        <li><strong>II. Correta:</strong> O gráfico tem formato de sino perfeitamente simétrico, onde 50% dos dados estão à esquerda da média e 50% à direita.</li>
+                        <li><strong>III. Incorreta:</strong> Quanto MENOR o desvio-padrão (dados mais próximos da média), mais pontiaguda (leptocúrtica) e estreita fica a curva. O gráfico fica "achatado" (platicúrtico) quando o desvio-padrão é MAIOR (maior dispersão).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q11">
+            <p>11. Os testes de hipóteses fazem parte da estatística inferencial e são de grande importância para uma tomada de decisão com embasamento técnico comprovado. Independentemente do teste de hipóteses paramétrico utilizado, seja ele para médias ou proporções, algumas particularidades são comuns a todos eles.
+Com base nas informações apresentadas, avalie as afirmações a seguir:
+
+I - Existem dois tipos de erro que podem ser cometidos, o erro do tipo I que ocorre quando aceitamos H0, mas na verdade ela é falsa e o Erro tipo II que ocorre quando rejeitamos H0, mas na verdade ela é a hipótese verdadeira.
+II - Os testes de hipóteses foram formulados para que o Erro do tipo II seja fixado de acordo com a distribuição de probabilidade do teste aplicado e quanto maior for o tamanho da amostra mais preciso será o teste.
+III - Todo o teste de hipóteses apresentará uma estatística de teste e um valor tabelado de acordo com a distribuição e o tipo de variável estudada.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e II</span></label>
+                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>III apenas</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>II e III, apenas</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e III, apenas</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I apenas</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <ul>
+                        <li><strong>I. Incorreta:</strong> Os conceitos estão invertidos. O Erro Tipo I (Falso Positivo) ocorre quando REJEITAMOS \(H_0\) sendo ela verdadeira. O Erro Tipo II (Falso Negativo) ocorre quando ACEITAMOS \(H_0\) sendo ela falsa.</li>
+                        <li><strong>II. Incorreta:</strong> O que é fixado aprioristicamente pelo pesquisador (como 5% ou 1%) é o Erro do Tipo I (o Nível de Significância \(\alpha\)), e não o Erro do Tipo II (\(\beta\)).</li>
+                        <li><strong>III. Correta:</strong> A mecânica básica de qualquer teste de hipótese é calcular uma estatística na amostra (\(Z_{calc}\), \(T_{calc}\)) e compará-la com um valor crítico tabelado (\(Z_{tab}\), \(T_{tab}\)) que delimita as regiões de aceitação e rejeição.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q12">
+            <p>12. No controle de qualidade de uma indústria de laticínios, a média de peso de um queijo deve ser 500g. Dois lotes foram testados: o Lote A tem desvio padrão de 2g e o Lote B tem desvio padrão de 15g. Com base nas medidas de dispersão, o que o gestor pode concluir sobre os lotes?</p>
+            <div class="options">
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O Lote A apresenta maior variabilidade nos pesos.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O Lote B possui maior consistência e qualidade.</span></label>
+                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>O Lote A possui maior homogeneidade e estabilidade nos pesos.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A média do Lote B é necessariamente superior à do Lote A.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Ambos os lotes possuem a mesma precisão produtiva.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>O <strong>Desvio-Padrão (\(\sigma\))</strong> é uma medida de dispersão. Ele indica o quanto os dados variam em torno da média.</p>
+                    <p>Se o Lote A possui desvio padrão de 2g e o Lote B de 15g, os pesos dos queijos no Lote A estão muito mais próximos da média (500g) do que no Lote B.</p>
+                    <p>Logo, um desvio-padrão menor (Lote A) traduz-se em <strong>menor variabilidade</strong>, ou seja, maior precisão, consistência e <strong>homogeneidade</strong> no processo produtivo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q13">
+            <p>13. Sobre a Estimação por Intervalo (Intervalo de Confiança), é correto afirmar que:</p>
+            <div class="options">
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Nenhuma das alternativas estão corretas.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>O intervalo de confiança independe do tamanho da amostra ou do desvio padrão da população.</span></label>
+                <label data-correct="true"><input type="radio" name="q13"><span class="letter-prefix"></span><span>Consiste em um intervalo de valores, calculado a partir de dados amostrais, que tem uma probabilidade específica de conter o parâmetro populacional.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Ela fornece um único valor exato como a melhor estimativa para o parâmetro populacional desconhecido.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Quanto maior o nível de confiança desejado (ex: passar de 95% para 99%), menor será a amplitude do intervalo.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Um <strong>Intervalo de Confiança (IC)</strong> abandona a ideia de tentar acertar o parâmetro da população em um único número (estimativa pontual) para criar uma margem baseada na amostra.</p>
+                    <div class="math-block">
+                        Fórmula Básica do IC: $$IC = \bar{x} \pm Z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right)$$
+                    </div>
+                    <p>Analisando as falsas:</p>
+                    <ul>
+                        <li>Depende sim do desvio (\(\sigma\)) e tamanho (\(n\)), como mostra a fórmula.</li>
+                        <li>Estimativa pontual é quem fornece "um único valor exato".</li>
+                        <li>Quanto MAIOR a confiança (99%), MAIOR precisa ser o intervalo (ficar mais "largo") para garantir que o parâmetro estará lá dentro.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q14">
+            <p>14. No contexto da estatística inferencial, como pode ser definida uma distribuição amostral?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q14"><span class="letter-prefix"></span><span>É a distribuição de probabilidade de um estatístico (como a média) calculada a partir de todas as amostras possíveis de mesmo tamanho de uma população.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>É o conjunto de valores que representa o censo total de uma população em um determinado período.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>É uma técnica de organização de dados qualitativos em ordem de importância.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>Todas as alternativas estão corretas.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>É a distribuição de frequências dos dados brutos de uma única amostra coletada.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>A <strong>Distribuição Amostral</strong> é um conceito teórico fundamental da inferência (ligado ao Teorema Central do Limite). Se de uma população enorme nós tirássemos infinitas amostras de tamanho \(n\), cada amostra teria uma média diferente.</p>
+                    <p>Se plotarmos um gráfico com as <em>médias de todas essas amostras possíveis</em>, formaremos a chamada "Distribuição Amostral das Médias", que terá formato Normal mesmo que a população original não seja normal.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q15">
+            <p>15. O IBGE utiliza técnicas de amostragem para realizar a PNAD (Pesquisa Nacional por Amostra de Domicílios), pois seria inviável pesquisar todos os brasileiros mensalmente. Quando selecionamos uma amostra onde cada elemento da população tem exatamente a mesma chance de ser escolhido, estamos realizando uma:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q15"><span class="letter-prefix"></span><span>Amostragem Probabilística Aleatória Simples.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>Amostragem por Cotas.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>Amostragem Qualitativa.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>Amostragem por Conveniência.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>Amostragem Intencional.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Na teoria de amostragem, a garantia de que "cada elemento tem a mesma chance > 0 de ser escolhido" é a definição clássica de amostragem <strong>Probabilística</strong>.</p>
+                    <p>Como o sorteio é direto, sem estratificações ou agrupamentos, trata-se de uma <strong>Aleatória Simples</strong> (como um sorteio de loteria num grande vaso).</p>
+                    <p>As opções "por Cotas", "Conveniência" e "Intencional" são métodos <em>Não-Probabilísticos</em> (onde o pesquisador escolhe os sujeitos com viés, sem sorteio aleatório).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q16">
+            <p>16. Muitas variáveis biológicas e empresariais (como altura de pessoas ou erros de medição) seguem uma Distribuição Normal, representada graficamente por uma curva em formato de sino. Em uma Distribuição Normal perfeita, qual a relação entre a Média, a Mediana e a Moda?</p>
+            <div class="options">
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>A Moda é sempre o menor valor da curva.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>A Média e a Mediana são inversamente proporcionais.</span></label>
+                <label data-correct="true"><input type="radio" name="q16"><span class="letter-prefix"></span><span>Os três valores são coincidentes (iguais).</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>A Média é sempre maior que a Moda.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>A mediana é o dobro da média.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Esta é uma propriedade teórica da curva Normal padronizada (gaussiana):</p>
+                    <p>Por ser perfeitamente simétrica em formato de sino, o seu pico mais alto (o valor que mais se repete, logo a <strong>Moda</strong>) fica exatamente no centro geométrico do eixo X.</p>
+                    <p>O centro divide os dados exatamente em 50% para cada lado, atuando como a <strong>Mediana</strong>.</p>
+                    <p>E como é o ponto de equilíbrio de massa de toda a distribuição, ele também é a <strong>Média (\(\mu\))</strong>.</p>
+                    <p style="text-align: center; font-weight: bold; background: #fff; padding: 10px; border: 1px solid #e9ecef;">
+                        Média = Mediana = Moda
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q17">
+            <p>17. Uma rede de varejo observou os seguintes tempos de entrega (em dias) em uma amostra: 2, 3, 3, 4, 5, 8, 25. O gestor percebeu que o valor "25" é um ponto fora da curva (outlier). Qual medida de tendência central é a mais recomendada para representar esse conjunto de dados de forma fiel, por ser menos afetada por valores extremos?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q17"><span class="letter-prefix"></span><span>Mediana</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Média Aritmética</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Variância</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Desvio Padrão</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Amplitude Total</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>A <strong>Média</strong> é sensível a <em>outliers</em>. Se calcularmos a média desses dados:</p>
+                    <p style="text-align: center;">(2 + 3 + 3 + 4 + 5 + 8 + 25) / 7 = 50 / 7 &approx; 7,14 dias.</p>
+                    <p>Note que quase todas as entregas ocorrem em 5 dias ou menos, a média foi inflada pelo dia 25.</p>
+                    <p>A <strong>Mediana</strong> é uma medida de posição e robusta a valores discrepantes. Olhando a série ordenada {2, 3, 3, <strong>4</strong>, 5, 8, 25}, o valor central é 4. Dizer que o tempo central de entrega é 4 dias representa a realidade da empresa muito melhor do que 7,14 dias.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q18">
+            <p>18. Uma startup de tecnologia analisou o perfil de seus usuários e identificou as seguintes variáveis em seu banco de dados: Gênero, Grau de Satisfação (Baixo, Médio, Alto), Número de Acessos Diários e Valor Gasto Mensalmente. De acordo com a classificação das variáveis estatísticas, como podemos definir o "Número de Acessos Diários" e o "Grau de Satisfação"?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q18"><span class="letter-prefix"></span><span>Quantitativa Discreta e Qualitativa Ordinal.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Quantitativa Contínua e Qualitativa Nominal.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Qualitativa Ordinal e Quantitativa Discreta.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Quantitativa Contínua e Qualitativa Ordinal.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Qualitativa Nominal e Quantitativa Discreta.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <ul>
+                        <li><strong>Número de Acessos Diários (1, 2, 5, 10):</strong> É numérico (Quantidade). É o resultado de uma contagem, impossível ter "2,5" acessos. Logo, <strong>Quantitativa Discreta</strong>.</li>
+                        <li><strong>Grau de Satisfação (Baixo, Médio, Alto):</strong> É um texto (Qualidade). No entanto, existe uma hierarquia lógica óbvia entre as respostas (Alto > Médio > Baixo). Logo, <strong>Qualitativa Ordinal</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q19">
+            <p>19. Em um estudo de probabilidade sobre o mercado de ações, um analista define que a probabilidade de uma ação subir amanhã é de 0.60 e a probabilidade de uma notícia positiva ser divulgada é de 0,30. Se os eventos forem considerados independentes, a probabilidade de ambos ocorrerem simultaneamente é calculada através da:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q19"><span class="letter-prefix"></span><span>Regra do produto (multiplicação).</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Média ponderada dos eventos.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Divisão da maior pela menor.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Soma das probabilidades.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Subtração das probabilidades.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>O conectivo na probabilidade para que dois eventos independentes aconteçam simultaneamente ("um E o outro") remete ao cálculo da Intersecção de eventos independentes.</p>
+                    <div class="math-block">
+                        $$P(A \cap B) = P(A) \times P(B)$$
+                    </div>
+                    <p>Na estatística, isso é conhecido como o "Teorema da Multiplicação" ou a <strong>Regra do Produto</strong>. Exemplo de cálculo com as taxas da questão:</p>
+                    <p style="text-align: center;">0,60 &times; 0,30 = 0,18 ou 18% de chance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q20">
+            <p>20. Um relatório da Forbes (2025) aponta que "a análise de dados é o novo petróleo". Uma empresa decidiu organizar seus dados de vendas semanais em uma tabela de frequências para identificar o comportamento do consumidor. Ao calcular a frequência relativa de uma categoria de vendas, o gestor está buscando:</p>
+            <div class="options">
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>A média aritmética simples das vendas do período.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>O valor absoluto de vendas daquela semana.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>A soma acumulada das vendas desde o início do ano.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>O ponto médio entre a maior e a menor venda.</span></label>
+                <label data-correct="true"><input type="radio" name="q20"><span class="letter-prefix"></span><span>A proporção ou percentual que aquela categoria representa no total.</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p>Tabelas de Frequência:</p>
+                    <ul>
+                        <li><strong>Frequência Absoluta (\(f_i\)):</strong> Conta a quantidade bruta. Ex: Vendemos 30 carros da cor Prata.</li>
+                        <li><strong>Frequência Relativa (\(fr_i\)):</strong> É o cálculo da absoluta sobre o total da amostra (f<sub>i</sub> / n). Ex: 30 carros prata de um total de 100 vendidos representam <strong>30% (a proporção ou percentual)</strong> das vendas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="question" id="q21">
+            <p>21. Uma pesquisa de mercado sobre o uso de Inteligência Artificial nas empresas brasileiras apresentou os dados conforme a tabela abaixo:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Uso de IA</th>
+                        <th>Frequência Abs. (Empresas)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Alta Utilização</td><td>45</td></tr>
+                    <tr><td>Média Utilização</td><td>30</td></tr>
+                    <tr><td>Baixa Utilização</td><td>25</td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>10</strong></td></tr>
+                </tbody>
+            </table>
+
+            <p>Com base nos dados apresentados, assinale a alternativa que indica a frequência relativa acumulada até a categoria de Média Utilização:</p>
+            <div class="options">
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>0,15</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>1,00</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>0,30</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>0,45</span></label>
+                <label data-correct="true"><input type="radio" name="q21"><span class="letter-prefix"></span><span>0,75</span></label>
+            </div>
+             <div class="feedback">
+                <div class="feedback-header"></div>
+                <div class="resolution">
+                    <h4>Roteiro de Resolução:</h4>
+                    <p><em>Nota: A tabela original da questão apresenta um erro de digitação no campo "Total", indicando 10. No entanto, para o cálculo correto segundo o gabarito, devemos usar a soma real das frequências absolutas: 45 + 30 + 25 = 100.</em></p>
+                    <p>Primeiro, calculamos a Frequência Relativa de cada classe:</p>
+                    <ul>
+                        <li>Alta Utilização: 45 / 100 = 0,45</li>
+                        <li>Média Utilização: 30 / 100 = 0,30</li>
+                    </ul>
+                    <p>A questão pede a frequência relativa <strong>acumulada</strong> <em>até</em> a categoria "Média Utilização". O processo de acumular exige somar a classe atual com todas as anteriores.</p>
+                    <div class="math-block">
+                        $$F_{ac} = fr_{alta} + fr_{media} = 0,45 + 0,30 = 0,75$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="calcularNota()">Confirmar e Ver Resultado</button>
+
+        <div id="resultado" class="result-box"></div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const letters = ['A', 'B', 'C', 'D', 'E'];
+        const allOptionsDivs = document.querySelectorAll('.options');
+
+        allOptionsDivs.forEach(optionDiv => {
+            let labels = Array.from(optionDiv.querySelectorAll('label'));
+
+            for (let i = labels.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [labels[i], labels[j]] = [labels[j], labels[i]];
+            }
+
+            optionDiv.innerHTML = '';
+            labels.forEach((label, index) => {
+                let prefixSpan = label.querySelector('.letter-prefix');
+                if (prefixSpan) {
+                    prefixSpan.innerText = letters[index] + ') ';
+                }
+                
+                let inputEl = label.querySelector('input');
+                if(inputEl) {
+                    inputEl.value = letters[index];
+                }
+
+                optionDiv.appendChild(label);
+            });
+        });
+    });
+
+    function calcularNota() {
+        const questions = document.querySelectorAll('.question');
+        const totalQuestoes = questions.length;
+        let acertos = 0;
+
+        document.querySelectorAll('.options label').forEach(lbl => {
+            lbl.classList.remove('correct-answer', 'wrong-answer');
+        });
+        document.querySelectorAll('.feedback').forEach(fb => {
+            const header = fb.querySelector('.feedback-header');
+            if(header) {
+                header.classList.remove('correct', 'incorrect');
+                header.innerHTML = '';
+            }
+            fb.style.display = 'none';
+        });
+
+        questions.forEach((qDiv, idx) => {
+            const i = idx + 1;
+            const questionName = 'q' + i;
+            const options = document.getElementsByName(questionName);
+            let respondeu = false;
+
+            for (const option of options) {
+                const label = option.parentElement;
+                const isCorrect = label.getAttribute('data-correct') === 'true';
+                const feedbackDiv = qDiv.querySelector('.feedback');
+                const feedbackHeader = feedbackDiv.querySelector('.feedback-header');
+
+                if (option.checked) {
+                    respondeu = true;
+                    if (isCorrect) {
+                        acertos++;
+                        label.classList.add('correct-answer');
+                        feedbackHeader.innerHTML = '✔ Resposta Correta!';
+                        feedbackHeader.classList.add('correct');
+                    } else {
+                        label.classList.add('wrong-answer');
+                        feedbackHeader.innerHTML = '✖ Resposta Incorreta.';
+                        feedbackHeader.classList.add('incorrect');
+                    }
+                    feedbackDiv.style.display = 'block';
+                }
+                
+                if (isCorrect && !label.classList.contains('correct-answer')) {
+                     label.classList.add('correct-answer');
+                }
+            }
+
+            if (!respondeu) {
+                 const feedbackDiv = qDiv.querySelector('.feedback');
+                 const feedbackHeader = feedbackDiv.querySelector('.feedback-header');
+                 feedbackHeader.innerHTML = '⚠ Questão não respondida.';
+                 feedbackHeader.classList.add('incorrect');
+                 feedbackDiv.style.display = 'block';
+            }
+        });
+
+        const resultBox = document.getElementById('resultado');
+        resultBox.style.display = 'block';
+        resultBox.innerHTML = `Você acertou ${acertos} de ${totalQuestoes} questões!`;
+
+        const taxaAcerto = acertos / totalQuestoes;
+        if (taxaAcerto >= 0.7) {
+            resultBox.className = 'result-box pass';
+        } else {
+            resultBox.className = 'result-box fail';
+        }
+
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

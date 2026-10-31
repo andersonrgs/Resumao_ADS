@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado: Métodos Inovadores na TI (Responsivo)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; margin: 0; }
+        .container { max-width: 850px; margin: auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); box-sizing: border-box; }
+        h1 { text-align: center; color: #1a4f8b; margin-bottom: 10px; font-size: 2em; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; font-size: 1em; }
+        h2 { border-bottom: 3px solid #1a4f8b; padding-bottom: 8px; color: #1a4f8b; margin-top: 40px; font-size: 1.5em; }
+        .question { margin-bottom: 30px; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fafbfc; box-sizing: border-box; }
+        .question p { font-weight: 600; font-size: 1.05em; color: #24292e; margin-top: 0; white-space: pre-line; word-break: break-word; }
+        .options { margin-top: 15px; }
+        .options label { display: flex; align-items: flex-start; margin-bottom: 10px; cursor: pointer; padding: 12px; border: 1px solid transparent; border-radius: 6px; transition: all 0.2s; box-sizing: border-box; }
+        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
+        .options label span { word-break: break-word; }
+        .letter-prefix { font-weight: bold; margin-right: 5px; color: #1a4f8b; flex-shrink: 0; }
+        .options label:hover { background: #f1f8ff; border-color: #c8e1ff; }
+        .btn-submit { display: block; width: 100%; padding: 18px; background: #2ea44f; color: white; border: none; border-radius: 8px; font-size: 1.2em; font-weight: bold; cursor: pointer; margin-top: 30px; box-shadow: 0 4px 6px rgba(46,164,79,0.2); transition: background 0.3s; box-sizing: border-box; }
+        .btn-submit:hover { background: #22863a; }
+        .result-box { margin-top: 30px; padding: 25px; font-size: 1.4em; text-align: center; border-radius: 8px; display: none; font-weight: bold; box-sizing: border-box; }
+        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
+        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
+        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
+        .feedback.correct { display: block; color: #155724; background-color: #d4edda; }
+        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; }
+        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
+
+        /* Media Queries para Responsividade Total */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 25px 20px; border-radius: 8px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; margin-top: 30px; }
+            .question { padding: 15px; margin-bottom: 20px; }
+            .btn-submit { padding: 15px; font-size: 1.1em; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .container { padding: 15px 10px; border-radius: 6px; box-shadow: none; }
+            h1 { font-size: 1.4em; }
+            .subtitle { margin-bottom: 20px; font-size: 0.9em; }
+            .question p { font-size: 1em; }
+            .options label { padding: 10px 6px; margin-bottom: 6px; font-size: 0.95em; }
+            .options input[type="radio"] { margin-right: 8px; transform: scale(1.1); }
+            .result-box { font-size: 1.2em; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simulado: Métodos Inovadores na TI</h1>
+    <div class="subtitle">Questionários Consolidados - Mix Completo</div>
+    <div class="shuffle-note">🔄 Pressione F5! As perguntas e alternativas mudam de posição a cada carregamento.</div>
+
+    <form id="quizForm">
+        
+        <h2>Unidades 1 e 2</h2>
+
+        <div class="question" id="q1">
+            <p>1. "O conhecimento associado a um bom sistema de gestão evolui conforme o ambiente e as variáveis. Portanto, ele nunca será completo, visto que se atualizará para refletir todas essas mudanças."<br><br>Partindo das informações apresentadas, é correto afirmar que a gestão do conhecimento é composta pelas etapas:</p>
+            <div class="options">
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Criar, coletar e armazenar o conhecimento.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Criar, armazenar, gerenciar e disseminar o conhecimento.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Gerenciar e disseminar o conhecimento.</span></label>
+                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>Criar, coletar, refinar, armazenar, gerenciar e disseminar o conhecimento.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Criar, gerenciar e disseminar o conhecimento.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. "Para muitas organizações, atualmente é quase impossível compreender as suas próprias forças e fraquezas logo, é mais dificil ainda conhecer as dos seus concorrentes. Isso se da porque o enorme volume de dados organizacionais é inacessível para todos, exceto para a área de tecnologia da informação (TI) da empresa (BALTZAN, PHILLIPS, 2012). A evolução da sociedade provocou transformações que dizem respeito à necessidade de as organizações serem inovadoras e ágeis na tomada de decisão."<br><br>Com base no excerto acima, é correto afirmar que a informação e o conhecimento passaram a ser vistos como:</p>
+            <div class="options">
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>Um conjunto de informações relacionadas entre si, que exploram as possibilidades em um contexto.</span></label>
+                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>Os recursos mais valiosos que uma organização dispõe para a produção de bens e serviços.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>Dados, que são elementos identificados na sua forma bruta.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>Parte de sistemas de TI, que se tornaram ferramentas simples para as organizações.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O resultado do processamento e da manipulação de um conjunto de dados.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. "A prototipação é um processo que objetiva o esclarecimento de todos os requisitos, apresentando conceitos e funcionalidades do sistema e possibilitando, assim, a proposta de uma solução adequada para o problema. Os protótipos podem ser divididos basicamente em três categorias."<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir.<br><br>I. Protótipos visuais são criados com softwares de edição gráfica. Embora possuam maior apelo visual, não possuem interações e demandam muito mais tempo para ajustes.<br>II. Wireframes & rascunhos são de baixa fidelidade e permitem alterações rápidas. Eles não mostram detalhes visuais ou interações, mas permitem validar regras de negócios de maneira muito eficiente.<br>III. Protótipos interativos são muito completos, pois, além da parte visual, englobam uma série de detalhes e efeitos de interação. Permitem também que os desenvolvedores identifiquem novos requisitos, oportunidades e futuros problemas.<br><br>É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. "O conceito de gestão do conhecimento, por si só, não é recente: ele surgiu a partir dos sistemas especialistas, da aprendizagem organizacional e da inovação. Atualmente, uma enorme quantidade dos ativos de dados e conhecimentos não está estruturada nem centralizada, pois encontra-se em e-mail, equipamentos dos usuários e outros formatos. Nesse sentido, a aplicação de ferramentas de TI busca facilitar a criação, o armazenamento, a transferência e a utilização do conhecimento organizacional que ainda não foi codificado e esse é um movimento recente dentro das organizações."<br><br>É correto afirmar que a expressão "gestão do Conhecimento" surgiu na década de:</p>
+            <div class="options">
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>90, nos pasquins de autores como Davenport e Prusak e Turban e Volonino.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>80, nos pasquins de autores como Davenport e Prusak e Turban e Volonino.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>60, por meio das publicações de autores como Davenport e Prusak e Nonaka e Takeuchi.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>70, por meio das publicações de autores como Davenport e Prusak e Nonaka e Takeuchi.</span></label>
+                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>90, por meio das publicações de autores como Davenport e Prusak e Nonaka e Takeuchi.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. "Os artefatos são documentos responsáveis pela transparência sobre os itens que precisam ser feitos e entregues de um produto ou incremento, e existem quatro deles."<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir.<br><br>I. Definition of done: é um gráfico que mostra o andamento do desenvolvimento do produto.<br>II. Sprint backlog: é uma lista de itens que define o objetivo da sprint. Retirados do product backlog, esses itens são os que estão na frente. Os itens que entram no sprint backlog são os de maior valor de negócio apresentado pelo product owner.<br>III. Product backlog: engloba todos os requisitos que precisam ser implementados, seja de negócio (user stories), melhorias, questões técnicas ou erros. Esse artefato é controlado pelo product owner e ordenado de acordo com o valor de negócio para o cliente.<br><br>É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e II.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e III, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. "Highsmith (2001) relata que o resultado dessa reunião foi o documento denominado Manifesto para Desenvolvimento Ágil de Software, assinado por todos os participantes. Alistair Cockburn, um dos participantes que trouxe as preocupações Iniciais ao grupo, declarou que não acreditava que seriam capazes de apresentar algo tão objetivo e que, no final da empreitada, pode verificar que os demais participantes também ficaram com o sentimento de dever cumprido. O Manifesto Ágil é representado por quatro valores."<br><br>De acordo com o Manifesto Ágil, devemos valorizar:</p>
+            <div class="options">
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Seguir um plano mais que indivíduos e interações.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Indivíduos e interações mais que responder às mudanças.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Responder a mudanças mais que colaboração com o cliente.</span></label>
+                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>Software em funcionamento mais que processos e ferramentas.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Negociação de contratos mais que software em funcionamento.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <h2>Unidade 3</h2>
+
+        <div class="question" id="q7">
+            <p>7. "Cada projeto pode ter uma hierarquia própria de categorias e subcategorias, e a estrutura, que consiste em três grandes classes de riscos - os internos, os externos e o técnico."<br><br>Partindo das informações apresentadas, é correto afirmar que os riscos internos são compostos por:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tempo, custo e recursos humanos.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tempo, condições de mercado e requisitos.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Custo, fornecedores e condições de mercado.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tempo, custo e fornecedor.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Custo, requisitos e mão de obra especializada.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. "O andamento do processo de planejamento de respostas de riscos de um projeto precisa ser realizado com base em análises qualitativas e quantitativas. Vários documentos são considerados importantes para realizar a análise qualitativa, como o registro de premissas, o registro de riscos e o registro das partes Interessadas. Vários documentos são considerados importantes para realizar a análise qualitativa, são o registro de premissas, como o registro de riscos e o registro das partes interessadas."<br><br>É correto afirmar que o registro de premissa é o documento:</p>
+            <div class="options">
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>No qual as peculiaridades de cada tipo de risco identificado são apresentadas a fim de serem consideradas.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>O qual descrevem os aspectos relevantes dos riscos para os diferentes atores que podem estar envolvidos no projeto.</span></label>
+                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>Que torna possível identificar, acompanhar e administrar as premissas e restrições capazes de impactar no projeto.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>Que usa os dados com uma qualidade questionável, podendo comprometer a análise qualitativa dos riscos, gerando uma demanda para coletar dados melhores.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>No qual consta a probabilidade e o impacto dos riscos que devem ser considerados na avaliação.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. "A linha de base (tradução de baseline, no inglês) de um projeto serve para fornecer referências essenciais para o controle do trabalho (PROJECT MANAGEMENT INSTITUTE, 2017). A linha de base é um recurso fundamental para o gerente de projetos no que tange a eventuais mudanças. Ela é um ponto de partida muito bem definido, uma referência formada pelos itens cronograma, orçamento e escopo do projeto, que funciona como uma fotografia, com dados de referência de um planejamento, que apresentam alguns objetivos específicos."<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir.<br><br>I. Ao longo do projeto, é importante permitir que a equipe se lembre de onde deveria estar a partir do plano original.<br>II. Ao fim do projeto, é preciso verificar o quão distante se chegou em relação a onde se desejava chegar.<br>III. No início do projeto, existe a proposta de se fazer ou não o projeto.<br><br>É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. "É necessário conhecer as partes interessadas do projeto, ou stakeholders, o quanto antes, pois eles influenciam diretamente no projeto. Assim, devem ser atendidas suas expectativas, necessidades e aspirações. Os stakeholders são divididos em dois grupos: direto-clientes, fornecedores, empregados e acionistas e indireto-governo, concorrência, grupos de interesse. O Guia PMBOK (PROJECT MANAGEMENT INSTITUTE, 2017) destaca que, para gerenciar as partes interessadas do projeto."<br><br>Partindo das Informações apresentadas, é correto afirmar que o processo referente a manter comunicação e trabalho com as partes, procurando atender às necessidades e expectativas, incentivando a participação nas atividades do projeto refere-se ao processo de:</p>
+            <div class="options">
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Gerenciar todo o processo de custos.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Gerenciar as partes interessadas.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Monitorar a participação das partes interessadas.</span></label>
+                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>Engajar as partes interessadas.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Identificar as partes interessadas do projeto.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q11">
+            <p>11. "Uma análise quantitativa pode considerar como entrada um conjunto de documentos, como o registro de premissas, as bases das estimativas, as estimativas de custos, as previsões de custos, as estimativas de duração, a lista de marcos e os registros dos riscos."<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir.<br><br>I. O registro de premissas fornece detalhes sobre os riscos do projeto que alimentam a análise quantitativa dos riscos.<br>II. A estimativa de duração é aquela que avalia a variabilidade do cronograma, ou seja, traz o tempo de início, meio e fim do projeto.<br>III. A lista de marcos aborda as metas de cronograma, que devem ser comparadas com os resultados da análise quantitativa para estimar o nível de confiança para alcançar as metas.<br><br>É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q12">
+            <p>12. "Conforme Molinari (2010), existem conflitos que não poderão ser resolvidos dessa forma, o que pode ser feito é apenas o gerenciamento. Os conflitos devem ser entendidos, admitidos e considerados como uma proposta de mudança."<br><br>Partindo das informações apresentadas, é correto afirmar que o conflito que se refere a situações que podem ocorrer por diversos fatores, por conta do estilo de gerência ou de diferenças de personalidade, é o conflito:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>Interpessoal.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Entre positivo e negativo.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Entre gerações.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Intrapessoal.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Entre grupos.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <h2>Questionário Geral</h2>
+
+        <div class="question" id="q13">
+            <p>13. O risco em um projeto é um evento incerto que pode causar impactos diversos. Quando bem gerenciado, permite que a equipe se prepare para cenários negativos ou explore chances de melhoria.<br><br>No gerenciamento de riscos, como são denominados os eventos de risco com impactos negativos e positivos, respectivamente?</p>
+            <div class="options">
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Custos e Lucros.</span></label>
+                <label data-correct="true"><input type="radio" name="q13"><span class="letter-prefix"></span><span>Ameaças e Oportunidades.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Problemas e Soluções.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Atrasos e Adiantamentos.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Erros e Acertos.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q14">
+            <p>14. A evolução dos Sistemas de Informação (SI) nas organizações é dividida em eras que refletem o papel da tecnologia em cada período, desde o foco em transações operacionais até a inteligência de negócios global.<br><br>Sobre a evolução dos SIs, assinale a alternativa que caracteriza corretamente a "Quarta Era" (1980-1990):</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q14"><span class="letter-prefix"></span><span>Surgimento de suporte estratégico e ao usuário final, visando vantagem competitiva.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>Criação dos primeiros relatórios gerenciais pré-especificados para apoio à decisão.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>Início das operações habilitadas exclusivamente pela Web e e-commerce global.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>Foco exclusivo no processamento centralizado de transações em mainframes.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>Domínio da inteligência de negócios e gestão de cadeias de suprimentos (SCM).</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q15">
+            <p>15. Na era da informação, as organizações precisam distinguir claramente os ativos que manipulam. Enquanto um elemento bruto isolado não gera compreensão, o processamento contextualizado desses elementos permite a tomada de decisão estratégica e a criação de valor.<br><br>Com base nos conceitos de Gestão do Conhecimento, assinale a alternativa que descreve corretamente a relação entre dado, informação e conhecimento:</p>
+            <div class="options">
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>O dado, por si só, conduz à compreensão imediata de uma situação complexa.</span></label>
+                <label data-correct="true"><input type="radio" name="q15"><span class="letter-prefix"></span><span>O conhecimento é definido como informação contextual, relevante e acionável.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>O conhecimento é a forma bruta do dado antes de qualquer processamento ou análise.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>A informação é um conjunto de conhecimentos relacionados que exploram um contexto.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>O dado é o resultado do processamento da informação para torná-la significativa.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q16">
+            <p>16. Os altos executivos (gerência senior) demandam informações que permitam identificar tendências de longo prazo e lidar com decisões não estruturadas, muitas vezes utilizando fontes externas de dados.<br><br>Assinale a alternativa que descreve uma característica fundamental dos Sistemas de Apoio ao Executivo (SAE):</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q16"><span class="letter-prefix"></span><span>Oferecem interface fácil, frequentemente gráfica, para analisar tendências e o ambiente externo.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>Baseiam-se em rotinas simples de resumos para a gerência operacional.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>Atuam exclusivamente no nível da gerência média para controle de estoque.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>São voltados ao monitoramento de transações básicas como folha de pagamento.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>Focam em decisões altamente estruturadas com critérios predefinidos.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q17">
+            <p>17. Em 2001, o Manifesto Ágil estabeleceu uma nova mentalidade para o desenvolvimento de software, priorizando a agilidade e a entrega de valor sobre processos burocráticos.<br><br>De acordo com os quatro valores do Manifesto Ágil, o que as equipes devem valorizar mais do que a documentação abrangente?</p>
+            <div class="options">
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Hierarquia organizacional.</span></label>
+                <label data-correct="true"><input type="radio" name="q17"><span class="letter-prefix"></span><span>Software em funcionamento.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Seguir um plano rígido.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Processos e ferramentas.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Negociação de contratos.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q18">
+            <p>18. O registro de lições aprendidas é um ativo de conhecimento valioso que impede a repetição de erros e potencializa as melhores práticas em projetos futuros.<br><br>Quais são as cinco atividades que compõem o processo abrangente de lições aprendidas, segundo as boas práticas?</p>
+            <div class="options">
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Codificar, Testar, Validar, Instalar e Treinar.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Iniciar, Planejar, Executar, Monitorar e Controlar.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Comprar, Vender, Alugar, Trocar e Doar.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>Ignorar, Deletar, Substituir, Alterar e Omitir.</span></label>
+                <label data-correct="true"><input type="radio" name="q18"><span class="letter-prefix"></span><span>Identificar, Documentar, Analisar, Armazenar e Recuperar.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q19">
+            <p>19. O tamanho da equipe de desenvolvimento no Scrum influencia diretamente na comunicação, na gestão de conflitos e na capacidade de auto-organização.<br><br>De acordo com o Guia Scrum, qual a recomendação típica de tamanho para uma equipe de desenvolvimento (Development Team)?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q19"><span class="letter-prefix"></span><span>Entre 3 e 9 Integrantes.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Quantidade ilimitada, dependendo apenas do orçamento.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>No mínimo 15 pessoas para garantir diversidade.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Exatamente 12 pessoas, seguindo o modelo tradicional.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Entre 1 e 2 pessoas apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q20">
+            <p>20. A integração entre Design Thinking e Scrum humaniza o desenvolvimento de software, colocando as necessidades das pessoas no centro do processo de solução.<br><br>Na abordagem do Design Thinking, qual o objetivo principal da etapa de "Empatia"?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q20"><span class="letter-prefix"></span><span>Compreender as reais necessidades e sentimentos de usuário, colocando-se em seu lugar.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Criar um código-fonte sem erros técnicos.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Eliminar a participação do cliente nas fases de planejamento.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Definir quais tecnologias serão utilizadas no banco de dados.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Desenvolver o protótipo final para teste imediato.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q21">
+            <p>21. O framework Scrum define papéis específicos com responsabilidades claras para garantir a transparência e a eficácia na entrega dos incrementos do produto.<br><br>Qual o papel no Scrum responsável por priorizar os itens do Product Backlog e maximizar o valor do produto para o cliente?</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q21"><span class="letter-prefix"></span><span>Product Owner.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>Stakeholder Externo.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>Scrum Master.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>Development Team.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>Gerente de Projetos Tradicional.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q22">
+            <p>22. A definição clara de quem faz o que em um projeto evita conflitos e sobrecarga de membros da equipe, garantindo a fluidez das atividades.<br><br>Na Matriz RACI, qual o significado da letra "A" (Accountable) e qual a recomendação sobre sua atribuição por tarefa?</p>
+            <div class="options">
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>Ajudante: deve ser atribuído a todos os membros.</span></label>
+                <label data-correct="true"><input type="radio" name="q22"><span class="letter-prefix"></span><span>Aprovador, deve-se atribuir apenas um por item para evitar burocracia.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>Articulador, deve ser atribuído ao Scrum Master exclusivamente.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>Analista, deve ser atribuído apenas a especialistas externos.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>Auditor, deve ser atribuído ao cliente final em todas as tarefas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="calcularNota()">Confirmar e Ver Resultado</button>
+
+        <div id="resultado" class="result-box"></div>
+    </form>
+</div>
+
+<script>
+    // Usamos uma IIFE para executar logo que o script carregar, de forma garantida
+    (function() {
+        const form = document.getElementById('quizForm');
+        const submitBtn = document.querySelector('.btn-submit');
+        
+        // 1. Oculta os <h2> pois as categorias perdem o sentido se tudo está misturado
+        const headers = document.querySelectorAll('#quizForm h2');
+        headers.forEach(h2 => h2.style.display = 'none');
+
+        // 2. Coleta e embaralha as divs das questões
+        const questions = Array.from(document.querySelectorAll('.question'));
+        for (let i = questions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [questions[i], questions[j]] = [questions[j], questions[i]];
+        }
+
+        // 3. Atualiza os IDs, Names e reinsere no DOM
+        questions.forEach((q, index) => {
+            const newNum = index + 1;
+            const newId = 'q' + newNum;
+
+            // Atualiza o ID da div para q1, q2, q3...
+            q.id = newId;
+
+            // Atualiza o name dos inputs e os desmarca (útil no F5)
+            const radios = q.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radio.name = newId;
+                radio.checked = false;
+            });
+
+            // Atualiza o número visível da pergunta mantendo o resto do texto
+            // (a regex \s*\d+\.\s* pega os números no comecinho de forma segura)
+            const p = q.querySelector('p');
+            if (p) {
+                p.innerHTML = p.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+            }
+
+            // Move a div para o final do form, mas antes do botão de confirmar
+            form.insertBefore(q, submitBtn);
+
+            // 4. Embaralha as alternativas (A, B, C, D, E) DENTRO da questão
+            const optionsDiv = q.querySelector('.options');
+            if (optionsDiv) {
+                const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                const letters = ['A', 'B', 'C', 'D', 'E'];
+
+                // Mistura as labels
+                for (let i = labels.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [labels[i], labels[j]] = [labels[j], labels[i]];
+                }
+
+                // Limpa a div original e insere na nova ordem com as letras atualizadas
+                optionsDiv.innerHTML = '';
+                labels.forEach((label, idx) => {
+                    // Atualiza A), B), C)... visualmente
+                    const prefix = label.querySelector('.letter-prefix');
+                    if (prefix) prefix.innerText = letters[idx] + ') ';
+                    
+                    // Garante que o input value acompanhe a letra
+                    const input = label.querySelector('input');
+                    if (input) input.value = letters[idx];
+
+                    optionsDiv.appendChild(label);
+                });
+            }
+        });
+    })();
+
+    // A função de corrigir continua exatamente a mesma
+    function calcularNota() {
+        const totalQuestoes = 22;
+        let acertos = 0;
+
+        // Resetar estilos de feedback anteriores
+        document.querySelectorAll('.options label').forEach(lbl => {
+            lbl.classList.remove('correct-answer', 'wrong-answer');
+        });
+        document.querySelectorAll('.feedback').forEach(fb => {
+            fb.classList.remove('correct', 'incorrect');
+            fb.style.display = 'none';
+            fb.innerHTML = '';
+        });
+
+        // Loop pelas questões na ordem que ficaram na tela (q1 a q22)
+        for (let i = 1; i <= totalQuestoes; i++) {
+            const questionName = 'q' + i;
+            const options = document.getElementsByName(questionName);
+            let respondeu = false;
+
+            for (const option of options) {
+                const label = option.parentElement;
+                const isCorrect = label.getAttribute('data-correct') === 'true';
+                const feedbackDiv = label.parentElement.nextElementSibling;
+
+                if (option.checked) {
+                    respondeu = true;
+                    if (isCorrect) {
+                        acertos++;
+                        label.classList.add('correct-answer');
+                        if(feedbackDiv) {
+                            feedbackDiv.innerHTML = '✔ Resposta Correta!';
+                            feedbackDiv.classList.add('correct');
+                        }
+                    } else {
+                        label.classList.add('wrong-answer');
+                        if(feedbackDiv) {
+                            feedbackDiv.innerHTML = '✖ Resposta Incorreta.';
+                            feedbackDiv.classList.add('incorrect');
+                        }
+                    }
+                }
+                
+                // Sempre mostrar qual é a correta em verde
+                if (isCorrect && !label.classList.contains('correct-answer')) {
+                     label.classList.add('correct-answer');
+                }
+            }
+
+            // Tratamento se a questão não for respondida
+            if (!respondeu) {
+                 const feedbackDiv = document.querySelector('#' + questionName + ' .feedback');
+                 if(feedbackDiv) {
+                     feedbackDiv.innerHTML = '⚠ Questão não respondida.';
+                     feedbackDiv.classList.add('incorrect');
+                     feedbackDiv.style.display = 'block';
+                 }
+            }
+        }
+
+        const resultBox = document.getElementById('resultado');
+        resultBox.style.display = 'block';
+        
+        resultBox.innerHTML = `Você acertou ${acertos} de ${totalQuestoes} questões!`;
+
+        if (acertos >= 14) {
+            resultBox.className = 'result-box pass';
+            resultBox.innerHTML += '<br>Parabéns, bom desempenho!';
+        } else {
+            resultBox.className = 'result-box fail';
+            resultBox.innerHTML += '<br>Continue estudando e tente novamente.';
+        }
+
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

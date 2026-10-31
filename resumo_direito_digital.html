@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direito Digital — Resumo Executivo e Tópicos de Prova — Resumo ADS 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --border-subtle: #1f2937;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --accent: #8b5cf6;
+            --accent-light: rgba(139, 92, 246, 0.15);
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.15);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.15);
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header de navegação superior */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background-color: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-brand .badge {
+            background: var(--primary-light);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--surface-elevated);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, rgba(31, 41, 55, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-pill {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-pill.highlight {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .page-header h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #f9fafb;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 750px;
+        }
+
+        /* Conteúdo Markdown estilizado */
+        .content {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            margin-bottom: 1.15rem;
+            color: #d1d5db;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .content strong {
+            color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        /* Tabelas */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.925rem;
+            background: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .content th {
+            background: #1e293b;
+            color: #93c5fd;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .content td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+            vertical-align: top;
+        }
+
+        .content tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .content tr:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        /* Alertas e Blockquotes */
+        .content blockquote {
+            background: rgba(31, 41, 55, 0.5);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #e5e7eb;
+        }
+
+        .alert-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .alert-important {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+        }
+
+        .alert-tip {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .alert-note {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #93c5fd;
+        }
+
+        /* Mermaid Diagrams */
+        .mermaid {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin: 1.75rem 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        /* Código */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f472b6;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .page-header {
+                padding: 1.5rem 1.25rem;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html" class="nav-brand">
+            <span>← ADS 2026.2</span>
+            <span class="badge">Portal de Estudos</span>
+        </a>
+        <div class="nav-actions">
+            <a href="simulado_direito_digital_U1-U4.html" class="btn btn-primary">🎯 Fazer Simulado</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Início</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <div class="meta-pills">
+                <span class="meta-pill highlight">📅 Prova: 05/11/2026</span>
+                <span class="meta-pill">📍 Sala 308 - Prédio 1 LABIN</span>
+                <span class="meta-pill">⏰ 20h00 às 20h15</span>
+                <span class="meta-pill">💡 Unidades 1 a 4</span>
+            </div>
+            <h1>Direito Digital — Resumo Executivo e Tópicos de Prova</h1>
+            <p>Síntese das Unidades 1 a 4, Teoria dos Sujeitos, Registro de Software no INPI (Hash & RPC), Obrigações, Marco Civil da Internet (art. 19 e 21) e LGPD.</p>
+        </header>
+
+        <article class="content">
+            <h1>📚 Resumo Executivo e Tópicos de Prova — Direito Digital (Unidades 1 a 4)</h1>
+<p><strong>Disciplina:</strong> Direito Digital (Unilasalle / Sagah)<br />
+<strong>Data da Prova Presencial (Bloco 1):</strong> 05/11/2026 (20h00 às 20h15 — Sala 308, Prédio 1 LABIN)<br />
+<strong>Validação:</strong> Baseado integralmente no livro oficial da disciplina e nas 12 questões dos questionários oficiais.</p>
+<hr />
+<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
+<div class="mermaid">
+flowchart LR
+    DD["⚖️ DIREITO DIGITAL"]
+
+    DD --> U1["📌 UNIDADE 1: Teoria Geral & Sujeitos"]
+    DD --> U2["📌 UNIDADE 2: Propriedade Intelectual & Software"]
+    DD --> U3["📌 UNIDADE 3: Obrigações & Responsabilidade"]
+    DD --> U4["📌 UNIDADE 4: Marco Civil & LGPD"]
+
+    U1 --> U1A["Direito Público x Privado"]
+    U1 --> U1B["Capacidade de Gozo x de Fato (art. 1º CC)"]
+    U1 --> U1C["Nascituro protegido (art. 2º CC)"]
+    U1 --> U1D["PJ: Início no Registro art. 45 CC"]
+    U1 --> U1E["Autarquias e Fundações Públicas (Dir. Público)"]
+
+    U2 --> U2A["Software: Bens Intangíveis (Custos Fixos Altos / Marginais Baixos)"]
+    U2 --> U2B["Copyright (Expressão Literal) x Patente (Funcionalidade)"]
+    U2 --> U2C["RPC no INPI protegido por Hash Criptográfico"]
+    U2 --> U2D["Autorização prévia/expressa para uso da obra"]
+
+    U3 --> U3A["Elementos: Sujeitos, Objeto e Vínculo Jurídico"]
+    U3 --> U3B["Prestação de Dar, Fazer e Não Fazer"]
+    U3 --> U3C["Princípio da Socialidade (Função Social art. 421 CC)"]
+    U3 --> U3D["Água = Obrigação Pessoal (NÃO propter rem)"]
+    U3 --> U3E["Jogos de azar = Obrigação Natural (Sem cobrança civil)"]
+
+    U4 --> U4A["Marco Civil: Liberdade de Expressão + Privacidade + Neutralidade"]
+    U4 --> U4B["Responsabilidade Subjetiva Provedor Aplicação: art. 19 (Ordem Judicial)"]
+    U4 --> U4C["Exceção Intimidade Sexual: art. 21 (Notificação Extrajudicial)"]
+    U4 --> U4D["LGPD nas Relações Trabalhistas (Candidatos, Ativos e Desligados)"]
+    U4 --> U4E["Princípios: Licitude, Lealdade, Transparência e Finalidade"]
+</div>
+
+<hr />
+<h2>📌 UNIDADE 1 — Teoria Geral do Direito e Sujeitos de Direito Privado</h2>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinha Clássica de Prova (Questões 2 e 3 do Questionário):**</div></div>
+<blockquote>
+<ol>
+<li>O Código Civil (art. 1º) <strong>combina capacidade com personalidade</strong> ("toda pessoa é capaz de direitos e deveres na ordem civil").</li>
+<li><strong>Nem toda pessoa tem capacidade de fato (exercício):</strong> Um bebê recém-nascido tem capacidade de direito (gozo), mas é absolutamente incapaz de exercer pessoalmente os atos da vida civil.</li>
+<li><strong>A personalidade jurídica das empresas NÃO começa com a assinatura do contrato social</strong>, mas sim com o <strong>REGISTRO/INSCRIÇÃO</strong> do ato constitutivo no órgão competente (Junta Comercial / Cartório de Registro Civil de PJ, conforme art. 45 do CC).</li>
+<li><strong>O nascituro é protegido pela lei</strong> desde a concepção (art. 2º do CC).</li>
+</ol>
+</blockquote>
+<h3>1.1 Classificação das Pessoas Jurídicas no Código Civil</h3>
+<ul>
+<li><strong>Pessoas Jurídicas de Direito Público Interno (art. 41 do CC):</strong></li>
+<li>União, Estados, DF, Municípios.</li>
+<li><strong>Autarquias</strong> (ex.: INSS, Banco Central).</li>
+<li><strong>Fundações públicas/estatais</strong>.</li>
+<li><strong>Pessoas Jurídicas de Direito Privado (art. 44 do CC):</strong></li>
+<li><strong>Associações</strong> (sem fins econômicos).</li>
+<li><strong>Sociedades</strong> (empresariais e simples).</li>
+<li><strong>Fundações privadas</strong>.</li>
+<li><strong>Organizações religiosas</strong>.</li>
+<li><strong>Partidos políticos</strong>.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 2 — Propriedade Intelectual e Proteção de Software</h2>
+<h3>2.1 Natureza Econômica e Jurídica do Software</h3>
+<ul>
+<li><strong>Características:</strong> O software é <strong>intangível</strong>, possui <strong>altos custos fixos de produção</strong> e <strong>baixos custos marginais de reprodução</strong> (Shapiro &amp; Varian). Seu preço é fixado pelo valor que o usuário está disposto a pagar, e não pelo custo da cópia física.</li>
+<li><strong>Copyright vs. Patentes:</strong></li>
+<li><strong>Copyright (Direito do Autor - Lei 9.609/98 e 9.610/98):</strong> Protege a <strong>expressão literal</strong> do código (código-fonte e objeto) contra pirataria e cópia direta. Não depende de registro para ter proteção, mas o registro confere segurança probatória.</li>
+<li><strong>Patente:</strong> Protege a <strong>funcionalidade técnica/ideias</strong> e invenções implementadas por computador. Evita a cópia por concorrentes de métodos técnicos inovadores.</li>
+</ul>
+<h3>2.2 Registro de Programa de Computador (RPC) no INPI</h3>
+<ul>
+<li>O registro no <strong>INPI (Instituto Nacional da Propriedade Industrial)</strong> utiliza uma <strong>função hash criptográfica</strong>.</li>
+<li>O algoritmo <strong>hash</strong> gera uma impressão digital única do código do software, garantindo a <strong>autenticidade e integridade</strong> do arquivo guardado pelo titular sem necessidade de envio do código-fonte em texto aberto.</li>
+<li>O direito autoral no Brasil define que qualquer utilização da obra depende de <strong>autorização prévia e expressa do titular</strong>.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 3 — Direito das Obrigações e Responsabilidade Civil</h2>
+<h3>3.1 Estrutura da Relação Obrigacional</h3>
+<p>Toda obrigação jurídica é composta por 3 elementos fundamentais:
+1. <strong>Elemento Subjetivo:</strong> Sujeito Ativo (credor) e Sujeito Passivo (devedor).
+2. <strong>Elemento Objetivo (Prestação):</strong> Conduta devida de <strong>Dar</strong> (coisa certa ou incerta), <strong>Fazer</strong> ou <strong>Não Fazer</strong> (abstenção). <em>(Atenção: "pagar" é espécie de obrigação de dar).</em>
+3. <strong>Elemento Imaterial / Vínculo Jurídico:</strong> O enlace legal que compele o devedor a adimplir a prestação sob pena de responder com seu patrimônio (responsabilidade civil).</p>
+<h3>3.2 Princípio da Socialidade (art. 421 do CC)</h3>
+<ul>
+<li>Vinculado à <strong>Função Social dos Contratos e das Obrigações</strong>.</li>
+<li>As partes não devem apenas respeitar a boa-fé subjetiva entre si, mas devem pactuar e executar o negócio <strong>de modo a não prejudicar a coletividade e o interesse social</strong>.</li>
+</ul>
+<h3>3.3 Casos Notáveis dos Questionários</h3>
+<ul>
+<li><strong>Dívidas de Jogo (Jogos de Azar):</strong> São obrigações puramente naturais. Não geram responsabilidade civil e não podem ser cobradas judicialmente em juízo.</li>
+<li><strong>Fornecimento de Água e Energia:</strong> É uma <strong>obrigação pessoal</strong> vinculada ao indivíduo/usuário que consumiu o serviço, e <strong>NÃO</strong> uma obrigação <em>propter rem</em> (que acompanha a coisa/imóvel).</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 4 — Marco Civil da Internet (Lei 12.965/14) e LGPD (Lei 13.709/18)</h2>
+<h3>4.1 Marco Civil da Internet (Lei nº 12.965/2014)</h3>
+<ul>
+<li><strong>Princípios Fundamentais (art. 3º):</strong> Garantia da liberdade de expressão, comunicação e manifestação de pensamento; proteção da privacidade e dos dados pessoais; preservação da neutralidade da rede.</li>
+<li><strong>Provedor de Conexão vs. Provedor de Aplicações:</strong></li>
+<li><em>Conexão:</em> Empresas de telecomunicações que dão acesso à rede (NET, Vivo, Claro). Devem guardar registros de conexão por 1 ano. <strong>É vedado guardar registros de acesso a aplicações.</strong></li>
+<li><em>Aplicações:</em> Conjunto de funcionalidades acessadas via web (Facebook, Google, Mercado Livre, portais). Devem guardar registros de acesso a aplicações por 6 meses.</li>
+<li><strong>Responsabilidade Civil por Danos de Conteúdo de Terceiros (Regra Geral x Exceção):</strong></li>
+<li><strong>Regra Geral (art. 19):</strong> Para assegurar a liberdade de expressão e evitar a censura privada prévia, o provedor de aplicações <strong>só responde civilmente se, após ordem judicial específica</strong>, não tomar as providências para indisponibilizar o conteúdo no prazo assinalado.</li>
+<li><strong>Exceção de Intimidade Sexual (art. 21):</strong> Em casos de divulgação não autorizada de imagens, vídeos ou materiais contendo nudez ou atos sexuais de caráter privado (pornografia de vingança), o provedor responderá subsidiariamente se não remover o material <strong>após simples notificação extrajudicial realizada pela própria vítima ou seu representante legal</strong>.</li>
+</ul>
+<h3>4.2 LGPD nas Relações de Trabalho (Lei nº 13.709/2018)</h3>
+<ul>
+<li><strong>Aplicação Integral no Ambiente Laboral:</strong> Embora a LGPD não esteja expressamente dentro do texto consolidado da CLT, aplica-se plenamente a todas as fases da relação de emprego (art. 1º e 5º da LGPD):</li>
+<li><strong>Fase Pré-contratual:</strong> Candidatos a vagas de emprego, currículos e processos seletivos.</li>
+<li><strong>Fase Contratual:</strong> Empregados ativos (dados de saúde, biométricos, sindicais).</li>
+<li><strong>Fase Pós-contratual:</strong> Ex-funcionários desligados (guarda de prontuários, rescisões).</li>
+<li><strong>Classificação dos Atores:</strong></li>
+<li><strong>Empregador = Controlador</strong> (determina como e por que os dados são tratados).</li>
+<li><strong>Trabalhadores/Candidatos = Titulares dos dados</strong>.</li>
+<li><strong>Princípios Obrigatórios:</strong> Licitude, lealdade, transparência, segurança, necessidade e finalidade legítima.</li>
+</ul>
+        </article>
+    </main>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Plus Jakarta Sans',
+                primaryColor: '#1e3a8a',
+                primaryBorderColor: '#3b82f6',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#60a5fa'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado: Tópicos Especiais em ADS (Responsivo)</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; line-height: 1.6; padding: 20px; margin: 0; }
+        .container { max-width: 850px; margin: auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); box-sizing: border-box; }
+        h1 { text-align: center; color: #1a4f8b; margin-bottom: 10px; font-size: 2em; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; font-size: 1em; }
+        h2 { border-bottom: 3px solid #1a4f8b; padding-bottom: 8px; color: #1a4f8b; margin-top: 40px; font-size: 1.5em; }
+        .question { margin-bottom: 30px; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fafbfc; box-sizing: border-box; }
+        .question p { font-weight: 600; font-size: 1.05em; color: #24292e; margin-top: 0; white-space: pre-line; word-break: break-word; }
+        .options { margin-top: 15px; }
+        .options label { display: flex; align-items: flex-start; margin-bottom: 10px; cursor: pointer; padding: 12px; border: 1px solid transparent; border-radius: 6px; transition: all 0.2s; box-sizing: border-box; }
+        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
+        .options label span { word-break: break-word; }
+        .letter-prefix { font-weight: bold; margin-right: 5px; color: #1a4f8b; flex-shrink: 0; }
+        .options label:hover { background: #f1f8ff; border-color: #c8e1ff; }
+        .btn-submit { display: block; width: 100%; padding: 18px; background: #2ea44f; color: white; border: none; border-radius: 8px; font-size: 1.2em; font-weight: bold; cursor: pointer; margin-top: 30px; box-shadow: 0 4px 6px rgba(46,164,79,0.2); transition: background 0.3s; box-sizing: border-box; }
+        .btn-submit:hover { background: #22863a; }
+        .result-box { margin-top: 30px; padding: 25px; font-size: 1.4em; text-align: center; border-radius: 8px; display: none; font-weight: bold; box-sizing: border-box; }
+        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
+        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
+        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
+        .feedback.correct { display: block; color: #155724; background-color: #d4edda; }
+        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; }
+        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
+
+        /* Media Queries para Responsividade Total */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 25px 20px; border-radius: 8px; }
+            h1 { font-size: 1.6em; }
+            h2 { font-size: 1.3em; margin-top: 30px; }
+            .question { padding: 15px; margin-bottom: 20px; }
+            .btn-submit { padding: 15px; font-size: 1.1em; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            .container { padding: 15px 10px; border-radius: 6px; box-shadow: none; }
+            h1 { font-size: 1.4em; }
+            .subtitle { margin-bottom: 20px; font-size: 0.9em; }
+            .question p { font-size: 1em; }
+            .options label { padding: 10px 6px; margin-bottom: 6px; font-size: 0.95em; }
+            .options input[type="radio"] { margin-right: 8px; transform: scale(1.1); }
+            .result-box { font-size: 1.2em; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simulado: Tópicos Especiais em ADS</h1>
+    <div class="subtitle">Questionários Consolidados - Unidades 1 a 4</div>
+    <div class="shuffle-note">🔄 As alternativas mudam de posição a cada carregamento para ajudar no estudo!</div>
+
+    <form id="quizForm">
+        
+        <!-- ================= UNIDADES 1 E 2 ================= -->
+        <h2>Unidades 1 e 2</h2>
+
+        <div class="question" id="q1">
+            <p>1. As aplicações Big Data são soluções computacionais que possibilitam a análise de grandes bases de dados. Essas aplicações têm seu poder de processamento limitado pelo poder computacional das máquinas atuais. Como alternativa ao processamento convencional, tem-se a computação paralela e distribuída.
+
+Com base nas informações apresentadas, avalie as asserções a seguir e a relação proposta entre elas:
+
+I. Quando se precisa de alto desempenho em processamento de grande volume de dados, o Apache Hadoop é indicado como uma das melhores ferramentas.
+PORQUE
+II. Entre os benefícios do Apache Hadoop, podemos destacar código aberto, baixo custo, robustez, escalabilidade e funções com regras complexas.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:</p>
+            <div class="options">
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
+                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. O Apache Hadoop é um framework para o armazenamento e processamento de Big Data. Ele possui ferramentas para armazenar e recuperar grandes volumes de dados distribuídos e para realizar o processamento distribuído, garantindo escalabilidade e disponibilidade e possibilitando a extração de conhecimento útil a partir de análises e cruzamentos desses dados. O trabalho do Hadoop utiliza cinco processos: NameNode, DataNode, SecondaryNameNode, JobTracker e TaskTracker.
+
+O processo que executa uma tarefa Map ou uma tarefa Reduce que lhe for designada é o:</p>
+            <div class="options">
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>NameNode.</span></label>
+                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>TaskTracker.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>SecondaryNameNode.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>DataNode.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>JobTracker.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. "Com o passar dos anos, o volume de dados foi aumentando e surgindo modelos para organizar e manipular esses dados". SAGAH. Página 13 do e-book da disciplina.
+
+O modelo de dados mais aceito pelas empresas nos dias atuais, cuja característica é a organização dos dados em tabelas as quais se relacionam entre si por meio de chaves primárias e estrangeiras é o:</p>
+            <div class="options">
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>Modelo em rede.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>Modelo orientado a objetos.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>Modelo em rede e orientado a objetos.</span></label>
+                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>Modelo relacional.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>Modelo hierárquico.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. "No processamento paralelo e distribuído tradicional, antes da existência do MapReduce, haviam problemas de confiabilidade, problemas de divisão de tarefas, falhas de um nó, bem como desafios de agregação, para que os dados possam ser concatenados para gerar o resultado final. Com o MapReduce, esses desafios são superados, pois permite computação paralela e distribuída sem a necessidade de cuidar de problemas como confiabilidade, tolerância a falhas e demais problemas anteriores". SAGAH. Página 85 do e-book da disciplina.
+
+I - No MapReduce, os usuários especificam uma função de mapeamento para processar um par chave-valor, o que gera um conjunto de pares chave-valor intermediários e uma função de redução para mesclar os valores intermediários associados à mesma chave intermediária.
+II - As duas das principais interfaces implementadas para utilizar o MapReduce são as interfaces Mapper e Reducer. Outras interfaces que fazem parte do conjunto das principais interfaces são Counter, Job, Partitioner, InputFormat e OutputFormat.
+III - A função Reducer é responsável por receber um conjunto de pares chave-valor como entrada e produzir um conjunto de pares chave-valor intermediários como saída. Essa função irá separar cada palavra do texto e atribuir um valor para uma delas, gerando os pares chave-valor intermediários.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>II, apenas.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. "Diariamente são feitas milhões de transações bancárias, milhões de e-mails são enviados ao redor do mundo, redes sociais com um volume cada vez maior de publicações". SAGAH. Página 15 do e-book da disciplina.
+
+Portanto, podemos assumir como correto que Big Data é um problema de:</p>
+            <div class="options">
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Variedade de dados complexos.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Conflito de volume e variedade de dados.</span></label>
+                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>Imenso volume e variedade de dados.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Pequeno volume e variedade de dados.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Variedade de dados de pequeno volume.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q6">
+            <p>6. "Um dos maiores ativos das empresas é o que chamamos de ativo intangível. Podemos colocar nesse grupo o conhecimento na fabricação de seus produtos e execução de serviços e, em uma visão analítica, o conhecimento em todos os processos que levam a empresa a alcançar seus objetivos. Com o passar dos anos, o volume de dados foi aumentando e, assim, foram surgindo modelos com suas próprias características para organizar e manipular esses dados". SAGAH. Página 13 do e-book da disciplina.
+
+Com base no exposto, assinale a alternativa correta:</p>
+            <div class="options">
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Nos modelos orientados a objetos e em redes, a principal característica é a representação dos dados por meio de uma coleção de registros cujos relacionamentos são feitos através de links.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Nos modelos orientado a objetos e relacional, a principal característica é que os dados são armazenados na forma de objetos, por meio de estruturas chamadas classes.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>A principal semelhança entre o modelo de dados em rede e o hierárquico é a hierarquia dos dados e a representação destes por meio de uma coleção em forma de árvore.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Todos os modelos de dados têm como características a organização dos dados em tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras.</span></label>
+                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>No modelo relacional, a principal característica é a organização dos dados em tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <!-- ================= UNIDADES 3 E 4 ================= -->
+        <h2>Unidades 3 e 4</h2>
+
+        <div class="question" id="q7">
+            <p>7. "Em artigo publicado na revista Forbes, Brent Dykes (2016) menciona que o Data storytelling é comumente associado à visualização de dados, infográficos ou painéis de controle (dashboard)". Página 230 do e-book da disciplina.
+
+Com base nas informações apresentadas, avalie as asserções a seguir e a relação proposta entre elas:
+
+I. Data storytelling é um poderoso recurso por meio do qual histórias pessoais e emocionalmente atraentes envolvem mais o cérebro e, portanto, são mais lembradas do que simplesmente declarar um conjunto de fatos.
+PORQUE
+II. Segundo Lee et al. (2015), entre as descobertas, foi mencionado que a representação visual resultante pode ser mal utilizada mesmo sem essa intenção, oferecer ênfase controversa ou até ser abusiva intencionalmente.
+
+Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:</p>
+            <div class="options">
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
+                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q8">
+            <p>8. A técnica de clustering tem como objetivo identificar e aproximar dados semelhantes. Sobre esta técnica, analise as afirmações a seguir:
+
+I - Não visa classificar, estimar ou predizer o valor de qualquer variável, apenas pretende identificar grupos de dados similares.
+II - A técnica de clustering trata-se de uma coleção de registros semelhantes entre si, mas diferentes de registros em demais agrupamentos.
+III - Existem algumas tarefas para as quais essa técnica é bastante utilizada: pesquisa mercadológica, reconhecimento de padrões, classificar documentos presentes na web, etc.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I e III, apenas.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q9">
+            <p>9. O processo para a criação de um modelo de mineração representa uma parte de um processo maior, que inclui perguntas sobre dados e no qual consta, inclusive, um modelo de respostas para as perguntas feitas e a implantação do modelo propriamente dito. Para este processo, temos métodos ou técnicas de mineração de dados que colaboram para a criação de um modelo. Fonte: Texto elaborado para esta questão.
+
+Com base nas informações apresentadas, avalie as afirmações a seguir.
+
+I. Mineração por clustering: agrupa registros semelhantes, ou seja, grupos de elementos que possuem as mesmas propriedades, a fim de que o usuário final possa, entre outras coisas, saber o que está ocorrendo no banco de dados.
+II. Mineração por grupo de associação: seu propósito é identificar elementos que tenham a presença de outros elementos em uma mesma operação, encontrando relacionamentos ou padrões entre o conjunto de dados - a transação mostra os itens que foram consultados em uma determinada operação.
+III. Mineração por árvores de decisão: é utilizada para categorização ou previsão de dados. Inicia com uma pergunta que tenha duas ou mais respostas, cada uma dessas respostas direciona para uma questão que será utilizada para classificar ou identificar dados que serão categorizados ou, ainda, poderá ser feita uma previsão baseada em cada resposta.
+
+É correto o que se afirma em:</p>
+            <div class="options">
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>II, apenas.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I e III, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q10">
+            <p>10. "A análise multivariada (MVA, do inglês multivariate data analysis) é uma ferramenta que encontra padrões e relações entre várias variáveis, permitindo prever efeitos e mudanças que uma variável terá sobre a outra". SAGAH. Página 221 do e-book da disciplina.
+
+Com base nas informações apresentadas, sobre as técnicas multivariadas, assinale a alternativa correta:</p>
+            <div class="options">
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A análise de componentes principais localiza grupos homogêneos nos dados, classificando objetos e pessoas mediante análise de suas semelhanças.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A regressão múltipla produz um modelo para a predição de valores categóricos a partir de variáveis explicativas.</span></label>
+                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>A análise fatorial permite resumir as variáveis iniciais, não apenas por exclusão, também por meio do estabelecimento de relações.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A regressão logística constrói modelos para descrever as relações existentes entre as diversas variáveis de determinado processo.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A análise de cluster simplifica os dados, separando aqueles que não acrescentam daqueles que contêm toda a informação necessária.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q11">
+            <p>11. "Com a manipulação de grandes volumes de dados, surgem diferentes desafios. Para enfrentá-los, é necessário saber como interpretar esses dados e como usar os resultados para tomada de decisão. Existem diferentes métodos que auxiliam nesses aspectos. Com a descoberta do conhecimento do ecossistema de big data, entre os possíveis recursos, ganha destaque o uso da visualização de dados". SAGAH. Página 190-191 do e-book da disciplina.
+
+Com base nas informações apresentadas, assinale a alternativa correta:</p>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>O mapa de árvore é usado para entender como o conjunto de dados está organizado hierarquicamente e como diferentes categorias e suas respectivas subcategorias estão distribuídas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O gráfico de coordenadas paralelas (parallel coordinates) é utilizado na visualização de dados hierárquicos.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O histograma é uma técnica de visualização utilizada para apresentar a relação entre variáveis numéricas e categóricas, na qual cada entidade da variável categórica é representada por uma barra e o tamanho da barra representa o valor numérico.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O mapa coroplético é utilizado para visualizar posicionamento (ranking), volume e variedade.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>Um gráfico de dispersão (scatterplot) é utilizado para visualizar a distribuição de frequências.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question" id="q12">
+            <p>12. A mineração de dados utiliza como base para seus trabalhos experimentos de áreas como estatística, inteligência artificial, máquina de estado e banco de dados para construir seu modelo. Ela está relacionada, também, à descoberta de conhecimento e à aprendizagem de máquina, ambas áreas da inteligência artificial. Fonte: Texto elaborado para esta questão.
+
+Entre as características mais importantes da mineração de dados, está:</p>
+            <div class="options">
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A região pareada para recuperação de desastres, cujo armazenamento de leitura é de recuperação.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O projeto de suportar aplicações estatísticas, reconhecido por causa das diferenças nos domínios de aplicação e na terminologia.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A carga de trabalho ativa que necessita de alto desempenho e baixa latência de acesso rápido.</span></label>
+                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>O grande volume de dados e a capacidade de mudança de escala com relação ao tamanho dos dados.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O número de índices que pode aumentar rapidamente caso várias colunas estejam envolvidas em seleções e junções.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="calcularNota()">Confirmar e Ver Resultado</button>
+
+        <div id="resultado" class="result-box"></div>
+    </form>
+</div>
+
+<script>
+    // Função para embaralhar as opções ao carregar a página
+    document.addEventListener("DOMContentLoaded", function() {
+        const letters = ['A', 'B', 'C', 'D', 'E'];
+        const allOptionsDivs = document.querySelectorAll('.options');
+
+        allOptionsDivs.forEach(optionDiv => {
+            let labels = Array.from(optionDiv.querySelectorAll('label'));
+
+            // Embaralhar o array de labels (Algoritmo Fisher-Yates)
+            for (let i = labels.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [labels[i], labels[j]] = [labels[j], labels[i]];
+            }
+
+            // Limpar a div e re-adicionar na nova ordem
+            optionDiv.innerHTML = '';
+            labels.forEach((label, index) => {
+                let prefixSpan = label.querySelector('.letter-prefix');
+                if (prefixSpan) {
+                    prefixSpan.innerText = letters[index] + ') ';
+                }
+                
+                let inputEl = label.querySelector('input');
+                if(inputEl) {
+                    inputEl.value = letters[index];
+                }
+
+                optionDiv.appendChild(label);
+            });
+        });
+    });
+
+    function calcularNota() {
+        const totalQuestoes = 12;
+        let acertos = 0;
+
+        // Resetar estilos de feedback anteriores
+        document.querySelectorAll('.options label').forEach(lbl => {
+            lbl.classList.remove('correct-answer', 'wrong-answer');
+        });
+        document.querySelectorAll('.feedback').forEach(fb => {
+            fb.classList.remove('correct', 'incorrect');
+            fb.style.display = 'none';
+            fb.innerHTML = '';
+        });
+
+        // Loop pelas questões
+        for (let i = 1; i <= totalQuestoes; i++) {
+            const questionName = 'q' + i;
+            const options = document.getElementsByName(questionName);
+            let respondeu = false;
+
+            for (const option of options) {
+                const label = option.parentElement;
+                const isCorrect = label.getAttribute('data-correct') === 'true';
+                const feedbackDiv = label.parentElement.nextElementSibling;
+
+                if (option.checked) {
+                    respondeu = true;
+                    if (isCorrect) {
+                        acertos++;
+                        label.classList.add('correct-answer');
+                        feedbackDiv.innerHTML = '✔ Resposta Correta!';
+                        feedbackDiv.classList.add('correct');
+                    } else {
+                        label.classList.add('wrong-answer');
+                        feedbackDiv.innerHTML = '✖ Resposta Incorreta.';
+                        feedbackDiv.classList.add('incorrect');
+                    }
+                }
+                
+                if (isCorrect && !label.classList.contains('correct-answer')) {
+                     label.classList.add('correct-answer');
+                }
+            }
+
+            if (!respondeu) {
+                 const feedbackDiv = document.querySelector('#q' + i + ' .feedback');
+                 feedbackDiv.innerHTML = '⚠ Questão não respondida.';
+                 feedbackDiv.classList.add('incorrect');
+                 feedbackDiv.style.display = 'block';
+            }
+        }
+
+        const resultBox = document.getElementById('resultado');
+        resultBox.style.display = 'block';
+        resultBox.innerHTML = `Você acertou ${acertos} de ${totalQuestoes} questões!`;
+
+        if (acertos >= 8) {
+            resultBox.className = 'result-box pass';
+        } else {
+            resultBox.className = 'result-box fail';
+        }
+
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicação e Linguagem — Resumo e Mapas Mentais — Resumo ADS 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --border-subtle: #1f2937;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --accent: #8b5cf6;
+            --accent-light: rgba(139, 92, 246, 0.15);
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.15);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.15);
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header de navegação superior */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background-color: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-brand .badge {
+            background: var(--primary-light);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--surface-elevated);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, rgba(31, 41, 55, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-pill {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-pill.highlight {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .page-header h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #f9fafb;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 750px;
+        }
+
+        /* Conteúdo Markdown estilizado */
+        .content {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            margin-bottom: 1.15rem;
+            color: #d1d5db;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .content strong {
+            color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        /* Tabelas */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.925rem;
+            background: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .content th {
+            background: #1e293b;
+            color: #93c5fd;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .content td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+            vertical-align: top;
+        }
+
+        .content tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .content tr:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        /* Alertas e Blockquotes */
+        .content blockquote {
+            background: rgba(31, 41, 55, 0.5);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #e5e7eb;
+        }
+
+        .alert-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .alert-important {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+        }
+
+        .alert-tip {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .alert-note {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #93c5fd;
+        }
+
+        /* Mermaid Diagrams */
+        .mermaid {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin: 1.75rem 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        /* Código */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f472b6;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .page-header {
+                padding: 1.5rem 1.25rem;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html" class="nav-brand">
+            <span>← ADS 2026.2</span>
+            <span class="badge">Portal de Estudos</span>
+        </a>
+        <div class="nav-actions">
+            <a href="simulado_comunicacao_e_linguagem_U1-U4.html" class="btn btn-primary">🎯 Fazer Simulado</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Início</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <div class="meta-pills">
+                <span class="meta-pill highlight">📅 Prova: 05/11/2026</span>
+                <span class="meta-pill">📍 Sala 308 - Prédio 1 LABIN</span>
+                <span class="meta-pill">⏰ 20h00 às 20h15</span>
+                <span class="meta-pill">💡 Unidades 1 a 4</span>
+            </div>
+            <h1>Comunicação e Linguagem — Resumo e Mapas Mentais</h1>
+            <p>Síntese completa das Unidades 1 a 4, 6 Funções da Linguagem de Jakobson, Estratégias PCN, 7 Fatores de Textualidade e Gêneros Acadêmicos.</p>
+        </header>
+
+        <article class="content">
+            <h1>📚 Resumo Executivo e Mapas Mentais — Comunicação e Linguagem (Unidades 1 a 4)</h1>
+<p><strong>Disciplina:</strong> Comunicação e Linguagem (Unilasalle EAD)
+<strong>Autores do E-book:</strong> Ângela Kroetz dos Santos e Gilberto Fonseca
+<strong>Data da Prova Presencial (Bloco 1):</strong> 05/11/2026 (20h00 às 20h15 — Sala 308, Prédio 1 LABIN)</p>
+<hr />
+<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
+<div class="mermaid">
+flowchart LR
+    CL["🗣️ COMUNICAÇÃO E LINGUAGEM"]
+
+    CL --> U1["📌 UNIDADE 1: Processo Comunicativo"]
+    CL --> U2["📌 UNIDADE 2: Leitura e Compreensão"]
+    CL --> U3["📌 UNIDADE 3: Articulação da Escrita"]
+    CL --> U4["📌 UNIDADE 4: O Texto em Ação"]
+
+    U1 --> U1A["6 Elementos de Jakobson + Feedback"]
+    U1 --> U1B["Ruído na Comunicação"]
+    U1 --> U1C["6 Funções da Linguagem"]
+    U1 --> U1D["Interlocutor e Adequação (Roupa)"]
+    U1 --> U1E["Gênero x Tipo x Domínio Textual"]
+
+    U2 --> U2A["Decodificar ≠ Compreender/Interpretar"]
+    U2 --> U2B["Conhecimentos Prévios: Linguístico, Mundo, Interacional"]
+    U2 --> U2C["Estratégias PCN: Seleção, Antecipação, Inferência, Verificação"]
+    U2 --> U2D["Intertextualidade e Paródia"]
+    U2 --> U2E["Textos Verbais, Não Verbais e Mistos"]
+
+    U3 --> U3A["Frase, Oração, Período e Parágrafo"]
+    U3 --> U3B["Parágrafo Padrão: Tópico Frasal + Desenv. + Conclusão"]
+    U3 --> U3C["7 Fatores de Textualidade"]
+    U3 --> U3D["Coesão (Articuladores, Pronomes, Substituição, Elipse)"]
+    U3 --> U3E["Coerência (Lógica/Sentido) e Texto Argumentativo"]
+
+    U4 --> U4A["Resenha (Descritiva + Apreciação Crítica)"]
+    U4 --> U4B["Resumo (Síntese + Objetividade + Ordem)"]
+    U4 --> U4C["Ensaio (Reflexão Crítica Original Livre)"]
+    U4 --> U4D["Mapa Mental (Esquema Hierárquico) e Seminário Oral"]
+    U4 --> U4E["Dúvidas Gramaticais Recorrentes (Norma Padrão)"]
+</div>
+
+<hr />
+<h2>📌 UNIDADE 1 — O Processo da Comunicação (p. 9–34)</h2>
+<h3>1.1 Origem da Comunicação</h3>
+<ul>
+<li><strong>Gesto e "Grito da Natureza" (Rousseau):</strong> Antes da palavra falada/escrita, o ser humano comunicava-se por gestos e gritos instintivos (socorro/dor).</li>
+<li><strong>Evolução da Escrita:</strong> Pinturas rupestres (~8.000 anos, necessidade agrícola/sedentária de medir colheita e rebanho) → sinais pictóricos → alfabeto hebraico (1700–1500 a.C.) → alfabeto grego (400 a.C.) → alfabeto latino.</li>
+<li><strong>Sociedade Contemporânea:</strong> Passou de uma perspectiva predominantemente <strong>oral</strong> para uma dimensão de <strong>escrita</strong> (redes sociais, WhatsApp, EaD), porém com textos curtos e interações virtuais.</li>
+</ul>
+<h3>1.2 Elementos da Comunicação (Jakobson + Feedback) e Funções da Linguagem</h3>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Tema campeão de prova!** Cada um dos 6 elementos de Roman Jakobson (baseado em Claude Shannon) corresponde a uma **Função da Linguagem**, de acordo com a ênfase da mensagem. O **Feedback** (resposta do receptor que torna o processo interacional) não estava no modelo original de Jakobson, mas fecha o ciclo comunicativo.</div></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento da Comunicação</th>
+<th style="text-align: left;">Conceito-Chave</th>
+<th style="text-align: left;">Função da Linguagem Correspondente</th>
+<th style="text-align: left;">Características e Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Contexto (ou Referente)</strong></td>
+<td style="text-align: left;">O assunto/fato da mensagem</td>
+<td style="text-align: left;"><strong>Função Referencial (ou Denotativa)</strong></td>
+<td style="text-align: left;">Foco na informação objetiva, impessoal, 3ª pessoa. Ex.: <em>Notícias de jornal, textos científicos/acadêmicos</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Emissor (ou Remetente)</strong></td>
+<td style="text-align: left;">Quem envia a mensagem</td>
+<td style="text-align: left;"><strong>Função Emotiva (ou Expressiva)</strong></td>
+<td style="text-align: left;">Foco na subjetividade, sentimentos e opiniões do emissor (1ª pessoa). Ex.: <em>Diários, comentários opinativos, desabafos</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Receptor (ou Destinatário)</strong></td>
+<td style="text-align: left;">Para quem a mensagem é enviada</td>
+<td style="text-align: left;"><strong>Função Apelativa (ou Conativa)</strong></td>
+<td style="text-align: left;">Foco em persuadir/convencer o interlocutor (verbos no imperativo, vocativos). Ex.: <em>Propagandas, anúncios publicitários</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mensagem</strong></td>
+<td style="text-align: left;">O conteúdo/conjunto de informações</td>
+<td style="text-align: left;"><strong>Função Poética</strong></td>
+<td style="text-align: left;">Foco no <strong>como</strong> se diz (elaboração estética, ritmo, rimas, sonoridade, conotação). Ex.: <em>Poemas, músicas, textos literários</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Canal</strong></td>
+<td style="text-align: left;">Meio físico/virtual por onde circula</td>
+<td style="text-align: left;"><strong>Função Fática</strong></td>
+<td style="text-align: left;">Foco em <strong>abrir, testar/manter ou fechar</strong> o canal de contato. Sempre breve. Ex.: <em>"Alô?", "Está me ouvindo?", "Até logo"</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Código</strong></td>
+<td style="text-align: left;">Sistema de signos partilhado (língua)</td>
+<td style="text-align: left;"><strong>Função Metalinguística</strong></td>
+<td style="text-align: left;">O código explicando o próprio código (a linguagem falando dela mesma). Ex.: <em>Dicionário, vídeo ensinando a gravar vídeo, poema sobre fazer poesia</em>.</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 Ruído, Interlocutor e Adequação Linguística</h3>
+<ul>
+<li><strong>Ruído na Comunicação:</strong> Qualquer falha ou interferência em um dos elementos que prejudique a compreensão (ex.: dicção ruim, receptor desatento/seletivo, erro de digitação em um e-mail corporativo trocando dia "16" por "26", ambiguidade contextual).</li>
+<li><strong>Papel Ativo do Interlocutor:</strong> O receptor <strong>não é passivo</strong>; ele mobiliza seu repertório para construir sentido e alterna de papel com o emissor.</li>
+<li><strong>Adequação da Linguagem ("A língua é como a roupa"):</strong></li>
+<li>Não existe comunicação sem intenção. O bom comunicador adapta o registro (formal x informal) ao <strong>interlocutor</strong>, ao <strong>gênero</strong> e à <strong>situação comunicativa</strong>.</li>
+<li><em>Exemplos de falha de adequação cobrados em prova:</em><ol>
+<li>Mandar um bilhete erudito (<em>"Venho mui respeitosamente..."</em>) para um colega de infância = ir de smoking/terno e sapatos de verniz a um piquenique.</li>
+<li>Enviar e-mail corporativo para uma Universidade usando gírias (<em>"E aí, galera, td certo? mto legal"</em>).</li>
+<li>Usar <em>internetês</em> pesado (<em>"naum quero + tc com vc"</em>, <em>"bisc8"</em>) no WhatsApp com a mãe que não domina essa variedade: <strong>adequado ao gênero (WhatsApp), mas inadequado ao interlocutor (mãe)</strong>.</li>
+</ol>
+</li>
+</ul>
+<h3>1.4 Gênero Textual x Tipo Textual x Domínio Discursivo (Marcuschi)</h3>
+<ul>
+<li><strong>Gênero Textual:</strong> Textos concretos, empíricos e <strong>relativamente estáveis</strong> usados no cotidiano (definidos por <em>Objetivo, Tema, Estrutura, Linguagem e Esfera de Circulação</em>). Ex.: <em>e-mail, notícia, reportagem, receita médica, contrato, bula, resumo, resenha, conversa de WhatsApp</em>.</li>
+<li><strong>Tipo Textual (Modo Textual):</strong> Natureza linguística/estrutural da composição (sequências internas). São apenas 5: <strong>Narração, Argumentação, Exposição, Descrição e Injunção</strong>.</li>
+<li><strong>Heterogeneidade Tipológica:</strong> Um mesmo gênero textual (ex.: <em>reportagem</em>) costuma combinar vários tipos textuais (sequências narrativas, expositivas e argumentativas).</li>
+<li><strong>Domínio Discursivo (ou Textual):</strong> A esfera da atividade humana onde os gêneros circulam. Ex.: <em>Domínio Jornalístico, Acadêmico/Instrucional, Jurídico, Religioso, Comercial, Saúde, Interpessoal</em>.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 2 — Da Leitura à Compreensão Textual (p. 35–68)</h2>
+<h3>2.1 Decodificação x Compreensão e os 3 Conhecimentos Prévios</h3>
+<ul>
+<li><strong>Decodificar ≠ Compreender:</strong> Decodificar é apenas reconhecer os sinais gráficos/letras (quem só decodifica sem compreender é considerado <em>analfabeto funcional</em>). <strong>Interpretar</strong> é <em>"localizar as pistas e sinalizações deixadas no texto pelo autor e atribuir-lhes significado"</em> (Guimarães, 2011), sem fantasiar ou extrapolar os limites do texto.</li>
+<li><strong>Três Tipos de Conhecimentos Prévios (mobilizados na leitura):</strong></li>
+<li><strong>Conhecimento Linguístico:</strong> Domínio da língua, gramática, léxico e funcionamento dos gêneros.</li>
+<li><strong>Conhecimento de Mundo (Enciclopédico):</strong> Bagagem cultural, histórica e vivências armazenadas na memória.</li>
+<li><strong>Conhecimento Interacional:</strong> Conhecimentos partilhados entre autor e leitor sobre as intenções e convenções da interação.</li>
+</ul>
+<h3>2.2 As Estratégias de Leitura (PCNs)</h3>
+<div class="mermaid">
+flowchart LR
+    OBJ["🎯 Objetivo de Leitura"] --> SEL["1. Seleção<br/>(Leitura rápida/filtragem)"]
+    SEL --> ANT["2. Antecipação<br/>(Hipóteses: Veículo, Imagens, Autoria, Época, Gênero)"]
+    ANT --> INF["3. Inferência<br/>(Deduções nas entrelinhas)"]
+    INF --> VER["4. Verificação<br/>(Confirmação ou correção das hipóteses)"]
+    VER --> ACP["🧠 Ativação de Conhecimentos Prévios"]
+</div>
+
+<h3>2.3 Intertextualidade, Paródia e Textos Não Verbais</h3>
+<ul>
+<li><strong>Intertextualidade (Bakhtin / Koch &amp; Elias):</strong> Todo discurso dialoga com discursos anteriores (<em>"nada do que falamos é novo"</em>). Pode ser explícita ou implícita (exige conhecimento prévio do leitor para ser percebida) e ocorre tanto em textos verbais quanto não verbais.</li>
+<li><strong>Paródia:</strong> Recriação de uma obra já existente e consagrada com finalidade <strong>satírica, irônica, crítica ou humorística</strong>, subvertendo ou reconstruindo o texto original.</li>
+<li>⚠️ <strong>Atenção à direção da paródia em prova:</strong> O texto novo é que faz paródia do texto original consagrado (ex.: o anúncio <em>"Horta de Elite"</em> é paródia do filme <em>"Tropa de Elite"</em>, e não o inverso!).</li>
+<li><strong>Textos Não Verbais e Mistos:</strong> Obras de arte (ex.: <em>Operários</em>, de Tarsila do Amaral — crítica à massificação/coisificação na Era Vargas), charges, tirinhas e anúncios publicitários (ex.: anúncio da <em>Cimento Itambé</em> onde pás de cimento formam árvores; ou anúncio de papel e celulose citando personagens literários que "saem da floresta" reflorestada).</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 3 — A Articulação da Escrita (p. 69–96)</h2>
+<h3>3.1 Frase, Oração, Período e Parágrafo Padrão</h3>
+<ul>
+<li><strong>Frase:</strong> Enunciado de sentido completo. Pode ser <strong>nominal</strong> (sem verbo), <strong>oração</strong> (1 verbo, estruturada em <em>Sujeito + Verbo + Complemento</em>) ou <strong>período</strong> (mais de um verbo).</li>
+<li><strong>Equilíbrio Frasal:</strong> Evitar tanto a <strong>frase excessivamente longa</strong> (um único ponto final com ideias sobrepostas que fazem o leitor perder o fio da meada) quanto <strong>frases fragmentadas</strong> (curtas e picotadas demais, que quebram a relação lógica).</li>
+<li><strong>Estrutura do Parágrafo Padrão:</strong>
+  $$\text{Parágrafo Padrão} = \text{Tópico Frasal (ideia-núcleo)} + \text{Desenvolvimento (ideias secundárias)} + \text{Conclusão}$$</li>
+<li><strong>Tipos de Tópico Frasal (Garcia, 2003):</strong><ol>
+<li><strong>Declaração Inicial:</strong> Afirmação genérica/ampla que será explicada na sequência.</li>
+<li><strong>Definição:</strong> Apresenta o conceito/significado de um termo logo no início.</li>
+<li><strong>Divisão:</strong> Divide o tópico em partes/segmentos que serão contrastados ou explicados.</li>
+</ol>
+</li>
+</ul>
+<h3>3.2 Uso da Vírgula (Regra de Ouro)</h3>
+<ul>
+<li><strong>JAMAIS</strong> separar com uma única vírgula o <strong>Sujeito</strong> do <strong>Predicado (Verbo + Complemento)</strong>.</li>
+<li><strong>Usa-se vírgula:</strong></li>
+<li>Para isolar <strong>termo intercalado</strong> entre sujeito e verbo (obrigatoriamente <strong>duas vírgulas</strong>, uma antes e outra depois: <em>"Os alunos, ontem à noite, apresentaram o seminário"</em>).</li>
+<li>Para enumerar termos de um <strong>sujeito composto</strong> (<em>"Ana, Carlos, Joana e Sandra..."</em>).</li>
+<li>Após <strong>adjunto adverbial deslocado</strong> para o início da frase (<em>"Naquela tarde, professores..."</em>).</li>
+</ul>
+<h3>3.3 Os 7 Fatores de Textualidade</h3>
+<ol>
+<li><strong>Coesão:</strong> Articulação na <strong>materialidade linguística</strong> do texto (gramática, conectores, retomadas). Depende do autor.</li>
+<li><strong>Coerência:</strong> Articulação no <strong>nível das ideias/sentido</strong> (lógica, não contradição, ordem e transição). Depende da interação autor-leitor.</li>
+<li><strong>Informatividade:</strong> Grau de novidade/informações relevantes que fazem o texto progredir (não repetir apenas o óbvio).</li>
+<li><strong>Intencionalidade:</strong> Propósito do autor ao produzir o texto.</li>
+<li><strong>Aceitabilidade:</strong> Atitude do leitor em aceitar o texto como coerente e compreensível.</li>
+<li><strong>Situacionalidade:</strong> Adequação do texto ao ambiente, época e situação comunicativa.</li>
+<li><strong>Intertextualidade:</strong> Diálogo com outros textos prévios.</li>
+</ol>
+<h3>3.4 Mecanismos de Coesão Textual</h3>
+<ul>
+<li><strong>Articuladores Textuais:</strong></li>
+<li><strong>Preposições:</strong> Ligam dois termos subordinando o segundo ao primeiro (<em>de, do, da, em, no, por, pelo, com, para</em>).</li>
+<li><strong>Advérbios:</strong> Modificam verbo, adjetivo ou oração indicando circunstância de tempo, lugar, modo ou intensidade (<em>aqui, lá, completamente, mais</em>).</li>
+<li><strong>Conjunções (Principais Relações cobradas em prova — Figura 3.7, p. 84):</strong><ul>
+<li><strong>Adição:</strong> <em>e, nem, também, além disso, não só... mas também</em>.</li>
+<li><strong>Oposição (Adversativas):</strong> <em>mas, porém, contudo, todavia, no entanto, entretanto</em>.</li>
+<li><strong>Conclusão:</strong> <em>logo, portanto, por isso, assim, dessa forma, por conseguinte</em>.</li>
+<li><strong>Concessão:</strong> <em>ainda que, embora, mesmo que, conquanto, a despeito de</em>.</li>
+<li><strong>Causa:</strong> <em>já que, como (no início), uma vez que, visto que, porque</em>.</li>
+<li><strong>Explicação:</strong> <em>porque, pois</em>.</li>
+<li><strong>Condição:</strong> <em>se, caso, desde que (+ subjuntivo), a não ser que</em>.</li>
+<li><strong>Tempo:</strong> <em>quando, enquanto, depois que, desde que (+ indicativo, sentido de "desde o momento em que"), logo que, assim que</em>.</li>
+<li><strong>Conformidade:</strong> <em>como, conforme, consoante, de acordo com, segundo</em>.</li>
+<li><strong>Consequência:</strong> <em>tanto que, a ponto de, tal que</em>.</li>
+<li><strong>Finalidade:</strong> <em>para, para que, a fim de que</em>.</li>
+<li><strong>Proporção:</strong> <em>à medida que, à proporção que</em>.</li>
+</ul>
+</li>
+<li><strong>Coesão Referencial (para evitar repetição de termos — Quadro 3.3, p. 86):</strong></li>
+<li><strong>Pronominalização:</strong> Retomar um termo por pronome (<em>ele, os dois, o, lo, seu, esta</em>).</li>
+<li><strong>Substituição Vocabular (Sinonímia/Hiperonímia):</strong> Retomar um termo por palavra/expressão equivalente (<em>"Amor Líquido"</em> → <em>"o livro"</em>; <em>"o menino e a menina"</em> → <em>"as crianças"</em>).</li>
+<li><strong>Elipse:</strong> Supressão de um termo facilmente identificável pelo contexto (<em>"Bauman não tem receio [...]. [Ø] Mostra que..."</em>).</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 4 — O Texto em Ação (p. 97–121)</h2>
+<h3>4.1 Quadro Comparativo dos Gêneros Acadêmicos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Gênero Acadêmico</th>
+<th style="text-align: left;">Modalidade</th>
+<th style="text-align: left;">Características Essenciais (Como cai na prova!)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Resenha</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Combina <strong>parte descritiva</strong> (apresentação da obra) + <strong>parte crítica</strong> (apreciação/juízo de valor fundamentado em argumentos). Comum sobre livros, filmes e séries.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resumo</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Exige <strong>síntese e objetividade</strong>. Apresenta apenas as ideias principais do texto original de forma abreviada e <strong>respeitando a ordem cronológica</strong> do original, <strong>sem emitir opinião/crítica pessoal</strong>. Usa <strong>paráfrase</strong> (reescrever com as próprias palavras mantendo a autoria).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ensaio</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Texto <em>discursivo-argumentativo-expositivo</em> mais <strong>livre de convenções formais</strong>, voltado à reflexão crítica autoral e conclusões originais (criado por Michel de Montaigne no séc. XVI).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mapa Mental</strong></td>
+<td style="text-align: left;">Escrito / Visual</td>
+<td style="text-align: left;"><em>"Resumo do resumo"</em> em formato de <strong>esquema hierárquico/árvore</strong>, ligando palavras-chave a partir de um eixo central. Pode partir de um texto-base (respeitando suas relações) ou de um <em>brainstorming</em> livre.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Seminário / Apresentação</strong></td>
+<td style="text-align: left;">Oral (+ Slides)</td>
+<td style="text-align: left;">Gênero oral expositivo para compartilhar pesquisa. Exige roteiro prévio, ensaio, postura, linguagem formal (sem vícios orais como <em>"né?", "tipo assim"</em>), slides com <strong>fundo branco</strong>, textos curtos, imagens e sem caneta laser/excesso de animações (<em>"menos é mais"</em>).</td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 Tabela Definitiva das Dúvidas Gramaticais Recorrentes (p. 117–119)</h3>
+<blockquote>
+<p>[!WARNING]
+<strong>Leitura obrigatória de véspera!</strong> As questões de gramática da prova saem literalmente desta tabela do e-book:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">❌ Forma Inadequada</th>
+<th style="text-align: left;">✅ Forma Correta (Norma Padrão)</th>
+<th style="text-align: left;">Regra Rápida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><em>Mau entendido / Mal humor</em></td>
+<td style="text-align: left;"><strong>Mal entendido / Mau humor</strong></td>
+<td style="text-align: left;"><strong>Mal</strong> ≠ Bem (<em>bem entendido</em>); <strong>Mau</strong> ≠ Bom (<em>bom humor</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Fazem cinco anos</em></td>
+<td style="text-align: left;"><strong>Faz cinco anos</strong></td>
+<td style="text-align: left;"><em>Fazer</em> indicando tempo decorrido é impessoal (sempre no singular).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Houveram muitos atrasos</em></td>
+<td style="text-align: left;"><strong>Houve muitos atrasos</strong></td>
+<td style="text-align: left;"><em>Haver</em> no sentido de <em>existir/acontecer</em> é impessoal (invariável). Já o verbo <em>existir</em> vai para o plural (<em>Existem muitas esperanças</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Para mim fazer</em></td>
+<td style="text-align: left;"><strong>Para eu fazer</strong></td>
+<td style="text-align: left;"><em>Mim</em> não conjuga verbo (não pode ser sujeito).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Entre eu e você</em></td>
+<td style="text-align: left;"><strong>Entre mim e você</strong></td>
+<td style="text-align: left;">Após preposição (<em>entre</em>), usa-se pronome oblíquo (<em>mim, ti</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Há cinco meses atrás</em></td>
+<td style="text-align: left;"><strong>Há cinco meses</strong> <em>ou</em> <strong>Cinco meses atrás</strong></td>
+<td style="text-align: left;">Nunca usar <em>há</em> e <em>atrás</em> juntos (redundância/pleonasmo).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Chegou a duas horas / Daqui há 5 min</em></td>
+<td style="text-align: left;"><strong>Chegou há duas horas / Daqui a 5 min</strong></td>
+<td style="text-align: left;"><strong>Há</strong> = passado (<em>faz</em>); <strong>A</strong> = futuro ou distância.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Nunca lhe vi</em></td>
+<td style="text-align: left;"><strong>Nunca o vi</strong></td>
+<td style="text-align: left;"><em>Lhe</em> é objeto indireto; o verbo <em>ver</em> pede objeto direto (<em>o, a</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Chegou em Porto Alegre</em></td>
+<td style="text-align: left;"><strong>Chegou a Porto Alegre</strong></td>
+<td style="text-align: left;">Verbos de movimento (<em>ir, chegar, levar</em>) exigem preposição <strong>a</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Seção de cinema</em></td>
+<td style="text-align: left;"><strong>Sessão de cinema</strong></td>
+<td style="text-align: left;"><strong>Sessão</strong> = tempo de evento/reunião; <strong>Seção</strong> = setor/divisão (<em>seção eleitoral</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Ela era meia transtornada</em></td>
+<td style="text-align: left;"><strong>Ela era meio transtornada</strong></td>
+<td style="text-align: left;"><em>Meio</em> (advérbio = <em>um pouco</em>) é invariável.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Nada haver com você</em></td>
+<td style="text-align: left;"><strong>Nada a ver com você</strong></td>
+<td style="text-align: left;">Expressão correta é <em>ter a ver</em> (ou <em>nada que ver</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Um dos que chegou antes</em></td>
+<td style="text-align: left;"><strong>Um dos que chegaram antes</strong></td>
+<td style="text-align: left;">A expressão <em>um dos que</em> pede verbo no plural.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Tinha chego atrasado</em></td>
+<td style="text-align: left;"><strong>Tinha chegado atrasado</strong></td>
+<td style="text-align: left;">Com <em>ter/haver</em>, usa-se particípio regular (<strong>chegado</strong>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Eles tem razão</em></td>
+<td style="text-align: left;"><strong>Eles têm razão</strong></td>
+<td style="text-align: left;">Plural de <em>tem</em> e <em>vem</em> leva acento circunflexo (<strong>têm / vêm</strong>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>De encontro aos desejos (favorável)</em></td>
+<td style="text-align: left;"><strong>Ao encontro dos desejos</strong></td>
+<td style="text-align: left;"><strong>Ao encontro de</strong> = a favor/harmonia; <strong>De encontro a</strong> = contra/choque.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Já é 8 horas</em></td>
+<td style="text-align: left;"><strong>Já são 8 horas</strong> (mas: <em>Já é 1h / meio-dia</em>)</td>
+<td style="text-align: left;"><em>Ser</em> indicando horas concorda com o numeral.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Sobre a mira do assaltante</em></td>
+<td style="text-align: left;"><strong>Sob a mira do assaltante</strong></td>
+<td style="text-align: left;"><strong>Sob</strong> = debaixo de; <strong>Sobre</strong> = em cima de / a respeito de.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Estudou, mais não passou</em></td>
+<td style="text-align: left;"><strong>Estudou, mas não passou</strong></td>
+<td style="text-align: left;"><strong>Mas</strong> = porém (oposição); <strong>Mais</strong> = quantidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Tranqüilo</em></td>
+<td style="text-align: left;"><strong>Tranquilo</strong></td>
+<td style="text-align: left;">O trema foi abolido em palavras vernáculas (só resta em nomes próprios estrangeiros como <em>Müller</em>).</td>
+</tr>
+</tbody>
+</table>
+        </article>
+    </main>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Plus Jakarta Sans',
+                primaryColor: '#1e3a8a',
+                primaryBorderColor: '#3b82f6',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#60a5fa'
+            }
+        });
+    </script>
+</body>
+</html>

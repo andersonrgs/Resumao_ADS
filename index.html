@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Estudos — ADS 7º Semestre | Provas Finais 2026</title>
+    <!-- Favicon SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090d16;
+            --surface-bg: #0f172a;
+            --card-bg: #131c31;
+            --card-hover: #17233d;
+            --border: #243049;
+            --border-highlight: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-glow: rgba(59, 130, 246, 0.25);
+            
+            --emerald-500: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.2);
+            
+            --purple-500: #8b5cf6;
+            --purple-glow: rgba(139, 92, 246, 0.2);
+            
+            --amber-500: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.2);
+            
+            --rose-500: #f43f5e;
+            
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 5rem;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+                radial-gradient(at 90% 10%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(16, 185, 129, 0.08) 0px, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Navigation Header */
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(9, 13, 22, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .brand-icon {
+            font-size: 1.75rem;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .brand-info h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+
+        .brand-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .header-tags {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-grad {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c084fc;
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .tag-sem {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Banner & Countdowns */
+        .hero {
+            max-width: 1200px;
+            margin: 2.5rem auto 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(19, 28, 49, 0.95), rgba(15, 23, 42, 0.95));
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981, #f59e0b);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .hero-text h2 span {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .quick-status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .status-box .icon {
+            font-size: 1.5rem;
+        }
+
+        .status-box .val {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .status-box .lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Countdown Cards */
+        .countdowns-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .countdown-card {
+            background: rgba(11, 16, 28, 0.85);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .countdown-card.highlight {
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+        }
+
+        .countdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .countdown-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .countdown-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            text-transform: uppercase;
+        }
+
+        .countdown-badge.future {
+            background: rgba(148, 163, 184, 0.12);
+            color: #cbd5e1;
+            border-color: rgba(148, 163, 184, 0.25);
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            text-align: center;
+        }
+
+        .time-segment {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .time-val {
+            font-size: 1.35rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: #60a5fa;
+            line-height: 1.1;
+        }
+
+        .time-lbl {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .countdown-footer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Schedule Overview Table */
+        .schedule-section {
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+            padding: 0 1.5rem;
+        }
+
+        .schedule-card {
+            background: var(--surface-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section-header {
+            padding: 1.25rem 1.75rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(19, 28, 49, 0.5);
+        }
+
+        .section-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+        }
+
+        .section-header span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table.schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        table.schedule-table th {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 0.9rem 1.25rem;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table.schedule-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(36, 48, 73, 0.6);
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+
+        table.schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.schedule-table tr:hover {
+            background: rgba(59, 130, 246, 0.04);
+        }
+
+        .subject-col {
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .room-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .status-pill {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .status-pill.ready {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-pill.pending {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Filter Controls */
+        .controls-section {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            background: var(--surface-bg);
+            border: 1px solid var(--border);
+            padding: 0.35rem;
+            border-radius: var(--radius-md);
+            gap: 0.35rem;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            font-size: 0.825rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: var(--blue-600);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            max-width: 360px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--surface-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 0.6rem 1rem 0.6rem 2.4rem;
+            color: #fff;
+            font-size: 0.875rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 3px var(--blue-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Disciplines Main Grid */
+        .disciplines-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.75rem;
+        }
+
+        .card-discipline {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .card-discipline:hover {
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .card-discipline.day1 {
+            border-top: 4px solid var(--blue-500);
+        }
+
+        .card-discipline.day2 {
+            border-top: 4px solid var(--purple-500);
+        }
+
+        .discipline-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .discipline-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .exam-date-pill {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .exam-date-pill.urgent {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .exam-date-pill.upcoming {
+            background: rgba(139, 92, 246, 0.15);
+            color: #d8b4fe;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .discipline-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .discipline-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .discipline-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        /* Action Buttons Area */
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .btn-main-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-main-action:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        .action-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+        }
+
+        .btn-sub-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--surface-bg);
+            color: #e2e8f0;
+            padding: 0.65rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.825rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .btn-sub-action:hover {
+            background: #1e293b;
+            border-color: #475569;
+            color: #fff;
+        }
+
+        /* Resources Accordion / List */
+        .resources-box {
+            background: rgba(11, 15, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: 1.15rem;
+        }
+
+        .resources-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .resources-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 0.75rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .resource-item:hover {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: #cbd5e1;
+            font-size: 0.825rem;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .resource-link:hover {
+            color: #60a5fa;
+        }
+
+        .resource-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-dim);
+        }
+
+        .badge-pdf {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .badge-video {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+        }
+
+        .badge-md {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        /* Scope tags for Block 2 */
+        .scope-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .scope-tag {
+            font-size: 0.72rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            color: #94a3b8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Study Checklist & Tools */
+        .bottom-tools {
+            max-width: 1200px;
+            margin: 2.5rem auto 0;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 1.75rem;
+        }
+
+        .tool-card {
+            background: var(--surface-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .tool-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-card p.desc {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .checklist-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .check-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .check-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 17px;
+            height: 17px;
+            accent-color: var(--blue-500);
+            cursor: pointer;
+        }
+
+        .check-text {
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            line-height: 1.4;
+        }
+
+        .check-text small {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-top: 0.15rem;
+        }
+
+        .check-item.done {
+            opacity: 0.65;
+            background: rgba(16, 185, 129, 0.04);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .check-item.done .check-text {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .progress-bar-container {
+            margin-bottom: 1.25rem;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--text-muted);
+        }
+
+        .progress-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 999px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        /* Previous Exams Box */
+        .exams-archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .archive-link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 1rem;
+            transition: var(--transition);
+        }
+
+        .archive-link-card:hover {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateX(3px);
+        }
+
+        .archive-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer.site-footer {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 2rem 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.825rem;
+        }
+
+        footer.site-footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .disciplines-grid {
+                grid-template-columns: 1fr;
+            }
+            .bottom-tools {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header.site-header {
+                padding: 0.85rem 1rem;
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+            .header-tags {
+                align-self: flex-start;
+            }
+            .hero {
+                padding: 0 1rem;
+            }
+            .hero-banner {
+                padding: 1.5rem 1.25rem;
+            }
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+            .quick-status-grid {
+                grid-template-columns: 1fr;
+            }
+            .controls-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-wrapper {
+                max-width: 100%;
+            }
+            .action-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Sticky Header -->
+    <header class="site-header">
+        <div class="header-brand">
+            <div class="brand-icon">🎓</div>
+            <div class="brand-info">
+                <h1>ADS 2026.2 — Provas Finais</h1>
+                <p>Análise e Desenvolvimento de Sistemas • 7º Semestre</p>
+            </div>
+        </div>
+        <div class="header-tags">
+            <span class="tag tag-grad">Último Semestre</span>
+            <span class="tag tag-sem">Formando 2026</span>
+        </div>
+    </header>
+
+    <!-- Hero Banner with Dynamic Countdowns -->
+    <section class="hero">
+        <div class="hero-banner">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Central de Estudos &amp; <span>Simulados Oficiais</span></h2>
+                    <p>
+                        Painel integrado de preparação para as 4 disciplinas finais do curso de ADS.
+                        Simulados interativos com correção instantânea, resumos executivos gerados com apoio de IA (NotebookLM), gabaritos fundamentados no livro-texto e videoaulas.
+                    </p>
+                    <div class="quick-status-grid">
+                        <div class="status-box">
+                            <span class="icon">🎯</span>
+                            <div>
+                                <div class="val">2 Simulados</div>
+                                <div class="lbl">100% Interativos U1-U4</div>
+                            </div>
+                        </div>
+                        <div class="status-box">
+                            <span class="icon">📚</span>
+                            <div>
+                                <div class="val">4 Disciplinas</div>
+                                <div class="lbl">Materiais e E-books</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Countdown Cards -->
+                <div class="countdowns-wrapper">
+                    <!-- Bloco 1 (05/11/2026) -->
+                    <div class="countdown-card highlight" id="countdown-bloco1-card">
+                        <div class="countdown-header">
+                            <span class="countdown-title">
+                                <span>📅</span> Bloco 1: Direito + Comunicação
+                            </span>
+                            <span class="countdown-badge" id="badge-dias-bloco1">05/11/2026</span>
+                        </div>
+                        <div class="countdown-timer" id="timer-bloco1">
+                            <div class="time-segment">
+                                <div class="time-val" id="b1-days">--</div>
+                                <div class="time-lbl">Dias</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b1-hours">--</div>
+                                <div class="time-lbl">Horas</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b1-minutes">--</div>
+                                <div class="time-lbl">Min</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b1-seconds">--</div>
+                                <div class="time-lbl">Seg</div>
+                            </div>
+                        </div>
+                        <div class="countdown-footer">
+                            <span>📍 Sala 308 - Prédio 1 LABIN</span>
+                            <span>⏰ 20h00 às 20h15</span>
+                        </div>
+                    </div>
+
+                    <!-- Bloco 2 (12/11/2026) -->
+                    <div class="countdown-card" id="countdown-bloco2-card">
+                        <div class="countdown-header">
+                            <span class="countdown-title">
+                                <span>📅</span> Bloco 2: Requisitos + Gerenciamento
+                            </span>
+                            <span class="countdown-badge future" id="badge-dias-bloco2">12/11/2026</span>
+                        </div>
+                        <div class="countdown-timer" id="timer-bloco2">
+                            <div class="time-segment">
+                                <div class="time-val" id="b2-days">--</div>
+                                <div class="time-lbl">Dias</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b2-hours">--</div>
+                                <div class="time-lbl">Horas</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b2-minutes">--</div>
+                                <div class="time-lbl">Min</div>
+                            </div>
+                            <div class="time-segment">
+                                <div class="time-val" id="b2-seconds">--</div>
+                                <div class="time-lbl">Seg</div>
+                            </div>
+                        </div>
+                        <div class="countdown-footer">
+                            <span>📍 Sala 607 - Prédio 15</span>
+                            <span>⏰ 18h45 às 19h00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Schedule Table -->
+    <section class="schedule-section">
+        <div class="schedule-card">
+            <div class="section-header">
+                <h3><span>📋</span> Cronograma Oficial das Provas Presenciais</h3>
+                <span>Fonte: Edital Institucional Unilasalle</span>
+            </div>
+            <div class="table-responsive">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Data</th>
+                            <th>Sala / Prédio</th>
+                            <th>Horário</th>
+                            <th>Status de Preparação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="subject-col">
+                                    <span>⚖️</span>
+                                    <strong>DIREITO DIGITAL</strong>
+                                </div>
+                            </td>
+                            <td><strong>05/11/2026</strong></td>
+                            <td><span class="room-pill">308 - Prédio 1 LABIN</span></td>
+                            <td>20h00 - 20h15min</td>
+                            <td><span class="status-pill ready">✓ Simulado &amp; E-books Prontos</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subject-col">
+                                    <span>🗣️</span>
+                                    <strong>COMUNICAÇÃO E LINGUAGEM</strong>
+                                </div>
+                            </td>
+                            <td><strong>05/11/2026</strong></td>
+                            <td><span class="room-pill">308 - Prédio 1 LABIN</span></td>
+                            <td>20h00 - 20h15min</td>
+                            <td><span class="status-pill ready">✓ Simulado, Vídeos &amp; Resumo</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subject-col">
+                                    <span>📊</span>
+                                    <strong>GERENCIAMENTO DE PROJETOS</strong>
+                                </div>
+                            </td>
+                            <td><strong>12/11/2026</strong></td>
+                            <td><span class="room-pill">607 - Prédio 15</span></td>
+                            <td>18h45min - 19h00</td>
+                            <td><span class="status-pill pending">⏳ Em Preparação (Bloco 2)</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subject-col">
+                                    <span>⚙️</span>
+                                    <strong>REQUISITOS DE SOFTWARE</strong>
+                                </div>
+                            </td>
+                            <td><strong>12/11/2026</strong></td>
+                            <td><span class="room-pill">607 - Prédio 15</span></td>
+                            <td>18h45min - 19h00</td>
+                            <td><span class="status-pill pending">⏳ Em Preparação (Bloco 2)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters & Search Controls -->
+    <section class="controls-section">
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">Todas as Disciplinas (4)</button>
+            <button class="filter-btn" data-filter="bloco1">Bloco 1 (05/11)</button>
+            <button class="filter-btn" data-filter="bloco2">Bloco 2 (12/11)</button>
+            <button class="filter-btn" data-filter="simulados">Apenas Simulados</button>
+        </div>
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por tema, PDF ou disciplina...">
+        </div>
+    </section>
+
+    <!-- Disciplines Grid (4 Cards) -->
+    <main class="disciplines-grid" id="disciplinesContainer">
+
+        <!-- 1. DIREITO DIGITAL -->
+        <article class="card-discipline day1" data-block="bloco1" data-has-simulado="true" data-keywords="direito digital marco civil internet lgpd inpi software rpc hash obrigacoes codigo civil sagah">
+            <div class="discipline-header">
+                <div class="discipline-meta">
+                    <span class="exam-date-pill urgent">📅 05/11/2026 • 20h00</span>
+                    <span class="status-pill ready">Simulado Pronto</span>
+                </div>
+                <h3 class="discipline-title">⚖️ Direito Digital</h3>
+                <p class="discipline-sub">
+                    Proteção de software e RPC no INPI com função Hash, Teoria dos Sujeitos, Código Civil, Obrigações, Marco Civil da Internet (art. 19 e 21) e LGPD no trabalho.
+                </p>
+            </div>
+
+            <div class="discipline-body">
+                <!-- Action Buttons -->
+                <div class="cta-actions">
+                    <a href="simulado_direito_digital_U1-U4.html" class="btn-main-action" target="_blank">
+                        <span>🎯 Fazer Simulado Oficial (U1 a U4)</span>
+                    </a>
+                    <div class="action-row">
+                        <a href="resumo_direito_digital.html" class="btn-sub-action">
+                            <span>📖 Resumo Executivo</span>
+                        </a>
+                        <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/G-direito_digital_U1-U4.html" class="btn-sub-action" target="_blank" title="Versão com GIFs embutidos para celular/drive">
+                            <span>📦 Simulado Standalone</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Materials & E-books -->
+                <div class="resources-box">
+                    <div class="resources-title">
+                        <span>📚 E-books Oficiais SAGAH &amp; Questionários</span>
+                        <span>6 Arquivos</span>
+                    </div>
+                    <ul class="resources-list">
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Ebook%20%2B%20Materiais/Direito%20Digital_Sagah_Book%20-%20Un1.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 1: Conceitos e Sujeitos de Direito</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Ebook%20%2B%20Materiais/Direito%20Digital_Sagah_Book%20-%20Un2.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 2: Propriedade Intelectual &amp; INPI</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Ebook%20%2B%20Materiais/Direito%20Digital_Sagah_Book%20-%20Un3.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 3: Direito das Obrigações &amp; Contratos</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Ebook%20%2B%20Materiais/Direito%20Digital_Sagah_Book%20-%20Un4.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 4: Marco Civil &amp; LGPD</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Questionarios/questionario_u1_u2_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Gabarito Comentado U1 e U2 (Alertas de Pegadinhas)</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Direito%20digital/Questionarios/questionario_u3_u4_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Gabarito Comentado U3 e U4 (Marco Civil &amp; LGPD)</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. COMUNICAÇÃO E LINGUAGEM -->
+        <article class="card-discipline day1" data-block="bloco1" data-has-simulado="true" data-keywords="comunicacao e linguagem jakobson funcoes da linguagem coesao coerencia resenha resumo ensaio videoaulas ebook">
+            <div class="discipline-header">
+                <div class="discipline-meta">
+                    <span class="exam-date-pill urgent">📅 05/11/2026 • 20h00</span>
+                    <span class="status-pill ready">Simulado Pronto</span>
+                </div>
+                <h3 class="discipline-title">🗣️ Comunicação e Linguagem</h3>
+                <p class="discipline-sub">
+                    Elementos da comunicação e 6 Funções de Roman Jakobson, Estratégias de leitura PCN, Coesão e Coerência, Parágrafo padrão e Gêneros acadêmicos.
+                </p>
+            </div>
+
+            <div class="discipline-body">
+                <!-- Action Buttons -->
+                <div class="cta-actions">
+                    <a href="simulado_comunicacao_e_linguagem_U1-U4.html" class="btn-main-action" target="_blank">
+                        <span>🎯 Fazer Simulado Oficial (U1 a U4)</span>
+                    </a>
+                    <div class="action-row">
+                        <a href="resumo_comunicacao_e_linguagem.html" class="btn-sub-action">
+                            <span>📖 Resumo &amp; Mapas Mentais</span>
+                        </a>
+                        <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/G-comunicacao_e_linguagem_U1-U4.html" class="btn-sub-action" target="_blank" title="Versão com GIFs embutidos para celular/drive">
+                            <span>📦 Simulado Standalone</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Videoaulas YouTube & Materials -->
+                <div class="resources-box">
+                    <div class="resources-title">
+                        <span>🎬 Videoaulas Oficiais (YouTube) &amp; Transcrições</span>
+                        <span>4 Aulas + Livros</span>
+                    </div>
+                    <ul class="resources-list">
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/watch?v=NcNRJVIz0cQ" class="resource-link" target="_blank" rel="noopener">
+                                <span>▶️ Unidade 1: O Processo da Comunicação e Jakobson</span>
+                            </a>
+                            <span class="resource-badge badge-video">YouTube</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/watch?v=TqYG5hD7tsg" class="resource-link" target="_blank" rel="noopener">
+                                <span>▶️ Unidade 2: Da Leitura à Compreensão Textual (PCNs)</span>
+                            </a>
+                            <span class="resource-badge badge-video">YouTube</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/watch?v=qTXwmJX6rwY" class="resource-link" target="_blank" rel="noopener">
+                                <span>▶️ Unidade 3: A Articulação da Escrita (Coesão/Coerência)</span>
+                            </a>
+                            <span class="resource-badge badge-video">YouTube</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.youtube.com/watch?v=ga-_Azgcpkc" class="resource-link" target="_blank" rel="noopener">
+                                <span>▶️ Unidade 4: O Texto em Ação (Resenha, Resumo e Ensaio)</span>
+                            </a>
+                            <span class="resource-badge badge-video">YouTube</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Ebook%2BMateriais/transcricao_videoaulas_u1_a_u4.md" class="resource-link" target="_blank">
+                                <span>📜 Transcrição Completa das 4 Videoaulas em Texto</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Ebook%2BMateriais/Comunica%C3%A7%C3%A3o%20e%20Linguagem_Unid1.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 1: O Processo da Comunicação</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Ebook%2BMateriais/Comunica%C3%A7%C3%A3o%20e%20Linguagem_Unidade%202.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 2: Leitura e Compreensão Textual</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Ebook%2BMateriais/Comunica%C3%A7%C3%A3o%20e%20Linguagem_Unidade%203.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 3: A Articulação da Escrita</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Ebook%2BMateriais/Comunica%C3%A7%C3%A3o%20e%20Linguagem_Unidade%204.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 4: O Texto em Ação</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Questionarios/questionario_u1_u2_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Gabarito Comentado U1 e U2</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Comunica%C3%A7%C3%A3o%20e%20linguagem/Questionarios/questionario_u3_u4_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Gabarito Comentado U3 e U4</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. REQUISITOS DE SOFTWARE -->
+        <article class="card-discipline day2" data-block="bloco2" data-has-simulado="false" data-keywords="requisitos de software engenharia de requisitos elicitacao historias de usuario casos de uso furps rastreabilidade">
+            <div class="discipline-header">
+                <div class="discipline-meta">
+                    <span class="exam-date-pill upcoming">📅 12/11/2026 • 18h45</span>
+                    <span class="status-pill pending">⏳ Bloco 2</span>
+                </div>
+                <h3 class="discipline-title">⚙️ Requisitos de Software</h3>
+                <p class="discipline-sub">
+                    Engenharia de Requisitos, Elicitação e Análise, Requisitos Funcionais e Não-Funcionais (FURPS+), Histórias de Usuário (INVEST), Casos de Uso e Matriz de Rastreabilidade.
+                </p>
+            </div>
+
+            <div class="discipline-body">
+                <div class="cta-actions">
+                    <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/" class="btn-main-action" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                        <span>📂 Abrir Pasta da Prova (Drive)</span>
+                    </a>
+                </div>
+
+                <div class="resources-box">
+                    <div class="resources-title">
+                        <span>📚 E-books Oficiais &amp; Questionários</span>
+                        <span>4 Livros + Gabaritos</span>
+                    </div>
+                    <ul class="resources-list">
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Ebook%20%2B%20materiais/Requisitos%20de%20Software_Tutores_Unidade%201.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 1: Fundamentos de Engenharia de Requisitos</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Ebook%20%2B%20materiais/Requisitos%20de%20Software_Tutores_Unidade%202.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 2: Elicitação e Modelagem de Requisitos</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Ebook%20%2B%20materiais/Requisitos%20de%20Software_Tutores_Unidade%203.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 3: Análise, Especificação e Verificação</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Ebook%20%2B%20materiais/Requisitos%20de%20Software_Tutores_Unidade%204.pdf" class="resource-link" target="_blank">
+                                <span>📕 E-book Unidade 4: Gerenciamento e Rastreabilidade</span>
+                            </a>
+                            <span class="resource-badge badge-pdf">PDF</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Questionarios/questionario_u1_u2_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Questionário U1 e U2 Transcrito</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                        <li class="resource-item">
+                            <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/Requisitos%20de%20software/Questionarios/questionario_u3_u4_transcricao.md" class="resource-link" target="_blank">
+                                <span>📝 Questionário U3 e U4 Transcrito</span>
+                            </a>
+                            <span class="resource-badge badge-md">MD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. GERENCIAMENTO DE PROJETOS -->
+        <article class="card-discipline day2" data-block="bloco2" data-has-simulado="false" data-keywords="gerenciamento de projetos pmbok scrum kanban sprints eap wbs evm riscos cronograma caminho critico">
+            <div class="discipline-header">
+                <div class="discipline-meta">
+                    <span class="exam-date-pill upcoming">📅 12/11/2026 • 18h45</span>
+                    <span class="status-pill pending">⏳ Bloco 2</span>
+                </div>
+                <h3 class="discipline-title">📊 Gerenciamento de Projetos</h3>
+                <p class="discipline-sub">
+                    Áreas de conhecimento do PMBOK, Metodologias Ágeis (Scrum e Kanban), Gestão de Escopo (EAP/WBS), Cronograma e Caminho Crítico, Análise de Valor Agregado (EVM) e Riscos.
+                </p>
+            </div>
+
+            <div class="discipline-body">
+                <div class="cta-actions">
+                    <a href="Provas_12112026%20-%20Requisitos%20%2B%20Gerenciamento/" class="btn-main-action" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                        <span>📂 Abrir Pasta da Prova (Drive)</span>
+                    </a>
+                </div>
+
+                <div class="resources-box">
+                    <div class="resources-title">
+                        <span>🎯 Escopo Programático &amp; Próximos Passos</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0.75rem;">
+                        A pasta de arquivos já está estruturada no diretório oficial. Pronta para receber os materiais de NotebookLM, e-books e questionários para compilar o simulado antes de 12/11.
+                    </p>
+                    <div class="scope-tags">
+                        <span class="scope-tag">PMBOK 10 Áreas</span>
+                        <span class="scope-tag">Scrum (Sprints &amp; Cerimônias)</span>
+                        <span class="scope-tag">Kanban &amp; WIP</span>
+                        <span class="scope-tag">EAP / WBS</span>
+                        <span class="scope-tag">Caminho Crítico (CPM)</span>
+                        <span class="scope-tag">Gestão de Riscos e Stakeholders</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Bottom Study Tools & Archive -->
+    <section class="bottom-tools">
+        <!-- Study Checklist with LocalStorage -->
+        <div class="tool-card">
+            <h4><span>✅</span> Checklist de Estudos ADS (Salvo no Navegador)</h4>
+            <p class="desc">Acompanhe seu avanço em cada etapa da revisão final até o dia da formatura.</p>
+
+            <div class="progress-bar-container">
+                <div class="progress-meta">
+                    <span>Progresso Geral de Revisão</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="checklist-group" id="studyChecklist">
+                <label class="check-item">
+                    <input type="checkbox" id="chk-dd-simulado" data-key="dd_simulado">
+                    <div class="check-text">
+                        <strong>Simulado de Direito Digital (meta: &gt;= 80%)</strong>
+                        <small>Praticar as 12 questões com embaralhamento ativo e validação imediata.</small>
+                    </div>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" id="chk-dd-pegadinhas" data-key="dd_pegadinhas">
+                    <div class="check-text">
+                        <strong>Revisar Pegadinhas de Direito Digital</strong>
+                        <small>Hash no INPI para RPC, início da PJ no registro civil e obrigações pessoais.</small>
+                    </div>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" id="chk-cl-simulado" data-key="cl_simulado">
+                    <div class="check-text">
+                        <strong>Simulado de Comunicação e Linguagem (meta: &gt;= 80%)</strong>
+                        <small>Acertar os elementos de Jakobson e 7 fatores de textualidade.</small>
+                    </div>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" id="chk-cl-videos" data-key="cl_videos">
+                    <div class="check-text">
+                        <strong>Assistir / Revisar Videoaulas de Comunicação</strong>
+                        <small>Vídeos do YouTube das Unidades 1 a 4 com transcrições de apoio.</small>
+                    </div>
+                </label>
+
+                <label class="check-item">
+                    <input type="checkbox" id="chk-b2-prep" data-key="b2_prep">
+                    <div class="check-text">
+                        <strong>Organizar Materiais do Bloco 2 (12/11)</strong>
+                        <small>Subir questionários de Requisitos e Gerenciamento para a pasta designada.</small>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Reference & Modelos de Semestres Anteriores -->
+        <div class="tool-card">
+            <h4><span>📂</span> Acervo &amp; Modelos de Provas Anteriores</h4>
+            <p class="desc">Acesso rápido aos modelos de simulados aprovados em semestres anteriores e documentação do pipeline.</p>
+
+            <div class="exams-archive-list">
+                <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/REFERENCIA_ROTINA_SIMULADOS.md" class="archive-link-card" target="_blank">
+                    <span class="archive-name">📘 Manual da Rotina de Estudos &amp; Simulados</span>
+                    <span class="resource-badge badge-md">Guia MD</span>
+                </a>
+                <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Modelos%20Provas%20Emuladas%20Anteriores/V16%20-%20simulado%20Experiencia%20empreendedora.html" class="archive-link-card" target="_blank">
+                    <span class="archive-name">🏛️ V16 - Simulado Experiência Empreendedora</span>
+                    <span class="resource-badge">Modelo Base</span>
+                </a>
+                <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Modelos%20Provas%20Emuladas%20Anteriores/v5%20-%20Simulado_metodos_inovadores_em_ti.html" class="archive-link-card" target="_blank">
+                    <span class="archive-name">🏛️ v5 - Simulado Métodos Inovadores em TI</span>
+                    <span class="resource-badge">Arquivo</span>
+                </a>
+                <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Modelos%20Provas%20Emuladas%20Anteriores/v5%20-%20simulado_metodos_estatisticos.html" class="archive-link-card" target="_blank">
+                    <span class="archive-name">🏛️ v5 - Simulado Métodos Estatísticos</span>
+                    <span class="resource-badge">Arquivo</span>
+                </a>
+                <a href="prova_05062026%20-Direito%20%2B%20comunica%C3%A7%C3%A3o/Modelos%20Provas%20Emuladas%20Anteriores/v5-simulado_topicos_especiais.html" class="archive-link-card" target="_blank">
+                    <span class="archive-name">🏛️ v5 - Simulado Tópicos Especiais em ADS</span>
+                    <span class="resource-badge">Arquivo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>🎓 ADS 2026.2 — Painel de Estudos das Provas Presenciais Finais | Rumo à Formatura!</p>
+        <p style="font-size: 0.75rem; color: #475569;">
+            Desenvolvido para revisão estratégica com simulados responsivos e materiais organizados por unidade.
+        </p>
+    </footer>
+
+    <!-- Interactive Logic: Countdowns, Filters, Search & Checklist Persistence -->
+    <script>
+        // Countdowns
+        const targetBloco1 = new Date("2026-11-05T20:00:00-03:00").getTime();
+        const targetBloco2 = new Date("2026-11-12T18:45:00-03:00").getTime();
+
+        function updateCountdowns() {
+            const now = new Date().getTime();
+
+            // Bloco 1
+            const diff1 = targetBloco1 - now;
+            if (diff1 > 0) {
+                const days1 = Math.floor(diff1 / (1000 * 60 * 60 * 24));
+                const hours1 = Math.floor((diff1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins1 = Math.floor((diff1 % (1000 * 60 * 60)) / (1000 * 60));
+                const secs1 = Math.floor((diff1 % (1000 * 60)) / 1000);
+
+                document.getElementById('b1-days').innerText = String(days1).padStart(2, '0');
+                document.getElementById('b1-hours').innerText = String(hours1).padStart(2, '0');
+                document.getElementById('b1-minutes').innerText = String(mins1).padStart(2, '0');
+                document.getElementById('b1-seconds').innerText = String(secs1).padStart(2, '0');
+                document.getElementById('badge-dias-bloco1').innerText = days1 === 0 ? "HOJE!" : `Em ${days1} dias`;
+            } else {
+                document.getElementById('timer-bloco1').innerHTML = '<div style="grid-column: span 4; font-weight:700; color: #10b981; padding: 0.5rem;">🎉 Prova realizada / em andamento!</div>';
+            }
+
+            // Bloco 2
+            const diff2 = targetBloco2 - now;
+            if (diff2 > 0) {
+                const days2 = Math.floor(diff2 / (1000 * 60 * 60 * 24));
+                const hours2 = Math.floor((diff2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins2 = Math.floor((diff2 % (1000 * 60 * 60)) / (1000 * 60));
+                const secs2 = Math.floor((diff2 % (1000 * 60)) / 1000);
+
+                document.getElementById('b2-days').innerText = String(days2).padStart(2, '0');
+                document.getElementById('b2-hours').innerText = String(hours2).padStart(2, '0');
+                document.getElementById('b2-minutes').innerText = String(mins2).padStart(2, '0');
+                document.getElementById('b2-seconds').innerText = String(secs2).padStart(2, '0');
+                document.getElementById('badge-dias-bloco2').innerText = `Em ${days2} dias`;
+            } else {
+                document.getElementById('timer-bloco2').innerHTML = '<div style="grid-column: span 4; font-weight:700; color: #10b981; padding: 0.5rem;">🎉 Prova realizada / em andamento!</div>';
+            }
+        }
+
+        setInterval(updateCountdowns, 1000);
+        updateCountdowns();
+
+        // Filter tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card-discipline');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'flex';
+                    } else if (filter === 'bloco1') {
+                        card.style.display = card.getAttribute('data-block') === 'bloco1' ? 'flex' : 'none';
+                    } else if (filter === 'bloco2') {
+                        card.style.display = card.getAttribute('data-block') === 'bloco2' ? 'flex' : 'none';
+                    } else if (filter === 'simulados') {
+                        card.style.display = card.getAttribute('data-has-simulado') === 'true' ? 'flex' : 'none';
+                    }
+                });
+            });
+        });
+
+        // Search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords') || '';
+                const cardText = card.innerText.toLowerCase();
+                if (!term || keywords.includes(term) || cardText.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Study Checklist with LocalStorage
+        const checkboxes = document.querySelectorAll('#studyChecklist input[type="checkbox"]');
+        const progressFill = document.getElementById('progressFill');
+        const progressPercent = document.getElementById('progressPercent');
+
+        function updateChecklistProgress() {
+            let checkedCount = 0;
+            checkboxes.forEach(chk => {
+                const key = 'ads_study_' + chk.getAttribute('data-key');
+                if (chk.checked) {
+                    checkedCount++;
+                    chk.closest('.check-item').classList.add('done');
+                    localStorage.setItem(key, 'true');
+                } else {
+                    chk.closest('.check-item').classList.remove('done');
+                    localStorage.removeItem(key);
+                }
+            });
+
+            const percent = Math.round((checkedCount / checkboxes.length) * 100);
+            progressFill.style.width = percent + '%';
+            progressPercent.innerText = percent + '%';
+        }
+
+        // Restore saved checklist state
+        checkboxes.forEach(chk => {
+            const key = 'ads_study_' + chk.getAttribute('data-key');
+            if (localStorage.getItem(key) === 'true') {
+                chk.checked = true;
+            }
+            chk.addEventListener('change', updateChecklistProgress);
+        });
+
+        updateChecklistProgress();
+    </script>
+</body>
+</html>

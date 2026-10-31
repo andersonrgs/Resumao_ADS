@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Completo (22 Questões) - Experiência Empreendedora</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; font-size: 2em; }
+        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 30px; font-weight: bold; }
+        .section-title { background-color: #2c3e50; color: #fff; padding: 10px 15px; border-radius: 5px; margin-top: 40px; margin-bottom: 20px; font-size: 1.4em; }
+        .question-container { background-color: #fff; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box; }
+        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; color: #2c3e50; white-space: pre-line; word-break: break-word; }
+        .question-img { max-width: 100%; height: auto; display: block; margin: 15px auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .options { margin-top: 15px; }
+        .options label { display: flex; align-items: flex-start; padding: 12px; margin-bottom: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; box-sizing: border-box; }
+        .options label:hover { background-color: #e9ecef; border-color: #b1bccc; }
+        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
+        .options label span { word-break: break-word; }
+        .letter-prefix { font-weight: bold; margin-right: 5px; color: #2c3e50; flex-shrink: 0; }
+        .btn-submit { display: block; width: 100%; padding: 18px; font-size: 1.2em; font-weight: bold; color: #fff; background-color: #27ae60; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 30px; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
+        .btn-submit:hover { background-color: #219653; }
+        .result-box { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 30px; padding: 30px; border-radius: 8px; display: none; box-sizing: border-box; }
+        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
+        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
+        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
+        .feedback.correct { display: block; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
+
+        @media (max-width: 768px) {
+            .question-container { padding: 15px; }
+            .section-title { font-size: 1.2em; }
+            .btn-submit { padding: 15px; font-size: 1.1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simulado: Experiência Empreendedora</h1>
+    <p class="subtitle">Questionários Consolidados - Mix Completo</p>
+    <div class="shuffle-note">🔄 Pressione F5! As perguntas e alternativas mudam de posição a cada carregamento.</div>
+
+    <form id="quizForm">
+        
+        <h2 class="section-title">Questionário Unidades 1 e 2</h2>
+
+        <div class="question-container" id="q1">
+            <div class="question-text">1. Todo empreendedor, além de conhecer o seu próprio perfil, deve ter ciência da importância em saber avaliar as oportunidades de negócio. Por isso, é necessário ter clareza de que, além da identificação da oportunidade, será necessário entender como se comportam alguns elementos-chave antes do negócio sair do papel.<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir que correspondem a elementos críticos para uma análise de oportunidade de negócio:<br><br>I. Qual mercado se pretende atuar.<br>II. Quais serão as vantagens competitivas do negócio.<br>III. Que retorno econômico o empreendimento irá proporcionar.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q2">
+            <div class="question-text">2. Acerca das práticas e das competências dos empreendedores são propostas três asserções:<br><br>I - O empreendedorismo não é uma característica inata, ou seja, é algo passível de ser desenvolvido ao longo da trajetória profissional.<br>II - O sucesso de um empreendedor é inversamente proporcional à sua capacidade de comunicação interpessoal.<br>III - Na busca pelo sucesso do seu empreendimento, é fundamental que o empreendedor maximize a alocação dos recursos organizacionais e minimize as receitas da empresa.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>III apenas.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>II apenas.</span></label>
+                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q3">
+            <div class="question-text">3. Conforme estudado, um empreendedor, antes de iniciar o seu empreendimento, deve refletir sobre suas competências, o seu planejamento pessoal e o impacto de se tornar um empresário. Após essa etapa, passa a desvendar se a oportunidade de negócio terá mercado em que pretende atuar. Nesse sentido, é necessário que ele verifique qual o potencial de sua ideia. Outro passo é monitorar o mercado, público-alvo e o comportamento dos concorrentes.<br><br>A partir do entendimento de oportunidade e ideia, avalie as afirmações:<br><br>I - A oportunidade deve sempre se ajustar ao mercado em que se pretende atuar.<br>II - Uma ideia pode não ser necessariamente uma oportunidade.<br>III - Um empreendedor, ao utilizar sua habilidade e competência dará forma a uma oportunidade que outros concorrentes não identificaram até o momento.<br><br>Quais estão corretas?</div>
+            <div class="options">
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>III apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>II e III apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q4">
+            <div class="question-text">4. Quando falamos na geração de novas ideias devemos ter em mente que nem toda ideia pode ser considerada. Ter uma ideia que realmente possa ser aplicada no mercado e alcançar o sucesso não é uma tarefa fácil. Pensando nisso, uma dica é o uso de um método muito utilizado pelas empresas para estimular a criatividade na geração de novas ideias.<br><br>Este método é conhecido como:</div>
+            <div class="options">
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Reunião estratégica.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Grupo de geração de ideias.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Encontro de diretores empreendedores.</span></label>
+                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>Brainstorming.</span></label>
+                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Grupo fiscal.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q5">
+            <div class="question-text">5. O papel do empreendedor, tanto na antiguidade quanto na atualidade, mostra-se crucial para a Economia. Assim, economistas como Cantillon, Say e Schumpeter trouxeram as definições a respeito desse agente econômico. Analise as afirmações a seguir:<br><br>I - O empreendedor é aquele que assume riscos quando compra algo por um preço e revende por outro.<br>II - O empreendedor organiza e dirige os fatores de produção com foco nas necessidades humanas, buscando alta produtividade e lucratividade.<br>III - O empreendedor é aquele que introduz novos meios de produção, novos produtos e novas formas de organização.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e III apenas.</span></label>
+                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>II apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q6">
+            <div class="question-text">6. Diversos estudiosos das práticas empreendedoras buscam sugerir caminhos para orientar a atuação dos futuros empreendedores.<br><br>A partir dessas orientações, são agora propostas três asserções:<br><br>I - O empreendedor deve planejar ações pautadas pela ética nos negócios e pela noção de aprendizado contínuo.<br>II - Deve-se buscar o investimento em um segmento em ascensão, apostando fortemente nas tendências e modismos.<br>III - É altamente recomendável que a gestão do negócio seja amplamente delegada a um profissional da contabilidade.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>II apenas.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>III apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>I e III apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <h2 class="section-title">Questionário Unidade 3</h2>
+
+        <div class="question-container" id="q7">
+            <div class="question-text">7. No processo de transformação de uma ideia em um negócio, é importante que os empreendedores analisem o contexto da oportunidade e a situação do setor no qual o eventual novo negócio estará inserido.<br><br>A partir da premissa destacada acima, assinale a única alternativa que apresenta uma situação favorável à concretização de uma oportunidade de negócio:</div>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>Há abundância de mão de obra especializada e um grande número de fornecedores no mercado.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Há a necessidade de investir maciçamente para atender a uma determinada legislação ambiental vigente.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>O investimento em maquinário e matérias-primas, algo necessário para o início da operação, é considerado muito alto.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Há controles governamentais rígidos que desestimulam a inserção no setor pretendido.</span></label>
+                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Há um número considerável de concorrentes bem estabelecidos no setor.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q8">
+            <div class="question-text">8. O termo empreendedorismo social surgiu nos Estados Unidos por volta da década de 1990 e se difundiu entre a comunidade científica, abrangendo vários campos de conhecimento relacionados ao desenvolvimento de empreendimentos na área social. Esse tipo de empreendimento consiste em uma empresa que não prioriza a geração de lucros, mas tem a preocupação de promover respostas a problemas sociais. Assim, pode-se entender esse segmento como iniciativas inovadoras e empreendedoras que priorizam o objetivo de melhorar as causas ambientais, o desenvolvimento e bem-estar social.<br><br>Com base no texto apresentado à luz do empreendedorismo social, avalie as asserções a seguir e a relação proposta entre elas:<br><br>I. Um empreendedor que tem sensibilidade com as causas sociais e é alinhado com os objetivos de desenvolvimento sustentável em nível global, pode desenvolver uma empresa para prestar serviços para prefeituras de uma determinada região e assegurar a rentabilidade do negócio por meio de parcerias público-privadas.<br>PORQUE<br>II. Quando tratamos do terceiro setor, os empreendedores sociais necessitam pensar em produtos e serviços inovadores que possam atender ao desenvolvimento local e social dos territórios em que estão inseridos como o caso da economia solidária, que gera oportunidades de trabalho e renda nas cidades carentes.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:</div>
+            <div class="options">
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira e a segunda, uma proposição falsa.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras e a segunda é uma justificativa correta da primeira.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
+                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa e a segunda, uma proposição verdadeira.</span></label>
+                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q9">
+            <div class="question-text">9. Na atual conjuntura brasileira, apresenta-se um cenário de crise e queda significativa no número de empregos formais, isso tem levado várias pessoas a abrirem seu próprio negócio. Assim o volume de empreendedores, especialmente do gênero feminino, tem crescido nos últimos anos (GEM, 2016). Nessa conjuntura o Brasil experimentou nas últimas décadas do século XX importantes transformações demográficas e sociais, como declínio da taxa de fecundidade, principalmente nas cidades e nas regiões mais desenvolvidas do país; diminuição no tamanho das famílias; envelhecimento da população brasileira e avanço do número de famílias chefiadas por mulheres - tais mudanças provocaram impactos no trabalho feminino. Além disso, a nova ordem econômica, revelada pela globalização com constantes modificações no ambiente externo e características como a flexibilização e a precarização do mundo do trabalho propiciam a incursão das pessoas em outros ramos produtivos em razão da não absorção da mão de obra.<br><br>Com base no texto acima e nos estudos sobre empreendedorismo feminino, é correto afirmar que o empreendedorismo feminino:</div>
+            <div class="options">
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>é uma prática mundial muito recente, alavancada principalmente pela crise de pandemia de covid-19.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>ainda sofre resistências dos mercados emergentes, aparecendo com maior força nos mercados das periferias dos centros urbanos.</span></label>
+                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>emerge na sociedade como uma resposta aos processos de exclusão do mundo do trabalho e autonomia feminina na sociedade.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>centra-se de forma estável e conservadora em alguns segmentos de negócios em detrimento de outros segmentos considerados masculinos.</span></label>
+                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>admite e é constituído por sócios masculinos, com a finalidade de equilibrar os custos e as práticas empreendedoras.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q10">
+            <div class="question-text">10. Projetos de empreendedorismo social impactaram positivamente 622 milhões de pessoas ao redor do mundo, o dado faz parte do novo relatório da Fundação Schwab, plataforma global que promove e apoia modelos inovadores nessa área. O documento foi divulgado no Fórum Econômico Mundial em Davos, na Suíça - evento começou na última terça, dia 21, e vai até sexta, dia 24 - e traz uma análise do trabalho que grupos ligados à Fundação realizaram em 190 países nos últimos 20 anos.<br><br>Em linha com a passagem acima, entende-se que, no âmbito do empreendedorismo social, os resultados organizacionais são medidos de acordo com o impacto do empreendimento na sociedade. Além disso, podemos afirmar que o empreendedorismo social caracteriza-se:</div>
+            <div class="options">
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Pela neutralização das ações das competidoras diretas.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Pela busca de lucro no nível operacional e tático da organização.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Pelo aumento do nível de competitividade na organização no seu setor de atuação.</span></label>
+                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>Pela busca da melhora da qualidade de vida da sociedade na qual a organização está inserida.</span></label>
+                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Pela transição de uma nova operação no chamado Segundo setor.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q11">
+            <div class="question-text">11. A economia verde é caracterizada por uma mudança de comportamento tanto dos consumidores como das empresas, visando à preservação do meio ambiente. Entre as empresas, destaca-se o conceito de empreendedorismo verde, caracterizado principalmente pela responsabilidade ambiental empresarial. Nesse modelo de gestão, as organizações se concentram em realizar ações, geralmente inovadoras, que introduzam melhorias em prol da conservação ambiental e do desenvolvimento sustentável da humanidade.<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir.<br><br>I. O empreendedorismo verde segue os princípios organizacionais de eficiência e eficácia, objetivando a geração de lucros dos acionistas da empresa e a competitividade frente aos concorrentes.<br>II. O empreendedorismo verde desenvolve processos, produtos e serviços que não agridem o meio ambiente, bem como práticas que possam reduzir os impactos ambientais no planeta.<br>III. O empreendedorismo verde centra seus esforços na busca por ações inovadoras nas empresas, as quais podem permitir o desenvolvimento sustentável do planeta.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e III apenas.</span></label>
+                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>II apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>II e III apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q12">
+            <div class="question-text">12. Criar um novo negócio por si só, já é um grande desafio. Pensar e realizar o negócio com a preocupação de reduzir as discrepâncias sociais e ambientais deixadas pelos precursores do progresso é ainda mais desafiador, principalmente porque exige criatividade e inovação na busca de soluções comuns.<br><br>Considerando o exposto, analise as afirmações abaixo:<br><br>I - O ecoempreendedorismo trabalha para atender a demanda por produtos e serviços que preservem os recursos naturais, protegendo as espécies (animais), os habitats (florestas e rios) e tudo que envolve a natureza, e o bem-estar de todos os seres vivos do planeta.<br>II - O ecoempreendedor deve exercer suas funções opondo-se à economia predatória sobre os recursos naturais e posicionando-se contrariamente aos recursos prejudiciais às gerações futuras que são utilizados atualmente pelo mercado produtivo.<br>III - Uma organização, ao direcionar seus recursos para ações sociais, está a investir em sustentabilidade socioambiental, consequentemente, acaba por reduzir sua competitividade.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>III apenas.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>II e III apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <h2 class="section-title">Questionário Geral</h2>
+
+        <div class="question-container" id="q13">
+            <div class="question-text">13. O empreendedorismo verde trabalha para atender a demanda por produtos e serviços que preservem os recursos naturais, protegendo as espécies (animais), os habitats (florestas e rios) e tudo que envolve a natureza e o bem-estar de todos os seres vivos do planeta.<br><br>Com base nesse conceito, assinale a alternativa que apresenta uma iniciativa de ecoempreendedorismo:</div>
+            <div class="options">
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Uma empresa de fast fashion que lança coleções semanais com base em tendências sazonais, priorizando baixo custo e alta rotatividade.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Um aplicativo de entrega de alimentos que incentiva embalagens plásticas descartáveis para garantir agilidade na logística e redução de custo.</span></label>
+                <label data-correct="true"><input type="radio" name="q13"><span class="letter-prefix"></span><span>Uma startup que fabrica móveis a partir de madeira reciclada e adota logística reversa, permitindo que clientes devolvam peças antigas para reaproveitamento.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Uma indústria de cosméticos que aumenta sua produção anual para acompanhar tendências de exportação.</span></label>
+                <label><input type="radio" name="q13"><span class="letter-prefix"></span><span>Um marketplace que vende eletrônicos importados, destacando o preço competitivo como diferencial.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q14">
+            <div class="question-text">14. A principal diferença entre o empreendedor social e o empreendedor de negócios é a missão de gerar e agregar valor social, sendo que a riqueza buscada pelo empreendedor social é a felicidade das pessoas que terão suas vidas transformadas por conta de suas iniciativas.<br><br>
+            <img src="img14.jpg" alt="Figura 3.12 - Compreendendo o empreendedor social" class="question-img">
+            <br>Analise as seguintes asserções sobre empreendedorismo social:<br><br>I. O empreendedor social busca equilibrar impacto social positivo e sustentabilidade financeira, criando soluções que beneficiem comunidades de forma contínua.<br>II. O empreendedorismo social tem foco nas causas sociais e ambientais do seu entorno em detrimento da gestão estratégica.<br>III. Projetos de empreendedorismo social podem gerar receita e até lucro, desde que reinvistam parte desse resultado no próprio negócio para ampliar o impacto.<br><br>A partir da análise, é correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q14"><span class="letter-prefix"></span><span>I e III, apenas.</span></label>
+                <label><input type="radio" name="q14"><span class="letter-prefix"></span><span>II, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q15">
+            <div class="question-text">15. O termo empreendedorismo tem sido amplamente utilizado no contexto econômico e social contemporâneo, sendo relacionado à inovação, à criação de valor e à capacidade de identificar e explorar oportunidades. Diversas abordagens acadêmicas e práticas apontam que o empreendedor vai além de simplesmente abrir um negócio: ele é um agente de transformação.<br><br>Com base nesse contexto, assinale a alternativa que melhor define o conceito de empreendedorismo:</div>
+            <div class="options">
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>O ato de investir em ações de empresas consolidadas, assumindo riscos financeiros com a intenção de retorno no mercado de capitais.</span></label>
+                <label data-correct="true"><input type="radio" name="q15"><span class="letter-prefix"></span><span>A habilidade de identificar oportunidades, inovar, assumir riscos calculados e criar valor económico, social ou ambiental por meio da implementação de ideias.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>A capacidade de gerenciar grandes empresas e manter a estabilidade organizacional a longo prazo focando na execução de tarefas rotineiras.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>A execução de funções operacionais dentro de uma empresa já existente, com foco na eficiência e no cumprimento de metas definidas pela liderança.</span></label>
+                <label><input type="radio" name="q15"><span class="letter-prefix"></span><span>A prática de abrir um novo negócio com o objetivo de obter lucro financeiro, sem considerar fatores sociais ou ambientais.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q16">
+            <div class="question-text">16. Segundo Dornelas (2018) o movimento de empreendedorismo no Brasil iniciou na década de 1990, quando entidades como o Serviço Brasileiro de Apoio às Micro e Pequenas Empresas (Sebrae) e a Sociedade Brasileira para Exportação de Software (Softex) foram criadas.<br><br>Diante deste cenário, observe as seguintes afirmações sobre o crescimento do empreendedorismo no Brasil:<br><br>I - São criados programas de apoio à criação de novos negócios com recursos entidades governamentais, tais como FINEP, CNPq, BNDES e fundações de amparo à pesquisa.<br>II - A Lei da Inovação, a Lei Geral das Micro e Pequenas Empresas e o Programa Empreendedor Individual ganha força no cenário nacional.<br>III - O programa Brasil Empreendedor, criado pelo Governo Federal, em 2002, que foi se aprimorando e ganhando outras nomenclaturas.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>I e III apenas.</span></label>
+                <label><input type="radio" name="q16"><span class="letter-prefix"></span><span>II e III apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q16"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q17">
+            <div class="question-text">17. Segundo Maximiano (2011, p. 28), a avaliação de uma nova oportunidade de negócio envolve cinco etapas fundamentais:<br>(1) Identificação da oportunidade.<br>(2) Avaliação da atratividade.<br>(3) Análise dos recursos necessários.<br>(4) Desenvolvimento do conceito do negócio e<br>(5) Implementação da ideia.<br><br>Essas etapas auxiliam o empreendedor a tomar decisões mais fundamentadas, reduzindo riscos e aumentando a viabilidade de sucesso.<br><br>Um exemplo de aplicação prática ocorreu com a startup brasileira Nubank, que ao identificar a insatisfação dos consumidores com bancos tradicionais, avaliou o potencial de mercado, analisou os recursos tecnológicos e regulatórios necessários, desenvolveu o conceito de um banco 100% digital e sem tarifas, e implementou sua solução de forma escalável.<br><br>Com base nesse exemplo e no modelo teórico de Maximiano (2011), assinale a alternativa que representa corretamente a etapa denominada Análise dos recursos necessários:</div>
+            <div class="options">
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Momento em que a startup se baseia na percepção dos fundadores para implementar mudanças.</span></label>
+                <label data-correct="true"><input type="radio" name="q17"><span class="letter-prefix"></span><span>Momento em que a startup verifica se possui a tecnologia e a equipe adequadas para desenvolver um banco digital viável.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Momento em que a startup foca na execução ágil da ideia, já que inovação supera planejamento no contexto digital.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Momento em que a startup mantém a ideia original do negócio para garantir sucesso e implementação rápida.</span></label>
+                <label><input type="radio" name="q17"><span class="letter-prefix"></span><span>Momento em que a startup identifica a oportunidade e obtém os primeiros feedbacks dos clientes.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q18">
+            <div class="question-text">18. O processo empreendedor é o conjunto de etapas que um indivíduo percorre desde a identificação de uma oportunidade até a consolidação de um negócio. Ele envolve planejamento, análise de viabilidade, mobilização de recursos e implementação de estratégias para transformar uma ideia em uma realidade lucrativa e sustentável.<br><br>A partir do conceito, observe as seguintes asserções:<br><br>I - Experiência no ramo como diferencial<br>II - Avaliação de Oportunidades e Análise Econômica<br>III - Gestão da cultura e clima organizacional<br><br>Sobre as etapas do processo empreendedor é correto afirmar o que se encontra em:</div>
+            <div class="options">
+                <label data-correct="true"><input type="radio" name="q18"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+                <label><input type="radio" name="q18"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q19">
+            <div class="question-text">19. Segundo Dornelas (2016) o desenvolvimento de um plano de negócios segue uma sequência lógica, iniciando-se pela identificação e análise da oportunidade, passando pela avaliação do mercado, do público-alvo e da concorrência. A partir dessa base, o empreendedor estrutura o plano de forma sistemática e estratégica, com o objetivo de avaliar a viabilidade do empreendimento e guiar sua implementação com mais segurança.<br><br>Considerando essa abordagem, assinale a alternativa que apresenta corretamente a sequência lógica para o desenvolvimento de um plano de negócios:</div>
+            <div class="options">
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Definição do público-alvo - elaboração da estratégia de marketing - análise da viabilidade econômica - estudo da concorrência - redação final do plano.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Projeção de receitas - definição da ideia central do negócio - estudo de mercado - estruturação de recursos humanos - redação final e divulgação do plano.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Análise de concorrência - projeção de custos - definição da missão empresarial - planejamento de ações sociais - redação do plano.</span></label>
+                <label data-correct="true"><input type="radio" name="q19"><span class="letter-prefix"></span><span>Análise da oportunidade - análise do mercado e público-alvo - definição do modelo de negócio - estruturação financeira - análise de viabilidade - revisão e fechamento do plano.</span></label>
+                <label><input type="radio" name="q19"><span class="letter-prefix"></span><span>Identificação da oportunidade - criação dos demonstrativos financeiros - análise de mercado - definição do modelo de negócio - revisão final do plano.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q20">
+            <div class="question-text">20. Dornelas (2018, p. 49) afirma que uma ideia isolada não tem valor se não for transformada em algo viável voltado para um público-alvo pertencente a um nicho de mercado mal explorado. O autor destaca que mesmo ideias aparentemente revolucionárias só se tornam negócios de sucesso quando o empreendedor conhece o mercado em que irá atuar.<br><br>Com base nesse conceito, analise as alternativas a seguir e assinale aquela que representa a transformação de uma ideia em uma verdadeira oportunidade de negócio:</div>
+            <div class="options">
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Um grupo de amigos criou um aplicativo de mensagens com foco em adolescentes, acreditando no apelo visual da ideia.</span></label>
+                <label data-correct="true"><input type="radio" name="q20"><span class="letter-prefix"></span><span>Um empreendedor observou que pequenos produtores de alimentos artesanais tinham dificuldades de vender online e criou uma plataforma de e-commerce nichada, testando a viabilidade do modelo com feiras e cooperativas locais.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Uma startup lançou um aplicativo para aluguel de roupas de luxo, reforçando o uso de peças compartilhadas, e teve baixa adesão após o lançamento.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Um designer desenvolveu uma mochila com energia solar, apostando que o conceito tecnológico será o gerador de vendas.</span></label>
+                <label><input type="radio" name="q20"><span class="letter-prefix"></span><span>Um empreendedor brasileiro lançou uma cafeteria com serviço de autoatendimento digital em uma cidade do interior do Estado com base em experiência pessoal no exterior.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q21">
+            <div class="question-text">21. O planejamento organizacional é fundamental para alinhar objetivos, otimizar recursos e orientar ações estratégicas, garantindo que a organização se antecipe a desafios e atue de forma eficiente e sustentável. Em um contexto de mudança isso se torna essencial.<br><br>A partir da importância do planejamento no mundo dos negócios, observe as alternativas sobre o conceito de Plano de Negócios:<br><br>I - O plano de negócios é um documento utilizado para planejar um empreendimento ou uma unidade de negócios.<br>II - O plano de negócios ajudará a empresa a dar direcionamento às suas estratégias e com os dados obtidos ao longo da escrita e de seu desenvolvimento, é possível estimar se a empresa dará lucro ou prejuízo.<br>III - O plano de negócios deve ser elaborado quando a empresa estiver consolidada e servir de exemplo na organização de filiais.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>I apenas.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>II apenas.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>III apenas.</span></label>
+                <label data-correct="true"><input type="radio" name="q21"><span class="letter-prefix"></span><span>I e II apenas.</span></label>
+                <label><input type="radio" name="q21"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-container" id="q22">
+            <div class="question-text">22. O economista Joseph Schumpeter cunhou o termo destruição criativa para descrever o processo pelo qual inovações rompem com modelos antigos, gerando novas oportunidades e tornando obsoletas estruturas anteriores. A indústria musical oferece um exemplo claro desse conceito: a transição do vinil para o CD, do CD para o MP3, e, posteriormente, para os serviços de streaming, como Spotify e Apple Music.<br><br>Essas transformações foram impulsionadas por empreendedores que perceberam novas formas de consumo e modelos de negócio, redefinindo o mercado e o comportamento dos consumidores.<br><br>
+            <img src="img22.jpg" alt="Processo de destruição criadora da música" class="question-img">
+            <br>Com base nesse contexto, assinale a alternativa que relaciona o conceito de destruição criativa na música e o empreendedorismo:</div>
+            <div class="options">
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>A evolução da música por meio da destruição criativa demonstra que o mercado rejeita inovações tecnológicas, optando sempre por formatos antigos.</span></label>
+                <label data-correct="true"><input type="radio" name="q22"><span class="letter-prefix"></span><span>A destruição criativa na música exemplifica como empreendedores inovam ao identificar novas demandas, substituindo modelos antigos por soluções mais eficientes e acessíveis.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>O impacto da destruição criativa na música mostra que as grandes empresas têm capacidade de inovar, sendo os pequenos empreendedores irrelevantes nesse processo.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>A destruição criativa é um obstáculo ao empreendedorismo, pois impede a estabilidade dos modelos de negócio já consolidados na indústria musical.</span></label>
+                <label><input type="radio" name="q22"><span class="letter-prefix"></span><span>O empreendedorismo musical baseia-se na preservação de formatos clássicos e tradicionais, resistindo às mudanças tecnológicas.</span></label>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar Simulado Completo (22 Questões)</button>
+        
+        <div id="resultado" class="result-box"></div>
+    </form>
+
+    <script>
+        (function() {
+            const form = document.getElementById('quizForm');
+            const submitBtn = document.querySelector('.btn-submit');
+            
+            // 1. Oculta os <h2> pois as categorias (Unidade 1, 2, etc.) perdem o sentido após embaralhar
+            const headers = document.querySelectorAll('.section-title');
+            headers.forEach(h2 => h2.style.display = 'none');
+
+            // 2. Coleta e embaralha os contêineres das questões
+            const questions = Array.from(document.querySelectorAll('.question-container'));
+            for (let i = questions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [questions[i], questions[j]] = [questions[j], questions[i]];
+            }
+
+            // 3. Atualiza os IDs, Names, Numeração e reinsere no DOM
+            questions.forEach((q, index) => {
+                const newNum = index + 1;
+                const newId = 'q' + newNum;
+
+                // Atualiza o ID da div para q1, q2, q3...
+                q.id = newId;
+
+                // Atualiza o name dos inputs e os desmarca
+                const radios = q.querySelectorAll('input[type="radio"]');
+                radios.forEach(radio => {
+                    radio.name = newId;
+                    radio.checked = false;
+                });
+
+                // Atualiza o número visível da pergunta mantendo as imagens e o resto do texto
+                const qText = q.querySelector('.question-text');
+                if (qText) {
+                    qText.innerHTML = qText.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+                }
+
+                // Move a div para o final do form, mas antes do botão de confirmar
+                form.insertBefore(q, submitBtn);
+
+                // 4. Embaralha as alternativas (A, B, C, D, E) DENTRO da questão
+                const optionsDiv = q.querySelector('.options');
+                if (optionsDiv) {
+                    const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                    const letters = ['A', 'B', 'C', 'D', 'E'];
+
+                    // Mistura as labels
+                    for (let i = labels.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [labels[i], labels[j]] = [labels[j], labels[i]];
+                    }
+
+                    // Limpa a div original e insere na nova ordem com as letras atualizadas
+                    optionsDiv.innerHTML = '';
+                    labels.forEach((label, idx) => {
+                        const prefix = label.querySelector('.letter-prefix');
+                        if (prefix) prefix.innerText = letters[idx] + ') ';
+                        
+                        const input = label.querySelector('input');
+                        if (input) input.value = letters[idx];
+
+                        optionsDiv.appendChild(label);
+                    });
+                }
+            });
+        })();
+
+        // A função de corrigir continua a mesma, baseada no ID correto de cada questão
+        function calcularNota() {
+            const totalQuestoes = 22;
+            let acertos = 0;
+
+            // Resetar estilos de feedback anteriores
+            document.querySelectorAll('.options label').forEach(lbl => {
+                lbl.classList.remove('correct-answer', 'wrong-answer');
+            });
+            document.querySelectorAll('.feedback').forEach(fb => {
+                fb.classList.remove('correct', 'incorrect');
+                fb.style.display = 'none';
+                fb.innerHTML = '';
+            });
+
+            // Loop pelas questões na ordem que ficaram na tela
+            for (let i = 1; i <= totalQuestoes; i++) {
+                const questionName = 'q' + i;
+                const options = document.getElementsByName(questionName);
+                let respondeu = false;
+                
+                // Encontrar o contêiner de feedback correto baseando-se no novo ID gerado
+                const feedbackDiv = document.querySelector(`#${questionName} .feedback`);
+
+                for (const option of options) {
+                    const label = option.closest('label');
+                    const isCorrect = label.getAttribute('data-correct') === 'true';
+
+                    if (option.checked) {
+                        respondeu = true;
+                        if (isCorrect) {
+                            acertos++;
+                            label.classList.add('correct-answer');
+                            if(feedbackDiv) {
+                                feedbackDiv.innerHTML = '✔ Resposta Correta!';
+                                feedbackDiv.classList.add('correct');
+                            }
+                        } else {
+                            label.classList.add('wrong-answer');
+                            
+                            const correctLabel = label.parentElement.querySelector('label[data-correct="true"]');
+                            const correctLetter = correctLabel ? correctLabel.querySelector('input').value : '?';
+                            
+                            if(feedbackDiv) {
+                                feedbackDiv.innerHTML = `✖ Resposta Incorreta. A alternativa correta é a ${correctLetter}.`;
+                                feedbackDiv.classList.add('incorrect');
+                            }
+                        }
+                    }
+                    
+                    if (isCorrect && !label.classList.contains('correct-answer')) {
+                         label.classList.add('correct-answer');
+                    }
+                }
+
+                if (!respondeu && feedbackDiv) {
+                     feedbackDiv.innerHTML = '⚠ Questão não respondida.';
+                     feedbackDiv.classList.add('incorrect');
+                     feedbackDiv.style.display = 'block';
+                }
+                if (respondeu && feedbackDiv) {
+                    feedbackDiv.style.display = 'block';
+                }
+            }
+
+            const resultBox = document.getElementById('resultado');
+            resultBox.style.display = 'block';
+            
+            let aproveitamento = ((acertos / totalQuestoes) * 100).toFixed(0);
+            resultBox.innerHTML = `Você acertou ${acertos} de ${totalQuestoes} questões!<br><span style="font-size: 0.8em; color: #7f8c8d; font-weight: normal;">Aproveitamento: ${aproveitamento}%</span>`;
+
+            if (acertos >= 14) {
+                resultBox.className = 'result-box pass';
+            } else {
+                resultBox.className = 'result-box fail';
+            }
+
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
