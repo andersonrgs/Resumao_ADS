@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos de Software — Resumo Executivo e Tópicos de Prova — Resumo ADS 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --border-subtle: #1f2937;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --accent: #8b5cf6;
+            --accent-light: rgba(139, 92, 246, 0.15);
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.15);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.15);
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background-color: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-brand .badge {
+            background: var(--primary-light);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--surface-elevated);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, rgba(31, 41, 55, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-pill {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-pill.highlight {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .page-header h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #f9fafb;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 750px;
+        }
+
+        .content {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            margin-bottom: 1.15rem;
+            color: #d1d5db;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .content strong {
+            color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.925rem;
+            background: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .content th {
+            background: #1e293b;
+            color: #93c5fd;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .content td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+            vertical-align: top;
+        }
+
+        .content tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .content tr:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .content blockquote {
+            background: rgba(31, 41, 55, 0.5);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #e5e7eb;
+        }
+
+        .alert-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .alert-important {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+        }
+
+        .alert-tip {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .alert-note {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #93c5fd;
+        }
+
+        .mermaid {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin: 1.75rem 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f472b6;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .page-header {
+                padding: 1.5rem 1.25rem;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html" class="nav-brand">
+            <span>← ADS 2026.2</span>
+            <span class="badge">Portal de Estudos</span>
+        </a>
+        <div class="nav-actions">
+            <a href="simulado_requisitos_de_software_U1-U4.html" class="btn btn-primary">🎯 Fazer Simulado</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Início</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <div class="meta-pills">
+                <span class="meta-pill highlight">📅 Prova: 12/11/2026</span>
+                <span class="meta-pill">📍 Sala 607 - Prédio 15</span>
+                <span class="meta-pill">⏰ 18h45 às 19h00</span>
+                <span class="meta-pill">💡 Unidades 1 a 4</span>
+            </div>
+            <h1>Requisitos de Software — Resumo Executivo e Tópicos de Prova</h1>
+            <p>Síntese das Unidades 1 a 4, ISO/IEC/IEEE 29148 e 12207, FURPS+, Elicitação, User Stories INVEST, Verificação vs. Validação e Baseline.</p>
+        </header>
+
+        <article class="content">
+            <h1>📚 Resumo Executivo e Tópicos de Prova — Requisitos de Software (Unidades 1 a 4)</h1>
+<p><strong>Disciplina:</strong> Requisitos de Software (Unilasalle EAD)<br />
+<strong>Data da Prova Presencial (Bloco 2):</strong> 12/11/2026 (18h45 às 19h00 — Sala 607, Prédio 15)<br />
+<strong>Validação:</strong> Baseado integralmente nos 4 e-books oficiais da disciplina e nas 12 questões dos questionários oficiais comentados.</p>
+<hr />
+<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
+<div class="mermaid">
+flowchart LR
+    RS["⚙️ REQUISITOS DE SOFTWARE"]
+
+    RS --> U1["📌 UNIDADE 1: Fundamentos & Especificação"]
+    RS --> U2["📌 UNIDADE 2: Elicitação & Modelagem"]
+    RS --> U3["📌 UNIDADE 3: Verificação & Validação"]
+    RS --> U4["📌 UNIDADE 4: Gerenciamento & Rastreabilidade"]
+
+    U1 --> U1A["ISO/IEC/IEEE 29148: Características de Bom Requisito"]
+    U1 --> U1B["Mensurável, Verificável e sem Ambiguidade"]
+    U1 --> U1C["O Que vs. Como (Não especificar solução técnica)"]
+    U1 --> U1D["Requisitos Funcionais vs. Não-Funcionais (FURPS+)"]
+
+    U2 --> U2A["Técnicas de Elicitação: Entrevistas, Questionários, JAD, Etnografia"]
+    U2 --> U2B["Casos de Uso UML: Atores, Cenários e Relações Include/Extend"]
+    U2 --> U2C["User Stories Ágeis (Como um... Quero... Para que...)"]
+    U2 --> U2D["Critérios INVEST e Critérios de Aceitação"]
+
+    U3 --> U3A["ISO/IEC/IEEE 12207: Diferença Verificação x Validação"]
+    U3 --> U3B["Verificação: 'Construindo o produto corretamente?' (Conformidade)"]
+    U3 --> U3C["Validação: 'Construindo o produto correto?' (Necessidade do Cliente)"]
+    U3 --> U3D["Testes desenvolvidos concomitantemente aos requisitos"]
+    U3 --> U3E["Gerenciamento de Resultados e Aceite Formal"]
+
+    U4 --> U4A["Baseline de Requisitos (Acordo formal entre devs e stakeholders)"]
+    U4 --> U4B["Desenvolvimento de Requisitos vs. Gerenciamento de Requisitos"]
+    U4 --> U4C["6 Causas de Mudança (Mercado, Gestão, Usuários, Leis, Processos, Lições)"]
+    U4 --> U4D["Matriz de Rastreabilidade Bidirecional e Comitê de Mudanças (CCB)"]
+</div>
+
+<hr />
+<h2>📌 UNIDADE 1 — Fundamentos da Engenharia de Requisitos</h2>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Norma ISO/IEC/IEEE 29148 (2018) — Requisito Bem Especificado (Questões 1, 2 e 5 do Questionário):**</div></div>
+<blockquote>
+<ol>
+<li>Um requisito de software deve definir <strong>O QUÊ</strong> o sistema deve fazer, e <strong>NUNCA COMO</strong> a solução técnica será implementada (linguagem, banco de dados ou detalhes de arquitetura pertencem ao design).</li>
+<li>Deve ser <strong>mensurável</strong> (com condições quantificáveis claras) e <strong>verificável</strong> (deve existir um método prático de teste ou demonstração para provar que foi atendido).</li>
+<li>Deve ser <strong>não ambíguo</strong> (ter apenas uma interpretação possível tanto pela equipe técnica quanto pelos usuários).</li>
+<li>Deve atender a uma necessidade real de um <strong>stakeholder</strong> específico.</li>
+</ol>
+</blockquote>
+<h3>1.1 Classificação dos Requisitos (Modelo FURPS+)</h3>
+<ul>
+<li><strong>Requisitos Funcionais (F):</strong> Ações, comportamentos, cálculos, regras de negócio e serviços que o sistema deve executar diretamente.</li>
+<li><strong>Requisitos Não-Funcionais (URPS):</strong></li>
+<li><strong>Usability (Usabilidade):</strong> Facilidade de aprendizado, ergonomia, estética da interface.</li>
+<li><strong>Reliability (Confiabilidade):</strong> MTBF (tempo médio entre falhas), disponibilidade (99,9%), segurança contra falhas.</li>
+<li><strong>Performance (Desempenho):</strong> Tempo de resposta de transações, vazão, uso de memória/CPU.</li>
+<li><strong>Supportability (Suportabilidade):</strong> Facilidade de manutenção, portabilidade, testabilidade e extensibilidade.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 2 — Elicitação e Modelagem de Requisitos</h2>
+<h3>2.1 Técnicas de Elicitação</h3>
+<ul>
+<li><strong>Entrevistas (Abertas ou Estruturadas):</strong> Diálogo direto com os stakeholders; excelente para aprofundar problemas complexos.</li>
+<li><strong>Questionários:</strong> Ideais quando os usuários estão dispersos geograficamente ou quando se busca dados estatísticos com amostras grandes.</li>
+<li><strong>JAD (Joint Application Design):</strong> Workshops colaborativos e estruturados reunindo usuários, analistas e desenvolvedores.</li>
+<li><strong>Observação Direta / Etnografia:</strong> O analista observa o usuário em seu ambiente real de trabalho para descobrir requisitos tácitos e reais.</li>
+<li><strong>Prototipação:</strong> Criação de telas e simulações de fluxo para obter validação precoce do usuário.</li>
+</ul>
+<h3>2.2 Modelagem de Requisitos</h3>
+<ul>
+<li><strong>Casos de Uso (UML):</strong> Representam as interações entre <strong>Atores</strong> (usuários ou sistemas externos) e o sistema.</li>
+<li><em>Include:</em> Inclusão obrigatória de um subcomportamento (ex.: Validar Login no caso de uso Realizar Transferência).</li>
+<li><em>Extend:</em> Extensão condicional / opcional de um comportamento em ponto específico.</li>
+<li><strong>User Stories (Histórias de Usuário):</strong> Sintéticas e centradas no valor de negócio:</li>
+<li>Formato: <em>"Como [tipo de usuário], eu quero [funcionalidade] para que [benefício/valor]."</em></li>
+<li><strong>Critérios INVEST:</strong> <strong>I</strong>ndependente, <strong>N</strong>egociável, <strong>V</strong>aliosa, <strong>E</strong>stimável, <strong>S</strong>mall (pequena) e <strong>T</strong>estável.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 3 — Verificação e Validação de Requisitos</h2>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinha Clássica de Prova (Questão 6 do Questionário):**</div></div>
+<blockquote>
+<ul>
+<li><strong>Verificação (ISO/IEC/IEEE 12207):</strong> Confirmação, por meio de evidência objetiva, de que os requisitos especificados foram atendidos. Pergunta-chave: <em>"Estamos construindo o produto corretamente?"</em> (Foco na conformidade com o documento/normas).</li>
+<li><strong>Validação (ISO/IEC/IEEE 12207):</strong> Confirmação de que os requisitos para um uso ou aplicação pretendida específica foram atendidos. Pergunta-chave: <em>"Estamos construindo o produto correto?"</em> (Foco na real necessidade e satisfação do cliente).</li>
+</ul>
+</blockquote>
+<h3>3.1 Testes Concomitantes aos Requisitos (Questão 5)</h3>
+<ul>
+<li>O grande benefício de desenvolver casos de teste <strong>concomitantemente à especificação de requisitos</strong> (ou logo após) é que os testes funcionam como uma ferramenta de <strong>revisão e validação precoce</strong>, permitindo identificar ambiguidades, incompletudes e contradições antes de qualquer linha de código ser escrita.</li>
+</ul>
+<h3>3.2 Gerenciamento dos Resultados da Validação (Questão 1)</h3>
+<ul>
+<li>Ao concluir a validação, se o produto estiver conforme, formaliza-se o <strong>aceite</strong>.</li>
+<li>Se houver divergências ou defeitos, os resultados devem ser documentados e gerenciados para garantir o retrabalho corretivo e a reavaliação.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 4 — Gerenciamento e Rastreabilidade de Requisitos</h2>
+<h3>4.1 Baseline de Requisitos (Questão 2)</h3>
+<ul>
+<li>Uma <strong>Baseline</strong> é uma versão estável e formalmente acordada de um conjunto de requisitos.</li>
+<li>A partir do momento em que a baseline é estabelecida, nenhuma alteração pode ser realizada de forma informal ou direta; qualquer mudança passa obrigatoriamente pelo fluxo formal de <strong>Controle de Mudanças (CCB - Change Control Board)</strong>.</li>
+</ul>
+<h3>4.2 Desenvolvimento vs. Gerenciamento de Requisitos (Questão 3)</h3>
+<p>A Engenharia de Requisitos é dividida em dois grandes grupos:
+1. <strong>Desenvolvimento de Requisitos:</strong> Elicitação, Análise, Especificação e Validação (fase de criação e descoberta).
+2. <strong>Gerenciamento de Requisitos:</strong> Controle de versão, controle de mudanças, rastreabilidade e monitoramento do status dos requisitos (fase de manutenção e governança durante todo o ciclo de vida).</p>
+<h3>4.3 Causas de Solicitações de Mudança (Questão 4)</h3>
+<p>As 6 causas fundamentais de mudanças de requisitos:
+1. Mudanças no ambiente operacional de mercado.
+2. <strong>Decisões estratégicas ou operacionais da gerência da organização.</strong>
+3. Requisitos esquecidos ou novos desejos dos usuários finais.
+4. Novas leis, regulamentações ou atos governamentais.
+5. Melhoria de processos organizacionais.
+6. Lições aprendidas e anomalias de projetos anteriores.</p>
+        </article>
+    </main>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Plus Jakarta Sans',
+                primaryColor: '#1e3a8a',
+                primaryBorderColor: '#3b82f6',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#60a5fa'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Projetos — Resumo Executivo e Tópicos de Prova — Resumo ADS 2026.2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --surface: #111827;
+            --surface-elevated: #1f2937;
+            --border: #374151;
+            --border-subtle: #1f2937;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --accent: #8b5cf6;
+            --accent-light: rgba(139, 92, 246, 0.15);
+            --success: #10b981;
+            --success-light: rgba(16, 185, 129, 0.15);
+            --warning: #f59e0b;
+            --warning-light: rgba(245, 158, 11, 0.15);
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background-color: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-brand .badge {
+            background: var(--primary-light);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--surface-elevated);
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, rgba(31, 41, 55, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-pill {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .meta-pill.highlight {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .page-header h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #f9fafb;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 750px;
+        }
+
+        .content {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            margin-bottom: 1.15rem;
+            color: #d1d5db;
+        }
+
+        .content ul, .content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .content strong {
+            color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 2rem;
+            font-size: 0.925rem;
+            background: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .content th {
+            background: #1e293b;
+            color: #93c5fd;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .content td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+            vertical-align: top;
+        }
+
+        .content tr:nth-child(even) {
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .content tr:hover {
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .content blockquote {
+            background: rgba(31, 41, 55, 0.5);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            color: #e5e7eb;
+        }
+
+        .alert-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .alert-important {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #fca5a5;
+        }
+
+        .alert-tip {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .alert-note {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #93c5fd;
+        }
+
+        .mermaid {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin: 1.75rem 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f472b6;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .page-header {
+                padding: 1.5rem 1.25rem;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html" class="nav-brand">
+            <span>← ADS 2026.2</span>
+            <span class="badge">Portal de Estudos</span>
+        </a>
+        <div class="nav-actions">
+            <a href="simulado_gerenciamento_de_projetos_U1-U4.html" class="btn btn-primary">🎯 Fazer Simulado</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Início</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <div class="meta-pills">
+                <span class="meta-pill highlight">📅 Prova: 12/11/2026</span>
+                <span class="meta-pill">📍 Sala 607 - Prédio 15</span>
+                <span class="meta-pill">⏰ 18h45 às 19h00</span>
+                <span class="meta-pill">💡 Unidades 1 a 4</span>
+            </div>
+            <h1>Gerenciamento de Projetos — Resumo Executivo e Tópicos de Prova</h1>
+            <p>Síntese das Unidades 1 a 4, PMBOK, EAP/WBS, Análise de Valor Agregado (EVM), Estruturas Matriciais, PMO e Código de Ética do PMI.</p>
+        </header>
+
+        <article class="content">
+            <h1>📚 Resumo Executivo e Tópicos de Prova — Gerenciamento de Projetos (Unidades 1 a 4)</h1>
+<p><strong>Disciplina:</strong> Gerenciamento de Projetos (Unilasalle EAD)<br />
+<strong>Data da Prova Presencial (Bloco 2):</strong> 12/11/2026 (18h45 às 19h00 — Sala 607, Prédio 15)<br />
+<strong>Validação:</strong> Baseado integralmente nos 4 e-books tutores da disciplina, no PMBOK e nas 12 questões dos questionários oficiais comentados.</p>
+<hr />
+<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
+<div class="mermaid">
+flowchart LR
+    GP["📊 GERENCIAMENTO DE PROJETOS"]
+
+    GP --> U1["📌 UNIDADE 1: Conceitos & Ciclo de Vida"]
+    GP --> U2["📌 UNIDADE 2: Áreas do PMBOK"]
+    GP --> U3["📌 UNIDADE 3: Estruturas & Governança"]
+    GP --> U4["📌 UNIDADE 4: Competências & Ética PMI"]
+
+    U1 --> U1A["Projeto: Temporário, Único e Progressivo"]
+    U1 --> U1B["Projetos vs. Operações Rotineiras Contínuas"]
+    U1 --> U1C["Principais Causas de Fracasso (Escopo, Comunicação, Prazos)"]
+    U1 --> U1D["Ciclos de Vida: Preditivo, Adaptativo/Ágil e Híbrido"]
+
+    U2 --> U2A["Escopo: EAP / WBS e Dicionário da EAP"]
+    U2 --> U2B["Cronograma: Caminho Crítico (CPM) e Folgas"]
+    U2 --> U2C["Custos: Orçamento e Valor Agregado (EVM: VP, VA, CR)"]
+    U2 --> U2D["Riscos: Matriz de Probabilidade x Impacto e Respostas"]
+
+    U3 --> U3A["Estruturas: Funcional x Projetizada x Matricial"]
+    U3 --> U3B["Matricial Forte: GP com Autoridade Alta e Dedicação Integral"]
+    U3 --> U3C["Modelos de PMO / EGP: Suporte, Controle e Diretivo"]
+    U3 --> U3D["Estudos de Mercado e Viabilidade Técnico-Econômica"]
+
+    U4 --> U4A["Modelo PMCDF: Dimensões de Conhecimento, Pessoal e Desempenho"]
+    U4 --> U4B["Competências: Técnicas, Comportamentais e Contextuais"]
+    U4 --> U4C["Código de Ética do PMI: Responsabilidade, Respeito, Justiça e Honestidade"]
+    U4 --> U4D["Práticas Ágeis: Scrum (Papéis, Cerimônias e Artefatos)"]
+</div>
+
+<hr />
+<h2>📌 UNIDADE 1 — Fundamentos do Gerenciamento de Projetos</h2>
+<h3>1.1 Definição de Projeto vs. Operações (Questão 3 do Questionário U1)</h3>
+<ul>
+<li><strong>Projeto (PMI / PMBOK):</strong> Um empreendimento <strong>temporário</strong> (tem início, meio e fim definidos) conduzido para criar um produto, serviço ou resultado <strong>único / exclusivo</strong>.</li>
+<li><strong>Operações Contínuas:</strong> Atividades repetitivas, rotineiras e permanentes voltadas a sustentar o negócio da empresa no dia a dia (ex.: suporte ao cliente, folha de pagamento, manufatura em série).</li>
+<li><strong>Elaboração Progressiva (Questão 6):</strong> Significa desenvolver em etapas e continuar por incrementos à medida que mais detalhes e informações se tornam disponíveis ao longo do projeto.</li>
+</ul>
+<h3>1.2 Causas Comuns de Fracasso em Projetos (Questão 5)</h3>
+<ul>
+<li>Objetivos e escopo mal definidos ou frequentemente alterados sem controle.</li>
+<li>Estimativas de prazos e custos irrealistas.</li>
+<li>Comunicação ineficiente entre a equipe e as partes interessadas (<em>stakeholders</em>).</li>
+<li>Falta de engajamento do patrocinador (<em>sponsor</em>) e liderança ineficaz.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 2 — Áreas de Conhecimento do PMBOK</h2>
+<h3>2.1 Gerenciamento do Escopo e EAP (Questão 1)</h3>
+<ul>
+<li><strong>Estrutura Analítica do Projeto (EAP / WBS):</strong> Decomposição hierárquica orientada a entregas do trabalho total a ser executado pela equipe do projeto.</li>
+<li>A EAP organiza e define o escopo total do projeto; o menor nível da EAP é chamado de <strong>Pacote de Trabalho (Work Package)</strong>.</li>
+</ul>
+<h3>2.2 Gerenciamento de Custos e Análise de Valor Agregado (EVM) (Questão 2)</h3>
+<ul>
+<li><strong>VP (Valor Planejado):</strong> Orçamento autorizado atribuído ao trabalho planejado.</li>
+<li><strong>VA (Valor Agregado):</strong> Medida do trabalho executado expressa em termos do orçamento autorizado para esse trabalho.</li>
+<li><strong>CR (Custo Real):</strong> Custo total efetivamente incorrido na execução do trabalho.</li>
+<li><strong>Índices de Desempenho:</strong></li>
+<li><em>IDP (Índice de Desempenho de Prazos) = VA / VP</em> (IDP &gt; 1: adiantado; IDP &lt; 1: atrasado).</li>
+<li><em>IDC (Índice de Desempenho de Custos) = VA / CR</em> (IDC &gt; 1: abaixo do orçamento/economia; IDC &lt; 1: acima do orçamento).</li>
+</ul>
+<h3>2.3 Gerenciamento de Riscos (Questão 4)</h3>
+<ul>
+<li>O risco em projetos é um evento ou condição incerta que, se ocorrer, terá um efeito positivo (oportunidade) ou negativo (ameaça) em pelo menos um objetivo do projeto (prazo, custo, escopo ou qualidade).</li>
+<li>Estratégias de resposta para riscos negativos: <strong>Prevenir/Evitar, Mitigar, Transferir ou Aceitar</strong>.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 3 — Estruturas Organizacionais e Escritório de Projetos (PMO)</h2>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinhas Clássicas sobre Estruturas Organizacionais (Questões 1 e 2 do Questionário U3):**</div></div>
+<blockquote>
+<ul>
+<li><strong>Estrutura Funcional Clássica:</strong> Hierarquia tradicional dividida por departamentos (TI, RH, Vendas). O gerente funcional tem toda a autoridade; o projeto tem prioridade baixa e o gestor atua apenas como coordenador de meio período.</li>
+<li><strong>Estrutura Projetizada:</strong> A organização é orientada a projetos. O gerente de projeto possui <strong>autoridade total</strong>, controla os recursos e a equipe trabalha em tempo integral dedicada ao projeto.</li>
+<li><strong>Estrutura Matricial (Fraca, Balanceada e Forte):</strong></li>
+<li><em>Matricial Fraca:</em> Semelhante à funcional (papel do gestor é facilitador/expedidor).</li>
+<li><em>Matricial Balanceada:</em> Compartilhamento de poder entre gerente funcional e gerente de projetos.</li>
+<li><em>Matricial Forte:</em> <strong>O gerente de projetos tem alta autoridade</strong>, equipe dedicada e controle significativo sobre o orçamento, mantendo as especialidades funcionais.</li>
+</ul>
+</blockquote>
+<h3>3.1 Modelos de Escritório de Gerenciamento de Projetos (EGP / PMO) (Questão 5)</h3>
+<ol>
+<li><strong>PMO de Suporte:</strong> Fornece políticas, metodologias, modelos e lições aprendidas (grau de controle <strong>baixo</strong>).</li>
+<li><strong>PMO de Controle:</strong> Exige conformidade com frameworks, governança e ferramentas (grau de controle <strong>médio</strong>).</li>
+<li><strong>PMO Diretivo:</strong> Assume a gestão direta dos projetos e designa os gerentes de projeto (grau de controle <strong>alto</strong>).</li>
+</ol>
+<h3>3.2 Ciclos de Vida do Projeto (Questão 6)</h3>
+<ul>
+<li><strong>Preditivo (Cascata / Tradicional):</strong> Escopo, prazo e custo são definidos o mais cedo possível no início do projeto.</li>
+<li><strong>Iterativo e Incremental:</strong> O escopo inicial é decomposto em entregas progressivas que agregam funcionalidade.</li>
+<li><strong>Adaptativo / Ágil:</strong> Ciclos curtos (sprints), alta colaboração com o cliente e escopo aberto a mudanças contínuas.</li>
+<li><strong>Híbrido:</strong> Combina abordagem preditiva para partes estáveis com ágil para partes de alta incerteza.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 4 — Competências do Gestor e Código de Ética</h2>
+<h3>4.1 Modelo PMCDF e Competências (PMI)</h3>
+<p>O gestor de projetos deve equilibrar três dimensões fundamentais:
+* <strong>Conhecimento (Técnico):</strong> Domínio das técnicas, ferramentas e práticas consagradas de gerenciamento.
+* <strong>Desempenho (Prático):</strong> Capacidade de aplicar o conhecimento para gerar resultados e gerenciar restrições.
+* <strong>Pessoal (Comportamental):</strong> Liderança, inteligência emocional, negociação, ética, postura assertiva e comunicação.</p>
+<h3>4.2 Código de Ética e Conduta Profissional do PMI</h3>
+<p>Os quatro pilares éticos universais:
+1. <strong>Responsabilidade:</strong> Assumir a propriedade das decisões tomadas e de suas consequências.
+2. <strong>Respeito:</strong> Demonstrar consideração e apreço pelos recursos humanos, culturais e ambientais.
+3. <strong>Imparcialidade (Justiça):</strong> Tomar decisões de forma equânime, transparente e livre de conflitos de interesse.
+4. <strong>Honestidade:</strong> Agir com veracidade e transparência nas comunicações e relatórios do projeto.</p>
+        </article>
+    </main>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Plus Jakarta Sans',
+                primaryColor: '#1e3a8a',
+                primaryBorderColor: '#3b82f6',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#60a5fa'
+            }
+        });
+    </script>
+</body>
+</html>
