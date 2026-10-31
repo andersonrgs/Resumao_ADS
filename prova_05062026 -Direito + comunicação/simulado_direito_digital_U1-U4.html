@@ -3,226 +3,1475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulado Completo (12 Questões) — Direito Digital</title>
+    <title>Avaliação: Direito Digital — Blackboard Ultra (Simulado ADS)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        .top-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
-        .top-nav a { text-decoration: none; color: #2980b9; font-weight: bold; font-size: 0.95em; }
-        .top-nav a:hover { text-decoration: underline; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; font-size: 2em; }
-        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 20px; font-weight: bold; }
-        .question-container { background-color: #fff; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box; position: relative; }
-        .unit-badge { display: inline-block; font-size: 0.8em; font-weight: bold; color: #fff; padding: 3px 12px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.5px; }
-        .unit-1 { background-color: #2980b9; } .unit-2 { background-color: #27ae60; }
-        .unit-3 { background-color: #e67e22; } .unit-4 { background-color: #8e44ad; }
-        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; color: #2c3e50; white-space: pre-line; word-break: break-word; }
-        .options { margin-top: 15px; clear: none; }
-        .options label { display: flex; align-items: flex-start; padding: 12px; margin-bottom: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; box-sizing: border-box; }
-        .options label:hover { background-color: #e9ecef; border-color: #b1bccc; }
-        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
-        .options label span { word-break: break-word; }
-        .letter-prefix { font-weight: bold; margin-right: 5px; color: #2c3e50; flex-shrink: 0; }
-        .btn-submit { display: block; width: 100%; padding: 18px; font-size: 1.2em; font-weight: bold; color: #fff; background-color: #27ae60; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 30px; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
-        .btn-submit:hover { background-color: #219653; }
-        .result-box { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 30px; padding: 30px; border-radius: 8px; display: none; box-sizing: border-box; }
-        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        .by-unit { font-size: 0.6em; font-weight: normal; color: #444; margin-top: 12px; }
-        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
-        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
-        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
-        .feedback.correct { display: block; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
-        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
-        .explicacao { display: none; margin-top: 10px; font-size: 0.9em; padding: 10px 14px; border-left: 4px solid #b1bccc; background: #f8f9fa; color: #444; }
-        .reacao { display: none; float: right; width: 150px; margin: 0 0 10px 15px; text-align: center; }
-        .reacao img { width: 150px; max-height: 150px; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-        .reacao .emoji { font-size: 4.5em; line-height: 1.1; display: inline-block; }
+        :root {
+            --bb-bg: #eceff1;
+            --bb-card-bg: #ffffff;
+            --bb-border: #cfd8dc;
+            --bb-purple: #8e24aa;
+            --bb-purple-light: #f3e5f5;
+            --bb-green: #00875a;
+            --bb-green-bg: #e3fcef;
+            --bb-green-border: #abf5d1;
+            --bb-red: #de350b;
+            --bb-red-bg: #ffebe6;
+            --bb-red-border: #ffbdad;
+            --bb-gray-dark: #212529;
+            --bb-gray-med: #495057;
+            --bb-gray-light: #f4f5f7;
+            --bb-text: #172b4d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bb-bg);
+            color: var(--bb-text);
+            line-height: 1.55;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navbar Blackboard Ultra */
+        .bb-top-bar {
+            background-color: #191919;
+            color: #ffffff;
+            padding: 0.65rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #2d2d2d;
+        }
+
+        .bb-top-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .bb-back-link {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .bb-back-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .bb-course-code {
+            color: #b0bec5;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .bb-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #cfd8dc;
+            font-weight: 500;
+        }
+
+        .bb-avatar-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #37474f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #eceff1;
+        }
+
+        /* Banner de Nota Final (Estilo Print 5) */
+        .bb-score-banner {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--bb-border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .bb-score-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .bb-score-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--bb-gray-dark);
+        }
+
+        .bb-score-pill {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .bb-score-right {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #607d8b;
+        }
+
+        .bb-score-right strong {
+            color: var(--bb-gray-dark);
+        }
+
+        /* Main Container */
+        .bb-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .bb-alert-bar {
+            background-color: #fff9db;
+            border: 1px solid #ffe066;
+            border-radius: 4px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #664d03;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Card da Questão Blackboard Ultra */
+        .question-container {
+            background-color: var(--bb-card-bg);
+            border: 1px solid var(--bb-border);
+            border-radius: 4px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .q-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Círculo Roxo/Magenta do Número */
+        .q-circle-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--bb-purple);
+            color: var(--bb-purple);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #ffffff;
+        }
+
+        .q-type-label {
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #212529;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        /* Pílula de Status (Correto / Incorreto / Não respondido) */
+        .status-pill-ava {
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+
+        .status-pill-ava.correto {
+            display: inline-block;
+            background-color: var(--bb-green);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.incorreto {
+            display: inline-block;
+            background-color: var(--bb-red);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.vazio {
+            display: inline-block;
+            background-color: #f59e0b;
+            color: #ffffff;
+        }
+
+        /* Badge de Unidade */
+        .unit-pill {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+        }
+
+        .unit-1 { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .unit-2 { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .unit-3 { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .unit-4 { background-color: #f3e5f5; color: #6a1b9a; border: 1px solid #e1bee7; }
+
+        .q-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* Pílula Preta com Pontuação */
+        .q-score-badge {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+        }
+
+        .q-chevron {
+            color: #78909c;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+
+        /* Enunciado */
+        .question-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #212529;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .fonte-tag {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #546e7a;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Opções de Alternativas */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.85rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .option-row:hover {
+            background-color: #f1f3f5;
+            border-color: #dee2e6;
+        }
+
+        .option-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .option-row input[type="radio"] {
+            margin-top: 0.2rem;
+            transform: scale(1.15);
+            accent-color: #00875a;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-content {
+            font-size: 0.925rem;
+            color: #212529;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .letter-prefix {
+            font-weight: 700;
+            color: #212529;
+            margin-right: 0.35rem;
+        }
+
+        .correta-highlight {
+            display: none;
+            font-weight: 800;
+            color: #006644;
+            margin-right: 0.35rem;
+        }
+
+        .option-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 0.75rem;
+            display: none;
+        }
+
+        /* Estilos Pós-Correção (Fiel ao AVA Blackboard Ultra) */
+        .option-row.is-correct-answer {
+            background-color: var(--bb-green-bg) !important;
+            border: 1px solid var(--bb-green-border) !important;
+            color: #006644 !important;
+        }
+
+        .option-row.is-correct-answer .correta-highlight {
+            display: inline;
+        }
+
+        .option-row.is-correct-answer .option-tag {
+            display: inline;
+            color: #006644;
+        }
+
+        .option-row.is-wrong-answer {
+            background-color: var(--bb-red-bg) !important;
+            border: 1px solid var(--bb-red-border) !important;
+            color: #bf2600 !important;
+        }
+
+        .option-row.is-wrong-answer .option-tag {
+            display: inline;
+            color: #bf2600;
+        }
+
+        /* Comentários / Justificativa Oficial */
+        .explicacao {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background-color: var(--bb-gray-light);
+            border-left: 4px solid var(--bb-green);
+            border-radius: 0 4px 4px 0;
+            font-size: 0.88rem;
+            color: #172b4d;
+            line-height: 1.6;
+        }
+
+        .explicacao b.expl-title {
+            color: #00875a;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.925rem;
+        }
+
+        /* Reação animada (GIF / Emoji) */
+        .reacao {
+            display: none;
+            float: right;
+            width: 140px;
+            margin: 0 0 10px 15px;
+            text-align: center;
+        }
+
+        .reacao img {
+            width: 140px;
+            max-height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .reacao .emoji {
+            font-size: 4em;
+            line-height: 1;
+            display: inline-block;
+        }
+
         .reacao.acertou .emoji { animation: pula 0.8s ease-in-out infinite; }
         .reacao.errou .emoji { animation: balanca 0.6s ease-in-out 4; }
-        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.15); } }
-        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
-        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
-        @media (max-width: 600px) { .reacao { float: none; margin: 10px auto; } }
-        @media (max-width: 768px) {
-            .question-container { padding: 15px; }
-            .btn-submit { padding: 15px; font-size: 1.1em; }
+
+        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.15); } }
+        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* Botão de Envio Blackboard Ultra */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-green);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 2rem;
+            box-shadow: 0 2px 4px rgba(0,135,90,0.25);
+        }
+
+        .btn-submit:hover {
+            background-color: #006644;
+        }
+
+        /* Caixa de Resultado */
+        .result-box {
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            border-radius: 4px;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .pass {
+            background-color: #e3fcef;
+            color: #006644;
+            border: 1px solid #abf5d1;
+        }
+
+        .fail {
+            background-color: #fff9db;
+            color: #856404;
+            border: 1px solid #ffe066;
+        }
+
+        .by-unit {
+            font-size: 0.65em;
+            font-weight: 500;
+            color: #495057;
+            margin-top: 0.85rem;
+        }
+
+        .btn-retry {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-gray-dark);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-retry:hover {
+            background-color: #343a40;
+        }
+
+        @media (max-width: 600px) {
+            .bb-top-bar { padding: 0.65rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .bb-score-banner { padding: 0.85rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .reacao { float: none; margin: 10px auto; }
+            .question-container { padding: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="index.html">← Voltar ao Portal ADS 2026.2</a>
-        <span style="font-size:0.85em; color:#7f8c8d;">ADS • 7º Semestre</span>
+    <!-- Barra Superior Blackboard Ultra -->
+    <header class="bb-top-bar">
+        <div class="bb-top-left">
+            <a href="index.html" class="bb-back-link">← Voltar ao Portal ADS 2026.2</a>
+            <span class="bb-course-code">2026/2 - ENS1E0402E0021 - DIREITO DIGITAL</span>
+        </div>
+        <div class="bb-user-profile">
+            <div class="bb-avatar-circle">👤</div>
+            <span>Anderson (ADS 7º Semestre)</span>
+        </div>
+    </header>
+
+    <!-- Banner de Nota Final (Fiel ao Blackboard Ultra) -->
+    <div class="bb-score-banner">
+        <div class="bb-score-left">
+            <span class="bb-score-label">Nota final</span>
+            <span class="bb-score-pill" id="header-score-pill">-- / 10,0</span>
+        </div>
+        <div class="bb-score-right" id="header-score-sub">
+            <span>Questionário Oficial U1-U4 • <strong>12 Questões</strong></span>
+        </div>
     </div>
 
-    <h1>Simulado: Direito Digital</h1>
-    <p class="subtitle">Unidades 1 a 4 — Mix Completo (12 Questões de Prova)</p>
-    <div class="shuffle-note">🔄 <b>Embaralhamento Ativo:</b> Pressione <b>F5</b> para embaralhar novamente tanto as perguntas quanto as alternativas (A, B, C, D, E). A etiqueta colorida indica a unidade de cada questão.</div>
+    <main class="bb-container">
+        <!-- Aviso de Embaralhamento -->
+        <div class="bb-alert-bar">
+            <span>🔄 <strong>Modo Simulado Ativo:</strong> A cada carregamento (<strong>F5</strong>), as questões e alternativas mudam de posição como no exame real.</span>
+            <span style="font-size: 0.8em; color: #856404; font-weight: 700;">Simulado G2 Presencial</span>
+        </div>
 
-    <form id="quizForm">
+        <form id="quizForm">
 
         <div class="question-container" id="q1" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">1. “Na área de software, a controvérsia sobre as formas de proteção da propriedade intelectual está associada à natureza única dos programas que desempenham funções técnicas por meio de algoritmos. Ao invés de enfatizar o meio físico, o software é intangível e pode ser replicado praticamente sem custos. O software é caro de se produzir e barato de se reproduzir, ou seja, possui altos custos fixos e baixos custos marginais (Shapiro; Varian, 1999). Por isso, seu preço é fixado de acordo com o valor que o consumidor está disposto a pagar por ele, e não como função direta dos custos de produção. O título de propriedade intelectual atribuído internacionalmente ao software é o direito de autor ou copyright. Alguns países, entretanto, concedem patentes de invenções relativas a serviços financeiros, vendas eletrônicas, métodos de negócios e publicidade pela Internet que se expressam por meio de programas de computador. A demanda pelo patenteamento de software deve-se ao fato de que o copyright protege apenas as ‘expressões literais’ dos programas de computador. Como o valor do software não está apenas na sua forma, mas também nas ‘ideias’ nele contidas, a patente passa a ser uma forma de apropriação tecnológica mais forte. Ela protege a funcionalidade do programa e não apenas a forma como foi escrito. Em termos práticos, o copyright protege contra a pirataria enquanto as patentes evitam a cópia por concorrentes.” (TIGRE; MARQUES, 2009, p. 547).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. O direito autoral no Brasil, previsto nos tratados internacionais, define que a utilização da obra depende de autorização prévia e expressa do autor da obra originária.<br>II. Cada registro no Instituto Nacional da Propriedade Industrial possuirá um hash único, que validará, quando necessário, a autenticidade do software (arquivo) guardado pelo titular.<br>III. O procedimento de RPC (Registro de Programa de Computador) é protegido pela função criptográfica hash, que é um algoritmo utilizado para garantir a integridade de um documento eletrônico.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">1</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 2, Parte 2, p. 90–91):</b><br>- <b>I e II (Verdadeiras — p. 91):</b> <i>"Cada registro no INPI possuirá um hash único, que validará, quando necessário, a autenticidade do software (arquivo) guardado pelo titular. [...] O direito autoral no Brasil, previsto nos tratados internacionais, define que a utilização da obra depende de autorização prévia e expressa do autor da obra originária."</i><br>- <b>III (Verdadeira — p. 90, quadro Fique atento):</b> <i>"O procedimento de RPC é protegido pela função criptográfica hash, que é um algoritmo utilizado para garantir a integridade de um documento eletrônico..."</i></div>
+            <div class="question-text">“Na área de software, a controvérsia sobre as formas de proteção da propriedade intelectual está associada à natureza única dos programas que desempenham funções técnicas por meio de algoritmos. Ao invés de enfatizar o meio físico, o software é intangível e pode ser replicado praticamente sem custos. O software é caro de se produzir e barato de se reproduzir, ou seja, possui altos custos fixos e baixos custos marginais (Shapiro; Varian, 1999). Por isso, seu preço é fixado de acordo com o valor que o consumidor está disposto a pagar por ele, e não como função direta dos custos de produção. O título de propriedade intelectual atribuído internacionalmente ao software é o direito de autor ou copyright. Alguns países, entretanto, concedem patentes de invenções relativas a serviços financeiros, vendas eletrônicas, métodos de negócios e publicidade pela Internet que se expressam por meio de programas de computador. A demanda pelo patenteamento de software deve-se ao fato de que o copyright protege apenas as ‘expressões literais’ dos programas de computador. Como o valor do software não está apenas na sua forma, mas também nas ‘ideias’ nele contidas, a patente passa a ser uma forma de apropriação tecnológica mais forte. Ela protege a funcionalidade do programa e não apenas a forma como foi escrito. Em termos práticos, o copyright protege contra a pirataria enquanto as patentes evitam a cópia por concorrentes.” (TIGRE; MARQUES, 2009, p. 547).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. O direito autoral no Brasil, previsto nos tratados internacionais, define que a utilização da obra depende de autorização prévia e expressa do autor da obra originária.<br>II. Cada registro no Instituto Nacional da Propriedade Industrial possuirá um hash único, que validará, quando necessário, a autenticidade do software (arquivo) guardado pelo titular.<br>III. O procedimento de RPC (Registro de Programa de Computador) é protegido pela função criptográfica hash, que é um algoritmo utilizado para garantir a integridade de um documento eletrônico.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Parte 2, p. 90–91):</b><br>- <b>I e II (Verdadeiras — p. 91):</b> <i>"Cada registro no INPI possuirá um hash único, que validará, quando necessário, a autenticidade do software (arquivo) guardado pelo titular. [...] O direito autoral no Brasil, previsto nos tratados internacionais, define que a utilização da obra depende de autorização prévia e expressa do autor da obra originária."</i><br>- <b>III (Verdadeira — p. 90, quadro Fique atento):</b> <i>"O procedimento de RPC é protegido pela função criptográfica hash, que é um algoritmo utilizado para garantir a integridade de um documento eletrônico..."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q2" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">2. “Em um primeiro raciocínio, poder-se-ia afirmar que pessoa é toda criatura humana. Todavia, essa ideia não é completa por excluir os entes morais (pessoas jurídicas), [...]. Ou seja, o vocábulo pessoa comporta diferentes signos. Tem um significado vulgar – reportando-se ao ser humano – e outro jurídico, mais amplo, agasalhando, além das pessoas humanas, também as pessoas jurídicas. No ponto, é relevante apresentar uma advertência: o conceito jurídico de pessoa não se confunde com a sua conceituação antropológica, filosófica, biológica, psicológica...” (FARIAS; ROSENVALD, 2015, p. 132).<br><br>Em relação aos sujeitos de direito privado, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O Código Civil não protege os direitos do nascituro, tendo em vista que pessoa é o ser humano nascido com vida e o nascituro é o ser humano não nascido ou ainda em ventre materno.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>Capacidade é a aptidão que a pessoa tem de adquirir e exercer direitos, e, segundo o Código Civil, toda pessoa é capaz de direitos e deveres na ordem civil, portanto toda a pessoa tem capacidade de fato de exercer seus direitos, atuar na vida jurídica.</span></label>
-                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>Toda pessoa é capaz de direitos e deveres na ordem civil e a personalidade civil da pessoa começa do nascimento com vida. Com base nesses conceitos, é correto afirmar que o Código Civil combina os conceitos de personalidade e capacidade.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>A lei empresta personalidade às pessoas jurídicas, capacitando-as a serem sujeitos de direitos e obrigações, e essa personalidade jurídica inicia no momento que é assinado o contrato social da empresa.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>São pessoas jurídicas de direito privado as empresas, os partidos políticos, as fundações públicas, sociedade de economia mistas, associações, as organizações religiosas e autarquias.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">2</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Parte 4, p. 57–61):</b><br>- <b>Por que a C está correta (p. 57):</b> <i>"Nessa linha, o art. 1º do Código Civil, ao proclamar que toda 'pessoa é capaz de direitos e deveres na ordem civil', combina o conceito de capacidade com o de personalidade."</i><br>- <b>Erros das demais:</b><br>- <b>A:</b> O art. 2º do CC <b>protege sim</b> os direitos do nascituro (sujeito de direito não personalizado, p. 57).<br>- <b>B:</b> Toda pessoa tem <i>capacidade de direito (ou de gozo)</i>, mas <b>nem todas possuem capacidade de fato (ou de exercício)</b>, como os recém-nascidos e absolutamente incapazes (p. 57).<br>- <b>D:</b> A personalidade jurídica da pessoa jurídica inicia com o <b>registro/inscrição</b> do ato constitutivo no órgão competente (art. 45 do CC), e não na simples assinatura do contrato social (p. 58).<br>- <b>E:</b> <i>Autarquias</i> e <i>fundações públicas/estatais</i> são pessoas jurídicas de <b>Direito Público interno</b> (art. 41 do CC, p. 59 e 61). São de Direito Privado (art. 44 do CC): <i>associações, sociedades, fundações privadas, organizações religiosas e partidos políticos</i>.</div>
+            <div class="question-text">“Em um primeiro raciocínio, poder-se-ia afirmar que pessoa é toda criatura humana. Todavia, essa ideia não é completa por excluir os entes morais (pessoas jurídicas), [...]. Ou seja, o vocábulo pessoa comporta diferentes signos. Tem um significado vulgar – reportando-se ao ser humano – e outro jurídico, mais amplo, agasalhando, além das pessoas humanas, também as pessoas jurídicas. No ponto, é relevante apresentar uma advertência: o conceito jurídico de pessoa não se confunde com a sua conceituação antropológica, filosófica, biológica, psicológica...” (FARIAS; ROSENVALD, 2015, p. 132).<br><br>Em relação aos sujeitos de direito privado, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O Código Civil não protege os direitos do nascituro, tendo em vista que pessoa é o ser humano nascido com vida e o nascituro é o ser humano não nascido ou ainda em ventre materno.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Capacidade é a aptidão que a pessoa tem de adquirir e exercer direitos, e, segundo o Código Civil, toda pessoa é capaz de direitos e deveres na ordem civil, portanto toda a pessoa tem capacidade de fato de exercer seus direitos, atuar na vida jurídica.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Toda pessoa é capaz de direitos e deveres na ordem civil e a personalidade civil da pessoa começa do nascimento com vida. Com base nesses conceitos, é correto afirmar que o Código Civil combina os conceitos de personalidade e capacidade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A lei empresta personalidade às pessoas jurídicas, capacitando-as a serem sujeitos de direitos e obrigações, e essa personalidade jurídica inicia no momento que é assinado o contrato social da empresa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">São pessoas jurídicas de direito privado as empresas, os partidos políticos, as fundações públicas, sociedade de economia mistas, associações, as organizações religiosas e autarquias.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Parte 4, p. 57–61):</b><br>- <b>Por que a C está correta (p. 57):</b> <i>"Nessa linha, o art. 1º do Código Civil, ao proclamar que toda 'pessoa é capaz de direitos e deveres na ordem civil', combina o conceito de capacidade com o de personalidade."</i><br>- <b>Erros das demais:</b><br>- <b>A:</b> O art. 2º do CC <b>protege sim</b> os direitos do nascituro (sujeito de direito não personalizado, p. 57).<br>- <b>B:</b> Toda pessoa tem <i>capacidade de direito (ou de gozo)</i>, mas <b>nem todas possuem capacidade de fato (ou de exercício)</b>, como os recém-nascidos e absolutamente incapazes (p. 57).<br>- <b>D:</b> A personalidade jurídica da pessoa jurídica inicia com o <b>registro/inscrição</b> do ato constitutivo no órgão competente (art. 45 do CC), e não na simples assinatura do contrato social (p. 58).<br>- <b>E:</b> <i>Autarquias</i> e <i>fundações públicas/estatais</i> são pessoas jurídicas de <b>Direito Público interno</b> (art. 41 do CC, p. 59 e 61). São de Direito Privado (art. 44 do CC): <i>associações, sociedades, fundações privadas, organizações religiosas e partidos políticos</i>.</div>
+            </div>
         </div>
         <div class="question-container" id="q3" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">3. “Apesar de colocarmos o Direito Constitucional dentro do ramo do direito público (fundamental), devemos alertar o leitor que, modernamente, vem sendo dito que o direito é uno e indivisível, indecomponível. O direito deve ser definido e estudado como um grande sistema, em que tudo se harmoniza no conjunto. A divisão em ramos do direito é meramente didática, a fim de facilitar o entendimento da matéria, vale dizer: questão de conveniência acadêmica. [...]” (LENZA, 2012, p. 61).<br><br>Em relação ao direito constitucional, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>O direito constitucional costuma ser inserido como ramo do direito privado, junto com o direito administrativo, internacional, criminal, tributário e processual, porém, atualmente, essa classificação já não tem mais como prosperar.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>No Brasil, o ordenamento jurídico nacional tem origem na tradição common law, em que prevalecem as decisões dos tribunais com base nos princípios e costumes da sociedade.</span></label>
-                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>É constituído pelas normas fundamentais da organização do Estado como as normas que dizem respeito ao modo de aquisição e exercício do poder e limites de sua atuação.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>O direito constitucional exerce influência sobre diversos ramos do direito, assim normas processuais também constam na Constituição, como, por exemplo: o mandado de segurança (art. 5º, LXIX); a ação popular (art. 5º, LXXIII), porém a Constituição de 1988 deixou de fora a assistência judiciária.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>De acordo com a teoria de Hans Kelsen, o ordenamento jurídico pode ser estruturado como forma de pirâmide que hierarquiza as normas. Assim posicionam-se no topo dessa pirâmide os tratados sobre direitos humanos e as instruções normativas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">3</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Parte 3, p. 47–51):</b><br>- <b>Por que a C está correta (p. 47 e 50):</b> <i>"cabe ao Direito Constitucional o estudo sistemático das normas que integram a Constituição do Estado [...] constituído pelas normas fundamentais da organização do Estado, isto é, pelas normas relativas a: estrutura do Estado; forma de governo; modo de aquisição e exercício do poder; estabelecimento de seus órgãos; limites de sua atuação..."</i><br>- <b>Erros das demais:</b><br>- <b>A:</b> Costuma ser inserido como ramo do <b>Direito Público</b> (e não privado, p. 47).<br>- <b>B:</b> No Brasil, o ordenamento jurídico tem origem na tradição <b>romano-germânica ou civilista</b> (e não <i>common law</i>, p. 50).<br>- <b>D:</b> A CF/88 <b>incluiu expressamente</b> a assistência judiciária no art. 5º, LXXIV (p. 49).<br>- <b>E:</b> No topo (vértice) da pirâmide de Kelsen está a <b>Constituição</b> (e não instruções normativas, que ficam na base, p. 44 e 51).</div>
+            <div class="question-text">“Apesar de colocarmos o Direito Constitucional dentro do ramo do direito público (fundamental), devemos alertar o leitor que, modernamente, vem sendo dito que o direito é uno e indivisível, indecomponível. O direito deve ser definido e estudado como um grande sistema, em que tudo se harmoniza no conjunto. A divisão em ramos do direito é meramente didática, a fim de facilitar o entendimento da matéria, vale dizer: questão de conveniência acadêmica. [...]” (LENZA, 2012, p. 61).<br><br>Em relação ao direito constitucional, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O direito constitucional costuma ser inserido como ramo do direito privado, junto com o direito administrativo, internacional, criminal, tributário e processual, porém, atualmente, essa classificação já não tem mais como prosperar.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">No Brasil, o ordenamento jurídico nacional tem origem na tradição common law, em que prevalecem as decisões dos tribunais com base nos princípios e costumes da sociedade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">É constituído pelas normas fundamentais da organização do Estado como as normas que dizem respeito ao modo de aquisição e exercício do poder e limites de sua atuação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O direito constitucional exerce influência sobre diversos ramos do direito, assim normas processuais também constam na Constituição, como, por exemplo: o mandado de segurança (art. 5º, LXIX); a ação popular (art. 5º, LXXIII), porém a Constituição de 1988 deixou de fora a assistência judiciária.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">De acordo com a teoria de Hans Kelsen, o ordenamento jurídico pode ser estruturado como forma de pirâmide que hierarquiza as normas. Assim posicionam-se no topo dessa pirâmide os tratados sobre direitos humanos e as instruções normativas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Parte 3, p. 47–51):</b><br>- <b>Por que a C está correta (p. 47 e 50):</b> <i>"cabe ao Direito Constitucional o estudo sistemático das normas que integram a Constituição do Estado [...] constituído pelas normas fundamentais da organização do Estado, isto é, pelas normas relativas a: estrutura do Estado; forma de governo; modo de aquisição e exercício do poder; estabelecimento de seus órgãos; limites de sua atuação..."</i><br>- <b>Erros das demais:</b><br>- <b>A:</b> Costuma ser inserido como ramo do <b>Direito Público</b> (e não privado, p. 47).<br>- <b>B:</b> No Brasil, o ordenamento jurídico tem origem na tradição <b>romano-germânica ou civilista</b> (e não <i>common law</i>, p. 50).<br>- <b>D:</b> A CF/88 <b>incluiu expressamente</b> a assistência judiciária no art. 5º, LXXIV (p. 49).<br>- <b>E:</b> No topo (vértice) da pirâmide de Kelsen está a <b>Constituição</b> (e não instruções normativas, que ficam na base, p. 44 e 51).</div>
+            </div>
         </div>
         <div class="question-container" id="q4" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">4. “O direito autoral classifica-se como um ramo da propriedade intelectual. Está regulamentado através da Lei nº 9.610/98, na qual se busca proteger as obras criadas pelo intelecto e regulamentar as relações jurídicas advindas a partir de sua criação e utilização. Através desse direito, o titular da obra protegida pode utilizá-lo como desejar, bem como impedir terceiros de usar sua obra sem a devida permissão. Importante esclarecer que obras intelectuais são criações do espírito humano de cunho literário, científico ou artístico e que foram materializadas em qualquer plataforma, seja um quadro, um livro, uma música, uma escultura etc.” (LIMA, 2020, p. 6).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. O caráter temporal do direito autoral de 70 anos é contado a partir do dia do falecimento do autor.<br>II. Recomenda-se que se faça a prova da data da criação da obra e do seu registro para fins de defesa em eventual contestação futura.<br>III. A lei autoral preocupou-se em estabelecer os critérios necessários para proteger uma obra intelectual, não estabelecendo formalidade para o seu registro.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">4</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Explicação Detalhada da Pegadinha no E-book (Unidade 2, Parte 1, p. 73):</b><br>Veja o parágrafo exato da <b>página 73</b> do livro (<i>Forma de registro e prazo de duração</i>):<br>- <b>Por que a I é FALSA:</b> Os 70 anos do direito patrimonial <b>não</b> são contados "a partir do dia do falecimento do autor", mas sim <b>"a partir do dia 1º de janeiro do ano subsequente ao falecimento do autor (art. 41)"</b> (p. 73).<br>- <b>Por que a II foi considerada FALSA (Pegadinha sutil!):</b> O livro diz na p. 73: <i>"É prudente, e recomendável, que se faça a prova, sob qualquer modo válido, <b>da data da criação da obra</b> para fins de defesa em eventual contestação futura. Assim, <b>não é necessário registrar</b>..."</i>. O elaborador da questão inseriu a expressão <b>"e do seu registro"</b> na frase II, tornando-a incorreta porque o registro é facultativo/desnecessário (basta provar a data da criação por qualquer meio válido).<br>- <b>Por que a III é VERDADEIRA:</b> É cópia literal da p. 73: <i>"A lei autoral, é bem verdade, preocupou-se apenas em estabelecer os critérios necessários para proteger uma obra intelectual, não estabelecendo qualquer formalidade para o seu registro."</i></div>
+            <div class="question-text">“O direito autoral classifica-se como um ramo da propriedade intelectual. Está regulamentado através da Lei nº 9.610/98, na qual se busca proteger as obras criadas pelo intelecto e regulamentar as relações jurídicas advindas a partir de sua criação e utilização. Através desse direito, o titular da obra protegida pode utilizá-lo como desejar, bem como impedir terceiros de usar sua obra sem a devida permissão. Importante esclarecer que obras intelectuais são criações do espírito humano de cunho literário, científico ou artístico e que foram materializadas em qualquer plataforma, seja um quadro, um livro, uma música, uma escultura etc.” (LIMA, 2020, p. 6).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. O caráter temporal do direito autoral de 70 anos é contado a partir do dia do falecimento do autor.<br>II. Recomenda-se que se faça a prova da data da criação da obra e do seu registro para fins de defesa em eventual contestação futura.<br>III. A lei autoral preocupou-se em estabelecer os critérios necessários para proteger uma obra intelectual, não estabelecendo formalidade para o seu registro.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Explicação Detalhada da Pegadinha no E-book (Unidade 2, Parte 1, p. 73):</b><br>Veja o parágrafo exato da <b>página 73</b> do livro (<i>Forma de registro e prazo de duração</i>):<br>- <b>Por que a I é FALSA:</b> Os 70 anos do direito patrimonial <b>não</b> são contados "a partir do dia do falecimento do autor", mas sim <b>"a partir do dia 1º de janeiro do ano subsequente ao falecimento do autor (art. 41)"</b> (p. 73).<br>- <b>Por que a II foi considerada FALSA (Pegadinha sutil!):</b> O livro diz na p. 73: <i>"É prudente, e recomendável, que se faça a prova, sob qualquer modo válido, <b>da data da criação da obra</b> para fins de defesa em eventual contestação futura. Assim, <b>não é necessário registrar</b>..."</i>. O elaborador da questão inseriu a expressão <b>"e do seu registro"</b> na frase II, tornando-a incorreta porque o registro é facultativo/desnecessário (basta provar a data da criação por qualquer meio válido).<br>- <b>Por que a III é VERDADEIRA:</b> É cópia literal da p. 73: <i>"A lei autoral, é bem verdade, preocupou-se apenas em estabelecer os critérios necessários para proteger uma obra intelectual, não estabelecendo qualquer formalidade para o seu registro."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q5" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">5. “No âmbito nacional percebe-se que o Brasil, como um país em desenvolvimento, tem buscado já há algumas décadas se inserir no contexto mais aprimorado de TT (transferência de tecnologia), investindo também na aproximação entre entes públicos e privados. A bem da verdade, é possível identificar que, havendo parcerias entre entidades públicas e privadas para desenvolvimento ou comercialização de direitos de propriedade intelectual ou mesmo ocorrendo licenciamento ou cessão de formas diversas, a transferência de tecnologia ainda é desafiadora no Brasil e demanda um olhar sensível para que sejam vencidos os entraves existentes nesse campo.” (SIMÕES; SANTOS, 2020, p. 18).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. Para efeitos legais, os direitos de propriedade industrial são considerados bens móveis.<br>II. Conforme o Código Civil, a transferência tecnológica se encontra no campo do direito das coisas.<br>III. A transferência de tecnologia é o método pelo qual o detentor de uma propriedade intelectual transfere a totalidade ou parte do seu direito a uma terceira parte para que esta realize a exploração comercial.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">5</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 2, Parte 3, p. 96–97):</b><br>Todas as três frases foram retiradas literalmente das páginas 96 e 97 do livro:<br>- <b>I e II (Verdadeiras — p. 97):</b> <i>"Uma vez que a <b>transferência tecnológica se encontra no campo do direito das coisas</b> — conforme o disposto no art. 83, III, do Código Civil e também na legislação específica, a exemplo do art. 5º da Lei nº 9.279, de 14 de maio de 1996, <b>'consideram-se bens móveis, para os efeitos legais, os direitos de propriedade industrial'</b>..."</i><br>- <b>III (Verdadeira — p. 96):</b> <i>"A transferência de tecnologia é o método pelo qual o detentor de uma propriedade intelectual transfere a totalidade ou parte do seu direito a uma terceira parte para que esta realize a exploração comercial."</i></div>
+            <div class="question-text">“No âmbito nacional percebe-se que o Brasil, como um país em desenvolvimento, tem buscado já há algumas décadas se inserir no contexto mais aprimorado de TT (transferência de tecnologia), investindo também na aproximação entre entes públicos e privados. A bem da verdade, é possível identificar que, havendo parcerias entre entidades públicas e privadas para desenvolvimento ou comercialização de direitos de propriedade intelectual ou mesmo ocorrendo licenciamento ou cessão de formas diversas, a transferência de tecnologia ainda é desafiadora no Brasil e demanda um olhar sensível para que sejam vencidos os entraves existentes nesse campo.” (SIMÕES; SANTOS, 2020, p. 18).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. Para efeitos legais, os direitos de propriedade industrial são considerados bens móveis.<br>II. Conforme o Código Civil, a transferência tecnológica se encontra no campo do direito das coisas.<br>III. A transferência de tecnologia é o método pelo qual o detentor de uma propriedade intelectual transfere a totalidade ou parte do seu direito a uma terceira parte para que esta realize a exploração comercial.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Parte 3, p. 96–97):</b><br>Todas as três frases foram retiradas literalmente das páginas 96 e 97 do livro:<br>- <b>I e II (Verdadeiras — p. 97):</b> <i>"Uma vez que a <b>transferência tecnológica se encontra no campo do direito das coisas</b> — conforme o disposto no art. 83, III, do Código Civil e também na legislação específica, a exemplo do art. 5º da Lei nº 9.279, de 14 de maio de 1996, <b>'consideram-se bens móveis, para os efeitos legais, os direitos de propriedade industrial'</b>..."</i><br>- <b>III (Verdadeira — p. 96):</b> <i>"A transferência de tecnologia é o método pelo qual o detentor de uma propriedade intelectual transfere a totalidade ou parte do seu direito a uma terceira parte para que esta realize a exploração comercial."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q6" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">6. “O atual desafio do direito contemporâneo de delinear a forma de atendimento dos novos direitos sociais, coletivos e indivisíveis, confunde-se com a exclusão digital, advinda da revolução tecnológica, com todas as suas incríveis transformações na vida moderna, calcada sem tecnologias de alto custo, exploráveis comercialmente no mercado privado, sabendo que o Estado não é onipotente para conferir a todos igualdades de direitos sociais e digitais, gerando um futuro incerto à população menos favorecida. É preciso saber se esta será abrangida pelo fenômeno da modernização ou se será definitivamente esquecida, resultando em uma população obsoleta e excluída da sociedade digital”. (MARQUES, 2020, p. 59).<br><br>Quanto ao acesso à Internet no Brasil, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Os principais temas trazidos pelo Marco Civil da Internet foram a privacidade, a neutralidade da rede e a imputabilidade da rede, princípios que garantem os direitos e as liberdades democráticas dos internautas, mas não em relação às ações abusivas do Estado.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>A neutralidade é o núcleo essencial do direito fundamental do acesso à Internet. A sua proteção deriva do modelo de garantia utilizado pelo legislador-constituinte, portanto, deve constar explicitamente na Constituição Federal.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>O acesso à Internet é considerado direito fundamental. A Organização das Nações Unidas compreende que restrições e bloqueios à Internet constituem uma violação ao direito à liberdade de expressão e de receber informação, com exceção das infrações de direitos autorais.</span></label>
-                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>O princípio da neutralidade da rede impõe a provedores de acesso a obrigação de não bloquear o acesso de usuários a determinados sites e aplicações, sendo também vedado aos provedores de acesso arbitrariamente reduzir a velocidade ou dificultar o acesso a aplicações específicas.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>A neutralidade da rede permite a cobrança diferenciada para acesso a determinados conteúdos e aplicações, sendo, portanto, livre a cobrança de tarifas diferenciadas conforme a velocidade de acesso ou volume de banda utilizada.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">6</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Parte 2, p. 28–29):</b><br>- <b>Por que a D está correta (p. 29):</b> Citação literal de Ramos (2014, p. 165): <i>"(i) o princípio da neutralidade da rede impõe a provedores de acesso a obrigação de não bloquear o acesso de usuários a determinados sites e aplicações, sendo também vedado aos provedores de acesso arbitrariamente reduzir a velocidade ou dificultar o acesso a aplicações específicas"</i>.<br>- <b>Erros das demais (p. 28–29):</b><br>- <b>A:</b> Os temas são privacidade, neutralidade e <b>inimputabilidade</b> da rede, garantindo direitos <b>inclusive em relação às ações abusivas do Estado</b> (p. 28).<br>- <b>B:</b> A CF/88 <b>não contempla de forma expressa</b> a proteção do núcleo essencial (p. 28).<br>- <b>C:</b> A ONU compreende que restrições e bloqueios violam o art. 19, <b>"ainda que devido a infrações de direitos autorais"</b> (p. 29).<br>- <b>E:</b> A neutralidade <b>impede</b> a cobrança diferenciada para acesso a determinados conteúdos e aplicações (sendo livre apenas cobrar conforme a velocidade contratada ou volume total de banda, p. 29).</div>
+            <div class="question-text">“O atual desafio do direito contemporâneo de delinear a forma de atendimento dos novos direitos sociais, coletivos e indivisíveis, confunde-se com a exclusão digital, advinda da revolução tecnológica, com todas as suas incríveis transformações na vida moderna, calcada sem tecnologias de alto custo, exploráveis comercialmente no mercado privado, sabendo que o Estado não é onipotente para conferir a todos igualdades de direitos sociais e digitais, gerando um futuro incerto à população menos favorecida. É preciso saber se esta será abrangida pelo fenômeno da modernização ou se será definitivamente esquecida, resultando em uma população obsoleta e excluída da sociedade digital”. (MARQUES, 2020, p. 59).<br><br>Quanto ao acesso à Internet no Brasil, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os principais temas trazidos pelo Marco Civil da Internet foram a privacidade, a neutralidade da rede e a imputabilidade da rede, princípios que garantem os direitos e as liberdades democráticas dos internautas, mas não em relação às ações abusivas do Estado.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A neutralidade é o núcleo essencial do direito fundamental do acesso à Internet. A sua proteção deriva do modelo de garantia utilizado pelo legislador-constituinte, portanto, deve constar explicitamente na Constituição Federal.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O acesso à Internet é considerado direito fundamental. A Organização das Nações Unidas compreende que restrições e bloqueios à Internet constituem uma violação ao direito à liberdade de expressão e de receber informação, com exceção das infrações de direitos autorais.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O princípio da neutralidade da rede impõe a provedores de acesso a obrigação de não bloquear o acesso de usuários a determinados sites e aplicações, sendo também vedado aos provedores de acesso arbitrariamente reduzir a velocidade ou dificultar o acesso a aplicações específicas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A neutralidade da rede permite a cobrança diferenciada para acesso a determinados conteúdos e aplicações, sendo, portanto, livre a cobrança de tarifas diferenciadas conforme a velocidade de acesso ou volume de banda utilizada.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Parte 2, p. 28–29):</b><br>- <b>Por que a D está correta (p. 29):</b> Citação literal de Ramos (2014, p. 165): <i>"(i) o princípio da neutralidade da rede impõe a provedores de acesso a obrigação de não bloquear o acesso de usuários a determinados sites e aplicações, sendo também vedado aos provedores de acesso arbitrariamente reduzir a velocidade ou dificultar o acesso a aplicações específicas"</i>.<br>- <b>Erros das demais (p. 28–29):</b><br>- <b>A:</b> Os temas são privacidade, neutralidade e <b>inimputabilidade</b> da rede, garantindo direitos <b>inclusive em relação às ações abusivas do Estado</b> (p. 28).<br>- <b>B:</b> A CF/88 <b>não contempla de forma expressa</b> a proteção do núcleo essencial (p. 28).<br>- <b>C:</b> A ONU compreende que restrições e bloqueios violam o art. 19, <b>"ainda que devido a infrações de direitos autorais"</b> (p. 29).<br>- <b>E:</b> A neutralidade <b>impede</b> a cobrança diferenciada para acesso a determinados conteúdos e aplicações (sendo livre apenas cobrar conforme a velocidade contratada ou volume total de banda, p. 29).</div>
+            </div>
         </div>
         <div class="question-container" id="q7" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">7. “O homem moderno vive numa ‘sociedade de consumo’, onde os bens ou novos produtos da tecnologia moderna lhe são apresentados mediante uma propaganda tão bem elaborada, que o leva a sentir necessidades primárias ou voluptuárias nunca antes experimentadas, como, p. ex., a de substituir um carro novo por um ‘zero km’ que, embora supérfluo, virá satisfazer um anseio de status. A ânsia de atender aos mais variados requintes de bem-estar e de vaidade transforma o num autômato, que age em função da ganância de novos mercados, de maiores lucros e da satisfação de seus desejos e ambições, justificáveis ou artificiais, fazendo-o desenvolver uma atividade econômica intensa. Essa intensificação da atividade econômica, provocada pela urbanização, pelo progresso tecnológico, pela comunicação permanente, causou grande repercussão nas relações humanas, que por isso precisaram ser controladas e regulamentadas por normas jurídicas, que compõem o direito das obrigações.” (DINIZ, 2007, p. 4).<br><br>Com base no direito das obrigações, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>O princípio da socialidade está vinculado à função social das obrigações. As partes devem pactuar de forma a não prejudicar a coletividade.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>No jogo do bicho, o credor poderá fazer uso da responsabilidade civil para cobrar sua dívida.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>O fornecimento de água é obrigação propter rem, isto é, obrigação vinculada à pessoa que usufruiu do serviço.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A relação obrigacional é composta pelos três elementos: sujeito ativo, sujeito passivo e objeto.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>No direito das obrigações, o devedor assume o dever de cumprir uma prestação de dar, pagar ou não pagar.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">7</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Parte 1, p. 133–137):</b><br>- <b>A (Correta — p. 137):</b> <i>"O princípio da socialidade está vinculado à função social das obrigações, positivado no art. 421 do Código Civil [...]. Assim, as partes, além de observarem o princípio da boa-fé entre si, devem, ainda, pactuar de forma a não prejudicar a coletividade."</i><br>- <b>Por que as demais estão incorretas:</b><br>- <b>B (p. 133):</b> Dívida decorrente de jogos de azar não pode ser cobrada em juízo (obrigação natural, sem responsabilidade civil).<br>- <b>C (p. 134):</b> O fornecimento de água é obrigação <b>pessoal e não <i>propter rem</b></i>, vinculada à pessoa que usufruiu do serviço (e não ao imóvel).<br>- <b>D (p. 135):</b> Os três elementos da relação obrigacional são: <b>sujeitos (ativo e passivo), objeto (prestação) e vínculo jurídico</b>.<br>- <b>E (p. 133 e 135):</b> A prestação consiste em <b>dar (coisa certa ou incerta), fazer ou não fazer</b>.</div>
+            <div class="question-text">“O homem moderno vive numa ‘sociedade de consumo’, onde os bens ou novos produtos da tecnologia moderna lhe são apresentados mediante uma propaganda tão bem elaborada, que o leva a sentir necessidades primárias ou voluptuárias nunca antes experimentadas, como, p. ex., a de substituir um carro novo por um ‘zero km’ que, embora supérfluo, virá satisfazer um anseio de status. A ânsia de atender aos mais variados requintes de bem-estar e de vaidade transforma o num autômato, que age em função da ganância de novos mercados, de maiores lucros e da satisfação de seus desejos e ambições, justificáveis ou artificiais, fazendo-o desenvolver uma atividade econômica intensa. Essa intensificação da atividade econômica, provocada pela urbanização, pelo progresso tecnológico, pela comunicação permanente, causou grande repercussão nas relações humanas, que por isso precisaram ser controladas e regulamentadas por normas jurídicas, que compõem o direito das obrigações.” (DINIZ, 2007, p. 4).<br><br>Com base no direito das obrigações, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O princípio da socialidade está vinculado à função social das obrigações. As partes devem pactuar de forma a não prejudicar a coletividade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">No jogo do bicho, o credor poderá fazer uso da responsabilidade civil para cobrar sua dívida.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O fornecimento de água é obrigação propter rem, isto é, obrigação vinculada à pessoa que usufruiu do serviço.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A relação obrigacional é composta pelos três elementos: sujeito ativo, sujeito passivo e objeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">No direito das obrigações, o devedor assume o dever de cumprir uma prestação de dar, pagar ou não pagar.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Parte 1, p. 133–137):</b><br>- <b>A (Correta — p. 137):</b> <i>"O princípio da socialidade está vinculado à função social das obrigações, positivado no art. 421 do Código Civil [...]. Assim, as partes, além de observarem o princípio da boa-fé entre si, devem, ainda, pactuar de forma a não prejudicar a coletividade."</i><br>- <b>Por que as demais estão incorretas:</b><br>- <b>B (p. 133):</b> Dívida decorrente de jogos de azar não pode ser cobrada em juízo (obrigação natural, sem responsabilidade civil).<br>- <b>C (p. 134):</b> O fornecimento de água é obrigação <b>pessoal e não <i>propter rem</b></i>, vinculada à pessoa que usufruiu do serviço (e não ao imóvel).<br>- <b>D (p. 135):</b> Os três elementos da relação obrigacional são: <b>sujeitos (ativo e passivo), objeto (prestação) e vínculo jurídico</b>.<br>- <b>E (p. 133 e 135):</b> A prestação consiste em <b>dar (coisa certa ou incerta), fazer ou não fazer</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q8" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">8. “A Lei nº 13.709/18 - LGPD, se vale da boa-fé e do interesse público, quando se trata da disponibilidade e do acesso aos dados pessoais, resguardados e previsto na referida Lei, os princípios e os direitos do titular, que obteve o consentimento do referido dado, 'mediante o fornecimento de consentimento pelo titular' (inciso I do Art. 7º, Lei nº 13.709/18), que, caso venha ocorrer o compartilhamento de dados pessoais com outros controladores, nesse caso, os dados pessoais somente poderão ser compartilhados mediante consentimento do titular para esse fim, outrossim, se previsto nessa Lei, mediante a dispensa de consentimento, dos princípios gerais e da garantia dos direitos do titular.” (ALMEIDA; SOARES, 2022, p. 32).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A Lei Geral de Proteção de Dados pode ser aplicada às relações de trabalho, mesmo não constando na Consolidação das Leis Trabalhistas.<br>II. Funcionários, candidatos às vagas de emprego e funcionários desligados são denominados titulares dos dados e detêm dados pessoais e sensíveis, como informações sobre associação a sindicatos.<br>III. Segundo a Lei Geral de Proteção de Dados, o empregador tem obrigação de informar ao titular do dado sobre a forma de tratamento desses dados, observando os princípios da licitude, da lealdade e da transparência.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">8</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Parte 3, p. 232–234):</b><br>- <b>I (Verdadeira — p. 232–233):</b> Embora não haja menção expressa na CLT, aplica-se a LGPD (arts. 1º e 5º) às relações de trabalho (fases pré-contratual, contratual e pós-contratual), sendo o empregador o <i>controlador</i> e o empregado o <i>titular</i>.<br>- <b>II (Verdadeira — p. 233):</b> Cópia literal da p. 233: <i>"Por outro lado, funcionários, candidatos às vagas de emprego e funcionários desligados são denominados titulares dos dados e detêm dados pessoais e sensíveis, como informações sobre associação a sindicatos."</i><br>- <b>III (Verdadeira — p. 234):</b> Cópia literal da p. 234: <i>"É importante destacar que, por força da LGPD, o empregador passa a ter a obrigação de informar ao titular do dado sobre a forma de tratamento desses dados, observando os princípios da licitude, lealdade e transparência..."</i></div>
+            <div class="question-text">“A Lei nº 13.709/18 - LGPD, se vale da boa-fé e do interesse público, quando se trata da disponibilidade e do acesso aos dados pessoais, resguardados e previsto na referida Lei, os princípios e os direitos do titular, que obteve o consentimento do referido dado, 'mediante o fornecimento de consentimento pelo titular' (inciso I do Art. 7º, Lei nº 13.709/18), que, caso venha ocorrer o compartilhamento de dados pessoais com outros controladores, nesse caso, os dados pessoais somente poderão ser compartilhados mediante consentimento do titular para esse fim, outrossim, se previsto nessa Lei, mediante a dispensa de consentimento, dos princípios gerais e da garantia dos direitos do titular.” (ALMEIDA; SOARES, 2022, p. 32).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A Lei Geral de Proteção de Dados pode ser aplicada às relações de trabalho, mesmo não constando na Consolidação das Leis Trabalhistas.<br>II. Funcionários, candidatos às vagas de emprego e funcionários desligados são denominados titulares dos dados e detêm dados pessoais e sensíveis, como informações sobre associação a sindicatos.<br>III. Segundo a Lei Geral de Proteção de Dados, o empregador tem obrigação de informar ao titular do dado sobre a forma de tratamento desses dados, observando os princípios da licitude, da lealdade e da transparência.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Parte 3, p. 232–234):</b><br>- <b>I (Verdadeira — p. 232–233):</b> Embora não haja menção expressa na CLT, aplica-se a LGPD (arts. 1º e 5º) às relações de trabalho (fases pré-contratual, contratual e pós-contratual), sendo o empregador o <i>controlador</i> e o empregado o <i>titular</i>.<br>- <b>II (Verdadeira — p. 233):</b> Cópia literal da p. 233: <i>"Por outro lado, funcionários, candidatos às vagas de emprego e funcionários desligados são denominados titulares dos dados e detêm dados pessoais e sensíveis, como informações sobre associação a sindicatos."</i><br>- <b>III (Verdadeira — p. 234):</b> Cópia literal da p. 234: <i>"É importante destacar que, por força da LGPD, o empregador passa a ter a obrigação de informar ao titular do dado sobre a forma de tratamento desses dados, observando os princípios da licitude, lealdade e transparência..."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q9" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">9. “No dia 26 de junho de 2020, as ações do Facebook sofreram uma queda de 8,31% na bolsa de valores eletrônica Nasdaq. [...] O motivo: mais de 150 empresas - entre as quais constam nomes como Unilever, Ford e Adidas - anunciaram um boicote à rede social, comprometendo-se a deixar de anunciar na plataforma no mês de julho. A ação é resultado da campanha Stop Hate For Profit (pare de lucrar com o ódio, em tradução livre), que demanda do Facebook uma postura mais ativa - e combativa - ante as publicações na rede que veiculem discurso de ódio. [...]” (BREGA, 2023, p. 2).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A responsabilidade do provedor é tanto subjetiva quanto objetiva, portanto, não depende da comprovação de culpa do provedor.<br>II. O provedor de aplicações à Internet é aquele que oferece um conjunto de funcionalidades e ferramentas a serem acessadas por meio da Internet.<br>III. O primeiro princípio previsto pelo Marco Civil da Internet é o da garantia da liberdade de expressão, comunicação e manifestação de pensamento.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">9</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Parte 2, p. 206–215):</b><br>- <b>I (Falsa — p. 215):</b> <i>"Diante de tudo isso, podemos concluir em suma que a responsabilidade do provedor é <b>apenas subjetiva, e não objetiva</b>, ou seja, <b>depende da comprovação de culpa do provedor</b>."</i><br>- <b>II (Verdadeira — p. 213):</b> <i>"O provedor de aplicações à internet, diferentemente do provedor de conexão, é aquele que oferece um conjunto de funcionalidades e ferramentas a serem acessadas por meio da internet."</i><br>- <b>III (Verdadeira — p. 206):</b> <i>"O primeiro princípio previsto pelo Marco Civil da Internet é o da garantia da liberdade de expressão, comunicação e manifestação de pensamento..."</i> (Art. 3º, I, da Lei nº 12.965/2014).</div>
+            <div class="question-text">“No dia 26 de junho de 2020, as ações do Facebook sofreram uma queda de 8,31% na bolsa de valores eletrônica Nasdaq. [...] O motivo: mais de 150 empresas - entre as quais constam nomes como Unilever, Ford e Adidas - anunciaram um boicote à rede social, comprometendo-se a deixar de anunciar na plataforma no mês de julho. A ação é resultado da campanha Stop Hate For Profit (pare de lucrar com o ódio, em tradução livre), que demanda do Facebook uma postura mais ativa - e combativa - ante as publicações na rede que veiculem discurso de ódio. [...]” (BREGA, 2023, p. 2).<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A responsabilidade do provedor é tanto subjetiva quanto objetiva, portanto, não depende da comprovação de culpa do provedor.<br>II. O provedor de aplicações à Internet é aquele que oferece um conjunto de funcionalidades e ferramentas a serem acessadas por meio da Internet.<br>III. O primeiro princípio previsto pelo Marco Civil da Internet é o da garantia da liberdade de expressão, comunicação e manifestação de pensamento.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Parte 2, p. 206–215):</b><br>- <b>I (Falsa — p. 215):</b> <i>"Diante de tudo isso, podemos concluir em suma que a responsabilidade do provedor é <b>apenas subjetiva, e não objetiva</b>, ou seja, <b>depende da comprovação de culpa do provedor</b>."</i><br>- <b>II (Verdadeira — p. 213):</b> <i>"O provedor de aplicações à internet, diferentemente do provedor de conexão, é aquele que oferece um conjunto de funcionalidades e ferramentas a serem acessadas por meio da internet."</i><br>- <b>III (Verdadeira — p. 206):</b> <i>"O primeiro princípio previsto pelo Marco Civil da Internet é o da garantia da liberdade de expressão, comunicação e manifestação de pensamento..."</i> (Art. 3º, I, da Lei nº 12.965/2014).</div>
+            </div>
         </div>
         <div class="question-container" id="q10" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">10. Contrato, na definição da professora Maria Helena Diniz (2014, p. 31) é: “o acordo entre duas ou mais vontades, na conformidade da ordem jurídica, destinado a estabelecer uma regulamentação de interesses entre as partes, com o escopo de adquirir, modificar ou extinguir relações jurídicas de natureza patrimonial”.<br><br>Em relação aos contratos comerciais, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Contrato é o acordo de vontades, uma das partes, denominada oblato, deve, primeiramente, expressar a sua vontade em contratar.</span></label>
-                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>Essa manifestação dirigida ao contraente, com os termos do contrato, é a proposta, também chamada de policitação.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Os contratos mercantis são aqueles em que contratante e contratado podem ser empresários ou entre empresário e não empresário, ou entre não empresários.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A proposta obriga o oblato ainda que feita sem prazo à pessoa presente, ou pelo telefone.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>O empresário ao celebrar contratos para a exploração de sua atividade empresarial não poderá ser submetido ao regime jurídico do direito do consumidor.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">10</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Parte 2, p. 141):</b><br>- <b>B (Correta — p. 141):</b> <i>"Para a formação desse acordo de vontades, uma das partes, denominada <b>proponente</b>, deve, primeiramente, expressar a sua vontade em contratar, por meio de manifestação dirigida ao seu possível contraente – denominado <b>oblato</b>. Essa manifestação, com os termos do contrato, é a <b>proposta, também chamada de policitação</b> (COMETTI, 2012)."</i><br>- <b>Erros das demais (p. 141):</b><br>- <b>A:</b> Quem manifesta primeiramente a vontade é o <b>proponente</b>, e não o oblato.<br>- <b>C:</b> Contratos mercantis são aqueles em que contratante e contratado são <b>necessariamente empresários</b>.<br>- <b>D:</b> A proposta obriga o <b>proponente</b> (art. 427 do CC), e deixa de ser obrigatória se feita sem prazo a pessoa presente e não for imediatamente aceita.<br>- <b>E:</b> O empresário <b>poderá sim</b> ser submetido tanto ao regime do Direito Civil quanto ao do Direito do Consumidor (CDC), caso se enquadre ou contrate com consumidor/vulnerável.</div>
+            <div class="question-text">Contrato, na definição da professora Maria Helena Diniz (2014, p. 31) é: “o acordo entre duas ou mais vontades, na conformidade da ordem jurídica, destinado a estabelecer uma regulamentação de interesses entre as partes, com o escopo de adquirir, modificar ou extinguir relações jurídicas de natureza patrimonial”.<br><br>Em relação aos contratos comerciais, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Contrato é o acordo de vontades, uma das partes, denominada oblato, deve, primeiramente, expressar a sua vontade em contratar.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Essa manifestação dirigida ao contraente, com os termos do contrato, é a proposta, também chamada de policitação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os contratos mercantis são aqueles em que contratante e contratado podem ser empresários ou entre empresário e não empresário, ou entre não empresários.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A proposta obriga o oblato ainda que feita sem prazo à pessoa presente, ou pelo telefone.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O empresário ao celebrar contratos para a exploração de sua atividade empresarial não poderá ser submetido ao regime jurídico do direito do consumidor.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Parte 2, p. 141):</b><br>- <b>B (Correta — p. 141):</b> <i>"Para a formação desse acordo de vontades, uma das partes, denominada <b>proponente</b>, deve, primeiramente, expressar a sua vontade em contratar, por meio de manifestação dirigida ao seu possível contraente – denominado <b>oblato</b>. Essa manifestação, com os termos do contrato, é a <b>proposta, também chamada de policitação</b> (COMETTI, 2012)."</i><br>- <b>Erros das demais (p. 141):</b><br>- <b>A:</b> Quem manifesta primeiramente a vontade é o <b>proponente</b>, e não o oblato.<br>- <b>C:</b> Contratos mercantis são aqueles em que contratante e contratado são <b>necessariamente empresários</b>.<br>- <b>D:</b> A proposta obriga o <b>proponente</b> (art. 427 do CC), e deixa de ser obrigatória se feita sem prazo a pessoa presente e não for imediatamente aceita.<br>- <b>E:</b> O empresário <b>poderá sim</b> ser submetido tanto ao regime do Direito Civil quanto ao do Direito do Consumidor (CDC), caso se enquadre ou contrate com consumidor/vulnerável.</div>
+            </div>
         </div>
         <div class="question-container" id="q11" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">11. “O contrato exerce um papel importantíssimo, com vistas à circulação de riquezas, pois confere segurança às relações jurídicas. Porém, não é esse o seu papel principal. O seu fundamento é a perpetuação da vida humana, ou seja, o atendimento das necessidades da pessoa. [...]” (TARTUCE, 2019, p. 34).<br><br>Em relação aos contratos comerciais, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O contrato entre ausentes considera-se formado no momento em que a aceitação é expedida pelo contraente (aceitante), sem chance de retratação junto ao proponente, depois do aceite.</span></label>
-                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>A aceitação manifestada pelo contraente deverá ser uma adesão total aos termos e às condições constantes da proposta, importando, em nova proposta, a aceitação realizada fora do prazo, com adições, restrições ou modificações.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>A adequada premiação pelo sucesso na competição econômica assim como a preponderância do princípio da autonomia privada sobre o do equilíbrio dos contratantes são elementos que retratam os contratos de consumo, regidos pelo Código do Consumidor.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>Há uma variedade de tipos de contratos, os quais podem ser classificados como empresariais, de consumo ou contratos civis, porém os contratos de seguro de vida e o agrícola são considerados contratos civil e de consumo, ao mesmo tempo.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O regime aplicável a contrato celebrado entre empresários, mesmo que um deles esteja em situação análoga à de consumidor, será o regime do direito comercial.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">11</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Parte 2, p. 141–145):</b><br>- <b>B (Correta — p. 141):</b> Cópia literal da p. 141: <i>"A aceitação manifestada pelo oblato deverá ser uma adesão total aos termos e às condições constantes da proposta, importando, em nova proposta, a aceitação realizada fora do prazo, com adições, restrições ou modificações (CC, art. 431)."</i><br>- <b>Erros das demais:</b><br>- <b>A (p. 141–142):</b> Admite-se a retratação tempestiva do aceitante (art. 433 do CC), se chegar ao proponente antes ou junto com a aceitação.<br>- <b>C (p. 145):</b> Esses elementos retratam o regime de <b>Direito comercial</b> dos contratos (e não os contratos de consumo).<br>- <b>D (p. 145):</b> Enquanto o seguro de vida é contrato civil e de consumo, <b>o seguro agrícola é sempre empresarial</b>.<br>- <b>E (p. 143):</b> Se um dos empresários estiver em situação de vulnerabilidade/análoga à de consumidor (ex.: microempresário tomando empréstimo bancário), a relação está sujeita ao <b>CDC</b>.</div>
+            <div class="question-text">“O contrato exerce um papel importantíssimo, com vistas à circulação de riquezas, pois confere segurança às relações jurídicas. Porém, não é esse o seu papel principal. O seu fundamento é a perpetuação da vida humana, ou seja, o atendimento das necessidades da pessoa. [...]” (TARTUCE, 2019, p. 34).<br><br>Em relação aos contratos comerciais, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O contrato entre ausentes considera-se formado no momento em que a aceitação é expedida pelo contraente (aceitante), sem chance de retratação junto ao proponente, depois do aceite.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A aceitação manifestada pelo contraente deverá ser uma adesão total aos termos e às condições constantes da proposta, importando, em nova proposta, a aceitação realizada fora do prazo, com adições, restrições ou modificações.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A adequada premiação pelo sucesso na competição econômica assim como a preponderância do princípio da autonomia privada sobre o do equilíbrio dos contratantes são elementos que retratam os contratos de consumo, regidos pelo Código do Consumidor.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Há uma variedade de tipos de contratos, os quais podem ser classificados como empresariais, de consumo ou contratos civis, porém os contratos de seguro de vida e o agrícola são considerados contratos civil e de consumo, ao mesmo tempo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O regime aplicável a contrato celebrado entre empresários, mesmo que um deles esteja em situação análoga à de consumidor, será o regime do direito comercial.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Parte 2, p. 141–145):</b><br>- <b>B (Correta — p. 141):</b> Cópia literal da p. 141: <i>"A aceitação manifestada pelo oblato deverá ser uma adesão total aos termos e às condições constantes da proposta, importando, em nova proposta, a aceitação realizada fora do prazo, com adições, restrições ou modificações (CC, art. 431)."</i><br>- <b>Erros das demais:</b><br>- <b>A (p. 141–142):</b> Admite-se a retratação tempestiva do aceitante (art. 433 do CC), se chegar ao proponente antes ou junto com a aceitação.<br>- <b>C (p. 145):</b> Esses elementos retratam o regime de <b>Direito comercial</b> dos contratos (e não os contratos de consumo).<br>- <b>D (p. 145):</b> Enquanto o seguro de vida é contrato civil e de consumo, <b>o seguro agrícola é sempre empresarial</b>.<br>- <b>E (p. 143):</b> Se um dos empresários estiver em situação de vulnerabilidade/análoga à de consumidor (ex.: microempresário tomando empréstimo bancário), a relação está sujeita ao <b>CDC</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q12" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">12. “A Lei Geral de Proteção de Dados (Lei nº 13.709/18 - LGPD), é prudente ao tratar em sua íntegra da preservação de dados pessoais, com procedimentos necessários em plena era digital, onde dados pessoais são tratados como valorosas mercadorias. [...]” (ALMEIDA; SOARES, 2022, p. 32).<br><br>Com base na Lei Geral de Proteção de Dados (LGPD) e seus impactos, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A pena de suspensão parcial do funcionamento do banco de dados, que se refere à infração pelo período máximo de seis meses, pode ser aplicada independentemente de ter sido anteriormente imposta ao menos uma das seguintes sanções: multa simples, multa diária, publicização da infração, bloqueio dos dados pessoais e eliminação dos dados pessoais.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A LGPD não previu que o responsável pelo tratamento de dados pessoais seja obrigado a fornecer ao seu titular informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada do tratamento dos dados pessoais, sendo, assim, necessário o ajuizamento de ação.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>A LGPD é um grande marco legal brasileiro e trouxe diversos impactos para as instituições privadas e públicas, porém não afetou a atuação das organizações em relação a manter seus negócios sustentáveis.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Para a correta aplicação dos princípios da LGPD no tratamento dos dados pessoais, é necessário, sem admitir exceções, que o titular saiba, em relação ao tratamento dos dados pessoais, como e onde o seu registro será usado.</span></label>
-                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>Com base nas funcionalidades e nos serviços de armazenamento chamados de big data, ficou fácil e viável identificar padrões de comportamento e demais características pessoais, pois é possível armazenar e analisar inúmeros dados pessoais coletados a partir do uso diário das ferramentas digitais.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">12</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Parte 1, p. 195–199):</b><br>- <b>E (Correta — p. 198):</b> <i>"Esse tipo de solução é chamado de big data [...]. Com essas novas possibilidades e o potencial de armazenamento, tratamento e análise de dados pessoais coletados a partir do uso diário das ferramentas digitais, tornou-se viável identificar padrões de comportamento e demais características pessoais."</i><br>- <b>Erros das demais:</b><br>- <b>A (p. 197):</b> A suspensão parcial do banco de dados <b>só será aplicada caso já tenha sido imposta ao menos uma</b> das sanções anteriores (multa simples, multa diária, publicização, bloqueio ou eliminação).<br>- <b>B (p. 199):</b> O art. 20, §1º, da LGPD <b>prevê expressamente</b> que o controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas sobre os critérios e procedimentos utilizados para a decisão automatizada (respeitados os segredos comercial e industrial).<br>- <b>C (p. 198, Fique atento):</b> <i>"Para tornar o seu negócio sustentável ao longo do tempo, as organizações precisam atuar de acordo com os princípios da LGPD."</i><br>- <b>D (p. 195):</b> O texto afirma literalmente: <i>"No entanto, <b>pode haver exceções</b>. Por exemplo, um dado pode ser coletado sem consentimento expresso: para o cumprimento de obrigação legal..."</i></div>
+            <div class="question-text">“A Lei Geral de Proteção de Dados (Lei nº 13.709/18 - LGPD), é prudente ao tratar em sua íntegra da preservação de dados pessoais, com procedimentos necessários em plena era digital, onde dados pessoais são tratados como valorosas mercadorias. [...]” (ALMEIDA; SOARES, 2022, p. 32).<br><br>Com base na Lei Geral de Proteção de Dados (LGPD) e seus impactos, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A pena de suspensão parcial do funcionamento do banco de dados, que se refere à infração pelo período máximo de seis meses, pode ser aplicada independentemente de ter sido anteriormente imposta ao menos uma das seguintes sanções: multa simples, multa diária, publicização da infração, bloqueio dos dados pessoais e eliminação dos dados pessoais.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A LGPD não previu que o responsável pelo tratamento de dados pessoais seja obrigado a fornecer ao seu titular informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada do tratamento dos dados pessoais, sendo, assim, necessário o ajuizamento de ação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A LGPD é um grande marco legal brasileiro e trouxe diversos impactos para as instituições privadas e públicas, porém não afetou a atuação das organizações em relação a manter seus negócios sustentáveis.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Para a correta aplicação dos princípios da LGPD no tratamento dos dados pessoais, é necessário, sem admitir exceções, que o titular saiba, em relação ao tratamento dos dados pessoais, como e onde o seu registro será usado.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Com base nas funcionalidades e nos serviços de armazenamento chamados de big data, ficou fácil e viável identificar padrões de comportamento e demais características pessoais, pois é possível armazenar e analisar inúmeros dados pessoais coletados a partir do uso diário das ferramentas digitais.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Parte 1, p. 195–199):</b><br>- <b>E (Correta — p. 198):</b> <i>"Esse tipo de solução é chamado de big data [...]. Com essas novas possibilidades e o potencial de armazenamento, tratamento e análise de dados pessoais coletados a partir do uso diário das ferramentas digitais, tornou-se viável identificar padrões de comportamento e demais características pessoais."</i><br>- <b>Erros das demais:</b><br>- <b>A (p. 197):</b> A suspensão parcial do banco de dados <b>só será aplicada caso já tenha sido imposta ao menos uma</b> das sanções anteriores (multa simples, multa diária, publicização, bloqueio ou eliminação).<br>- <b>B (p. 199):</b> O art. 20, §1º, da LGPD <b>prevê expressamente</b> que o controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas sobre os critérios e procedimentos utilizados para a decisão automatizada (respeitados os segredos comercial e industrial).<br>- <b>C (p. 198, Fique atento):</b> <i>"Para tornar o seu negócio sustentável ao longo do tempo, as organizações precisam atuar de acordo com os princípios da LGPD."</i><br>- <b>D (p. 195):</b> O texto afirma literalmente: <i>"No entanto, <b>pode haver exceções</b>. Por exemplo, um dado pode ser coletado sem consentimento expresso: para o cumprimento de obrigação legal..."</i></div>
+            </div>
         </div>
 
-        <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar Simulado Completo (12 Questões)</button>
+            <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar e Enviar Questionário (12 Questões)</button>
 
-        <div id="resultado" class="result-box"></div>
-    </form>
+            <div id="resultado" class="result-box"></div>
+        </form>
+    </main>
 
     <script>
         const TOTAL = 12;
@@ -253,32 +1502,38 @@
             box.appendChild(img);
         }
 
-        // Embaralhamento inicial ao carregar (F5)
+        // Embaralhamento inicial (F5)
         (function() {
             const form = document.getElementById('quizForm');
             const submitBtn = document.querySelector('.btn-submit');
 
-            // 1. Embaralha as questoes (etiqueta de unidade acompanha cada questao)
+            // 1. Embaralha as perguntas mantendo seus atributos e etiquetas
             const questions = Array.from(document.querySelectorAll('.question-container'));
             for (let i = questions.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [questions[i], questions[j]] = [questions[j], questions[i]];
             }
 
-            // 2. Renumera e reinsere no DOM
+            // 2. Renumera o círculo roxo e reatribui radio names
             questions.forEach((q, index) => {
                 const newNum = index + 1;
                 const newId = 'q' + newNum;
                 q.id = newId;
-                q.querySelectorAll('input[type="radio"]').forEach(r => { r.name = newId; r.checked = false; });
-                const qText = q.querySelector('.question-text');
-                if (qText) qText.innerHTML = qText.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+
+                const circleNum = q.querySelector('.q-circle-number');
+                if (circleNum) circleNum.innerText = newNum;
+
+                q.querySelectorAll('input[type="radio"]').forEach(r => {
+                    r.name = newId;
+                    r.checked = false;
+                });
+
                 form.insertBefore(q, submitBtn);
 
-                // 3. Embaralha as alternativas e reatribui as letras A, B, C, D, E
+                // 3. Embaralha as alternativas de cada pergunta
                 const optionsDiv = q.querySelector('.options');
                 if (optionsDiv) {
-                    const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                    const labels = Array.from(optionsDiv.querySelectorAll('.option-row'));
                     const letters = ['A', 'B', 'C', 'D', 'E'];
                     for (let i = labels.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -287,7 +1542,7 @@
                     optionsDiv.innerHTML = '';
                     labels.forEach((label, idx) => {
                         const prefix = label.querySelector('.letter-prefix');
-                        if (prefix) prefix.innerText = letters[idx] + ') ';
+                        if (prefix) prefix.innerText = letters[idx] + '. ';
                         const input = label.querySelector('input');
                         if (input) input.value = letters[idx];
                         optionsDiv.appendChild(label);
@@ -300,8 +1555,14 @@
             let acertos = 0;
             const porUnidade = {};
 
-            document.querySelectorAll('.options label').forEach(l => l.classList.remove('correct-answer', 'wrong-answer'));
-            document.querySelectorAll('.feedback').forEach(fb => { fb.classList.remove('correct', 'incorrect'); fb.style.display = 'none'; fb.innerHTML = ''; });
+            // Limpa estilos anteriores
+            document.querySelectorAll('.option-row').forEach(l => {
+                l.classList.remove('is-correct-answer', 'is-wrong-answer');
+            });
+            document.querySelectorAll('.status-pill-ava').forEach(sp => {
+                sp.className = 'status-pill-ava';
+                sp.style.display = 'none';
+            });
 
             for (let i = 1; i <= TOTAL; i++) {
                 const q = document.getElementById('q' + i);
@@ -309,46 +1570,95 @@
                 porUnidade[unidade] = porUnidade[unidade] || { ok: 0, total: 0 };
                 porUnidade[unidade].total++;
 
+                const statusPill = q.querySelector('.status-pill-ava');
+                const scoreBadge = q.querySelector('.q-score-badge');
                 const options = document.getElementsByName('q' + i);
-                const feedbackDiv = q.querySelector('.feedback');
-                let respondeu = false, acertou = false;
+
+                let respondeu = false;
+                let acertou = false;
 
                 for (const option of options) {
-                    const label = option.closest('label');
+                    const label = option.closest('.option-row');
                     const isCorrect = label.getAttribute('data-correct') === 'true';
+
                     if (option.checked) {
                         respondeu = true;
                         if (isCorrect) {
                             acertou = true;
-                            label.classList.add('correct-answer');
-                            feedbackDiv.innerHTML = '✔ Resposta Correta!';
-                            feedbackDiv.classList.add('correct');
+                            label.classList.add('is-correct-answer');
                         } else {
-                            label.classList.add('wrong-answer');
-                            const cl = label.parentElement.querySelector('label[data-correct="true"]');
-                            const letra = cl ? cl.querySelector('input').value : '?';
-                            feedbackDiv.innerHTML = `✖ Resposta Incorreta. A alternativa correta é a ${letra}.`;
-                            feedbackDiv.classList.add('incorrect');
+                            label.classList.add('is-wrong-answer');
+                            const tag = label.querySelector('.option-tag');
+                            if (tag) {
+                                tag.innerText = 'Sua resposta (Incorreta)';
+                                tag.style.display = 'inline';
+                            }
                         }
                     }
-                    if (isCorrect) label.classList.add('correct-answer');
+
+                    if (isCorrect) {
+                        label.classList.add('is-correct-answer');
+                        const tag = label.querySelector('.option-tag');
+                        if (tag) {
+                            tag.innerText = 'Resposta correta';
+                            tag.style.display = 'inline';
+                        }
+                    }
                 }
-                if (acertou) { acertos++; porUnidade[unidade].ok++; }
+
+                if (acertou) {
+                    acertos++;
+                    porUnidade[unidade].ok++;
+                    if (statusPill) {
+                        statusPill.innerText = 'CORRETO';
+                        statusPill.className = 'status-pill-ava correto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,4 / 0,4';
+                } else if (respondeu) {
+                    if (statusPill) {
+                        statusPill.innerText = 'INCORRETO';
+                        statusPill.className = 'status-pill-ava incorreto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                } else {
+                    if (statusPill) {
+                        statusPill.innerText = 'NÃO RESPONDIDO';
+                        statusPill.className = 'status-pill-ava vazio';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                }
+
                 mostrarReacao(q, acertou);
-                if (!respondeu) {
-                    feedbackDiv.innerHTML = '⚠ Questão não respondida.';
-                    feedbackDiv.classList.add('incorrect');
-                }
-                feedbackDiv.style.display = 'block';
+
+                // Exibe justificativa
                 const ex = q.querySelector('.explicacao');
                 if (ex) ex.style.display = 'block';
             }
 
+            // Atualiza nota no Banner Superior (estilo Print 5)
+            const notaEscala10 = ((acertos / TOTAL) * 10).toFixed(1).replace('.', ',');
+            const headerPill = document.getElementById('header-score-pill');
+            if (headerPill) headerPill.innerText = notaEscala10 + ' / 10,0';
+
+            const headerSub = document.getElementById('header-score-sub');
+            if (headerSub) {
+                const now = new Date();
+                const horaStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                headerSub.innerHTML = '<strong>ENVIADO:</strong> ' + horaStr + ' (BRT)';
+            }
+
+            // Exibe caixa de resultado final
             const resultBox = document.getElementById('resultado');
             resultBox.style.display = 'block';
             const aproveitamento = ((acertos / TOTAL) * 100).toFixed(0);
             const detalhe = Object.keys(porUnidade).sort().map(u => `Unidade ${u}: ${porUnidade[u].ok}/${porUnidade[u].total}`).join(' &nbsp;|&nbsp; ');
-            resultBox.innerHTML = `Você acertou ${acertos} de ${TOTAL} questões!<br><span style="font-size: 0.8em; color: #7f8c8d; font-weight: normal;">Aproveitamento: ${aproveitamento}%</span><div class="by-unit">${detalhe}</div>`;
+
+            resultBox.innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>${TOTAL}</strong> questões! (Nota: <strong>${notaEscala10}</strong>)</div>
+                <div style="font-size: 0.85em; font-weight: normal; margin-top: 4px;">Aproveitamento Total: ${aproveitamento}%</div>
+                <div class="by-unit">${detalhe}</div>
+                <button type="button" class="btn-retry" onclick="window.location.reload()">🔄 Refazer Simulado (Embaralhar Novamente)</button>
+            `;
             resultBox.className = 'result-box ' + (acertos >= MIN_APROVACAO ? 'pass' : 'fail');
             resultBox.scrollIntoView({ behavior: 'smooth' });
         }

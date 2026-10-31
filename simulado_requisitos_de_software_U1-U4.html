@@ -3,226 +3,1478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulado Completo (12 Questões) — Requisitos de Software</title>
+    <title>Avaliação: Requisitos de Software — Blackboard Ultra (Simulado ADS)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        .top-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
-        .top-nav a { text-decoration: none; color: #2980b9; font-weight: bold; font-size: 0.95em; }
-        .top-nav a:hover { text-decoration: underline; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; font-size: 2em; }
-        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 20px; font-weight: bold; }
-        .question-container { background-color: #fff; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box; position: relative; }
-        .unit-badge { display: inline-block; font-size: 0.8em; font-weight: bold; color: #fff; padding: 3px 12px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.5px; }
-        .unit-1 { background-color: #2980b9; } .unit-2 { background-color: #27ae60; }
-        .unit-3 { background-color: #e67e22; } .unit-4 { background-color: #8e44ad; }
-        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; color: #2c3e50; white-space: pre-line; word-break: break-word; }
-        .options { margin-top: 15px; clear: none; }
-        .options label { display: flex; align-items: flex-start; padding: 12px; margin-bottom: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; box-sizing: border-box; }
-        .options label:hover { background-color: #e9ecef; border-color: #b1bccc; }
-        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
-        .options label span { word-break: break-word; }
-        .letter-prefix { font-weight: bold; margin-right: 5px; color: #2c3e50; flex-shrink: 0; }
-        .btn-submit { display: block; width: 100%; padding: 18px; font-size: 1.2em; font-weight: bold; color: #fff; background-color: #27ae60; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 30px; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
-        .btn-submit:hover { background-color: #219653; }
-        .result-box { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 30px; padding: 30px; border-radius: 8px; display: none; box-sizing: border-box; }
-        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        .by-unit { font-size: 0.6em; font-weight: normal; color: #444; margin-top: 12px; }
-        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
-        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
-        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
-        .feedback.correct { display: block; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
-        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
-        .explicacao { display: none; margin-top: 10px; font-size: 0.9em; padding: 10px 14px; border-left: 4px solid #b1bccc; background: #f8f9fa; color: #444; }
-        .reacao { display: none; float: right; width: 150px; margin: 0 0 10px 15px; text-align: center; }
-        .reacao img { width: 150px; max-height: 150px; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-        .reacao .emoji { font-size: 4.5em; line-height: 1.1; display: inline-block; }
+        :root {
+            --bb-bg: #eceff1;
+            --bb-card-bg: #ffffff;
+            --bb-border: #cfd8dc;
+            --bb-purple: #8e24aa;
+            --bb-purple-light: #f3e5f5;
+            --bb-green: #00875a;
+            --bb-green-bg: #e3fcef;
+            --bb-green-border: #abf5d1;
+            --bb-red: #de350b;
+            --bb-red-bg: #ffebe6;
+            --bb-red-border: #ffbdad;
+            --bb-gray-dark: #212529;
+            --bb-gray-med: #495057;
+            --bb-gray-light: #f4f5f7;
+            --bb-text: #172b4d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bb-bg);
+            color: var(--bb-text);
+            line-height: 1.55;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navbar Blackboard Ultra */
+        .bb-top-bar {
+            background-color: #191919;
+            color: #ffffff;
+            padding: 0.65rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #2d2d2d;
+        }
+
+        .bb-top-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .bb-back-link {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .bb-back-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .bb-course-code {
+            color: #b0bec5;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .bb-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #cfd8dc;
+            font-weight: 500;
+        }
+
+        .bb-avatar-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #37474f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #eceff1;
+        }
+
+        /* Banner de Nota Final (Estilo Print 5) */
+        .bb-score-banner {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--bb-border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .bb-score-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .bb-score-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--bb-gray-dark);
+        }
+
+        .bb-score-pill {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .bb-score-right {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #607d8b;
+        }
+
+        .bb-score-right strong {
+            color: var(--bb-gray-dark);
+        }
+
+        /* Main Container */
+        .bb-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .bb-alert-bar {
+            background-color: #fff9db;
+            border: 1px solid #ffe066;
+            border-radius: 4px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #664d03;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Card da Questão Blackboard Ultra */
+        .question-container {
+            background-color: var(--bb-card-bg);
+            border: 1px solid var(--bb-border);
+            border-radius: 4px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .q-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Círculo Roxo/Magenta do Número */
+        .q-circle-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--bb-purple);
+            color: var(--bb-purple);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #ffffff;
+        }
+
+        .q-type-label {
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #212529;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        /* Pílula de Status (Correto / Incorreto / Não respondido) */
+        .status-pill-ava {
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+
+        .status-pill-ava.correto {
+            display: inline-block;
+            background-color: var(--bb-green);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.incorreto {
+            display: inline-block;
+            background-color: var(--bb-red);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.vazio {
+            display: inline-block;
+            background-color: #f59e0b;
+            color: #ffffff;
+        }
+
+        /* Badge de Unidade */
+        .unit-pill {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+        }
+
+        .unit-1 { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .unit-2 { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .unit-3 { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .unit-4 { background-color: #f3e5f5; color: #6a1b9a; border: 1px solid #e1bee7; }
+
+        .q-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* Pílula Preta com Pontuação */
+        .q-score-badge {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+        }
+
+        .q-chevron {
+            color: #78909c;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+
+        /* Enunciado */
+        .question-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #212529;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .fonte-tag {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #546e7a;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Opções de Alternativas */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.85rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .option-row:hover {
+            background-color: #f1f3f5;
+            border-color: #dee2e6;
+        }
+
+        .option-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .option-row input[type="radio"] {
+            margin-top: 0.2rem;
+            transform: scale(1.15);
+            accent-color: #00875a;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-content {
+            font-size: 0.925rem;
+            color: #212529;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .letter-prefix {
+            font-weight: 700;
+            color: #212529;
+            margin-right: 0.35rem;
+        }
+
+        .correta-highlight {
+            display: none;
+            font-weight: 800;
+            color: #006644;
+            margin-right: 0.35rem;
+        }
+
+        .option-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 0.75rem;
+            display: none;
+        }
+
+        /* Estilos Pós-Correção (Fiel ao AVA Blackboard Ultra) */
+        .option-row.is-correct-answer {
+            background-color: var(--bb-green-bg) !important;
+            border: 1px solid var(--bb-green-border) !important;
+            color: #006644 !important;
+        }
+
+        .option-row.is-correct-answer .correta-highlight {
+            display: inline;
+        }
+
+        .option-row.is-correct-answer .option-tag {
+            display: inline;
+            color: #006644;
+        }
+
+        .option-row.is-wrong-answer {
+            background-color: var(--bb-red-bg) !important;
+            border: 1px solid var(--bb-red-border) !important;
+            color: #bf2600 !important;
+        }
+
+        .option-row.is-wrong-answer .option-tag {
+            display: inline;
+            color: #bf2600;
+        }
+
+        /* Comentários / Justificativa Oficial */
+        .explicacao {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background-color: var(--bb-gray-light);
+            border-left: 4px solid var(--bb-green);
+            border-radius: 0 4px 4px 0;
+            font-size: 0.88rem;
+            color: #172b4d;
+            line-height: 1.6;
+        }
+
+        .explicacao b.expl-title {
+            color: #00875a;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.925rem;
+        }
+
+        /* Reação animada (GIF / Emoji) */
+        .reacao {
+            display: none;
+            float: right;
+            width: 140px;
+            margin: 0 0 10px 15px;
+            text-align: center;
+        }
+
+        .reacao img {
+            width: 140px;
+            max-height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .reacao .emoji {
+            font-size: 4em;
+            line-height: 1;
+            display: inline-block;
+        }
+
         .reacao.acertou .emoji { animation: pula 0.8s ease-in-out infinite; }
         .reacao.errou .emoji { animation: balanca 0.6s ease-in-out 4; }
-        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.15); } }
-        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
-        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
-        @media (max-width: 600px) { .reacao { float: none; margin: 10px auto; } }
-        @media (max-width: 768px) {
-            .question-container { padding: 15px; }
-            .btn-submit { padding: 15px; font-size: 1.1em; }
+
+        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.15); } }
+        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* Botão de Envio Blackboard Ultra */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-green);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 2rem;
+            box-shadow: 0 2px 4px rgba(0,135,90,0.25);
+        }
+
+        .btn-submit:hover {
+            background-color: #006644;
+        }
+
+        /* Caixa de Resultado */
+        .result-box {
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            border-radius: 4px;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .pass {
+            background-color: #e3fcef;
+            color: #006644;
+            border: 1px solid #abf5d1;
+        }
+
+        .fail {
+            background-color: #fff9db;
+            color: #856404;
+            border: 1px solid #ffe066;
+        }
+
+        .by-unit {
+            font-size: 0.65em;
+            font-weight: 500;
+            color: #495057;
+            margin-top: 0.85rem;
+        }
+
+        .btn-retry {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-gray-dark);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-retry:hover {
+            background-color: #343a40;
+        }
+
+        @media (max-width: 600px) {
+            .bb-top-bar { padding: 0.65rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .bb-score-banner { padding: 0.85rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .reacao { float: none; margin: 10px auto; }
+            .question-container { padding: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="index.html">← Voltar ao Portal ADS 2026.2</a>
-        <span style="font-size:0.85em; color:#7f8c8d;">ADS • 7º Semestre</span>
+    <!-- Barra Superior Blackboard Ultra -->
+    <header class="bb-top-bar">
+        <div class="bb-top-left">
+            <a href="index.html" class="bb-back-link">← Voltar ao Portal ADS 2026.2</a>
+            <span class="bb-course-code">2026/2 - ENS1E0402E0031 - REQUISITOS DE SOFTWARE</span>
+        </div>
+        <div class="bb-user-profile">
+            <div class="bb-avatar-circle">👤</div>
+            <span>Anderson (ADS 7º Semestre)</span>
+        </div>
+    </header>
+
+    <!-- Banner de Nota Final (Fiel ao Blackboard Ultra) -->
+    <div class="bb-score-banner">
+        <div class="bb-score-left">
+            <span class="bb-score-label">Nota final</span>
+            <span class="bb-score-pill" id="header-score-pill">-- / 10,0</span>
+        </div>
+        <div class="bb-score-right" id="header-score-sub">
+            <span>Questionário Oficial U1-U4 • <strong>12 Questões</strong></span>
+        </div>
     </div>
 
-    <h1>Simulado: Requisitos de Software</h1>
-    <p class="subtitle">Unidades 1 a 4 — Mix Completo (12 Questões de Prova)</p>
-    <div class="shuffle-note">🔄 <b>Embaralhamento Ativo:</b> Pressione <b>F5</b> para embaralhar novamente tanto as perguntas quanto as alternativas (A, B, C, D, E). A etiqueta colorida indica a unidade de cada questão.</div>
+    <main class="bb-container">
+        <!-- Aviso de Embaralhamento -->
+        <div class="bb-alert-bar">
+            <span>🔄 <strong>Modo Simulado Ativo:</strong> A cada carregamento (<strong>F5</strong>), as questões e alternativas mudam de posição como no exame real.</span>
+            <span style="font-size: 0.8em; color: #856404; font-weight: 700;">Simulado G2 Presencial</span>
+        </div>
 
-    <form id="quizForm">
+        <form id="quizForm">
 
         <div class="question-container" id="q1" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">1. A especificação clara e detalhada dos requisitos é fundamental para o sucesso de um projeto de software. Um requisito mal compreendido ou mal documentado pode levar a problemas como estimativas inadequadas de esforço, retrabalho e dificuldades na realização de testes. A norma ISO/IEC/IEEE 29148 (2018) define as características de um requisito bem especificado, que inclui ser mensurável, verificável e atender a uma necessidade específica de um stakeholder.<br><br><i>(Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 38, 39, 40)</i><br><br>De acordo com a Norma ISO/IEC/IEEE 29148 (2018), qual das seguintes características é essencial para um requisito ser considerado bem especificado? Com base nas informações apresentadas, assinale a alternativa correta.</div>
-            <div class="options">
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>O requisito deve ser escrito em termos de como a solução será implementada.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>O requisito deve ser impreciso para permitir flexibilidade durante o desenvolvimento.</span></label>
-                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>O requisito deve ser mensurável, com condições claras e verificáveis</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>O requisito deve ser especificado apenas com base no entendimento dos desenvolvedores.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>O requisito não precisa ser verificável, pois ele será ajustado posteriormente.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">1</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 39–40 do livro / p. 41–42 do PDF):</b><br>De acordo com a Norma Internacional ISO/IEC/IEEE 29148 (2018), um requisito bem especificado contém um ou mais destes itens:<br>1. Deve ser atendido ou tido por um sistema para resolver um problema, atingir um objetivo ou tratar de uma preocupação de um <i>stakeholder</i>;<br>2. <b>É qualificado por condições mensuráveis</b>;<br>3. É limitado por restrições;<br>4. Define o desempenho do sistema quando usado por um <i>stakeholder</i> específico ou é a capacidade correspondente de um sistema (e não a capacidade de um usuário);<br>5. <b>Pode ser verificado</b> (isto é, a realização de um requisito no sistema pode ser demonstrada).<br><br><i>Por que as demais estão incorretas?</i><br>- <b>A:</b> Os requisitos devem definir <b>o quê</b> deve ser feito, e não <b>como</b> deve ser implementado (p. 41 do livro / p. 43 do PDF).<br>- <b>B e E:</b> Um bom requisito deve ser <b>não ambíguo</b> e <b>verificável</b> (Quadro 3, p. 43 do livro / p. 45 do PDF).<br>- <b>D:</b> O requisito deve ser <b>correto</b> sob a ótica do usuário/cliente ou seus representantes, e escrito sob a ótica de quem lê.</div>
+            <div class="question-text">A especificação clara e detalhada dos requisitos é fundamental para o sucesso de um projeto de software. Um requisito mal compreendido ou mal documentado pode levar a problemas como estimativas inadequadas de esforço, retrabalho e dificuldades na realização de testes. A norma ISO/IEC/IEEE 29148 (2018) define as características de um requisito bem especificado, que inclui ser mensurável, verificável e atender a uma necessidade específica de um stakeholder.<br><br>De acordo com a Norma ISO/IEC/IEEE 29148 (2018), qual das seguintes características é essencial para um requisito ser considerado bem especificado? Com base nas informações apresentadas, assinale a alternativa correta.</div>
+            <div class="fonte-tag">Fonte: Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 38, 39, 40</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O requisito deve ser escrito em termos de como a solução será implementada.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O requisito deve ser impreciso para permitir flexibilidade durante o desenvolvimento.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O requisito deve ser mensurável, com condições claras e verificáveis</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O requisito deve ser especificado apenas com base no entendimento dos desenvolvedores.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O requisito não precisa ser verificável, pois ele será ajustado posteriormente.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 39–40 do livro / p. 41–42 do PDF):</b><br>De acordo com a Norma Internacional ISO/IEC/IEEE 29148 (2018), um requisito bem especificado contém um ou mais destes itens:<br>1. Deve ser atendido ou tido por um sistema para resolver um problema, atingir um objetivo ou tratar de uma preocupação de um <i>stakeholder</i>;<br>2. <b>É qualificado por condições mensuráveis</b>;<br>3. É limitado por restrições;<br>4. Define o desempenho do sistema quando usado por um <i>stakeholder</i> específico ou é a capacidade correspondente de um sistema (e não a capacidade de um usuário);<br>5. <b>Pode ser verificado</b> (isto é, a realização de um requisito no sistema pode ser demonstrada).<br><br><i>Por que as demais estão incorretas?</i><br>- <b>A:</b> Os requisitos devem definir <b>o quê</b> deve ser feito, e não <b>como</b> deve ser implementado (p. 41 do livro / p. 43 do PDF).<br>- <b>B e E:</b> Um bom requisito deve ser <b>não ambíguo</b> e <b>verificável</b> (Quadro 3, p. 43 do livro / p. 45 do PDF).<br>- <b>D:</b> O requisito deve ser <b>correto</b> sob a ótica do usuário/cliente ou seus representantes, e escrito sob a ótica de quem lê.</div>
+            </div>
         </div>
         <div class="question-container" id="q2" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">2. A priorização de requisitos em projetos de software é um processo essencial para garantir que os itens mais importantes sejam atendidos primeiro. Fatores como o valor que o requisito agrega ao negócio, dependências entre requisitos, e até mesmo requisitos legais e regulatórios influenciam essa decisão. Além disso, a equipe de desenvolvimento deve considerar a experiência com o domínio e a tecnologia, bem como o impacto de cada requisito no cronograma e custo do projeto.<br><br><i>(Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 36, 37 e 38)</i><br><br>Qual dos seguintes fatores deve ser priorizado quando um requisito é influenciado por uma legislação com data específica de entrada em vigor? Com base nas informações apresentadas, assinale a alternativa correta:</div>
-            <div class="options">
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>A experiência da equipe com a tecnologia envolvida no projeto.</span></label>
-                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>A data de entrada em vigor da determinação legal ou regulatória.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>A dependência do requisito em relação a outros requisitos.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>O valor agregado ao negócio pelo requisito.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>A necessidade de substituir processos manuais que são sujeitos a falhas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">2</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 38 do livro / p. 40 do PDF):</b><br>No tópico <b>"2 Priorização de requisitos"</b>, o livro destaca expressamente:<br><i>"Demandas de implementações para atender a determinações de ordem legal ou regulatória: é comum que demandas de ordem legal ou que sejam demandadas por órgãos regulamentadores tenham datas específicas para entrar em vigor. Requisitos que implementam essas necessidades precisam ser priorizados em versões compatíveis com as datas demandadas."</i></div>
+            <div class="question-text">A priorização de requisitos em projetos de software é um processo essencial para garantir que os itens mais importantes sejam atendidos primeiro. Fatores como o valor que o requisito agrega ao negócio, dependências entre requisitos, e até mesmo requisitos legais e regulatórios influenciam essa decisão. Além disso, a equipe de desenvolvimento deve considerar a experiência com o domínio e a tecnologia, bem como o impacto de cada requisito no cronograma e custo do projeto.<br><br>Qual dos seguintes fatores deve ser priorizado quando um requisito é influenciado por uma legislação com data específica de entrada em vigor? Com base nas informações apresentadas, assinale a alternativa correta:</div>
+            <div class="fonte-tag">Fonte: Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 36, 37 e 38</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A experiência da equipe com a tecnologia envolvida no projeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A data de entrada em vigor da determinação legal ou regulatória.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A dependência do requisito em relação a outros requisitos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O valor agregado ao negócio pelo requisito.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A necessidade de substituir processos manuais que são sujeitos a falhas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 38 do livro / p. 40 do PDF):</b><br>No tópico <b>"2 Priorização de requisitos"</b>, o livro destaca expressamente:<br><i>"Demandas de implementações para atender a determinações de ordem legal ou regulatória: é comum que demandas de ordem legal ou que sejam demandadas por órgãos regulamentadores tenham datas específicas para entrar em vigor. Requisitos que implementam essas necessidades precisam ser priorizados em versões compatíveis com as datas demandadas."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q3" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">3. Em ambientes ágeis, as Histórias de Usuário se tornaram a forma mais comum de expressar requisitos funcionais, servindo como itens do <i>backlog</i> do produto. Ao contrário das especificações tradicionais, elas são curtas, focadas no valor de negócio e escritas em um formato padronizado que busca capturar a perspectiva de quem se beneficiará da funcionalidade.<br><br>Identifique o formato padronizado e os três componentes essenciais que caracterizam a expressão de uma História de Usuário (também chamada de "voz do usuário" ou <i>card</i>).</div>
-            <div class="options">
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>"[Ação] será executada por [Papel] se a [Pré-condição] for satisfeita", contendo Verbo, Objeto e Condição.</span></label>
-                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>"Como [Papel], eu quero [Ação], para [Resultado/Valor]", contendo Papel (Quem), Ação (O Quê) e Resultado/Valor (Porquê).</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>"O <i>backlog</i> terá [Item] por [Prioridade] visando [Resultado]", contendo Prioridade, Item e Descrição.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>"O analista de requisitos deve [Ação] a fim de que [Resultado]", contendo Analista, Ação e Objetivo.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>"O Sistema deve [Ação] para [Papel], desde que [Resultado]", contendo Componente, Estrutura e Valor.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">3</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 2, Parte 4 — "Especificação de Requisitos Funcionais Utilizando Histórias de Usuário", p. 162 do livro / p. 164 do PDF):</b><br>Na seção <b>"Cartão (Card)"</b> (Figura 3):<br><i>"Com o passar do tempo e o uso nas organizações, as histórias de usuário passaram a ter um formato mais padronizado, com afirmações escritas em primeira pessoa, contendo o papel (quem), a ação (o que) e o resultado da ação ou o valor de negócio da história (porque): <b>Como <code>&lt;tipo do usuário&gt;</code> (QUEM), eu quero <code>&lt;ação específica&gt;</code> (O QUÊ) de modo que / para <code>&lt;resultado esperado/valor agregado&gt;</code> (PORQUE)</b>."</i><br>O <b>papel (QUEM)</b> representa quem se beneficiará da funcionalidade; a <b>atividade (O QUÊ)</b> descreve a funcionalidade (requisito funcional); e o <b>resultado (PORQUE)</b> traduz o valor de negócio.</div>
+            <div class="question-text">Em ambientes ágeis, as Histórias de Usuário se tornaram a forma mais comum de expressar requisitos funcionais, servindo como itens do <i>backlog</i> do produto. Ao contrário das especificações tradicionais, elas são curtas, focadas no valor de negócio e escritas em um formato padronizado que busca capturar a perspectiva de quem se beneficiará da funcionalidade.<br><br>Identifique o formato padronizado e os três componentes essenciais que caracterizam a expressão de uma História de Usuário (também chamada de "voz do usuário" ou <i>card</i>).</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">"[Ação] será executada por [Papel] se a [Pré-condição] for satisfeita", contendo Verbo, Objeto e Condição.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">"Como [Papel], eu quero [Ação], para [Resultado/Valor]", contendo Papel (Quem), Ação (O Quê) e Resultado/Valor (Porquê).</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">"O <i>backlog</i> terá [Item] por [Prioridade] visando [Resultado]", contendo Prioridade, Item e Descrição.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">"O analista de requisitos deve [Ação] a fim de que [Resultado]", contendo Analista, Ação e Objetivo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">"O Sistema deve [Ação] para [Papel], desde que [Resultado]", contendo Componente, Estrutura e Valor.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 2, Parte 4 — "Especificação de Requisitos Funcionais Utilizando Histórias de Usuário", p. 162 do livro / p. 164 do PDF):</b><br>Na seção <b>"Cartão (Card)"</b> (Figura 3):<br><i>"Com o passar do tempo e o uso nas organizações, as histórias de usuário passaram a ter um formato mais padronizado, com afirmações escritas em primeira pessoa, contendo o papel (quem), a ação (o que) e o resultado da ação ou o valor de negócio da história (porque): <b>Como <code>&lt;tipo do usuário&gt;</code> (QUEM), eu quero <code>&lt;ação específica&gt;</code> (O QUÊ) de modo que / para <code>&lt;resultado esperado/valor agregado&gt;</code> (PORQUE)</b>."</i><br>O <b>papel (QUEM)</b> representa quem se beneficiará da funcionalidade; a <b>atividade (O QUÊ)</b> descreve a funcionalidade (requisito funcional); e o <b>resultado (PORQUE)</b> traduz o valor de negócio.</div>
+            </div>
         </div>
         <div class="question-container" id="q4" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">4. A adoção da abordagem de Histórias de Usuário marca uma mudança em relação à documentação tradicional de requisitos. Diferentemente das especificações massivas e detalhadas no início do projeto, as Histórias de Usuário são vistas como expressões de intenção, que promovem uma comunicação contínua e focada em entregas rápidas e incrementais.<br><br>Analise as características das Histórias de Usuário em relação às abordagens tradicionais de requisitos e assinale a alternativa correta.</div>
-            <div class="options">
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>O foco principal das Histórias de Usuário é a descrição da interface, não sendo adequadas para capturar o valor de negócio ou a perspectiva do usuário.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Elas são especificações detalhadas e não negociáveis, escritas em documentos grandes e pesados que requerem manutenção rigorosa.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Elas são escritas em formato técnico, sendo compreensíveis apenas para desenvolvedores e arquitetos de <i>software</i>, e não para os <i>stakeholders</i> de negócio.</span></label>
-                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>Elas representam pequenos incrementos de funcionalidade de valor, que são elaboradas à medida que são necessárias (<i>just-in-time</i>), evitando especificações prematuras.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Elas são elaboradas em profundidade no início do projeto (<i>big design up front</i>), evitando a necessidade de contato constante com o cliente ao longo do desenvolvimento.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">4</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 1, Parte 4, p. 93 do livro / p. 95 do PDF; e Unidade 2, Parte 4, p. 169 do livro / p. 171 do PDF):</b><br>De acordo com Leffingwell (2011), as Histórias de Usuário diferem das abordagens tradicionais porque:<br>- Não são especificações detalhadas, mas sim <b>expressões de intenção negociáveis</b>;<br>- São curtas, fáceis de ler e compreensíveis por <i>stakeholders</i>, desenvolvedores e usuários;<br>- <b>Representam pequenos incrementos de funcionalidade de valor</b>, que podem ser implementadas em poucos dias ou semanas;<br>- <b>Não são detalhadas no início do projeto, mas são elaboradas à medida que são necessárias (<i>just-in-time</i>), evitando especificações prematuras</b>, atrasos no desenvolvimento, longo inventário de requisitos e uma declaração da solução muito restritiva;<br>- Requerem pouca ou nenhuma manutenção e podem ser descartadas após a implementação.</div>
+            <div class="question-text">A adoção da abordagem de Histórias de Usuário marca uma mudança em relação à documentação tradicional de requisitos. Diferentemente das especificações massivas e detalhadas no início do projeto, as Histórias de Usuário são vistas como expressões de intenção, que promovem uma comunicação contínua e focada em entregas rápidas e incrementais.<br><br>Analise as características das Histórias de Usuário em relação às abordagens tradicionais de requisitos e assinale a alternativa correta.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O foco principal das Histórias de Usuário é a descrição da interface, não sendo adequadas para capturar o valor de negócio ou a perspectiva do usuário.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Elas são especificações detalhadas e não negociáveis, escritas em documentos grandes e pesados que requerem manutenção rigorosa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Elas são escritas em formato técnico, sendo compreensíveis apenas para desenvolvedores e arquitetos de <i>software</i>, e não para os <i>stakeholders</i> de negócio.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Elas representam pequenos incrementos de funcionalidade de valor, que são elaboradas à medida que são necessárias (<i>just-in-time</i>), evitando especificações prematuras.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Elas são elaboradas em profundidade no início do projeto (<i>big design up front</i>), evitando a necessidade de contato constante com o cliente ao longo do desenvolvimento.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 1, Parte 4, p. 93 do livro / p. 95 do PDF; e Unidade 2, Parte 4, p. 169 do livro / p. 171 do PDF):</b><br>De acordo com Leffingwell (2011), as Histórias de Usuário diferem das abordagens tradicionais porque:<br>- Não são especificações detalhadas, mas sim <b>expressões de intenção negociáveis</b>;<br>- São curtas, fáceis de ler e compreensíveis por <i>stakeholders</i>, desenvolvedores e usuários;<br>- <b>Representam pequenos incrementos de funcionalidade de valor</b>, que podem ser implementadas em poucos dias ou semanas;<br>- <b>Não são detalhadas no início do projeto, mas são elaboradas à medida que são necessárias (<i>just-in-time</i>), evitando especificações prematuras</b>, atrasos no desenvolvimento, longo inventário de requisitos e uma declaração da solução muito restritiva;<br>- Requerem pouca ou nenhuma manutenção e podem ser descartadas após a implementação.</div>
+            </div>
         </div>
         <div class="question-container" id="q5" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">5. Em projetos de desenvolvimento de software, a priorização dos requisitos é uma etapa crucial para o sucesso. O tamanho e a complexidade do projeto podem aumentar o risco de fracasso, por isso, é importante dividir o trabalho em partes menores e mais gerenciáveis. A priorização dos requisitos pode ser baseada em diversos fatores, como o valor agregado ao negócio, a dependência de outros requisitos, a experiência da equipe, entre outros. A metodologia ágil adota ciclos curtos de desenvolvimento, chamados de sprints, para permitir que os requisitos sejam detalhados e entregues de forma gradual.<br><br><i>(Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 36, 37 e 38)</i><br><br>De acordo com o texto, qual dos seguintes fatores é mais relevante na priorização de requisitos quando a equipe tem pouca experiência com a tecnologia envolvida no projeto? Com base no exposto, avalie as afirmativas a seguir.<br><br><b>I.</b> A facilidade de aprendizado da tecnologia e o menor risco para o projeto.<br><b>II.</b> A proximidade com o cliente ou usuários para melhor entendimento do domínio.<br><b>III.</b> A facilidade de aprendizado da tecnologia e o maior risco para o projeto.<br><br>É correto o que se afirma em:</div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">5</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 37 do livro / p. 39 do PDF):</b><br>Na página 37 do livro, os fatores "Experiência com a tecnologia" e "Experiência no domínio de aplicação" são separados de forma bem distinta:<br>- <b>Experiência com a tecnologia por parte da equipe do projeto (Afirmativa I):</b> <i>"a falta de experiência da equipe de desenvolvimento com a tecnologia pode levar à priorização de requisitos que não sejam exatamente os que geram mais valor ao cliente, mas sim <b>aqueles que possibilitam o aprendizado mais rápido e com menor risco para o projeto como um todo</b>."</i> (Logo, <b>I é verdadeira</b> e <b>III é falsa</b>).<br>- <b>Experiência no domínio de aplicação por parte da equipe (Afirmativa II):</b> <i>"a falta de experiência da equipe com o <b>domínio de aplicação</b> requer cuidados redobrados na priorização [...] Nesses casos, a proximidade com o usuário, cliente ou seus representantes é fundamental."</i> Como a pergunta indaga especificamente sobre quando a equipe tem pouca experiência com a <b>tecnologia</b> (e não com o domínio de negócio), apenas a afirmativa <b>I</b> responde ao comando da questão.</div>
+            <div class="question-text">Em projetos de desenvolvimento de software, a priorização dos requisitos é uma etapa crucial para o sucesso. O tamanho e a complexidade do projeto podem aumentar o risco de fracasso, por isso, é importante dividir o trabalho em partes menores e mais gerenciáveis. A priorização dos requisitos pode ser baseada em diversos fatores, como o valor agregado ao negócio, a dependência de outros requisitos, a experiência da equipe, entre outros. A metodologia ágil adota ciclos curtos de desenvolvimento, chamados de sprints, para permitir que os requisitos sejam detalhados e entregues de forma gradual.<br><br>De acordo com o texto, qual dos seguintes fatores é mais relevante na priorização de requisitos quando a equipe tem pouca experiência com a tecnologia envolvida no projeto? Com base no exposto, avalie as afirmativas a seguir.<br><br><b>I.</b> A facilidade de aprendizado da tecnologia e o menor risco para o projeto.<br><b>II.</b> A proximidade com o cliente ou usuários para melhor entendimento do domínio.<br><b>III.</b> A facilidade de aprendizado da tecnologia e o maior risco para o projeto.<br><br>É correto o que se afirma em:</div>
+            <div class="fonte-tag">Fonte: Fonte: E-book, Unidade 1 [citado como Unidade 2 no AVA], Página(s) do e-book: 36, 37 e 38</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 1, Parte 2 — "Requisitos de Software", p. 37 do livro / p. 39 do PDF):</b><br>Na página 37 do livro, os fatores "Experiência com a tecnologia" e "Experiência no domínio de aplicação" são separados de forma bem distinta:<br>- <b>Experiência com a tecnologia por parte da equipe do projeto (Afirmativa I):</b> <i>"a falta de experiência da equipe de desenvolvimento com a tecnologia pode levar à priorização de requisitos que não sejam exatamente os que geram mais valor ao cliente, mas sim <b>aqueles que possibilitam o aprendizado mais rápido e com menor risco para o projeto como um todo</b>."</i> (Logo, <b>I é verdadeira</b> e <b>III é falsa</b>).<br>- <b>Experiência no domínio de aplicação por parte da equipe (Afirmativa II):</b> <i>"a falta de experiência da equipe com o <b>domínio de aplicação</b> requer cuidados redobrados na priorização [...] Nesses casos, a proximidade com o usuário, cliente ou seus representantes é fundamental."</i> Como a pergunta indaga especificamente sobre quando a equipe tem pouca experiência com a <b>tecnologia</b> (e não com o domínio de negócio), apenas a afirmativa <b>I</b> responde ao comando da questão.</div>
+            </div>
         </div>
         <div class="question-container" id="q6" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">6. Embora Casos de Uso e Histórias de Usuário sejam excelentes para elicitar requisitos em sistemas com forte interação do usuário por meio de interfaces, eles não são a ferramenta mais adequada para todos os tipos de projeto. A escolha da técnica de especificação deve ser sempre guiada pela natureza da complexidade do <i>software</i> a ser construído.<br><br>Identifique o tipo de sistema para o qual as abordagens centradas na interação (Histórias de Usuário e Casos de Uso) são consideradas menos eficazes.</div>
-            <div class="options">
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Aplicações móveis e <i>web</i> com múltiplas interfaces de usuário e <i>stakeholders</i> distintos.</span></label>
-                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>Sistemas intensivos em processamento, como rotinas <i>batch</i>, algoritmos de inteligência artificial ou processamento de <i>big data</i>.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Projetos em que a rastreabilidade dos requisitos desde a concepção até o teste é uma prioridade.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Sistemas de informação (<i>back-office</i>) com grande volume de formulários e regras de negócio complexas.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Sistemas cujo controle está na mão do usuário, com muitas interações por meio de interfaces com o usuário.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">6</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Justificativa Oficial (E-book, Unidade 2, Parte 4 — "Especificação de Requisitos Funcionais Utilizando Histórias de Usuário", p. 170 do livro / p. 172 do PDF):</b><br>Na seção <b>"Aplicações, limitações e complementações"</b>:<br><i>"Tanto casos de uso quanto histórias do usuário são excelentes para elicitar requisitos de sistemas cujo controle está na mão do usuário, ou seja, sistemas com muitas interações por meio de interfaces com o usuário. No entanto, para os sistemas cuja complexidade não resida na interação propriamente dita, essas duas ferramentas podem não se aplicar tão bem. <b>Esse é o caso de sistemas intensivos em processamento, como rotinas batch, processamento de grandes volumes de dados (aplicações de business intelligence, big data), algoritmos de inteligência artificial etc.</b> Esse também é o caso de sistemas embarcados ou de tempo real (WIEGERS; BEATTY, 2013). Para esses casos, outras abordagens podem ser mais adequadas, como diagramas de máquinas de estado, diagrama de atividades, diagrama de sequência, diagrama de componentes, pseudocódigo etc."</i></div>
+            <div class="question-text">Embora Casos de Uso e Histórias de Usuário sejam excelentes para elicitar requisitos em sistemas com forte interação do usuário por meio de interfaces, eles não são a ferramenta mais adequada para todos os tipos de projeto. A escolha da técnica de especificação deve ser sempre guiada pela natureza da complexidade do <i>software</i> a ser construído.<br><br>Identifique o tipo de sistema para o qual as abordagens centradas na interação (Histórias de Usuário e Casos de Uso) são consideradas menos eficazes.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Aplicações móveis e <i>web</i> com múltiplas interfaces de usuário e <i>stakeholders</i> distintos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Sistemas intensivos em processamento, como rotinas <i>batch</i>, algoritmos de inteligência artificial ou processamento de <i>big data</i>.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Projetos em que a rastreabilidade dos requisitos desde a concepção até o teste é uma prioridade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Sistemas de informação (<i>back-office</i>) com grande volume de formulários e regras de negócio complexas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Sistemas cujo controle está na mão do usuário, com muitas interações por meio de interfaces com o usuário.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Justificativa Oficial (E-book, Unidade 2, Parte 4 — "Especificação de Requisitos Funcionais Utilizando Histórias de Usuário", p. 170 do livro / p. 172 do PDF):</b><br>Na seção <b>"Aplicações, limitações e complementações"</b>:<br><i>"Tanto casos de uso quanto histórias do usuário são excelentes para elicitar requisitos de sistemas cujo controle está na mão do usuário, ou seja, sistemas com muitas interações por meio de interfaces com o usuário. No entanto, para os sistemas cuja complexidade não resida na interação propriamente dita, essas duas ferramentas podem não se aplicar tão bem. <b>Esse é o caso de sistemas intensivos em processamento, como rotinas batch, processamento de grandes volumes de dados (aplicações de business intelligence, big data), algoritmos de inteligência artificial etc.</b> Esse também é o caso de sistemas embarcados ou de tempo real (WIEGERS; BEATTY, 2013). Para esses casos, outras abordagens podem ser mais adequadas, como diagramas de máquinas de estado, diagrama de atividades, diagrama de sequência, diagrama de componentes, pseudocódigo etc."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q7" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">7. O processo de Validação de Requisitos pode ser compreendido como um conjunto de três atividades principais: 1) Preparar para a validação (planejamento), 2) Realizar a validação (execução) e 3) Gerenciar os resultados da validação. A etapa de planejamento é fundamental para definir a estratégia, incluindo os produtos de trabalho a serem validados, as restrições, os métodos e técnicas, bem como os critérios de aceitação.<br><br>Assinale a alternativa que descreve uma ação tipicamente realizada durante a etapa de Gerenciamento dos resultados da validação, após a conclusão da execução.</div>
-            <div class="options">
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Definir quais métodos e técnicas serão empregados na validação, bem como os respectivos critérios de aceitação.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Definir que produtos de trabalho (artefatos) serão validados (documentos ou o próprio código).</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Identificar as restrições que podem existir para que a validação seja executada, como recursos e prazos.</span></label>
-                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>Analisar as anomalias encontradas, identificar e priorizar as ações necessárias, podendo requerer uma nova rodada do processo de validação.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Formalizar o aceite do produto pelo cliente, mesmo que anomalias de baixa gravidade tenham sido encontradas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">7</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 3, Parte 4 — "Validação de Requisitos de Software", p. 261 do livro / p. 263 do PDF):</b><br><i>"Quando a validação estiver concluída, é preciso <b>gerenciar os resultados</b>. Se o produto estiver de acordo com o esperado, basta formalizar o aceite e dar por encerrado o processo de validação, seguindo com o projeto/versão para as demais atividades. <b>Caso anomalias tenham sido encontradas, elas deverão ser analisadas e as ações necessárias deverão ser identificadas, priorizadas e executadas. Nova rodada do processo de validação pode ser requerida, nesses casos.</b>"</i><br><br><i>Por que as demais estão incorretas?</i><br>- <b>A, B e C</b> descrevem tarefas da primeira atividade (<b>Preparar a validação</b>, listadas na p. 261 do livro / p. 263 do PDF).<br>- <b>E</b> é falsa porque o aceite só é formalizado imediatamente se o produto estiver de acordo com o esperado; quando há anomalias (erros nos requisitos), o erro deve obrigatoriamente ser corrigido antes que prossiga para a implementação (p. 268 do livro / p. 270 do PDF).</div>
+            <div class="question-text">O processo de Validação de Requisitos pode ser compreendido como um conjunto de três atividades principais: 1) Preparar para a validação (planejamento), 2) Realizar a validação (execução) e 3) Gerenciar os resultados da validação. A etapa de planejamento é fundamental para definir a estratégia, incluindo os produtos de trabalho a serem validados, as restrições, os métodos e técnicas, bem como os critérios de aceitação.<br><br>Assinale a alternativa que descreve uma ação tipicamente realizada durante a etapa de Gerenciamento dos resultados da validação, após a conclusão da execução.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Definir quais métodos e técnicas serão empregados na validação, bem como os respectivos critérios de aceitação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Definir que produtos de trabalho (artefatos) serão validados (documentos ou o próprio código).</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Identificar as restrições que podem existir para que a validação seja executada, como recursos e prazos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Analisar as anomalias encontradas, identificar e priorizar as ações necessárias, podendo requerer uma nova rodada do processo de validação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Formalizar o aceite do produto pelo cliente, mesmo que anomalias de baixa gravidade tenham sido encontradas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 3, Parte 4 — "Validação de Requisitos de Software", p. 261 do livro / p. 263 do PDF):</b><br><i>"Quando a validação estiver concluída, é preciso <b>gerenciar os resultados</b>. Se o produto estiver de acordo com o esperado, basta formalizar o aceite e dar por encerrado o processo de validação, seguindo com o projeto/versão para as demais atividades. <b>Caso anomalias tenham sido encontradas, elas deverão ser analisadas e as ações necessárias deverão ser identificadas, priorizadas e executadas. Nova rodada do processo de validação pode ser requerida, nesses casos.</b>"</i><br><br><i>Por que as demais estão incorretas?</i><br>- <b>A, B e C</b> descrevem tarefas da primeira atividade (<b>Preparar a validação</b>, listadas na p. 261 do livro / p. 263 do PDF).<br>- <b>E</b> é falsa porque o aceite só é formalizado imediatamente se o produto estiver de acordo com o esperado; quando há anomalias (erros nos requisitos), o erro deve obrigatoriamente ser corrigido antes que prossiga para a implementação (p. 268 do livro / p. 270 do PDF).</div>
+            </div>
         </div>
         <div class="question-container" id="q8" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">8. O controle de versão é um dos pilares do gerenciamento de requisitos e envolve atividades como definir um esquema de identificação e rastrear versões individuais e do conjunto de requisitos. Dentro desse contexto, é fundamental estabelecer um ponto de referência estável e acordado para o desenvolvimento do projeto, a partir do qual outros artefatos serão gerados.<br><br>Assinale a alternativa que define corretamente o conceito de <i>baseline</i> de requisitos.</div>
-            <div class="options">
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>É o conjunto de requisitos que possui o maior risco de instabilidade ou que apresenta a maior prioridade de negócio no início do projeto.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>É o artefato final e mais detalhado que contém todas as especificações de caso de uso e requisitos não funcionais, pronto para a entrega ao cliente.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>É a lista completa e exaustiva de todas as pendências (TBD) que precisam ser resolvidas antes que a fase de testes de aceitação possa ser iniciada.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>Representa uma versão volátil dos requisitos, usada apenas durante as atividades de elicitação e análise inicial pela equipe de desenvolvimento.</span></label>
-                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>É uma versão estável dos requisitos, acordada entre a equipe de desenvolvimento e os <i>stakeholders</i>, que serve como base para gerar todos os demais artefatos do projeto.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">8</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 4, Parte 2 — "Gerenciamento de Requisitos", p. 309 do livro / p. 311 do PDF):</b><br>Na subseção <b>"Baseline de requisitos"</b>:<br><i>"Quando um conjunto de requisitos é acordado entre a equipe de desenvolvimento e os stakeholders, então, ele passa a constituir o que denominamos <b>baseline de requisitos</b>. <b>Uma baseline pode ser compreendida como uma versão estável dos requisitos, que será usada como base para gerar os demais artefatos do projeto, incluindo o código.</b> Quando um conjunto de requisitos é acordado, ele será a base para gerar as especificações detalhadas, as interfaces, os casos de teste e o próprio código."</i></div>
+            <div class="question-text">O controle de versão é um dos pilares do gerenciamento de requisitos e envolve atividades como definir um esquema de identificação e rastrear versões individuais e do conjunto de requisitos. Dentro desse contexto, é fundamental estabelecer um ponto de referência estável e acordado para o desenvolvimento do projeto, a partir do qual outros artefatos serão gerados.<br><br>Assinale a alternativa que define corretamente o conceito de <i>baseline</i> de requisitos.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">É o conjunto de requisitos que possui o maior risco de instabilidade ou que apresenta a maior prioridade de negócio no início do projeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">É o artefato final e mais detalhado que contém todas as especificações de caso de uso e requisitos não funcionais, pronto para a entrega ao cliente.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">É a lista completa e exaustiva de todas as pendências (TBD) que precisam ser resolvidas antes que a fase de testes de aceitação possa ser iniciada.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Representa uma versão volátil dos requisitos, usada apenas durante as atividades de elicitação e análise inicial pela equipe de desenvolvimento.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">É uma versão estável dos requisitos, acordada entre a equipe de desenvolvimento e os <i>stakeholders</i>, que serve como base para gerar todos os demais artefatos do projeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 4, Parte 2 — "Gerenciamento de Requisitos", p. 309 do livro / p. 311 do PDF):</b><br>Na subseção <b>"Baseline de requisitos"</b>:<br><i>"Quando um conjunto de requisitos é acordado entre a equipe de desenvolvimento e os stakeholders, então, ele passa a constituir o que denominamos <b>baseline de requisitos</b>. <b>Uma baseline pode ser compreendida como uma versão estável dos requisitos, que será usada como base para gerar os demais artefatos do projeto, incluindo o código.</b> Quando um conjunto de requisitos é acordado, ele será a base para gerar as especificações detalhadas, as interfaces, os casos de teste e o próprio código."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q9" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">9. A Engenharia de Requisitos é a disciplina que estrutura as atividades necessárias para a correta concepção e acompanhamento dos requisitos de software. Ela é dividida em dois grandes grupos de atividades, que possuem focos distintos, mas que devem ser executados de forma integrada.<br><br>Compare os dois grandes grupos de atividades da Engenharia de Requisitos e identifique a alternativa que associa corretamente as atividades ao grupo de <i>Desenvolvimento dos Requisitos</i>.</div>
-            <div class="options">
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>O grupo de <i>Desenvolvimento dos Requisitos</i> lida com o acompanhamento do <i>status</i> e o controle de mudanças, deixando a validação e a especificação para o outro grupo.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>O grupo de <i>Desenvolvimento dos Requisitos</i> compartilha as atividades de elicitação e validação, mas lida com a especificação e o outro grupo com a rastreabilidade.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>As atividades de análise e especificação são exclusivas do <i>Gerenciamento dos Requisitos</i>, pois envolvem artefatos formais.</span></label>
-                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>O grupo de <i>Desenvolvimento dos Requisitos</i> engloba a compreensão do contexto, a elicitação, a análise, a especificação e a validação.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>O grupo de <i>Desenvolvimento dos Requisitos</i> foca na rastreabilidade e no controle de versão, enquanto o outro grupo concentra-se na elicitação e na análise.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">9</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 4, Parte 3, p. 313 do livro / p. 315 do PDF; e Parte 4, p. 337 do livro / p. 339 do PDF):</b><br><i>"A engenharia de requisitos está organizada em dois grandes grupos de atividades: o desenvolvimento dos requisitos e o gerenciamento dos requisitos. <b>No desenvolvimento dos requisitos estão concentradas as atividades relacionadas à compreensão do contexto do projeto, elicitação, análise, especificação e validação dos requisitos.</b> Já no gerenciamento dos requisitos estão concentradas as atividades relacionadas com a rastreabilidade, o acompanhamento do status, o controle de versão e o controle de mudanças nos requisitos."</i></div>
+            <div class="question-text">A Engenharia de Requisitos é a disciplina que estrutura as atividades necessárias para a correta concepção e acompanhamento dos requisitos de software. Ela é dividida em dois grandes grupos de atividades, que possuem focos distintos, mas que devem ser executados de forma integrada.<br><br>Compare os dois grandes grupos de atividades da Engenharia de Requisitos e identifique a alternativa que associa corretamente as atividades ao grupo de <i>Desenvolvimento dos Requisitos</i>.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O grupo de <i>Desenvolvimento dos Requisitos</i> lida com o acompanhamento do <i>status</i> e o controle de mudanças, deixando a validação e a especificação para o outro grupo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O grupo de <i>Desenvolvimento dos Requisitos</i> compartilha as atividades de elicitação e validação, mas lida com a especificação e o outro grupo com a rastreabilidade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As atividades de análise e especificação são exclusivas do <i>Gerenciamento dos Requisitos</i>, pois envolvem artefatos formais.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O grupo de <i>Desenvolvimento dos Requisitos</i> engloba a compreensão do contexto, a elicitação, a análise, a especificação e a validação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O grupo de <i>Desenvolvimento dos Requisitos</i> foca na rastreabilidade e no controle de versão, enquanto o outro grupo concentra-se na elicitação e na análise.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 4, Parte 3, p. 313 do livro / p. 315 do PDF; e Parte 4, p. 337 do livro / p. 339 do PDF):</b><br><i>"A engenharia de requisitos está organizada em dois grandes grupos de atividades: o desenvolvimento dos requisitos e o gerenciamento dos requisitos. <b>No desenvolvimento dos requisitos estão concentradas as atividades relacionadas à compreensão do contexto do projeto, elicitação, análise, especificação e validação dos requisitos.</b> Já no gerenciamento dos requisitos estão concentradas as atividades relacionadas com a rastreabilidade, o acompanhamento do status, o controle de versão e o controle de mudanças nos requisitos."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q10" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">10. Mesmo com a adoção das melhores práticas de Engenharia de Requisitos e um processo de Gerenciamento de Requisitos bem estabelecido, as solicitações de mudança são uma realidade inevitável no ciclo de vida do software. Essas alterações podem ter diversas origens, muitas delas externas ao processo de desenvolvimento, mas internas à estrutura organizacional.<br><br>Identifique qual das seguintes situações é uma causa para a mudança de requisitos que se origina de uma reestruturação ou nova direção interna da organização.</div>
-            <div class="options">
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A análise de dados de projetos anteriores ou encerrados revela anomalias que estavam ocultas e precisam ser corrigidas ou adaptadas no sistema atual.</span></label>
-                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>A gerência da organização implementa uma mudança em sua operação, levando a alterações nas funcionalidades essenciais ou nas regras de negócio.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>O ambiente tecnológico no qual o sistema está inserido sofre uma grande inovação, exigindo uma resposta da organização em nível técnico.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Alguns usuários finais relembram requisitos que foram esquecidos ou se conscientizam de novas necessidades após o congelamento inicial do escopo.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Uma nova regulamentação ou lei governamental que força a adaptação do sistema a um novo conjunto de normas legais.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">10</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 4, Parte 2 — "Gerenciamento de Requisitos", p. 302–303 do livro / p. 304–305 do PDF):</b><br>Na seção <b>"2 Impacto das solicitações de mudança"</b>, o texto cita as seis causas abrangentes de mudança segundo Chemuturi (2013):<br>1. O ambiente no qual a organização opera sofreu uma mudança à qual a organização precisa responder;<br>2. <b>"a gerência da organização pode realizar uma mudança na sua operação e isso pode levar a mudanças nas funcionalidades essenciais dos requisitos;"</b> <i>(correspondente exatamente à alternativa B e à origem de reestruturação ou nova direção interna da organização)</i>;<br>3. Alguns dos usuários finais podem ter esquecido de alguns requisitos e lembrado de novos requisitos depois que os requisitos foram congelados;<br>4. Uma nova lei, regulamentação ou ato governamental pode causar mudanças depois que os requisitos foram congelados;<br>5. Atividades de melhoria de processos podem fazer com que algumas práticas de negócio sejam modificadas;<br>6. A análise dos dados de projetos encerrados pode revelar algumas anomalias que podem resultar em mudanças nos requisitos.</div>
+            <div class="question-text">Mesmo com a adoção das melhores práticas de Engenharia de Requisitos e um processo de Gerenciamento de Requisitos bem estabelecido, as solicitações de mudança são uma realidade inevitável no ciclo de vida do software. Essas alterações podem ter diversas origens, muitas delas externas ao processo de desenvolvimento, mas internas à estrutura organizacional.<br><br>Identifique qual das seguintes situações é uma causa para a mudança de requisitos que se origina de uma reestruturação ou nova direção interna da organização.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A análise de dados de projetos anteriores ou encerrados revela anomalias que estavam ocultas e precisam ser corrigidas ou adaptadas no sistema atual.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A gerência da organização implementa uma mudança em sua operação, levando a alterações nas funcionalidades essenciais ou nas regras de negócio.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O ambiente tecnológico no qual o sistema está inserido sofre uma grande inovação, exigindo uma resposta da organização em nível técnico.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Alguns usuários finais relembram requisitos que foram esquecidos ou se conscientizam de novas necessidades após o congelamento inicial do escopo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Uma nova regulamentação ou lei governamental que força a adaptação do sistema a um novo conjunto de normas legais.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 4, Parte 2 — "Gerenciamento de Requisitos", p. 302–303 do livro / p. 304–305 do PDF):</b><br>Na seção <b>"2 Impacto das solicitações de mudança"</b>, o texto cita as seis causas abrangentes de mudança segundo Chemuturi (2013):<br>1. O ambiente no qual a organização opera sofreu uma mudança à qual a organização precisa responder;<br>2. <b>"a gerência da organização pode realizar uma mudança na sua operação e isso pode levar a mudanças nas funcionalidades essenciais dos requisitos;"</b> <i>(correspondente exatamente à alternativa B e à origem de reestruturação ou nova direção interna da organização)</i>;<br>3. Alguns dos usuários finais podem ter esquecido de alguns requisitos e lembrado de novos requisitos depois que os requisitos foram congelados;<br>4. Uma nova lei, regulamentação ou ato governamental pode causar mudanças depois que os requisitos foram congelados;<br>5. Atividades de melhoria de processos podem fazer com que algumas práticas de negócio sejam modificadas;<br>6. A análise dos dados de projetos encerrados pode revelar algumas anomalias que podem resultar em mudanças nos requisitos.</div>
+            </div>
         </div>
         <div class="question-container" id="q11" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">11. A verificação de requisitos é uma atividade que pode ocorrer de diversas formas, desde a revisão por pares até a utilização de <i>checklists</i>. A aplicação de testes de <i>software</i>, no entanto, é a técnica mais utilizada para a verificação, especialmente quando o artefato a ser verificado é o código implementado. O planejamento dos testes deve ser realizado em paralelo ou logo após a definição dos requisitos, pois isso auxilia no esclarecimento de pontos obscuros e no refinamento das especificações.<br><br>Analise o principal benefício de desenvolver os casos de teste concomitantemente ou logo após a definição dos requisitos de software.</div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>Os testes ajudam a esclarecer pontos obscuros dos requisitos, facilitando o refinamento das especificações e identificando problemas logo no início do ciclo.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O desenvolvimento dos testes mais cedo garante que a equipe de testes possa finalizar seu trabalho antes da codificação, acelerando o <i>deploy</i>.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>A elaboração dos testes é exclusiva para requisitos não funcionais, pois os requisitos funcionais são validados apenas pelo usuário final.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>O planejamento antecipado dos testes elimina a necessidade de revisões por pares ou o uso de <i>checklists</i> para a verificação de requisitos.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>A escrita de casos de teste no início garante que o produto final passe diretamente para o ambiente de produção, sem a necessidade de homologação.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">11</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 3, Parte 3 — "Verificação de Requisitos de Software", p. 244 do livro / p. 246 do PDF):</b><br>No quadro <b>"Fique atento"</b> da página 244:<br><i>"O grande benefício do desenvolvimento dos testes concomitantemente aos requisitos, ou logo após esses, é que <b>os testes ajudam a esclarecer pontos obscuros dos requisitos. Refinamentos são possíveis sobre os requisitos, uma vez que se busca as formas para testá-lo</b>. Visão similar foi incorporada pelos métodos ágeis, como se verá adiante."</i></div>
+            <div class="question-text">A verificação de requisitos é uma atividade que pode ocorrer de diversas formas, desde a revisão por pares até a utilização de <i>checklists</i>. A aplicação de testes de <i>software</i>, no entanto, é a técnica mais utilizada para a verificação, especialmente quando o artefato a ser verificado é o código implementado. O planejamento dos testes deve ser realizado em paralelo ou logo após a definição dos requisitos, pois isso auxilia no esclarecimento de pontos obscuros e no refinamento das especificações.<br><br>Analise o principal benefício de desenvolver os casos de teste concomitantemente ou logo após a definição dos requisitos de software.</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os testes ajudam a esclarecer pontos obscuros dos requisitos, facilitando o refinamento das especificações e identificando problemas logo no início do ciclo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O desenvolvimento dos testes mais cedo garante que a equipe de testes possa finalizar seu trabalho antes da codificação, acelerando o <i>deploy</i>.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A elaboração dos testes é exclusiva para requisitos não funcionais, pois os requisitos funcionais são validados apenas pelo usuário final.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O planejamento antecipado dos testes elimina a necessidade de revisões por pares ou o uso de <i>checklists</i> para a verificação de requisitos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A escrita de casos de teste no início garante que o produto final passe diretamente para o ambiente de produção, sem a necessidade de homologação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 3, Parte 3 — "Verificação de Requisitos de Software", p. 244 do livro / p. 246 do PDF):</b><br>No quadro <b>"Fique atento"</b> da página 244:<br><i>"O grande benefício do desenvolvimento dos testes concomitantemente aos requisitos, ou logo após esses, é que <b>os testes ajudam a esclarecer pontos obscuros dos requisitos. Refinamentos são possíveis sobre os requisitos, uma vez que se busca as formas para testá-lo</b>. Visão similar foi incorporada pelos métodos ágeis, como se verá adiante."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q12" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">12. A Verificação de Requisitos é uma atividade essencial na Engenharia de Software, distinta da Validação, mas ambas fazem parte da etapa genérica de validação de requisitos. Seu propósito, segundo a norma ISO/IEC/IEEE 12207, é providenciar evidência objetiva de que o sistema ou elemento do sistema cumpre integralmente os requisitos e características especificados. O processo busca ativamente identificar anomalias (erros, defeitos e falhas) em qualquer item de informação ou artefato do ciclo de vida.<br><br>Assinale a alternativa que apresenta corretamente a distinção formal entre Verificação e Validação de requisitos, conforme a norma ISO/IEC/IEEE 12207 e o modelo CMMI-DEV 2.0.</div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>Verificação é a confirmação de que os requisitos especificados foram atendidos, e Validação é a confirmação de que o requisito foi atendido para um uso ou aplicação pretendidos específicos.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Verificação é uma atividade realizada exclusivamente pela equipe de desenvolvimento (teste de unidade), e Validação é uma atividade realizada pelo usuário final (teste de aceitação).</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Verificação analisa se foi construído o produto certo, ou seja, aquele que os stakeholders desejavam, e Validação analisa se o produto foi construído certo, de forma correta.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Verificação é a atividade de encontrar anomalias nos requisitos, enquanto Validação é a atividade de corrigir os erros nos artefatos de software.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Verificação confirma que o requisito foi atendido para um uso pretendido ("você está construindo a coisa certa"), enquanto Validação confirma que os requisitos especificados foram atendidos ("você está construindo certo").</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">12</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>Validação no E-book (Unidade 3, Parte 3, p. 227–228 do livro / p. 229–230 do PDF; e Parte 4, p. 254–255 do livro / p. 256–257 do PDF):</b><br>De acordo com a norma internacional <b>ISO/IEC/IEEE 12207 (2017, p. 10–11)</b>:<br>- <b>Validação</b> é <i>"a confirmação, por meio do fornecimento de evidência objetiva, que o requisito foi atendido para um uso ou aplicação pretendidos específicos"</i>. No <b>CMMI-DEV 2.0 (2018, p. 525)</b>: <i>"demonstra que a solução vai atender seu uso pretendido no ambiente alvo, isto é, 'você está construindo a coisa certa'"</i> (construir o <b>produto certo</b>).<br>- <b>Verificação</b> é <i>"a confirmação, por meio do fornecimento de evidência objetiva, que os requisitos especificados foram atendidos"</i>. No <b>CMMI-DEV 2.0 (2018, p. 525)</b>: <i>"endereça que o produto de trabalho ou a solução refletem adequadamente os requisitos especificados, isto é, 'você está construindo certo'"</i> (construir o produto <b>certo / de forma correta</b>).<br><br><i>Atenção às pegadinhas:</i> As alternativas <b>C</b> e <b>E</b> invertem os conceitos de Verificação e Validação!</div>
+            <div class="question-text">A Verificação de Requisitos é uma atividade essencial na Engenharia de Software, distinta da Validação, mas ambas fazem parte da etapa genérica de validação de requisitos. Seu propósito, segundo a norma ISO/IEC/IEEE 12207, é providenciar evidência objetiva de que o sistema ou elemento do sistema cumpre integralmente os requisitos e características especificados. O processo busca ativamente identificar anomalias (erros, defeitos e falhas) em qualquer item de informação ou artefato do ciclo de vida.<br><br>Assinale a alternativa que apresenta corretamente a distinção formal entre Verificação e Validação de requisitos, conforme a norma ISO/IEC/IEEE 12207 e o modelo CMMI-DEV 2.0.</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Verificação é a confirmação de que os requisitos especificados foram atendidos, e Validação é a confirmação de que o requisito foi atendido para um uso ou aplicação pretendidos específicos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Verificação é uma atividade realizada exclusivamente pela equipe de desenvolvimento (teste de unidade), e Validação é uma atividade realizada pelo usuário final (teste de aceitação).</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Verificação analisa se foi construído o produto certo, ou seja, aquele que os stakeholders desejavam, e Validação analisa se o produto foi construído certo, de forma correta.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Verificação é a atividade de encontrar anomalias nos requisitos, enquanto Validação é a atividade de corrigir os erros nos artefatos de software.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Verificação confirma que o requisito foi atendido para um uso pretendido ("você está construindo a coisa certa"), enquanto Validação confirma que os requisitos especificados foram atendidos ("você está construindo certo").</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>Validação no E-book (Unidade 3, Parte 3, p. 227–228 do livro / p. 229–230 do PDF; e Parte 4, p. 254–255 do livro / p. 256–257 do PDF):</b><br>De acordo com a norma internacional <b>ISO/IEC/IEEE 12207 (2017, p. 10–11)</b>:<br>- <b>Validação</b> é <i>"a confirmação, por meio do fornecimento de evidência objetiva, que o requisito foi atendido para um uso ou aplicação pretendidos específicos"</i>. No <b>CMMI-DEV 2.0 (2018, p. 525)</b>: <i>"demonstra que a solução vai atender seu uso pretendido no ambiente alvo, isto é, 'você está construindo a coisa certa'"</i> (construir o <b>produto certo</b>).<br>- <b>Verificação</b> é <i>"a confirmação, por meio do fornecimento de evidência objetiva, que os requisitos especificados foram atendidos"</i>. No <b>CMMI-DEV 2.0 (2018, p. 525)</b>: <i>"endereça que o produto de trabalho ou a solução refletem adequadamente os requisitos especificados, isto é, 'você está construindo certo'"</i> (construir o produto <b>certo / de forma correta</b>).<br><br><i>Atenção às pegadinhas:</i> As alternativas <b>C</b> e <b>E</b> invertem os conceitos de Verificação e Validação!</div>
+            </div>
         </div>
 
-        <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar Simulado Completo (12 Questões)</button>
+            <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar e Enviar Questionário (12 Questões)</button>
 
-        <div id="resultado" class="result-box"></div>
-    </form>
+            <div id="resultado" class="result-box"></div>
+        </form>
+    </main>
 
     <script>
         const TOTAL = 12;
@@ -253,32 +1505,38 @@
             box.appendChild(img);
         }
 
-        // Embaralhamento inicial ao carregar (F5)
+        // Embaralhamento inicial (F5)
         (function() {
             const form = document.getElementById('quizForm');
             const submitBtn = document.querySelector('.btn-submit');
 
-            // 1. Embaralha as questoes (etiqueta de unidade acompanha cada questao)
+            // 1. Embaralha as perguntas mantendo seus atributos e etiquetas
             const questions = Array.from(document.querySelectorAll('.question-container'));
             for (let i = questions.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [questions[i], questions[j]] = [questions[j], questions[i]];
             }
 
-            // 2. Renumera e reinsere no DOM
+            // 2. Renumera o círculo roxo e reatribui radio names
             questions.forEach((q, index) => {
                 const newNum = index + 1;
                 const newId = 'q' + newNum;
                 q.id = newId;
-                q.querySelectorAll('input[type="radio"]').forEach(r => { r.name = newId; r.checked = false; });
-                const qText = q.querySelector('.question-text');
-                if (qText) qText.innerHTML = qText.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+
+                const circleNum = q.querySelector('.q-circle-number');
+                if (circleNum) circleNum.innerText = newNum;
+
+                q.querySelectorAll('input[type="radio"]').forEach(r => {
+                    r.name = newId;
+                    r.checked = false;
+                });
+
                 form.insertBefore(q, submitBtn);
 
-                // 3. Embaralha as alternativas e reatribui as letras A, B, C, D, E
+                // 3. Embaralha as alternativas de cada pergunta
                 const optionsDiv = q.querySelector('.options');
                 if (optionsDiv) {
-                    const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                    const labels = Array.from(optionsDiv.querySelectorAll('.option-row'));
                     const letters = ['A', 'B', 'C', 'D', 'E'];
                     for (let i = labels.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -287,7 +1545,7 @@
                     optionsDiv.innerHTML = '';
                     labels.forEach((label, idx) => {
                         const prefix = label.querySelector('.letter-prefix');
-                        if (prefix) prefix.innerText = letters[idx] + ') ';
+                        if (prefix) prefix.innerText = letters[idx] + '. ';
                         const input = label.querySelector('input');
                         if (input) input.value = letters[idx];
                         optionsDiv.appendChild(label);
@@ -300,8 +1558,14 @@
             let acertos = 0;
             const porUnidade = {};
 
-            document.querySelectorAll('.options label').forEach(l => l.classList.remove('correct-answer', 'wrong-answer'));
-            document.querySelectorAll('.feedback').forEach(fb => { fb.classList.remove('correct', 'incorrect'); fb.style.display = 'none'; fb.innerHTML = ''; });
+            // Limpa estilos anteriores
+            document.querySelectorAll('.option-row').forEach(l => {
+                l.classList.remove('is-correct-answer', 'is-wrong-answer');
+            });
+            document.querySelectorAll('.status-pill-ava').forEach(sp => {
+                sp.className = 'status-pill-ava';
+                sp.style.display = 'none';
+            });
 
             for (let i = 1; i <= TOTAL; i++) {
                 const q = document.getElementById('q' + i);
@@ -309,46 +1573,95 @@
                 porUnidade[unidade] = porUnidade[unidade] || { ok: 0, total: 0 };
                 porUnidade[unidade].total++;
 
+                const statusPill = q.querySelector('.status-pill-ava');
+                const scoreBadge = q.querySelector('.q-score-badge');
                 const options = document.getElementsByName('q' + i);
-                const feedbackDiv = q.querySelector('.feedback');
-                let respondeu = false, acertou = false;
+
+                let respondeu = false;
+                let acertou = false;
 
                 for (const option of options) {
-                    const label = option.closest('label');
+                    const label = option.closest('.option-row');
                     const isCorrect = label.getAttribute('data-correct') === 'true';
+
                     if (option.checked) {
                         respondeu = true;
                         if (isCorrect) {
                             acertou = true;
-                            label.classList.add('correct-answer');
-                            feedbackDiv.innerHTML = '✔ Resposta Correta!';
-                            feedbackDiv.classList.add('correct');
+                            label.classList.add('is-correct-answer');
                         } else {
-                            label.classList.add('wrong-answer');
-                            const cl = label.parentElement.querySelector('label[data-correct="true"]');
-                            const letra = cl ? cl.querySelector('input').value : '?';
-                            feedbackDiv.innerHTML = `✖ Resposta Incorreta. A alternativa correta é a ${letra}.`;
-                            feedbackDiv.classList.add('incorrect');
+                            label.classList.add('is-wrong-answer');
+                            const tag = label.querySelector('.option-tag');
+                            if (tag) {
+                                tag.innerText = 'Sua resposta (Incorreta)';
+                                tag.style.display = 'inline';
+                            }
                         }
                     }
-                    if (isCorrect) label.classList.add('correct-answer');
+
+                    if (isCorrect) {
+                        label.classList.add('is-correct-answer');
+                        const tag = label.querySelector('.option-tag');
+                        if (tag) {
+                            tag.innerText = 'Resposta correta';
+                            tag.style.display = 'inline';
+                        }
+                    }
                 }
-                if (acertou) { acertos++; porUnidade[unidade].ok++; }
+
+                if (acertou) {
+                    acertos++;
+                    porUnidade[unidade].ok++;
+                    if (statusPill) {
+                        statusPill.innerText = 'CORRETO';
+                        statusPill.className = 'status-pill-ava correto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,4 / 0,4';
+                } else if (respondeu) {
+                    if (statusPill) {
+                        statusPill.innerText = 'INCORRETO';
+                        statusPill.className = 'status-pill-ava incorreto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                } else {
+                    if (statusPill) {
+                        statusPill.innerText = 'NÃO RESPONDIDO';
+                        statusPill.className = 'status-pill-ava vazio';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                }
+
                 mostrarReacao(q, acertou);
-                if (!respondeu) {
-                    feedbackDiv.innerHTML = '⚠ Questão não respondida.';
-                    feedbackDiv.classList.add('incorrect');
-                }
-                feedbackDiv.style.display = 'block';
+
+                // Exibe justificativa
                 const ex = q.querySelector('.explicacao');
                 if (ex) ex.style.display = 'block';
             }
 
+            // Atualiza nota no Banner Superior (estilo Print 5)
+            const notaEscala10 = ((acertos / TOTAL) * 10).toFixed(1).replace('.', ',');
+            const headerPill = document.getElementById('header-score-pill');
+            if (headerPill) headerPill.innerText = notaEscala10 + ' / 10,0';
+
+            const headerSub = document.getElementById('header-score-sub');
+            if (headerSub) {
+                const now = new Date();
+                const horaStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                headerSub.innerHTML = '<strong>ENVIADO:</strong> ' + horaStr + ' (BRT)';
+            }
+
+            // Exibe caixa de resultado final
             const resultBox = document.getElementById('resultado');
             resultBox.style.display = 'block';
             const aproveitamento = ((acertos / TOTAL) * 100).toFixed(0);
             const detalhe = Object.keys(porUnidade).sort().map(u => `Unidade ${u}: ${porUnidade[u].ok}/${porUnidade[u].total}`).join(' &nbsp;|&nbsp; ');
-            resultBox.innerHTML = `Você acertou ${acertos} de ${TOTAL} questões!<br><span style="font-size: 0.8em; color: #7f8c8d; font-weight: normal;">Aproveitamento: ${aproveitamento}%</span><div class="by-unit">${detalhe}</div>`;
+
+            resultBox.innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>${TOTAL}</strong> questões! (Nota: <strong>${notaEscala10}</strong>)</div>
+                <div style="font-size: 0.85em; font-weight: normal; margin-top: 4px;">Aproveitamento Total: ${aproveitamento}%</div>
+                <div class="by-unit">${detalhe}</div>
+                <button type="button" class="btn-retry" onclick="window.location.reload()">🔄 Refazer Simulado (Embaralhar Novamente)</button>
+            `;
             resultBox.className = 'result-box ' + (acertos >= MIN_APROVACAO ? 'pass' : 'fail');
             resultBox.scrollIntoView({ behavior: 'smooth' });
         }

@@ -3,226 +3,1475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulado Completo (12 Questões) — Gerenciamento de Projetos</title>
+    <title>Avaliação: Gerenciamento de Projetos — Blackboard Ultra (Simulado ADS)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        .top-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
-        .top-nav a { text-decoration: none; color: #2980b9; font-weight: bold; font-size: 0.95em; }
-        .top-nav a:hover { text-decoration: underline; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; font-size: 2em; }
-        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 20px; font-weight: bold; }
-        .question-container { background-color: #fff; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box; position: relative; }
-        .unit-badge { display: inline-block; font-size: 0.8em; font-weight: bold; color: #fff; padding: 3px 12px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.5px; }
-        .unit-1 { background-color: #2980b9; } .unit-2 { background-color: #27ae60; }
-        .unit-3 { background-color: #e67e22; } .unit-4 { background-color: #8e44ad; }
-        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; color: #2c3e50; white-space: pre-line; word-break: break-word; }
-        .options { margin-top: 15px; clear: none; }
-        .options label { display: flex; align-items: flex-start; padding: 12px; margin-bottom: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; box-sizing: border-box; }
-        .options label:hover { background-color: #e9ecef; border-color: #b1bccc; }
-        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
-        .options label span { word-break: break-word; }
-        .letter-prefix { font-weight: bold; margin-right: 5px; color: #2c3e50; flex-shrink: 0; }
-        .btn-submit { display: block; width: 100%; padding: 18px; font-size: 1.2em; font-weight: bold; color: #fff; background-color: #27ae60; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 30px; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
-        .btn-submit:hover { background-color: #219653; }
-        .result-box { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 30px; padding: 30px; border-radius: 8px; display: none; box-sizing: border-box; }
-        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        .by-unit { font-size: 0.6em; font-weight: normal; color: #444; margin-top: 12px; }
-        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
-        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
-        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
-        .feedback.correct { display: block; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
-        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
-        .explicacao { display: none; margin-top: 10px; font-size: 0.9em; padding: 10px 14px; border-left: 4px solid #b1bccc; background: #f8f9fa; color: #444; }
-        .reacao { display: none; float: right; width: 150px; margin: 0 0 10px 15px; text-align: center; }
-        .reacao img { width: 150px; max-height: 150px; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-        .reacao .emoji { font-size: 4.5em; line-height: 1.1; display: inline-block; }
+        :root {
+            --bb-bg: #eceff1;
+            --bb-card-bg: #ffffff;
+            --bb-border: #cfd8dc;
+            --bb-purple: #8e24aa;
+            --bb-purple-light: #f3e5f5;
+            --bb-green: #00875a;
+            --bb-green-bg: #e3fcef;
+            --bb-green-border: #abf5d1;
+            --bb-red: #de350b;
+            --bb-red-bg: #ffebe6;
+            --bb-red-border: #ffbdad;
+            --bb-gray-dark: #212529;
+            --bb-gray-med: #495057;
+            --bb-gray-light: #f4f5f7;
+            --bb-text: #172b4d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bb-bg);
+            color: var(--bb-text);
+            line-height: 1.55;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navbar Blackboard Ultra */
+        .bb-top-bar {
+            background-color: #191919;
+            color: #ffffff;
+            padding: 0.65rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #2d2d2d;
+        }
+
+        .bb-top-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .bb-back-link {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .bb-back-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .bb-course-code {
+            color: #b0bec5;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .bb-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #cfd8dc;
+            font-weight: 500;
+        }
+
+        .bb-avatar-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #37474f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #eceff1;
+        }
+
+        /* Banner de Nota Final (Estilo Print 5) */
+        .bb-score-banner {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--bb-border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .bb-score-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .bb-score-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--bb-gray-dark);
+        }
+
+        .bb-score-pill {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .bb-score-right {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #607d8b;
+        }
+
+        .bb-score-right strong {
+            color: var(--bb-gray-dark);
+        }
+
+        /* Main Container */
+        .bb-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .bb-alert-bar {
+            background-color: #fff9db;
+            border: 1px solid #ffe066;
+            border-radius: 4px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #664d03;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Card da Questão Blackboard Ultra */
+        .question-container {
+            background-color: var(--bb-card-bg);
+            border: 1px solid var(--bb-border);
+            border-radius: 4px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .q-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Círculo Roxo/Magenta do Número */
+        .q-circle-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--bb-purple);
+            color: var(--bb-purple);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #ffffff;
+        }
+
+        .q-type-label {
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #212529;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        /* Pílula de Status (Correto / Incorreto / Não respondido) */
+        .status-pill-ava {
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+
+        .status-pill-ava.correto {
+            display: inline-block;
+            background-color: var(--bb-green);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.incorreto {
+            display: inline-block;
+            background-color: var(--bb-red);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.vazio {
+            display: inline-block;
+            background-color: #f59e0b;
+            color: #ffffff;
+        }
+
+        /* Badge de Unidade */
+        .unit-pill {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+        }
+
+        .unit-1 { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .unit-2 { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .unit-3 { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .unit-4 { background-color: #f3e5f5; color: #6a1b9a; border: 1px solid #e1bee7; }
+
+        .q-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* Pílula Preta com Pontuação */
+        .q-score-badge {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+        }
+
+        .q-chevron {
+            color: #78909c;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+
+        /* Enunciado */
+        .question-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #212529;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .fonte-tag {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #546e7a;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Opções de Alternativas */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.85rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .option-row:hover {
+            background-color: #f1f3f5;
+            border-color: #dee2e6;
+        }
+
+        .option-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .option-row input[type="radio"] {
+            margin-top: 0.2rem;
+            transform: scale(1.15);
+            accent-color: #00875a;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-content {
+            font-size: 0.925rem;
+            color: #212529;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .letter-prefix {
+            font-weight: 700;
+            color: #212529;
+            margin-right: 0.35rem;
+        }
+
+        .correta-highlight {
+            display: none;
+            font-weight: 800;
+            color: #006644;
+            margin-right: 0.35rem;
+        }
+
+        .option-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 0.75rem;
+            display: none;
+        }
+
+        /* Estilos Pós-Correção (Fiel ao AVA Blackboard Ultra) */
+        .option-row.is-correct-answer {
+            background-color: var(--bb-green-bg) !important;
+            border: 1px solid var(--bb-green-border) !important;
+            color: #006644 !important;
+        }
+
+        .option-row.is-correct-answer .correta-highlight {
+            display: inline;
+        }
+
+        .option-row.is-correct-answer .option-tag {
+            display: inline;
+            color: #006644;
+        }
+
+        .option-row.is-wrong-answer {
+            background-color: var(--bb-red-bg) !important;
+            border: 1px solid var(--bb-red-border) !important;
+            color: #bf2600 !important;
+        }
+
+        .option-row.is-wrong-answer .option-tag {
+            display: inline;
+            color: #bf2600;
+        }
+
+        /* Comentários / Justificativa Oficial */
+        .explicacao {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background-color: var(--bb-gray-light);
+            border-left: 4px solid var(--bb-green);
+            border-radius: 0 4px 4px 0;
+            font-size: 0.88rem;
+            color: #172b4d;
+            line-height: 1.6;
+        }
+
+        .explicacao b.expl-title {
+            color: #00875a;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.925rem;
+        }
+
+        /* Reação animada (GIF / Emoji) */
+        .reacao {
+            display: none;
+            float: right;
+            width: 140px;
+            margin: 0 0 10px 15px;
+            text-align: center;
+        }
+
+        .reacao img {
+            width: 140px;
+            max-height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .reacao .emoji {
+            font-size: 4em;
+            line-height: 1;
+            display: inline-block;
+        }
+
         .reacao.acertou .emoji { animation: pula 0.8s ease-in-out infinite; }
         .reacao.errou .emoji { animation: balanca 0.6s ease-in-out 4; }
-        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.15); } }
-        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
-        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
-        @media (max-width: 600px) { .reacao { float: none; margin: 10px auto; } }
-        @media (max-width: 768px) {
-            .question-container { padding: 15px; }
-            .btn-submit { padding: 15px; font-size: 1.1em; }
+
+        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.15); } }
+        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* Botão de Envio Blackboard Ultra */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-green);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 2rem;
+            box-shadow: 0 2px 4px rgba(0,135,90,0.25);
+        }
+
+        .btn-submit:hover {
+            background-color: #006644;
+        }
+
+        /* Caixa de Resultado */
+        .result-box {
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            border-radius: 4px;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .pass {
+            background-color: #e3fcef;
+            color: #006644;
+            border: 1px solid #abf5d1;
+        }
+
+        .fail {
+            background-color: #fff9db;
+            color: #856404;
+            border: 1px solid #ffe066;
+        }
+
+        .by-unit {
+            font-size: 0.65em;
+            font-weight: 500;
+            color: #495057;
+            margin-top: 0.85rem;
+        }
+
+        .btn-retry {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-gray-dark);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-retry:hover {
+            background-color: #343a40;
+        }
+
+        @media (max-width: 600px) {
+            .bb-top-bar { padding: 0.65rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .bb-score-banner { padding: 0.85rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .reacao { float: none; margin: 10px auto; }
+            .question-container { padding: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="index.html">← Voltar ao Portal ADS 2026.2</a>
-        <span style="font-size:0.85em; color:#7f8c8d;">ADS • 7º Semestre</span>
+    <!-- Barra Superior Blackboard Ultra -->
+    <header class="bb-top-bar">
+        <div class="bb-top-left">
+            <a href="index.html" class="bb-back-link">← Voltar ao Portal ADS 2026.2</a>
+            <span class="bb-course-code">2026/2 - ENS1E0402E0041 - GERENCIAMENTO DE PROJETOS</span>
+        </div>
+        <div class="bb-user-profile">
+            <div class="bb-avatar-circle">👤</div>
+            <span>Anderson (ADS 7º Semestre)</span>
+        </div>
+    </header>
+
+    <!-- Banner de Nota Final (Fiel ao Blackboard Ultra) -->
+    <div class="bb-score-banner">
+        <div class="bb-score-left">
+            <span class="bb-score-label">Nota final</span>
+            <span class="bb-score-pill" id="header-score-pill">-- / 10,0</span>
+        </div>
+        <div class="bb-score-right" id="header-score-sub">
+            <span>Questionário Oficial U1-U4 • <strong>12 Questões</strong></span>
+        </div>
     </div>
 
-    <h1>Simulado: Gerenciamento de Projetos</h1>
-    <p class="subtitle">Unidades 1 a 4 — Mix Completo (12 Questões de Prova)</p>
-    <div class="shuffle-note">🔄 <b>Embaralhamento Ativo:</b> Pressione <b>F5</b> para embaralhar novamente tanto as perguntas quanto as alternativas (A, B, C, D, E). A etiqueta colorida indica a unidade de cada questão.</div>
+    <main class="bb-container">
+        <!-- Aviso de Embaralhamento -->
+        <div class="bb-alert-bar">
+            <span>🔄 <strong>Modo Simulado Ativo:</strong> A cada carregamento (<strong>F5</strong>), as questões e alternativas mudam de posição como no exame real.</span>
+            <span style="font-size: 0.8em; color: #856404; font-weight: 700;">Simulado G2 Presencial</span>
+        </div>
 
-    <form id="quizForm">
+        <form id="quizForm">
 
         <div class="question-container" id="q1" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">1. <b>I)</b> Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP).<br><b>PORQUE</b><br><b>II)</b> A EAP é um diagrama que organiza e define o escopo total do projeto e apresenta o processo, a subdivisão do trabalho e das entregas do projeto em componentes menores.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">1</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.1.4.1, p. 44):</b><br>- Citação literal da página 44 do e-book: <i>"Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP), <b>pois</b> ela apresenta o processo e a subdivisão do trabalho e das entregas do projeto em componentes menores e de mais fácil gerenciamento. A EAP é um diagrama que organiza e define o escopo total do projeto por meio da representação em forma de árvore..."</i></div>
+            <div class="question-text"><b>I)</b> Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP).<br><b>PORQUE</b><br><b>II)</b> A EAP é um diagrama que organiza e define o escopo total do projeto e apresenta o processo, a subdivisão do trabalho e das entregas do projeto em componentes menores.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.1.4.1, p. 44):</b><br>- Citação literal da página 44 do e-book: <i>"Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP), <b>pois</b> ela apresenta o processo e a subdivisão do trabalho e das entregas do projeto em componentes menores e de mais fácil gerenciamento. A EAP é um diagrama que organiza e define o escopo total do projeto por meio da representação em forma de árvore..."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q2" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">2. A empresa de locação de veículos chamada “Na Pista” está trabalhando em seu projeto para locação de veículos para motoristas de aplicativos. O projeto da empresa encontra-se numa encruzilhada na fase do gerenciamento de custos. O principal problema é que alguns interessados no projeto estão avaliando os custos de forma diferente e não no mesmo ritmo dos demais.<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A possibilidade das partes entrarem em consenso está no planejamento adequado dos custos, o qual envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e o uso dos mesmos para a realização das atividades do projeto.<br>II. O consenso pode ser buscado na correta orçamentação dos custos, buscando impedir que mudanças não apropriadas sejam incluídas e não se esquecendo de informar os envolvidos e envolvidas sobre quaisquer mudanças nos custos.<br>III. As informações de entrada como: recursos requeridos, custo unitário de recursos, estimativa de duração da atividade, informações históricas, plano contábil podem ser incluídas na estimativa de custos e, consequentemente, se refletir numa melhor relação entre os interessados no projeto.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">2</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.2.1 e Figura 2.9, p. 49–50):</b><br>- <b>I e II (Verdadeiras — p. 50):</b> <i>"O planejamento dos custos envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e como eles devem ser usados para realizar as atividades do projeto. [...] A orçamentação dos custos busca alocar as estimativas aos itens de trabalho, a fim de estabelecer uma base de controle e de mensurar o desempenho do projeto, que será medido no controle de custos. Esse controle monitora o desempenho, busca impedir que mudanças não apropriadas sejam incluídas e informar as partes envolvidas sobre quaisquer mudanças nos custos (PMI, 2017)."</i><br>- <b>III (Verdadeira — Figura 2.9, p. 50):</b> Na caixa <b>Estimativa de Custos → Entradas</b>, constam exatamente: <i>EAP, Recursos requeridos, Custo unitário de recursos, Estimativas de duração da atividade, Informações históricas e Plano contábil</i>.</div>
+            <div class="question-text">A empresa de locação de veículos chamada “Na Pista” está trabalhando em seu projeto para locação de veículos para motoristas de aplicativos. O projeto da empresa encontra-se numa encruzilhada na fase do gerenciamento de custos. O principal problema é que alguns interessados no projeto estão avaliando os custos de forma diferente e não no mesmo ritmo dos demais.<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A possibilidade das partes entrarem em consenso está no planejamento adequado dos custos, o qual envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e o uso dos mesmos para a realização das atividades do projeto.<br>II. O consenso pode ser buscado na correta orçamentação dos custos, buscando impedir que mudanças não apropriadas sejam incluídas e não se esquecendo de informar os envolvidos e envolvidas sobre quaisquer mudanças nos custos.<br>III. As informações de entrada como: recursos requeridos, custo unitário de recursos, estimativa de duração da atividade, informações históricas, plano contábil podem ser incluídas na estimativa de custos e, consequentemente, se refletir numa melhor relação entre os interessados no projeto.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.2.1 e Figura 2.9, p. 49–50):</b><br>- <b>I e II (Verdadeiras — p. 50):</b> <i>"O planejamento dos custos envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e como eles devem ser usados para realizar as atividades do projeto. [...] A orçamentação dos custos busca alocar as estimativas aos itens de trabalho, a fim de estabelecer uma base de controle e de mensurar o desempenho do projeto, que será medido no controle de custos. Esse controle monitora o desempenho, busca impedir que mudanças não apropriadas sejam incluídas e informar as partes envolvidas sobre quaisquer mudanças nos custos (PMI, 2017)."</i><br>- <b>III (Verdadeira — Figura 2.9, p. 50):</b> Na caixa <b>Estimativa de Custos → Entradas</b>, constam exatamente: <i>EAP, Recursos requeridos, Custo unitário de recursos, Estimativas de duração da atividade, Informações históricas e Plano contábil</i>.</div>
+            </div>
         </div>
         <div class="question-container" id="q3" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">3. Segundo o PMBOK (<i>Project Management Body of Knowledge</i>), projeto “é um esforço temporário empreendido para criar um produto, serviço ou resultado exclusivo” (PMI, 2013). É considerado temporário, porque todos os projetos devem possuir um início e fim definido.<br><br>Portanto, podemos considerar um projeto:<br>I - construção de uma casa<br>II - fabricação de carros<br>III - realização de uma viagem<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>I e III, apenas.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">3</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.1 — Figura 1.2, p. 14):</b><br>- Conforme a <b>Figura 1.2 (p. 14 — Projetos x Não projetos)</b>:<br>- <b>PROJETOS (temporários e exclusivos):</b> <i>Construção de uma casa (I)</i>, <i>Redação de um livro</i>, <i>Lançamento de um produto ou serviço</i>, <i>Realização de uma viagem (III)</i>, <i>Desenvolvimento de um software</i>.<br>- <b>NÃO PROJETOS (operações contínuas e repetitivas):</b> <i>Compra de materiais (operação regular)</i>, <b><i>Fabricação de carros (II)</b></i>, <i>Gerenciamento de um setor administrativo</i>, <i>Venda de produto ou serviços</i>, <i>Pagamento de produtos ou serviços</i>.</div>
+            <div class="question-text">Segundo o PMBOK (<i>Project Management Body of Knowledge</i>), projeto “é um esforço temporário empreendido para criar um produto, serviço ou resultado exclusivo” (PMI, 2013). É considerado temporário, porque todos os projetos devem possuir um início e fim definido.<br><br>Portanto, podemos considerar um projeto:<br>I - construção de uma casa<br>II - fabricação de carros<br>III - realização de uma viagem<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.1 — Figura 1.2, p. 14):</b><br>- Conforme a <b>Figura 1.2 (p. 14 — Projetos x Não projetos)</b>:<br>- <b>PROJETOS (temporários e exclusivos):</b> <i>Construção de uma casa (I)</i>, <i>Redação de um livro</i>, <i>Lançamento de um produto ou serviço</i>, <i>Realização de uma viagem (III)</i>, <i>Desenvolvimento de um software</i>.<br>- <b>NÃO PROJETOS (operações contínuas e repetitivas):</b> <i>Compra de materiais (operação regular)</i>, <b><i>Fabricação de carros (II)</b></i>, <i>Gerenciamento de um setor administrativo</i>, <i>Venda de produto ou serviços</i>, <i>Pagamento de produtos ou serviços</i>.</div>
+            </div>
         </div>
         <div class="question-container" id="q4" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">4. <b>I)</b> A identificação dos riscos consiste em determinar aqueles que têm <b>menor</b> probabilidade de afetar o projeto e documentar as características de cada um.<br><b>PORQUE</b><br><b>II)</b> Os riscos são mutáveis ao longo da execução do processo de identificação, o qual deve ser feito ao longo de todo o projeto.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
-                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">4</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.3.2, p. 59):</b><br>- Veja o primeiro parágrafo da página 59: <i>"A identificação dos riscos consiste em determinar aqueles que têm <b>maior</b> probabilidade de afetar o projeto e documentar as características de cada um, identificando os eventos incertos que podem representar ameaças ou oportunidades para o projeto. [...] Esse processo deve ser feito ao longo de todo o projeto, pois os riscos são mutáveis ao longo de sua execução (PMI, 2017)."</i><br>- Logo, a 1ª asserção é <b>falsa</b> (trocou <b>maior</b> por <i>menor</i>), e a 2ª asserção é <b>verdadeira</b>.</div>
+            <div class="question-text"><b>I)</b> A identificação dos riscos consiste em determinar aqueles que têm <b>menor</b> probabilidade de afetar o projeto e documentar as características de cada um.<br><b>PORQUE</b><br><b>II)</b> Os riscos são mutáveis ao longo da execução do processo de identificação, o qual deve ser feito ao longo de todo o projeto.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.3.2, p. 59):</b><br>- Veja o primeiro parágrafo da página 59: <i>"A identificação dos riscos consiste em determinar aqueles que têm <b>maior</b> probabilidade de afetar o projeto e documentar as características de cada um, identificando os eventos incertos que podem representar ameaças ou oportunidades para o projeto. [...] Esse processo deve ser feito ao longo de todo o projeto, pois os riscos são mutáveis ao longo de sua execução (PMI, 2017)."</i><br>- Logo, a 1ª asserção é <b>falsa</b> (trocou <b>maior</b> por <i>menor</i>), e a 2ª asserção é <b>verdadeira</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q5" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">5. É possível que projetos apresentem falhas em sua construção. Portanto, é importante estudar as experiências anteriores para enfrentar os novos projetos e diminuir as chances de fracasso.<br><br>Selecione a alternativa abaixo que representa o fracasso de um projeto:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>Entrega de requisitos incompletos.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Cumprir a expectativa do cliente.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Envolvimento com usuários.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Entrega no prazo definido.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Manutenção dos requisitos e especificações.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">5</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.2, p. 15):</b><br>- Conforme o quadro <b>DESTAQUE (p. 15 — <i>Os fracassos: por que os projetos falham?</i>)</b> baseado no <i>Chaos Report (2019)</i>, as 5 principais causas de falha são:<br>1. <b>Requisitos incompletos</b>;<br>2. Falta de envolvimento dos usuários;<br>3. Expectativas irreais do cliente;<br>4. Alterações nos requisitos e especificações;<br>5. Não ter mais necessidades das capacidades envolvidas.</div>
+            <div class="question-text">É possível que projetos apresentem falhas em sua construção. Portanto, é importante estudar as experiências anteriores para enfrentar os novos projetos e diminuir as chances de fracasso.<br><br>Selecione a alternativa abaixo que representa o fracasso de um projeto:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Entrega de requisitos incompletos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Cumprir a expectativa do cliente.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Envolvimento com usuários.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Entrega no prazo definido.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Manutenção dos requisitos e especificações.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.2, p. 15):</b><br>- Conforme o quadro <b>DESTAQUE (p. 15 — <i>Os fracassos: por que os projetos falham?</i>)</b> baseado no <i>Chaos Report (2019)</i>, as 5 principais causas de falha são:<br>1. <b>Requisitos incompletos</b>;<br>2. Falta de envolvimento dos usuários;<br>3. Expectativas irreais do cliente;<br>4. Alterações nos requisitos e especificações;<br>5. Não ter mais necessidades das capacidades envolvidas.</div>
+            </div>
         </div>
         <div class="question-container" id="q6" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">6. A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda.<br><br>Sendo assim, podemos afirmar que:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Se o prazo for longo não haverá riscos.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Quanto mais longo o prazo de planejamento, menos riscos.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Quanto mais longo o prazo de planejamento, menos falhas.</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>Quanto menor o prazo de planejamento, mais riscos.</span></label>
-                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>Quanto mais longo o prazo de planejamento, mais riscos.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">6</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.2.3, p. 22):</b><br>- Citação literal da página 22: <i>"A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda; estágios de prazo médio são detalhados de forma intermediária e, os mais longos, em virtude do tempo/distância, acabam sendo menos detalhados. <b>Quanto mais longo o prazo de planejamento, mais riscos</b>, erros e falhas a etapa proporciona."</i></div>
+            <div class="question-text">A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda.<br><br>Sendo assim, podemos afirmar que:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Se o prazo for longo não haverá riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, menos riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, menos falhas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto menor o prazo de planejamento, mais riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, mais riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.2.3, p. 22):</b><br>- Citação literal da página 22: <i>"A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda; estágios de prazo médio são detalhados de forma intermediária e, os mais longos, em virtude do tempo/distância, acabam sendo menos detalhados. <b>Quanto mais longo o prazo de planejamento, mais riscos</b>, erros e falhas a etapa proporciona."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q7" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">7. <b>I)</b> A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida.<br><b>PORQUE</b><br><b>II)</b> A estrutura organizacional define o modo como as equipes são formadas e como os projetos são conduzidos.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span></label>
-                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>Tanto a primeira quanto a segunda asserções são proposições falsas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">7</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1, p. 97):</b><br>- Cópia literal da página 97 do livro: <i>"A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida, <b>pois</b> define o modo como as equipes são formadas e como os projetos são conduzidos. Além disso, a estrutura organizacional define a distribuição do poder, da autoridade [...] e da responsabilidade (CRAWFORD, 2011)."</i></div>
+            <div class="question-text"><b>I)</b> A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida.<br><b>PORQUE</b><br><b>II)</b> A estrutura organizacional define o modo como as equipes são formadas e como os projetos são conduzidos.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1, p. 97):</b><br>- Cópia literal da página 97 do livro: <i>"A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida, <b>pois</b> define o modo como as equipes são formadas e como os projetos são conduzidos. Além disso, a estrutura organizacional define a distribuição do poder, da autoridade [...] e da responsabilidade (CRAWFORD, 2011)."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q8" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">8. Um escritório de gerenciamento de projetos pode assumir um papel muito importante em qualquer dos três tipos de estruturas organizacionais.<br><br>Sobre as estruturas organizacionais, podemos afirmar que:<br>I) Na Estrutura Funcional existem níveis de autoridade e responsabilidade bem definidos.<br>II) Na Estrutura Matricial o gestor de projetos divide as responsabilidades com os gestores funcionais.<br>III) Na Estrutura Orientada para Projetos a autoridade é atribuída diretamente pelo mais alto escalão da organização.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">8</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seções 3.4.1.1.1 a 3.4.1.1.3, p. 98–102):</b><br>- <b>I (Verdadeira — p. 98):</b> <i>"3.4.1.1.1 Estrutura Funcional: Níveis de autoridade e responsabilidade bem definidos, canais de comunicação verticais bem estabelecidos e os gestores funcionais têm um controle absoluto sobre o orçamento e recursos."</i><br>- <b>II (Verdadeira — p. 99):</b> <i>"3.4.1.1.2 Estruturas Matriciais: Estrutura organizacional em que o gestor de projetos divide as responsabilidades com os gestores funcionais, desde a atribuição de prioridades até a orientação do trabalho..."</i><br>- <b>III (Verdadeira — p. 102):</b> <i>"3.4.1.1.3 Estrutura Orientada Para Projetos: [...] A sua autoridade é atribuída diretamente pelo mais alto escalão da organização, permitindo que ele tenha total autonomia e melhor visão holística do projeto."</i></div>
+            <div class="question-text">Um escritório de gerenciamento de projetos pode assumir um papel muito importante em qualquer dos três tipos de estruturas organizacionais.<br><br>Sobre as estruturas organizacionais, podemos afirmar que:<br>I) Na Estrutura Funcional existem níveis de autoridade e responsabilidade bem definidos.<br>II) Na Estrutura Matricial o gestor de projetos divide as responsabilidades com os gestores funcionais.<br>III) Na Estrutura Orientada para Projetos a autoridade é atribuída diretamente pelo mais alto escalão da organização.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.4.1.1.1 a 3.4.1.1.3, p. 98–102):</b><br>- <b>I (Verdadeira — p. 98):</b> <i>"3.4.1.1.1 Estrutura Funcional: Níveis de autoridade e responsabilidade bem definidos, canais de comunicação verticais bem estabelecidos e os gestores funcionais têm um controle absoluto sobre o orçamento e recursos."</i><br>- <b>II (Verdadeira — p. 99):</b> <i>"3.4.1.1.2 Estruturas Matriciais: Estrutura organizacional em que o gestor de projetos divide as responsabilidades com os gestores funcionais, desde a atribuição de prioridades até a orientação do trabalho..."</i><br>- <b>III (Verdadeira — p. 102):</b> <i>"3.4.1.1.3 Estrutura Orientada Para Projetos: [...] A sua autoridade é atribuída diretamente pelo mais alto escalão da organização, permitindo que ele tenha total autonomia e melhor visão holística do projeto."</i></div>
+            </div>
         </div>
         <div class="question-container" id="q9" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">9. À medida que a empresa busca se consolidar no segmento em que atua, consequentemente, novos projetos serão demandados vindo a solicitar a formação de uma estrutura que coordene todos os projetos da organização e otimize a utilização de recursos. A criação de um escritório de gerenciamento de projetos - EGP (PMO), com funções claras de orientação e coordenação de projetos por ele amparados, insere uma mudança cultural na organização, atingindo desde os colaboradores até a alta administração, que deve ser o seu maior incentivador.<br><br>Com base nas informações apresentadas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>O desenvolvimento de projetos de curto e longo prazo, mesmo com poucas limitações de recursos e ambiente, tem levado a criação de EGP/ PMO.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>O sucesso da implantação do EGP/PMO depende exclusivamente da análise dos pontos fortes e fracos e das oportunidades e ameaças que podem atingir a gestão organizacional.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>As principais finalidades do EGP/PMO são a redução de custos das funções de gerência de projetos e o aprimoramento da escolha do grupo que trabalhará no projeto.</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>Um fator que motiva a criação do EGP/PMO é a capacidade dos gestores guiarem seus projetos de acordo com as diretrizes informadas pelo PMBOK.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">9</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seções 3.3.2 e 3.3.3, p. 90–91):</b><br>- <b>A (Correta — p. 91):</b> Cópia literal da seção 3.3.3 (p. 91): <i>"O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos."</i><br>- <b>Erros das demais (p. 90–91):</b><br>- <b>B (p. 91):</b> Ocorre quando desenvolvem projetos muito grandes, complexos <b>e com limitações de recursos</b> (e não "poucas limitações").<br>- <b>C (p. 91):</b> Não depende <i>exclusivamente</i> da análise SWOT (envolve também maturidade, cultura, estrutura e fatores críticos de sucesso).<br>- <b>D (p. 90):</b> A primeira finalidade é a redução de custos e o aprimoramento <b>da qualidade da informação sobre os projetos</b> (e não "da escolha do grupo").<br>- <b>E (p. 91):</b> O que motiva a criação é justamente a <b>falta de capacidade</b> dos gerentes para guiar seus projetos de acordo com as diretrizes da organização.</div>
+            <div class="question-text">À medida que a empresa busca se consolidar no segmento em que atua, consequentemente, novos projetos serão demandados vindo a solicitar a formação de uma estrutura que coordene todos os projetos da organização e otimize a utilização de recursos. A criação de um escritório de gerenciamento de projetos - EGP (PMO), com funções claras de orientação e coordenação de projetos por ele amparados, insere uma mudança cultural na organização, atingindo desde os colaboradores até a alta administração, que deve ser o seu maior incentivador.<br><br>Com base nas informações apresentadas, assinale a alternativa correta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O desenvolvimento de projetos de curto e longo prazo, mesmo com poucas limitações de recursos e ambiente, tem levado a criação de EGP/ PMO.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O sucesso da implantação do EGP/PMO depende exclusivamente da análise dos pontos fortes e fracos e das oportunidades e ameaças que podem atingir a gestão organizacional.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As principais finalidades do EGP/PMO são a redução de custos das funções de gerência de projetos e o aprimoramento da escolha do grupo que trabalhará no projeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Um fator que motiva a criação do EGP/PMO é a capacidade dos gestores guiarem seus projetos de acordo com as diretrizes informadas pelo PMBOK.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.3.2 e 3.3.3, p. 90–91):</b><br>- <b>A (Correta — p. 91):</b> Cópia literal da seção 3.3.3 (p. 91): <i>"O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos."</i><br>- <b>Erros das demais (p. 90–91):</b><br>- <b>B (p. 91):</b> Ocorre quando desenvolvem projetos muito grandes, complexos <b>e com limitações de recursos</b> (e não "poucas limitações").<br>- <b>C (p. 91):</b> Não depende <i>exclusivamente</i> da análise SWOT (envolve também maturidade, cultura, estrutura e fatores críticos de sucesso).<br>- <b>D (p. 90):</b> A primeira finalidade é a redução de custos e o aprimoramento <b>da qualidade da informação sobre os projetos</b> (e não "da escolha do grupo").<br>- <b>E (p. 91):</b> O que motiva a criação é justamente a <b>falta de capacidade</b> dos gerentes para guiar seus projetos de acordo com as diretrizes da organização.</div>
+            </div>
         </div>
         <div class="question-container" id="q10" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">10. Não podemos desvincular a gestão de projetos da administração de empresas, porque a primeira é uma das partes que constitui a administração, logo, também não podemos pensar em projetos sem relacioná-los ao mercado e, principalmente, à pesquisa de mercado. Aliás, se as empresas estiverem olhando atentamente para a gestão de seus projetos, isto vai ao encontro de identificar e analisar as necessidades do consumidor e a realidade da concorrência.<br><br>Sobre a pesquisa de mercado e sua relação com a gestão de projetos podemos concluir que:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A pesquisa qualitativa serve para gerar dados estatísticos a fim de extrair uma resposta concreta que valha para o segmento de pessoas que estão sendo analisadas.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>A pesquisa de mercado é muito usada para identificar os principais fornecedores do produto ou serviço que sendo adquirido pela empresa e seus concorrentes.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>No estudo de mercado são aplicados apenas questionários quantitativos, o emprego de questionários ou entrevistas qualitativas não é usual.</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>Cada empresa terá que escolher a melhor maneira de distribuir essa pesquisa, online ou offline, entretanto, é necessário terceirizar este serviço.</span></label>
-                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>O estudo de mercado é muito utilizado no início de um projeto, sendo importante em todas as ocasiões em que é preciso agir em busca do crescimento da organização.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">10</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.2, p. 83–84):</b><br>- <b>E (Correta — p. 83):</b> Cópia literal da p. 83: <i>"Normalmente, o estudo de mercado é muito utilizado no início de um projeto, mas também são importantes em todas as ocasiões em que é preciso agir em busca do crescimento da organização."</i><br>- <b>Erros das demais (p. 83–84):</b><br>- <b>A (p. 84):</b> Quem gera dados estatísticos é a pesquisa <b>quantitativa</b>; a <i>qualitativa</i> visa gerar insumos sobre as dores da <i>persona</i> e <i>insights</i>.<br>- <b>C (p. 84):</b> Podem ser aplicados questionários tanto de valor qualitativo quanto quantitativo.<br>- <b>D (p. 83):</b> Fica a critério da empresa escolher <b>se é preciso terceirizar ou não</b> esse serviço.</div>
+            <div class="question-text">Não podemos desvincular a gestão de projetos da administração de empresas, porque a primeira é uma das partes que constitui a administração, logo, também não podemos pensar em projetos sem relacioná-los ao mercado e, principalmente, à pesquisa de mercado. Aliás, se as empresas estiverem olhando atentamente para a gestão de seus projetos, isto vai ao encontro de identificar e analisar as necessidades do consumidor e a realidade da concorrência.<br><br>Sobre a pesquisa de mercado e sua relação com a gestão de projetos podemos concluir que:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A pesquisa qualitativa serve para gerar dados estatísticos a fim de extrair uma resposta concreta que valha para o segmento de pessoas que estão sendo analisadas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A pesquisa de mercado é muito usada para identificar os principais fornecedores do produto ou serviço que sendo adquirido pela empresa e seus concorrentes.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">No estudo de mercado são aplicados apenas questionários quantitativos, o emprego de questionários ou entrevistas qualitativas não é usual.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Cada empresa terá que escolher a melhor maneira de distribuir essa pesquisa, online ou offline, entretanto, é necessário terceirizar este serviço.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O estudo de mercado é muito utilizado no início de um projeto, sendo importante em todas as ocasiões em que é preciso agir em busca do crescimento da organização.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.2, p. 83–84):</b><br>- <b>E (Correta — p. 83):</b> Cópia literal da p. 83: <i>"Normalmente, o estudo de mercado é muito utilizado no início de um projeto, mas também são importantes em todas as ocasiões em que é preciso agir em busca do crescimento da organização."</i><br>- <b>Erros das demais (p. 83–84):</b><br>- <b>A (p. 84):</b> Quem gera dados estatísticos é a pesquisa <b>quantitativa</b>; a <i>qualitativa</i> visa gerar insumos sobre as dores da <i>persona</i> e <i>insights</i>.<br>- <b>C (p. 84):</b> Podem ser aplicados questionários tanto de valor qualitativo quanto quantitativo.<br>- <b>D (p. 83):</b> Fica a critério da empresa escolher <b>se é preciso terceirizar ou não</b> esse serviço.</div>
+            </div>
         </div>
         <div class="question-container" id="q11" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">11. Existe uma previsão no mercado que tanto a existência da estrutura de escritório de projetos dentro da organização quanto a valorização do profissional PMO deve crescer consideravelmente. O Project Management Office (PMO) ou Escritório de Gerenciamento de Projetos é responsável por padronizar os processos de governança relacionados a projetos, podendo incluir uma perspectiva empresarial. Seu foco é em pessoas, processos e ferramentas.<br><br>Neste contexto, há três modelos principais de escritório de projetos. Sobre esses modelos, analise os itens a seguir:<br>I – Escritório corporativo de projetos: está posicionado dentro da alta administração, e os projetos são o desdobramento dos objetivos, metas e fatores críticos de sucesso do plano estratégico do negócio.<br>II – Escritório divisional de projetos: está posicionado dentro de uma divisão da organização, e o gerente de projetos responde ao diretor dessa divisão.<br>III – Escritório setorial de projetos: está posicionado dentro de um setor da organização, como o setor de operações.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>I, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">11</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seções 3.6.1 a 3.6.3, p. 104–106):</b><br>- Todas as três definições (<b>I, II e III</b>) são transcrições literais das seções <b>3.6.1 Escritório Corporativo de Projetos (p. 104)</b>, <b>3.6.2 Escritório Divisional de Projetos (p. 105)</b> e <b>3.6.3 Escritório Setorial de Projetos (p. 106)</b>.</div>
+            <div class="question-text">Existe uma previsão no mercado que tanto a existência da estrutura de escritório de projetos dentro da organização quanto a valorização do profissional PMO deve crescer consideravelmente. O Project Management Office (PMO) ou Escritório de Gerenciamento de Projetos é responsável por padronizar os processos de governança relacionados a projetos, podendo incluir uma perspectiva empresarial. Seu foco é em pessoas, processos e ferramentas.<br><br>Neste contexto, há três modelos principais de escritório de projetos. Sobre esses modelos, analise os itens a seguir:<br>I – Escritório corporativo de projetos: está posicionado dentro da alta administração, e os projetos são o desdobramento dos objetivos, metas e fatores críticos de sucesso do plano estratégico do negócio.<br>II – Escritório divisional de projetos: está posicionado dentro de uma divisão da organização, e o gerente de projetos responde ao diretor dessa divisão.<br>III – Escritório setorial de projetos: está posicionado dentro de um setor da organização, como o setor de operações.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.6.1 a 3.6.3, p. 104–106):</b><br>- Todas as três definições (<b>I, II e III</b>) são transcrições literais das seções <b>3.6.1 Escritório Corporativo de Projetos (p. 104)</b>, <b>3.6.2 Escritório Divisional de Projetos (p. 105)</b> e <b>3.6.3 Escritório Setorial de Projetos (p. 106)</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q12" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">12. O Guia PMBOK aborda três tipos de ciclo de vida do projeto: o ciclo preditivo, o iterativo e incremental e o adaptativo.<br><br>Assinale a alternativa que apresenta uma das características do ciclo preditivo:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>Após a equipe definir o escopo do projeto e produto, desenvolve-se um plano de entrega do produto e segue-se para as fases de execução do plano.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O ciclo preditivo implica ter uma expertise, de modo que a equipe vai aprendendo com o desenvolvimento do produto a ser entregue.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação com uma velocidade alta das iterações.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>O ciclo preditivo é lento até que a equipe de projetos compreenda o produto.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">12</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.1.2 — Quadro 3.2, p. 72):</b><br>- <b>A (Correta — Quadro 3.2, p. 72):</b> No <b>Ciclo de vida preditivo</b>, <i>"No início do projeto, a equipe concentra-se em definir o escopo do projeto e do produto a ser gerado; depois, desenvolve um plano de entrega do produto e segue as fases necessárias para a execução do plano."</i> (Expertise alta com produto dominado por completo desde o início).<br>- As alternativas B, C e E descrevem o ciclo <i>iterativo e incremental</i>, enquanto a D descreve o ciclo <i>adaptativo</i>.</div>
+            <div class="question-text">O Guia PMBOK aborda três tipos de ciclo de vida do projeto: o ciclo preditivo, o iterativo e incremental e o adaptativo.<br><br>Assinale a alternativa que apresenta uma das características do ciclo preditivo:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, desenvolve-se um plano de entrega do produto e segue-se para as fases de execução do plano.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O ciclo preditivo implica ter uma expertise, de modo que a equipe vai aprendendo com o desenvolvimento do produto a ser entregue.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação com uma velocidade alta das iterações.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O ciclo preditivo é lento até que a equipe de projetos compreenda o produto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.1.2 — Quadro 3.2, p. 72):</b><br>- <b>A (Correta — Quadro 3.2, p. 72):</b> No <b>Ciclo de vida preditivo</b>, <i>"No início do projeto, a equipe concentra-se em definir o escopo do projeto e do produto a ser gerado; depois, desenvolve um plano de entrega do produto e segue as fases necessárias para a execução do plano."</i> (Expertise alta com produto dominado por completo desde o início).<br>- As alternativas B, C e E descrevem o ciclo <i>iterativo e incremental</i>, enquanto a D descreve o ciclo <i>adaptativo</i>.</div>
+            </div>
         </div>
 
-        <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar Simulado Completo (12 Questões)</button>
+            <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar e Enviar Questionário (12 Questões)</button>
 
-        <div id="resultado" class="result-box"></div>
-    </form>
+            <div id="resultado" class="result-box"></div>
+        </form>
+    </main>
 
     <script>
         const TOTAL = 12;
@@ -253,32 +1502,38 @@
             box.appendChild(img);
         }
 
-        // Embaralhamento inicial ao carregar (F5)
+        // Embaralhamento inicial (F5)
         (function() {
             const form = document.getElementById('quizForm');
             const submitBtn = document.querySelector('.btn-submit');
 
-            // 1. Embaralha as questoes (etiqueta de unidade acompanha cada questao)
+            // 1. Embaralha as perguntas mantendo seus atributos e etiquetas
             const questions = Array.from(document.querySelectorAll('.question-container'));
             for (let i = questions.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [questions[i], questions[j]] = [questions[j], questions[i]];
             }
 
-            // 2. Renumera e reinsere no DOM
+            // 2. Renumera o círculo roxo e reatribui radio names
             questions.forEach((q, index) => {
                 const newNum = index + 1;
                 const newId = 'q' + newNum;
                 q.id = newId;
-                q.querySelectorAll('input[type="radio"]').forEach(r => { r.name = newId; r.checked = false; });
-                const qText = q.querySelector('.question-text');
-                if (qText) qText.innerHTML = qText.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+
+                const circleNum = q.querySelector('.q-circle-number');
+                if (circleNum) circleNum.innerText = newNum;
+
+                q.querySelectorAll('input[type="radio"]').forEach(r => {
+                    r.name = newId;
+                    r.checked = false;
+                });
+
                 form.insertBefore(q, submitBtn);
 
-                // 3. Embaralha as alternativas e reatribui as letras A, B, C, D, E
+                // 3. Embaralha as alternativas de cada pergunta
                 const optionsDiv = q.querySelector('.options');
                 if (optionsDiv) {
-                    const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                    const labels = Array.from(optionsDiv.querySelectorAll('.option-row'));
                     const letters = ['A', 'B', 'C', 'D', 'E'];
                     for (let i = labels.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -287,7 +1542,7 @@
                     optionsDiv.innerHTML = '';
                     labels.forEach((label, idx) => {
                         const prefix = label.querySelector('.letter-prefix');
-                        if (prefix) prefix.innerText = letters[idx] + ') ';
+                        if (prefix) prefix.innerText = letters[idx] + '. ';
                         const input = label.querySelector('input');
                         if (input) input.value = letters[idx];
                         optionsDiv.appendChild(label);
@@ -300,8 +1555,14 @@
             let acertos = 0;
             const porUnidade = {};
 
-            document.querySelectorAll('.options label').forEach(l => l.classList.remove('correct-answer', 'wrong-answer'));
-            document.querySelectorAll('.feedback').forEach(fb => { fb.classList.remove('correct', 'incorrect'); fb.style.display = 'none'; fb.innerHTML = ''; });
+            // Limpa estilos anteriores
+            document.querySelectorAll('.option-row').forEach(l => {
+                l.classList.remove('is-correct-answer', 'is-wrong-answer');
+            });
+            document.querySelectorAll('.status-pill-ava').forEach(sp => {
+                sp.className = 'status-pill-ava';
+                sp.style.display = 'none';
+            });
 
             for (let i = 1; i <= TOTAL; i++) {
                 const q = document.getElementById('q' + i);
@@ -309,46 +1570,95 @@
                 porUnidade[unidade] = porUnidade[unidade] || { ok: 0, total: 0 };
                 porUnidade[unidade].total++;
 
+                const statusPill = q.querySelector('.status-pill-ava');
+                const scoreBadge = q.querySelector('.q-score-badge');
                 const options = document.getElementsByName('q' + i);
-                const feedbackDiv = q.querySelector('.feedback');
-                let respondeu = false, acertou = false;
+
+                let respondeu = false;
+                let acertou = false;
 
                 for (const option of options) {
-                    const label = option.closest('label');
+                    const label = option.closest('.option-row');
                     const isCorrect = label.getAttribute('data-correct') === 'true';
+
                     if (option.checked) {
                         respondeu = true;
                         if (isCorrect) {
                             acertou = true;
-                            label.classList.add('correct-answer');
-                            feedbackDiv.innerHTML = '✔ Resposta Correta!';
-                            feedbackDiv.classList.add('correct');
+                            label.classList.add('is-correct-answer');
                         } else {
-                            label.classList.add('wrong-answer');
-                            const cl = label.parentElement.querySelector('label[data-correct="true"]');
-                            const letra = cl ? cl.querySelector('input').value : '?';
-                            feedbackDiv.innerHTML = `✖ Resposta Incorreta. A alternativa correta é a ${letra}.`;
-                            feedbackDiv.classList.add('incorrect');
+                            label.classList.add('is-wrong-answer');
+                            const tag = label.querySelector('.option-tag');
+                            if (tag) {
+                                tag.innerText = 'Sua resposta (Incorreta)';
+                                tag.style.display = 'inline';
+                            }
                         }
                     }
-                    if (isCorrect) label.classList.add('correct-answer');
+
+                    if (isCorrect) {
+                        label.classList.add('is-correct-answer');
+                        const tag = label.querySelector('.option-tag');
+                        if (tag) {
+                            tag.innerText = 'Resposta correta';
+                            tag.style.display = 'inline';
+                        }
+                    }
                 }
-                if (acertou) { acertos++; porUnidade[unidade].ok++; }
+
+                if (acertou) {
+                    acertos++;
+                    porUnidade[unidade].ok++;
+                    if (statusPill) {
+                        statusPill.innerText = 'CORRETO';
+                        statusPill.className = 'status-pill-ava correto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,4 / 0,4';
+                } else if (respondeu) {
+                    if (statusPill) {
+                        statusPill.innerText = 'INCORRETO';
+                        statusPill.className = 'status-pill-ava incorreto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                } else {
+                    if (statusPill) {
+                        statusPill.innerText = 'NÃO RESPONDIDO';
+                        statusPill.className = 'status-pill-ava vazio';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                }
+
                 mostrarReacao(q, acertou);
-                if (!respondeu) {
-                    feedbackDiv.innerHTML = '⚠ Questão não respondida.';
-                    feedbackDiv.classList.add('incorrect');
-                }
-                feedbackDiv.style.display = 'block';
+
+                // Exibe justificativa
                 const ex = q.querySelector('.explicacao');
                 if (ex) ex.style.display = 'block';
             }
 
+            // Atualiza nota no Banner Superior (estilo Print 5)
+            const notaEscala10 = ((acertos / TOTAL) * 10).toFixed(1).replace('.', ',');
+            const headerPill = document.getElementById('header-score-pill');
+            if (headerPill) headerPill.innerText = notaEscala10 + ' / 10,0';
+
+            const headerSub = document.getElementById('header-score-sub');
+            if (headerSub) {
+                const now = new Date();
+                const horaStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                headerSub.innerHTML = '<strong>ENVIADO:</strong> ' + horaStr + ' (BRT)';
+            }
+
+            // Exibe caixa de resultado final
             const resultBox = document.getElementById('resultado');
             resultBox.style.display = 'block';
             const aproveitamento = ((acertos / TOTAL) * 100).toFixed(0);
             const detalhe = Object.keys(porUnidade).sort().map(u => `Unidade ${u}: ${porUnidade[u].ok}/${porUnidade[u].total}`).join(' &nbsp;|&nbsp; ');
-            resultBox.innerHTML = `Você acertou ${acertos} de ${TOTAL} questões!<br><span style="font-size: 0.8em; color: #7f8c8d; font-weight: normal;">Aproveitamento: ${aproveitamento}%</span><div class="by-unit">${detalhe}</div>`;
+
+            resultBox.innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>${TOTAL}</strong> questões! (Nota: <strong>${notaEscala10}</strong>)</div>
+                <div style="font-size: 0.85em; font-weight: normal; margin-top: 4px;">Aproveitamento Total: ${aproveitamento}%</div>
+                <div class="by-unit">${detalhe}</div>
+                <button type="button" class="btn-retry" onclick="window.location.reload()">🔄 Refazer Simulado (Embaralhar Novamente)</button>
+            `;
             resultBox.className = 'result-box ' + (acertos >= MIN_APROVACAO ? 'pass' : 'fail');
             resultBox.scrollIntoView({ behavior: 'smooth' });
         }

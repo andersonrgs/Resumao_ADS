@@ -3,226 +3,1477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulado Completo (12 Questões) — Comunicação e Linguagem</title>
+    <title>Avaliação: Comunicação e Linguagem — Blackboard Ultra (Simulado ADS)</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        .top-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #ddd; }
-        .top-nav a { text-decoration: none; color: #2980b9; font-weight: bold; font-size: 0.95em; }
-        .top-nav a:hover { text-decoration: underline; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; font-size: 2em; }
-        p.subtitle { text-align: center; color: #7f8c8d; margin-bottom: 20px; font-weight: bold; }
-        .question-container { background-color: #fff; border-radius: 8px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); box-sizing: border-box; position: relative; }
-        .unit-badge { display: inline-block; font-size: 0.8em; font-weight: bold; color: #fff; padding: 3px 12px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.5px; }
-        .unit-1 { background-color: #2980b9; } .unit-2 { background-color: #27ae60; }
-        .unit-3 { background-color: #e67e22; } .unit-4 { background-color: #8e44ad; }
-        .question-text { font-size: 1.1em; font-weight: bold; margin-bottom: 15px; color: #2c3e50; white-space: pre-line; word-break: break-word; }
-        .options { margin-top: 15px; clear: none; }
-        .options label { display: flex; align-items: flex-start; padding: 12px; margin-bottom: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; box-sizing: border-box; }
-        .options label:hover { background-color: #e9ecef; border-color: #b1bccc; }
-        .options input[type="radio"] { margin-top: 4px; margin-right: 12px; transform: scale(1.2); flex-shrink: 0; }
-        .options label span { word-break: break-word; }
-        .letter-prefix { font-weight: bold; margin-right: 5px; color: #2c3e50; flex-shrink: 0; }
-        .btn-submit { display: block; width: 100%; padding: 18px; font-size: 1.2em; font-weight: bold; color: #fff; background-color: #27ae60; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 30px; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
-        .btn-submit:hover { background-color: #219653; }
-        .result-box { text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 30px; padding: 30px; border-radius: 8px; display: none; box-sizing: border-box; }
-        .pass { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .fail { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        .by-unit { font-size: 0.6em; font-weight: normal; color: #444; margin-top: 12px; }
-        .correct-answer { background-color: #e6ffec !important; border-color: #4ac26b !important; font-weight: bold; color: #1e7e34; }
-        .wrong-answer { background-color: #ffeef0 !important; border-color: #fdaeb7 !important; color: #cb2431; }
-        .feedback { display: none; margin-top: 10px; font-size: 0.9em; font-weight: bold; padding: 10px; border-radius: 5px; box-sizing: border-box; }
-        .feedback.correct { display: block; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
-        .feedback.incorrect { display: block; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
-        .explicacao { display: none; margin-top: 10px; font-size: 0.9em; padding: 10px 14px; border-left: 4px solid #b1bccc; background: #f8f9fa; color: #444; }
-        .reacao { display: none; float: right; width: 150px; margin: 0 0 10px 15px; text-align: center; }
-        .reacao img { width: 150px; max-height: 150px; object-fit: contain; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-        .reacao .emoji { font-size: 4.5em; line-height: 1.1; display: inline-block; }
+        :root {
+            --bb-bg: #eceff1;
+            --bb-card-bg: #ffffff;
+            --bb-border: #cfd8dc;
+            --bb-purple: #8e24aa;
+            --bb-purple-light: #f3e5f5;
+            --bb-green: #00875a;
+            --bb-green-bg: #e3fcef;
+            --bb-green-border: #abf5d1;
+            --bb-red: #de350b;
+            --bb-red-bg: #ffebe6;
+            --bb-red-border: #ffbdad;
+            --bb-gray-dark: #212529;
+            --bb-gray-med: #495057;
+            --bb-gray-light: #f4f5f7;
+            --bb-text: #172b4d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bb-bg);
+            color: var(--bb-text);
+            line-height: 1.55;
+            padding-bottom: 5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Navbar Blackboard Ultra */
+        .bb-top-bar {
+            background-color: #191919;
+            color: #ffffff;
+            padding: 0.65rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #2d2d2d;
+        }
+
+        .bb-top-left {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .bb-back-link {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s;
+        }
+
+        .bb-back-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .bb-course-code {
+            color: #b0bec5;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .bb-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #cfd8dc;
+            font-weight: 500;
+        }
+
+        .bb-avatar-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #37474f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #eceff1;
+        }
+
+        /* Banner de Nota Final (Estilo Print 5) */
+        .bb-score-banner {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--bb-border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .bb-score-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .bb-score-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--bb-gray-dark);
+        }
+
+        .bb-score-pill {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.25rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .bb-score-right {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #607d8b;
+        }
+
+        .bb-score-right strong {
+            color: var(--bb-gray-dark);
+        }
+
+        /* Main Container */
+        .bb-container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .bb-alert-bar {
+            background-color: #fff9db;
+            border: 1px solid #ffe066;
+            border-radius: 4px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #664d03;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Card da Questão Blackboard Ultra */
+        .question-container {
+            background-color: var(--bb-card-bg);
+            border: 1px solid var(--bb-border);
+            border-radius: 4px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .q-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Círculo Roxo/Magenta do Número */
+        .q-circle-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--bb-purple);
+            color: var(--bb-purple);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #ffffff;
+        }
+
+        .q-type-label {
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #212529;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        /* Pílula de Status (Correto / Incorreto / Não respondido) */
+        .status-pill-ava {
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+
+        .status-pill-ava.correto {
+            display: inline-block;
+            background-color: var(--bb-green);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.incorreto {
+            display: inline-block;
+            background-color: var(--bb-red);
+            color: #ffffff;
+        }
+
+        .status-pill-ava.vazio {
+            display: inline-block;
+            background-color: #f59e0b;
+            color: #ffffff;
+        }
+
+        /* Badge de Unidade */
+        .unit-pill {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.4px;
+        }
+
+        .unit-1 { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .unit-2 { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .unit-3 { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .unit-4 { background-color: #f3e5f5; color: #6a1b9a; border: 1px solid #e1bee7; }
+
+        .q-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* Pílula Preta com Pontuação */
+        .q-score-badge {
+            background-color: var(--bb-gray-dark);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.4px;
+        }
+
+        .q-chevron {
+            color: #78909c;
+            font-size: 0.85rem;
+            user-select: none;
+        }
+
+        /* Enunciado */
+        .question-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #212529;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .fonte-tag {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #546e7a;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Opções de Alternativas */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 1rem;
+        }
+
+        .option-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0.85rem 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .option-row:hover {
+            background-color: #f1f3f5;
+            border-color: #dee2e6;
+        }
+
+        .option-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .option-row input[type="radio"] {
+            margin-top: 0.2rem;
+            transform: scale(1.15);
+            accent-color: #00875a;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option-content {
+            font-size: 0.925rem;
+            color: #212529;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .letter-prefix {
+            font-weight: 700;
+            color: #212529;
+            margin-right: 0.35rem;
+        }
+
+        .correta-highlight {
+            display: none;
+            font-weight: 800;
+            color: #006644;
+            margin-right: 0.35rem;
+        }
+
+        .option-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 0.75rem;
+            display: none;
+        }
+
+        /* Estilos Pós-Correção (Fiel ao AVA Blackboard Ultra) */
+        .option-row.is-correct-answer {
+            background-color: var(--bb-green-bg) !important;
+            border: 1px solid var(--bb-green-border) !important;
+            color: #006644 !important;
+        }
+
+        .option-row.is-correct-answer .correta-highlight {
+            display: inline;
+        }
+
+        .option-row.is-correct-answer .option-tag {
+            display: inline;
+            color: #006644;
+        }
+
+        .option-row.is-wrong-answer {
+            background-color: var(--bb-red-bg) !important;
+            border: 1px solid var(--bb-red-border) !important;
+            color: #bf2600 !important;
+        }
+
+        .option-row.is-wrong-answer .option-tag {
+            display: inline;
+            color: #bf2600;
+        }
+
+        /* Comentários / Justificativa Oficial */
+        .explicacao {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background-color: var(--bb-gray-light);
+            border-left: 4px solid var(--bb-green);
+            border-radius: 0 4px 4px 0;
+            font-size: 0.88rem;
+            color: #172b4d;
+            line-height: 1.6;
+        }
+
+        .explicacao b.expl-title {
+            color: #00875a;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.925rem;
+        }
+
+        /* Reação animada (GIF / Emoji) */
+        .reacao {
+            display: none;
+            float: right;
+            width: 140px;
+            margin: 0 0 10px 15px;
+            text-align: center;
+        }
+
+        .reacao img {
+            width: 140px;
+            max-height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .reacao .emoji {
+            font-size: 4em;
+            line-height: 1;
+            display: inline-block;
+        }
+
         .reacao.acertou .emoji { animation: pula 0.8s ease-in-out infinite; }
         .reacao.errou .emoji { animation: balanca 0.6s ease-in-out 4; }
-        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.15); } }
-        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
-        .shuffle-note { text-align: center; font-size: 0.9em; color: #e36209; background: #fff8c5; padding: 10px; border-radius: 5px; margin-bottom: 20px;}
-        @media (max-width: 600px) { .reacao { float: none; margin: 10px auto; } }
-        @media (max-width: 768px) {
-            .question-container { padding: 15px; }
-            .btn-submit { padding: 15px; font-size: 1.1em; }
+
+        @keyframes pula { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.15); } }
+        @keyframes balanca { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* Botão de Envio Blackboard Ultra */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-green);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 2rem;
+            box-shadow: 0 2px 4px rgba(0,135,90,0.25);
+        }
+
+        .btn-submit:hover {
+            background-color: #006644;
+        }
+
+        /* Caixa de Resultado */
+        .result-box {
+            text-align: center;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding: 1.75rem;
+            border-radius: 4px;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .pass {
+            background-color: #e3fcef;
+            color: #006644;
+            border: 1px solid #abf5d1;
+        }
+
+        .fail {
+            background-color: #fff9db;
+            color: #856404;
+            border: 1px solid #ffe066;
+        }
+
+        .by-unit {
+            font-size: 0.65em;
+            font-weight: 500;
+            color: #495057;
+            margin-top: 0.85rem;
+        }
+
+        .btn-retry {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.65rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: var(--bb-gray-dark);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-retry:hover {
+            background-color: #343a40;
+        }
+
+        @media (max-width: 600px) {
+            .bb-top-bar { padding: 0.65rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .bb-score-banner { padding: 0.85rem 1rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+            .reacao { float: none; margin: 10px auto; }
+            .question-container { padding: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <a href="index.html">← Voltar ao Portal ADS 2026.2</a>
-        <span style="font-size:0.85em; color:#7f8c8d;">ADS • 7º Semestre</span>
+    <!-- Barra Superior Blackboard Ultra -->
+    <header class="bb-top-bar">
+        <div class="bb-top-left">
+            <a href="index.html" class="bb-back-link">← Voltar ao Portal ADS 2026.2</a>
+            <span class="bb-course-code">2026/2 - ENS1E0402E0012 - COMUNICAÇÃO E LINGUAGEM</span>
+        </div>
+        <div class="bb-user-profile">
+            <div class="bb-avatar-circle">👤</div>
+            <span>Anderson (ADS 7º Semestre)</span>
+        </div>
+    </header>
+
+    <!-- Banner de Nota Final (Fiel ao Blackboard Ultra) -->
+    <div class="bb-score-banner">
+        <div class="bb-score-left">
+            <span class="bb-score-label">Nota final</span>
+            <span class="bb-score-pill" id="header-score-pill">-- / 10,0</span>
+        </div>
+        <div class="bb-score-right" id="header-score-sub">
+            <span>Questionário Oficial U1-U4 • <strong>12 Questões</strong></span>
+        </div>
     </div>
 
-    <h1>Simulado: Comunicação e Linguagem</h1>
-    <p class="subtitle">Unidades 1 a 4 — Mix Completo (12 Questões de Prova)</p>
-    <div class="shuffle-note">🔄 <b>Embaralhamento Ativo:</b> Pressione <b>F5</b> para embaralhar novamente tanto as perguntas quanto as alternativas (A, B, C, D, E). A etiqueta colorida indica a unidade de cada questão.</div>
+    <main class="bb-container">
+        <!-- Aviso de Embaralhamento -->
+        <div class="bb-alert-bar">
+            <span>🔄 <strong>Modo Simulado Ativo:</strong> A cada carregamento (<strong>F5</strong>), as questões e alternativas mudam de posição como no exame real.</span>
+            <span style="font-size: 0.8em; color: #856404; font-weight: 700;">Simulado G2 Presencial</span>
+        </div>
 
-    <form id="quizForm">
+        <form id="quizForm">
 
         <div class="question-container" id="q1" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">1. Leia os textos a seguir:<br><br><b>TEXTO I</b><br><b>Mulher Assassinada</b><br>Policiais que faziam a ronda no centro da cidade encontraram, na madrugada de ontem, perto da Praça da Sé, o corpo de uma mulher aparentando 30 anos de idade. Segundo depoimento de pessoas que trabalham em bares próximos, trata-se de uma prostituta conhecida como Poe Nenê. Ela foi assassinada a golpes de faca. A polícia descarta a hipótese de assalto, pois sua bolsa, com a carteira de dinheiro, foi encontrada junto ao corpo. O caso está sendo investigado pelo delegado do 2º distrito policial.<br><i>(Jornal da Cidade, 10 set. 2004)</i><br><br><b>TEXTO II</b><br><b>Pequena Crônica Policial</b><br>Jazia no chão, sem vida,<br>E estava toda pintada!<br>Nem a morte lhe emprestava<br>A sua grave beleza...<br>Com fria curiosidade,<br>Vinha gente a espiar-lhe a cara,<br>As fundas marcas da idade,<br>Das canseiras, da bebida...<br>[...]<br>Sem nada saber da vida,<br>De vícios ou de perigos,<br>Sem nada saber de nada...<br>Com sua trança comprida,<br>Os seus sonhos de menina,<br>Os seus sapatos antigos!<br><i>(Mário Quintana – Prosa &amp; Verso)</i><br><br>Quais as funções da linguagem, respectivamente, dos textos acima?<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>função referencial – função emotiva</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>função poética – função metalinguística</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>função apelativa – função fática</span></label>
-                <label><input type="radio" name="q1"><span class="letter-prefix"></span><span>função emotiva – função referencial</span></label>
-                <label data-correct="true"><input type="radio" name="q1"><span class="letter-prefix"></span><span>função referencial – função poética</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">1</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- <b>Texto I (Notícia jornalística):</b> Predomina a <b>função referencial (ou denotativa)</b>, focada no referente (contexto/fatos reais), com linguagem objetiva, impessoal e em 3ª pessoa para informar um acontecimento.<br>- <b>Texto II (Poema de Mário Quintana):</b> Mesmo abordando uma temática semelhante (morte trágica), predomina a <b>função poética</b>, pois o foco está na elaboração estética da mensagem (ritmo, versos, rimas, expressividade e linguagem conotativa).</div>
+            <div class="question-text">Leia os textos a seguir:<br><br><b>TEXTO I</b><br><b>Mulher Assassinada</b><br>Policiais que faziam a ronda no centro da cidade encontraram, na madrugada de ontem, perto da Praça da Sé, o corpo de uma mulher aparentando 30 anos de idade. Segundo depoimento de pessoas que trabalham em bares próximos, trata-se de uma prostituta conhecida como Poe Nenê. Ela foi assassinada a golpes de faca. A polícia descarta a hipótese de assalto, pois sua bolsa, com a carteira de dinheiro, foi encontrada junto ao corpo. O caso está sendo investigado pelo delegado do 2º distrito policial.<br><i>(Jornal da Cidade, 10 set. 2004)</i><br><br><b>TEXTO II</b><br><b>Pequena Crônica Policial</b><br>Jazia no chão, sem vida,<br>E estava toda pintada!<br>Nem a morte lhe emprestava<br>A sua grave beleza...<br>Com fria curiosidade,<br>Vinha gente a espiar-lhe a cara,<br>As fundas marcas da idade,<br>Das canseiras, da bebida...<br>[...]<br>Sem nada saber da vida,<br>De vícios ou de perigos,<br>Sem nada saber de nada...<br>Com sua trança comprida,<br>Os seus sonhos de menina,<br>Os seus sapatos antigos!<br><i>(Mário Quintana – Prosa &amp; Verso)</i><br><br>Quais as funções da linguagem, respectivamente, dos textos acima?<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">função referencial – função emotiva</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">função poética – função metalinguística</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">função apelativa – função fática</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">função emotiva – função referencial</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">função referencial – função poética</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- <b>Texto I (Notícia jornalística):</b> Predomina a <b>função referencial (ou denotativa)</b>, focada no referente (contexto/fatos reais), com linguagem objetiva, impessoal e em 3ª pessoa para informar um acontecimento.<br>- <b>Texto II (Poema de Mário Quintana):</b> Mesmo abordando uma temática semelhante (morte trágica), predomina a <b>função poética</b>, pois o foco está na elaboração estética da mensagem (ritmo, versos, rimas, expressividade e linguagem conotativa).</div>
+            </div>
         </div>
         <div class="question-container" id="q2" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">2. Leia os anúncios publicitários a seguir:<br>- <b>Texto I:</b> Anúncio da rede Hortifruti com um tomate usando boina preta e a frase <i>"HORTA DE ELITE — Se não for Hortifruti, pede pra sair"</i> (<code>Fonte: https://brasilescola.uol.com.br/redacao/tipos-intertextualidade.htm</code>).<br>- <b>Texto II:</b> Cartaz oficial do filme <i>"TROPA DE ELITE — Missão dada é missão cumprida"</i> com o Capitão Nascimento de boina preta (<code>Fonte: http://amoniteroi.com.br/eventos/cinemas/filme-tropa-de-elite-2/</code>).<br><br>Um texto pode revelar, na forma e/ou conteúdo, sua relação com um ou mais textos.<br>Comparando-se o texto I com o texto II, pode-se afirmar corretamente:<br><br>I – Ocorre, entre os dois textos, uma relação de intertextualidade, observada nos textos verbais e não-verbais.<br>II – A relação que se estabelece entre texto I e texto II é de intertextualidade, sendo que o texto II é uma paródia do texto I.<br>III – Entre os dois textos não se estabelece relação de intertextualidade. Cada um promove um produto diferente.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q2"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>III, apenas.</span></label>
-                <label><input type="radio" name="q2"><span class="letter-prefix"></span><span>I, II e III.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">2</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- <b>Afirmativa I (Verdadeira):</b> Há intertextualidade tanto no plano <b>verbal</b> (<i>"Horta de Elite"</i> / <i>"Tropa de Elite"</i> e o bordão <i>"pede pra sair"</i>) quanto no <b>não-verbal</b> (tipografia estêncil amarela, fundo escuro e a boina preta do BOPE no tomate).<br>- <b>Afirmativa II (Falsa - Pegadinha clássica!):</b> Inverte a ordem cronológica e de derivação: o <b>Texto I</b> (anúncio Hortifruti) é que faz uma paródia/intertexto do <b>Texto II</b> (filme <i>Tropa de Elite</i>), e não o contrário.<br>- <b>Afirmativa III (Falsa):</b> Há clara relação intertextual.</div>
+            <div class="question-text">Leia os anúncios publicitários a seguir:<br><br>Um texto pode revelar, na forma e/ou conteúdo, sua relação com um ou mais textos.<br>Comparando-se o texto I com o texto II, pode-se afirmar corretamente:<br><br>I – Ocorre, entre os dois textos, uma relação de intertextualidade, observada nos textos verbais e não-verbais.<br>II – A relação que se estabelece entre texto I e texto II é de intertextualidade, sendo que o texto II é uma paródia do texto I.<br>III – Entre os dois textos não se estabelece relação de intertextualidade. Cada um promove um produto diferente.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="fonte-tag">Fonte: - **Texto II:** Cartaz oficial do filme *"TROPA DE ELITE — Missão dada é missão cumprida"* com o Capitão Nascimento de boina preta (`Fonte: http://amoniteroi.com.br/eventos/cinemas/filme-tropa-de-elite-2/`).</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- <b>Afirmativa I (Verdadeira):</b> Há intertextualidade tanto no plano <b>verbal</b> (<i>"Horta de Elite"</i> / <i>"Tropa de Elite"</i> e o bordão <i>"pede pra sair"</i>) quanto no <b>não-verbal</b> (tipografia estêncil amarela, fundo escuro e a boina preta do BOPE no tomate).<br>- <b>Afirmativa II (Falsa - Pegadinha clássica!):</b> Inverte a ordem cronológica e de derivação: o <b>Texto I</b> (anúncio Hortifruti) é que faz uma paródia/intertexto do <b>Texto II</b> (filme <i>Tropa de Elite</i>), e não o contrário.<br>- <b>Afirmativa III (Falsa):</b> Há clara relação intertextual.</div>
+            </div>
         </div>
         <div class="question-container" id="q3" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">3. <b>Papa diz que crise dos refugiados é "ponta do iceberg" de um sistema injusto</b><br><br>A crise dos refugiados na Europa é apenas "a ponta do iceberg" de um sistema socioeconômico "mau e injusto", afirmou o papa Francisco em uma entrevista de rádio. "Vemos estes refugiados, estas pobres pessoas que fogem da guerra e da fome, mas é apenas a ponta do iceberg. Por baixo está a causa, um sistema socioeconômico mau e injusto" disse o papa. "Ali onde se origina a fome é necessário criar fontes de trabalho e de investimento. Ali onde está a causa da guerra é preciso trabalhar para a paz", afirmou o pontífice, que recordou ser filho de imigrantes italianos que se mudaram para a Argentina.<br><br>Francisco reconheceu, no entanto, que os movimentos migratórios provocam problemas de segurança para os países europeus e que existe o "risco de infiltração". "Hoje as condições de segurança territorial não são as mesmas que antes. Temos uma guerrilha terrorista extremamente cruel a 400 km da Sicília", disse, em referência à situação na Líbia, onde atuam vários grupos armados, entre eles o Estado Islâmico (EI).<br><br>O papa solicitou a todas as comunidades católicas da Europa que recebam uma família de refugiados e disse que começaria pelas duas paróquias do Vaticano. "Duas famílias já foram designadas", revelou Francisco, sem informar a origem, ao mesmo tempo em que celebrou as "numerosas reações" a sua proposta.<br><i>(Disponível em: http://zh.clicrbs.com.br/rs/noticias/noticia/2015/09/papa-diz-que-crise-dos-refugiados-e-ponta-do-iceberg-de-um-sistema-injusto-4847286.html)</i><br><br>A partir desse texto, avalie as asserções a seguir e a relação proposta entre elas:<br><br><b>I)</b> De acordo com o Papa Francisco, a crise dos refugiados na Europa aponta, conforme menciona o primeiro parágrafo, apenas para uma pequena parte de um problema complexo que envolve um equivocado sistema de governo.<br><b>PORQUE</b><br><b>II)</b> Os movimentos migratórios, mencionados no segundo parágrafo, podem colocar em risco a segurança dos países europeus, já que terroristas podem se infiltrar junto aos refugiados.<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>As asserções I e II são proposições falsas.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.</span></label>
-                <label data-correct="true"><input type="radio" name="q3"><span class="letter-prefix"></span><span>As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.</span></label>
-                <label><input type="radio" name="q3"><span class="letter-prefix"></span><span>As asserções I e II são proposições verdadeiras, e a II é uma justificativa da I.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">3</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- Ambas as afirmações encontram respaldo nos respectivos parágrafos do texto (1º e 2º parágrafos), porém a asserção II é uma <b>ressalva/ponderação</b> introduzida por <i>"no entanto"</i> no 2º parágrafo, e <b>não a causa ou justificativa</b> de a crise ser a "ponta do iceberg" de um sistema injusto (cuja verdadeira causa apontada no 1º parágrafo é a fome, a guerra e a falta de trabalho/investimento).</div>
+            <div class="question-text"><b>Papa diz que crise dos refugiados é "ponta do iceberg" de um sistema injusto</b><br><br>A crise dos refugiados na Europa é apenas "a ponta do iceberg" de um sistema socioeconômico "mau e injusto", afirmou o papa Francisco em uma entrevista de rádio. "Vemos estes refugiados, estas pobres pessoas que fogem da guerra e da fome, mas é apenas a ponta do iceberg. Por baixo está a causa, um sistema socioeconômico mau e injusto" disse o papa. "Ali onde se origina a fome é necessário criar fontes de trabalho e de investimento. Ali onde está a causa da guerra é preciso trabalhar para a paz", afirmou o pontífice, que recordou ser filho de imigrantes italianos que se mudaram para a Argentina.<br><br>Francisco reconheceu, no entanto, que os movimentos migratórios provocam problemas de segurança para os países europeus e que existe o "risco de infiltração". "Hoje as condições de segurança territorial não são as mesmas que antes. Temos uma guerrilha terrorista extremamente cruel a 400 km da Sicília", disse, em referência à situação na Líbia, onde atuam vários grupos armados, entre eles o Estado Islâmico (EI).<br><br>O papa solicitou a todas as comunidades católicas da Europa que recebam uma família de refugiados e disse que começaria pelas duas paróquias do Vaticano. "Duas famílias já foram designadas", revelou Francisco, sem informar a origem, ao mesmo tempo em que celebrou as "numerosas reações" a sua proposta.<br><i>(Disponível em: http://zh.clicrbs.com.br/rs/noticias/noticia/2015/09/papa-diz-que-crise-dos-refugiados-e-ponta-do-iceberg-de-um-sistema-injusto-4847286.html)</i><br><br>A partir desse texto, avalie as asserções a seguir e a relação proposta entre elas:<br><br><b>I)</b> De acordo com o Papa Francisco, a crise dos refugiados na Europa aponta, conforme menciona o primeiro parágrafo, apenas para uma pequena parte de um problema complexo que envolve um equivocado sistema de governo.<br><b>PORQUE</b><br><b>II)</b> Os movimentos migratórios, mencionados no segundo parágrafo, podem colocar em risco a segurança dos países europeus, já que terroristas podem se infiltrar junto aos refugiados.<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As asserções I e II são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As asserções I e II são proposições verdadeiras, e a II é uma justificativa da I.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- Ambas as afirmações encontram respaldo nos respectivos parágrafos do texto (1º e 2º parágrafos), porém a asserção II é uma <b>ressalva/ponderação</b> introduzida por <i>"no entanto"</i> no 2º parágrafo, e <b>não a causa ou justificativa</b> de a crise ser a "ponta do iceberg" de um sistema injusto (cuja verdadeira causa apontada no 1º parágrafo é a fome, a guerra e a falta de trabalho/investimento).</div>
+            </div>
         </div>
         <div class="question-container" id="q4" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">4. A empresa onde Marta trabalha foi selecionada para organizar uma capacitação para os colaboradores de uma Universidade da sua cidade. A primeira iniciativa de Marta foi elaborar um email de orientação sobre o evento e enviá-lo aos colaboradores da instituição que vão participar. A seguir, leia o início da mensagem que Marta enviou:<br><br><i>"E aí, galera, td certo? Um prazer trabalhar com vocês aí da Universidade HHH. A gente vai começar um projeto mto legal de capacitação pra vocês. Essa mensagem tem como objetivo informar vocês de quando começa tudo. E de como vai acontecer. Em primeiro lugar, a gnte vai se encontrar no dia (...)"</i>.<br><br>Três dias após o envio, Marta recebeu uma mensagem de resposta da reitoria da Universidade. Na mensagem, a reitoria:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>felicitou Marta efusivamente pelo tom do email, que era exatamente a forma como todas as mensagens eram trocadas dentro da Universidade.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>repreendeu Marta sutilmente pelo tom do email, que era um pouco equivocado, já que a reitoria não se sentia incluída na mensagem.</span></label>
-                <label data-correct="true"><input type="radio" name="q4"><span class="letter-prefix"></span><span>repreendeu Marta delicadamente pelo tom do email, equivocado, considerando a língua escrita, o contexto universitário e o público do evento.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>felicitou Marta delicadamente pela iniciativa de enviar um email naquele tom, já que era apropriado à escrita e ao tipo de evento promovido.</span></label>
-                <label><input type="radio" name="q4"><span class="letter-prefix"></span><span>felicitou Marta sutilmente pelo tom do email, que era apropriado ao público e "quebrava o gelo" da situação.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">4</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- Trata-se de <b>adequação vocabular e registro linguístico</b>: em uma comunicação profissional/institucional escrita (e-mail corporativo primeiro contato com colaboradores de uma universidade), o uso de gírias (<i>"E aí, galera"</i>, <i>"mto legal"</i>) e abreviações de internetês (<i>"td"</i>, <i>"pra"</i>, <i>"gnte"</i>) é inadequado à situação comunicativa formal, ao gênero e aos interlocutores.</div>
+            <div class="question-text">A empresa onde Marta trabalha foi selecionada para organizar uma capacitação para os colaboradores de uma Universidade da sua cidade. A primeira iniciativa de Marta foi elaborar um email de orientação sobre o evento e enviá-lo aos colaboradores da instituição que vão participar. A seguir, leia o início da mensagem que Marta enviou:<br><br><i>"E aí, galera, td certo? Um prazer trabalhar com vocês aí da Universidade HHH. A gente vai começar um projeto mto legal de capacitação pra vocês. Essa mensagem tem como objetivo informar vocês de quando começa tudo. E de como vai acontecer. Em primeiro lugar, a gnte vai se encontrar no dia (...)"</i>.<br><br>Três dias após o envio, Marta recebeu uma mensagem de resposta da reitoria da Universidade. Na mensagem, a reitoria:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">felicitou Marta efusivamente pelo tom do email, que era exatamente a forma como todas as mensagens eram trocadas dentro da Universidade.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">repreendeu Marta sutilmente pelo tom do email, que era um pouco equivocado, já que a reitoria não se sentia incluída na mensagem.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">repreendeu Marta delicadamente pelo tom do email, equivocado, considerando a língua escrita, o contexto universitário e o público do evento.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">felicitou Marta delicadamente pela iniciativa de enviar um email naquele tom, já que era apropriado à escrita e ao tipo de evento promovido.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">felicitou Marta sutilmente pelo tom do email, que era apropriado ao público e "quebrava o gelo" da situação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- Trata-se de <b>adequação vocabular e registro linguístico</b>: em uma comunicação profissional/institucional escrita (e-mail corporativo primeiro contato com colaboradores de uma universidade), o uso de gírias (<i>"E aí, galera"</i>, <i>"mto legal"</i>) e abreviações de internetês (<i>"td"</i>, <i>"pra"</i>, <i>"gnte"</i>) é inadequado à situação comunicativa formal, ao gênero e aos interlocutores.</div>
+            </div>
         </div>
         <div class="question-container" id="q5" data-unit="2">
-            <span class="unit-badge unit-2">UNIDADE 2</span>
-            <div class="question-text">5. Assinale a alternativa que pode ser usada no início do trecho abaixo, tornando-o coerente.<br><br><i>".............................................. O estudo, envolvendo 545 homens, constatou que os mais otimistas têm metade das probabilidades de morrer de doenças cardiovasculares. Os pesquisadores acreditam que isso provavelmente acontece porque os otimistas fazem mais exercícios e lidam melhor com a adversidade."</i><br><i>(Folha de S. Paulo, 5 mar. 2006.)</i><br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Os homens com perfil pessimista que fazem diariamente exercícios físicos têm menos chance de terem problemas mentais, afirmam pesquisadores do Instituto de Saúde Mental da Holanda.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>As mulheres vivem mais do que os homens, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span></label>
-                <label data-correct="true"><input type="radio" name="q5"><span class="letter-prefix"></span><span>Os otimistas têm menos possibilidade de morrer de doenças cardiovasculares do que os pessimistas, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>As mulheres vivem mais do que os homens, mas têm menos chance de terem problemas cardiovasculares, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span></label>
-                <label><input type="radio" name="q5"><span class="letter-prefix"></span><span>Os homens que fazem diariamente exercícios físicos têm menos chance de terem problemas mentais, afirmam pesquisadores do Instituto de Saúde Mental da Holanda</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">5</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- <b>Coerência e Coesão Referencial:</b> O segundo período inicia com <i>"O estudo, envolvendo 545 homens, constatou que os mais otimistas têm metade das probabilidades de morrer de doenças cardiovasculares"</i>. Para que haja unidade temática e progressão coerente, a frase inicial (tópico frasal) deve apresentar a tese central dessa pesquisa (a relação entre otimismo/pessimismo e mortalidade por doenças cardiovasculares), sem introduzir elementos contraditórios ou estranhos ao texto (como foco em mulheres ou problemas mentais).</div>
+            <div class="question-text">Assinale a alternativa que pode ser usada no início do trecho abaixo, tornando-o coerente.<br><br><i>".............................................. O estudo, envolvendo 545 homens, constatou que os mais otimistas têm metade das probabilidades de morrer de doenças cardiovasculares. Os pesquisadores acreditam que isso provavelmente acontece porque os otimistas fazem mais exercícios e lidam melhor com a adversidade."</i><br><i>(Folha de S. Paulo, 5 mar. 2006.)</i><br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os homens com perfil pessimista que fazem diariamente exercícios físicos têm menos chance de terem problemas mentais, afirmam pesquisadores do Instituto de Saúde Mental da Holanda.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As mulheres vivem mais do que os homens, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os otimistas têm menos possibilidade de morrer de doenças cardiovasculares do que os pessimistas, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As mulheres vivem mais do que os homens, mas têm menos chance de terem problemas cardiovasculares, afirmam os pesquisadores do Instituto de Saúde Mental da Holanda.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Os homens que fazem diariamente exercícios físicos têm menos chance de terem problemas mentais, afirmam pesquisadores do Instituto de Saúde Mental da Holanda</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- <b>Coerência e Coesão Referencial:</b> O segundo período inicia com <i>"O estudo, envolvendo 545 homens, constatou que os mais otimistas têm metade das probabilidades de morrer de doenças cardiovasculares"</i>. Para que haja unidade temática e progressão coerente, a frase inicial (tópico frasal) deve apresentar a tese central dessa pesquisa (a relação entre otimismo/pessimismo e mortalidade por doenças cardiovasculares), sem introduzir elementos contraditórios ou estranhos ao texto (como foco em mulheres ou problemas mentais).</div>
+            </div>
         </div>
         <div class="question-container" id="q6" data-unit="1">
-            <span class="unit-badge unit-1">UNIDADE 1</span>
-            <div class="question-text">6. Leia o diálogo estabelecido na Figura abaixo:<br><br><b>REPRODUÇÃO DO TEXTO DA IMAGEM:</b><br>Mãe: Olá, filha<br>Filha: Blz<br>Mãe: Como? Não entendi. Seu teclado está com problema?<br>Filha: Naum<br>Mãe: Por favor, filha, teste o "til"<br>Filha: q tio?<br>Mãe: Não, não o tio, o til<br>Filha: :-<br>Mãe: Que foi isso, filha?<br>Filha: naum quero + tc com vc<br>Mãe: Você... não quer mais tecer comigo?<br>Filha: teclar<br>Mãe: o que você quer que eu compre para... para... para vc? É assim que se diz em internetês?<br>Filha: refri e bisc8<br>Mãe: Refrigerante e biscoito? Filha, francamente, que linguagem é essa?<br>Filha: xau, mãe, c tá xata<br>Mãe: Maria Eugênia! Chata é com ch!<br><br>O gênero diálogo de Whatsapp é primordial para a comunicação moderna. Como se percebe no exemplo anterior, nem sempre a comunicação é efetiva, uma vez que não há compreensão entre os interlocutores. Em relação ao uso da linguagem nesse texto, é possível dizer que:<br><br>I) o uso informal da linguagem da filha está descontextualizado, sendo que o diálogo não é efetivo porque a linguagem que ela usa não está de acordo com o gênero em que se desenvolve a conversa.<br>II) a conversa é formal, e o não entendimento acontece porque foram utilizados termos difíceis.<br>III) a linguagem está adequada ao gênero, mas não ao interlocutor.<br>IV) a mãe, por não estar tão acostumada à linguagem informal das redes sociais, tem dificuldade de entender a conversa.<br>V) a filha não sabe escrever direito e, por isso, a mãe se preocupa com a linguagem utilizada.<br><br>Estão corretas as seguintes assertivas:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>IV e V</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>II, III e IV</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>I, II e III</span></label>
-                <label><input type="radio" name="q6"><span class="letter-prefix"></span><span>I e II</span></label>
-                <label data-correct="true"><input type="radio" name="q6"><span class="letter-prefix"></span><span>III e IV</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">6</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>💡 Justificativa Teórica:</b><br>- <b>I (Falsa):</b> O internetês/linguagem informal é, sim, adequado ao <b>gênero/suporte</b> (conversa rápida de WhatsApp).<br>- <b>II (Falsa):</b> A conversa não é formal nem usa vocabulário erudito/difícil.<br>- <b>III (Verdadeira):</b> Embora o internetês combine com o gênero mensagem instantânea, a filha falhou ao não adequar a linguagem ao seu <b>interlocutor</b> (a mãe, que não domina as abreviações do internetês).<br>- <b>IV (Verdadeira):</b> O ruído na comunicação ocorre porque a mãe não está familiarizada com a variedade informal/digital usada nas redes sociais.<br>- <b>V (Falsa):</b> Usar internetês no WhatsApp é uma escolha estilística/variedade do meio digital, e não falta de alfabetização.</div>
+            <div class="question-text">Leia o diálogo estabelecido na Figura abaixo:<br><br><b>REPRODUÇÃO DO TEXTO DA IMAGEM:</b><br>Mãe: Olá, filha<br>Filha: Blz<br>Mãe: Como? Não entendi. Seu teclado está com problema?<br>Filha: Naum<br>Mãe: Por favor, filha, teste o "til"<br>Filha: q tio?<br>Mãe: Não, não o tio, o til<br>Filha: :-<br>Mãe: Que foi isso, filha?<br>Filha: naum quero + tc com vc<br>Mãe: Você... não quer mais tecer comigo?<br>Filha: teclar<br>Mãe: o que você quer que eu compre para... para... para vc? É assim que se diz em internetês?<br>Filha: refri e bisc8<br>Mãe: Refrigerante e biscoito? Filha, francamente, que linguagem é essa?<br>Filha: xau, mãe, c tá xata<br>Mãe: Maria Eugênia! Chata é com ch!<br><br>O gênero diálogo de Whatsapp é primordial para a comunicação moderna. Como se percebe no exemplo anterior, nem sempre a comunicação é efetiva, uma vez que não há compreensão entre os interlocutores. Em relação ao uso da linguagem nesse texto, é possível dizer que:<br><br>I) o uso informal da linguagem da filha está descontextualizado, sendo que o diálogo não é efetivo porque a linguagem que ela usa não está de acordo com o gênero em que se desenvolve a conversa.<br>II) a conversa é formal, e o não entendimento acontece porque foram utilizados termos difíceis.<br>III) a linguagem está adequada ao gênero, mas não ao interlocutor.<br>IV) a mãe, por não estar tão acostumada à linguagem informal das redes sociais, tem dificuldade de entender a conversa.<br>V) a filha não sabe escrever direito e, por isso, a mãe se preocupa com a linguagem utilizada.<br><br>Estão corretas as seguintes assertivas:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">IV e V</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II, III e IV</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III e IV</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>💡 Justificativa Teórica:</b><br>- <b>I (Falsa):</b> O internetês/linguagem informal é, sim, adequado ao <b>gênero/suporte</b> (conversa rápida de WhatsApp).<br>- <b>II (Falsa):</b> A conversa não é formal nem usa vocabulário erudito/difícil.<br>- <b>III (Verdadeira):</b> Embora o internetês combine com o gênero mensagem instantânea, a filha falhou ao não adequar a linguagem ao seu <b>interlocutor</b> (a mãe, que não domina as abreviações do internetês).<br>- <b>IV (Verdadeira):</b> O ruído na comunicação ocorre porque a mãe não está familiarizada com a variedade informal/digital usada nas redes sociais.<br>- <b>V (Falsa):</b> Usar internetês no WhatsApp é uma escolha estilística/variedade do meio digital, e não falta de alfabetização.</div>
+            </div>
         </div>
         <div class="question-container" id="q7" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">7. Diante da multiplicidade de gêneros acadêmicos e da interligação entre espaços – gêneros acadêmicos que passam a ser utilizados no cotidiano, e vice-versa –, torna-se cada vez mais importante o aprofundamento das vantagens de produzir um mapa mental como forma de transmissão dos saberes, uma vez que o mesmo parte da ideia de outro gênero, o Resumo.<br><br>Há vários elementos que aproximam o Mapa Mental do Resumo, a saber:<br>I) Pode ser construído a partir de um texto-base.<br>II) Possibilita a organização de uma sequência lógica para fins de estudo.<br>III) É construído a partir da representação de relações estabelecidas no texto-base.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>I e II, apenas.</span></label>
-                <label data-correct="true"><input type="radio" name="q7"><span class="letter-prefix"></span><span>I, II e III.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>I, apenas.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>II e III, apenas.</span></label>
-                <label><input type="radio" name="q7"><span class="letter-prefix"></span><span>III, apenas.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">7</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Seção 4.2.4 "Mapa Mental", p. 105–106):</b><br>- <b>I (Verdadeira):</b> <i>"Um mapa mental é um tipo de resumo do resumo, em forma de esquema [...]. Pode ser construído a partir de um texto ou de relações que se estabelecem livremente a partir de um dado tema."</i> (p. 105).<br>- <b>II (Verdadeira):</b> <i>"O mapa mental auxilia a imaginar uma sequência lógica da escrita e pode ser utilizado para fins de estudo, já que ativa vários pontos importantes do raciocínio para a aprendizagem de conteúdos e retenção de informações."</i> (p. 105).<br>- <b>III (Verdadeira):</b> <i>"Isso significa que, para produzir um mapa mental a partir de um texto, as relações estabelecidas nele devem ser respeitadas."</i> (p. 106).</div>
+            <div class="question-text">Diante da multiplicidade de gêneros acadêmicos e da interligação entre espaços – gêneros acadêmicos que passam a ser utilizados no cotidiano, e vice-versa –, torna-se cada vez mais importante o aprofundamento das vantagens de produzir um mapa mental como forma de transmissão dos saberes, uma vez que o mesmo parte da ideia de outro gênero, o Resumo.<br><br>Há vários elementos que aproximam o Mapa Mental do Resumo, a saber:<br>I) Pode ser construído a partir de um texto-base.<br>II) Possibilita a organização de uma sequência lógica para fins de estudo.<br>III) É construído a partir da representação de relações estabelecidas no texto-base.<br><br>É correto o que se afirma em:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Seção 4.2.4 "Mapa Mental", p. 105–106):</b><br>- <b>I (Verdadeira):</b> <i>"Um mapa mental é um tipo de resumo do resumo, em forma de esquema [...]. Pode ser construído a partir de um texto ou de relações que se estabelecem livremente a partir de um dado tema."</i> (p. 105).<br>- <b>II (Verdadeira):</b> <i>"O mapa mental auxilia a imaginar uma sequência lógica da escrita e pode ser utilizado para fins de estudo, já que ativa vários pontos importantes do raciocínio para a aprendizagem de conteúdos e retenção de informações."</i> (p. 105).<br>- <b>III (Verdadeira):</b> <i>"Isso significa que, para produzir um mapa mental a partir de um texto, as relações estabelecidas nele devem ser respeitadas."</i> (p. 106).</div>
+            </div>
         </div>
         <div class="question-container" id="q8" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">8. <b>Hospital Escola São Francisco, no Centro, entrará finalmente em reforma</b><br><br><i>"[...] A história do hospital, tombado pelo Iphan desde 1983, remonta ao ano de 1879, quando têm início suas atividades. Com o passar do tempo, as instalações tornaram-se pequenas. No início da década de 20, o edifício sofreu várias adaptações para se transformar, em 1922, no Hospital Geral São Francisco, onde foi realizada a primeira transfusão de sangue do país. No ano seguinte, o hospital foi desativado e só voltou a funcionar dez anos depois, em 1988, por motivo de calamidade pública provocada por uma das grandes enchentes da cidade."</i><br><i>(COSTA, JAQUELINE. O Globo, Rio de Janeiro, 16 abr. 2010).</i><br><br>Um parágrafo é, por definição, um bloco de organização textual que deve apresentar sua própria coerência interna. Com base nisso, o texto apresenta um grave erro de coerência no trecho:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label data-correct="true"><input type="radio" name="q8"><span class="letter-prefix"></span><span>“só voltou a funcionar dez anos depois, em 1988”.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>“no ano seguinte, o hospital foi desativado e só voltou”.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>“o edifício sofreu várias adaptações para se transformar”.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>“por motivo de calamidade pública”.</span></label>
-                <label><input type="radio" name="q8"><span class="letter-prefix"></span><span>“em 1922”.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">8</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.2 "A Coerência", p. 87–88):</b><br>- <b>Incoerência lógica/temporal:</b> O texto afirma que em <b>1922</b> o edifício transformou-se no Hospital Geral São Francisco e que <b>"no ano seguinte" (1923)</b> foi desativado. Se ele voltou a funcionar <b>"dez anos depois"</b>, o ano seria <b>1933</b>, jamais <b>1988</b> (que corresponderia a 65 anos depois). Trata-se de uma contradição lógico-numérica que quebra a coerência interna do parágrafo.</div>
+            <div class="question-text"><b>Hospital Escola São Francisco, no Centro, entrará finalmente em reforma</b><br><br><i>"[...] A história do hospital, tombado pelo Iphan desde 1983, remonta ao ano de 1879, quando têm início suas atividades. Com o passar do tempo, as instalações tornaram-se pequenas. No início da década de 20, o edifício sofreu várias adaptações para se transformar, em 1922, no Hospital Geral São Francisco, onde foi realizada a primeira transfusão de sangue do país. No ano seguinte, o hospital foi desativado e só voltou a funcionar dez anos depois, em 1988, por motivo de calamidade pública provocada por uma das grandes enchentes da cidade."</i><br><i>(COSTA, JAQUELINE. O Globo, Rio de Janeiro, 16 abr. 2010).</i><br><br>Um parágrafo é, por definição, um bloco de organização textual que deve apresentar sua própria coerência interna. Com base nisso, o texto apresenta um grave erro de coerência no trecho:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">“só voltou a funcionar dez anos depois, em 1988”.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">“no ano seguinte, o hospital foi desativado e só voltou”.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">“o edifício sofreu várias adaptações para se transformar”.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">“por motivo de calamidade pública”.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">“em 1922”.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.2 "A Coerência", p. 87–88):</b><br>- <b>Incoerência lógica/temporal:</b> O texto afirma que em <b>1922</b> o edifício transformou-se no Hospital Geral São Francisco e que <b>"no ano seguinte" (1923)</b> foi desativado. Se ele voltou a funcionar <b>"dez anos depois"</b>, o ano seria <b>1933</b>, jamais <b>1988</b> (que corresponderia a 65 anos depois). Trata-se de uma contradição lógico-numérica que quebra a coerência interna do parágrafo.</div>
+            </div>
         </div>
         <div class="question-container" id="q9" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">9. Leia o texto a seguir:<br><br><i>"Caro colaborador. Para evitarmos algum <b>mau entendido</b> [1] entre <b>eu e você</b> [2], seu supervisor direto, peço que você dê extrema atenção ao cumprimento de seu horário de trabalho. <b>Houveram</b> [3] muitos atrasos de sua parte; por isso, peço que retome a sua postura de <b>há cinco meses atrás</b> [4], período no qual você foi premiado por essa gestão como o funcionário do ano. Torcemos para que você volte a ser o exemplo que um dia foi para os outros desse setor, afinal, já <b>fazem</b> [5] anos que você é parte importante dessa equipe.</i><br><i>Atenciosamente,</i><br><i>Seu gestor."</i><br><br>O texto, no que diz respeito ao uso formal da língua, apresenta:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>Um erro gramatical</span></label>
-                <label data-correct="true"><input type="radio" name="q9"><span class="letter-prefix"></span><span>Cinco erros gramaticais</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>Dois erros gramaticais</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>Três erros gramaticais</span></label>
-                <label><input type="radio" name="q9"><span class="letter-prefix"></span><span>Quatro erros gramaticais</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">9</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Seção 4.3 "Dúvidas Gramaticais Recorrentes", p. 117):</b><br>Todos os <b>5 erros</b> foram retirados literalmente da tabela da página 117 do e-book:<br>1. <b><code>"mau entendido"</code></b> → O correto é <b>mal entendido</b> (<i>mal</i> opõe-se a <i>bem</i>: <i>bem entendido / mal entendido</i>).<br>2. <b><code>"entre eu e você"</code></b> → Após preposição (<i>entre</i>), usa-se pronome pessoal oblíquo tônico: <b>entre mim e você</b>.<br>3. <b><code>"Houveram muitos atrasos"</code></b> → O verbo <i>haver</i> no sentido de <i>existir/ocorrer</i> é impessoal (invariável, 3ª pessoa do singular): <b>Houve muitos atrasos</b>.<br>4. <b><code>"há cinco meses atrás"</code></b> → Pleonasmo vicioso/redundância temporal (<i>há</i> e <i>atrás</i> indicam tempo passado). O correto é <b>há cinco meses</b> ou <b>cinco meses atrás</b>.<br>5. <b><code>"já fazem anos"</code></b> → O verbo <i>fazer</i> indicando tempo decorrido é impessoal (invariável): <b>já faz anos</b>.</div>
+            <div class="question-text">Leia o texto a seguir:<br><br><i>"Caro colaborador. Para evitarmos algum <b>mau entendido</b> [1] entre <b>eu e você</b> [2], seu supervisor direto, peço que você dê extrema atenção ao cumprimento de seu horário de trabalho. <b>Houveram</b> [3] muitos atrasos de sua parte; por isso, peço que retome a sua postura de <b>há cinco meses atrás</b> [4], período no qual você foi premiado por essa gestão como o funcionário do ano. Torcemos para que você volte a ser o exemplo que um dia foi para os outros desse setor, afinal, já <b>fazem</b> [5] anos que você é parte importante dessa equipe.</i><br><i>Atenciosamente,</i><br><i>Seu gestor."</i><br><br>O texto, no que diz respeito ao uso formal da língua, apresenta:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Um erro gramatical</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Cinco erros gramaticais</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Dois erros gramaticais</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Três erros gramaticais</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quatro erros gramaticais</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Seção 4.3 "Dúvidas Gramaticais Recorrentes", p. 117):</b><br>Todos os <b>5 erros</b> foram retirados literalmente da tabela da página 117 do e-book:<br>1. <b><code>"mau entendido"</code></b> → O correto é <b>mal entendido</b> (<i>mal</i> opõe-se a <i>bem</i>: <i>bem entendido / mal entendido</i>).<br>2. <b><code>"entre eu e você"</code></b> → Após preposição (<i>entre</i>), usa-se pronome pessoal oblíquo tônico: <b>entre mim e você</b>.<br>3. <b><code>"Houveram muitos atrasos"</code></b> → O verbo <i>haver</i> no sentido de <i>existir/ocorrer</i> é impessoal (invariável, 3ª pessoa do singular): <b>Houve muitos atrasos</b>.<br>4. <b><code>"há cinco meses atrás"</code></b> → Pleonasmo vicioso/redundância temporal (<i>há</i> e <i>atrás</i> indicam tempo passado). O correto é <b>há cinco meses</b> ou <b>cinco meses atrás</b>.<br>5. <b><code>"já fazem anos"</code></b> → O verbo <i>fazer</i> indicando tempo decorrido é impessoal (invariável): <b>já faz anos</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q10" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">10. Em relação ao uso de conectores, verifique as relações de sentido estabelecidas pelos elementos destacados nas frases abaixo. Verifique que relações estão corretas:<br><br>I. Na frase “Talvez por me fazer lembrar dos meus anos de infância, <b>QUANDO</b> o governo do general Médici, enquanto prendia, torturava e fazia desaparecer pessoas, proclamava, naquela campanha da qual jamais me esquecerei: ‘Brasil, ame-o ou deixe-o’”, o conector em destaque tem sentido de tempo.<br>II. Na frase “<b>MAS</b> se você for pobre, emigrar é tornar-se o estrangeiro mais desprezado [...]”, o conector em destaque tem sentido de explicação.<br>III. Na frase “<b>DESDE QUE</b> meu pai desembarcou em Santos, nos anos 1950, muita coisa mudou”, o conector em destaque tem sentido de tempo.<br>IV. Na frase “[...] nossa democracia é real, <b>MAS</b> pouco representativa”, o conector em destaque tem sentido de oposição.<br><br>Estão corretas as seguintes assertivas:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>II, III e IV</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>I e IV</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>I e III</span></label>
-                <label data-correct="true"><input type="radio" name="q10"><span class="letter-prefix"></span><span>I, III e IV</span></label>
-                <label><input type="radio" name="q10"><span class="letter-prefix"></span><span>I e II</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">10</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1 "A Coesão" — Figura 3.7 "Conjunções", p. 84):</b><br>- <b>I (Correta):</b> <code>QUANDO</code> estabelece relação de <b>Tempo</b> (retomando <i>"meus anos de infância"</i>).<br>- <b>II (Incorreta):</b> <code>MAS</code> é conjunção coordenativa adversativa e estabelece sentido de <b>Oposição/Contraste</b>, jamais de explicação (<i>porque, pois</i>).<br>- <b>III (Correta):</b> Conforme a Figura 3.7 (p. 84), a locução conjuntiva <code>DESDE QUE</code> pode indicar condição ou <b>Tempo</b> (quando equivale a <i>"desde o momento em que"</i> + verbo no indicativo <i>"desembarcou"</i>).<br>- <b>IV (Correta):</b> <code>MAS</code> opõe a qualidade positiva (<i>"é real"</i>) à ressalva negativa (<i>"pouco representativa"</i>), expressando <b>Oposição</b>.</div>
+            <div class="question-text">Em relação ao uso de conectores, verifique as relações de sentido estabelecidas pelos elementos destacados nas frases abaixo. Verifique que relações estão corretas:<br><br>I. Na frase “Talvez por me fazer lembrar dos meus anos de infância, <b>QUANDO</b> o governo do general Médici, enquanto prendia, torturava e fazia desaparecer pessoas, proclamava, naquela campanha da qual jamais me esquecerei: ‘Brasil, ame-o ou deixe-o’”, o conector em destaque tem sentido de tempo.<br>II. Na frase “<b>MAS</b> se você for pobre, emigrar é tornar-se o estrangeiro mais desprezado [...]”, o conector em destaque tem sentido de explicação.<br>III. Na frase “<b>DESDE QUE</b> meu pai desembarcou em Santos, nos anos 1950, muita coisa mudou”, o conector em destaque tem sentido de tempo.<br>IV. Na frase “[...] nossa democracia é real, <b>MAS</b> pouco representativa”, o conector em destaque tem sentido de oposição.<br><br>Estão corretas as seguintes assertivas:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II, III e IV</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e IV</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e III</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, III e IV</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1 "A Coesão" — Figura 3.7 "Conjunções", p. 84):</b><br>- <b>I (Correta):</b> <code>QUANDO</code> estabelece relação de <b>Tempo</b> (retomando <i>"meus anos de infância"</i>).<br>- <b>II (Incorreta):</b> <code>MAS</code> é conjunção coordenativa adversativa e estabelece sentido de <b>Oposição/Contraste</b>, jamais de explicação (<i>porque, pois</i>).<br>- <b>III (Correta):</b> Conforme a Figura 3.7 (p. 84), a locução conjuntiva <code>DESDE QUE</code> pode indicar condição ou <b>Tempo</b> (quando equivale a <i>"desde o momento em que"</i> + verbo no indicativo <i>"desembarcou"</i>).<br>- <b>IV (Correta):</b> <code>MAS</code> opõe a qualidade positiva (<i>"é real"</i>) à ressalva negativa (<i>"pouco representativa"</i>), expressando <b>Oposição</b>.</div>
+            </div>
         </div>
         <div class="question-container" id="q11" data-unit="3">
-            <span class="unit-badge unit-3">UNIDADE 3</span>
-            <div class="question-text">11. Leia os textos a seguir. O texto II é uma proposta de reescrita para o texto I. Na reescrita do texto I, foram empregados recursos para torná-lo mais enxuto e menos repetitivo.<br><br><b>Texto I</b><br>Era uma vez um menino e uma menina. O menino e a menina eram irmãos. O menino e a menina viviam brigando por tudo. O menino e a menina conviviam com um cãozinho. Só que o menino e a menina brigavam tanto que o menino e a menina não davam nenhuma atenção ao cãozinho.<br><i>(NASCIMENTO, Anderson U.S. Coesão Textual. Globo.com. Educação).</i><br><br><b>Texto II</b><br>Era uma vez um menino e uma menina. Os dois eram irmãos. Eles viviam brigando por tudo. As crianças conviviam com um cãozinho. Só que brigavam tanto que não davam nenhuma atenção ao cãozinho.<br><br>Na reescrita do texto I, para estabelecer a coesão entre os elementos do texto, foram utilizados recursos de coesão:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>por sequenciação temporal.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>por reiteração por repetição do mesmo item lexical.</span></label>
-                <label data-correct="true"><input type="radio" name="q11"><span class="letter-prefix"></span><span>referencial por substituição.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>recorrencial por recorrência de termos.</span></label>
-                <label><input type="radio" name="q11"><span class="letter-prefix"></span><span>recorrencial por paráfrase.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">11</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1 — Quadro 3.3, p. 85–86):</b><br>- No Texto II, evitou-se a repetição exaustiva de <i>"o menino e a menina"</i> por meio da <b>coesão referencial por substituição</b> (pronominalização com <i>"Os dois"</i>, <i>"Eles"</i>, substituição vocabular/hiperonímia com <i>"As crianças"</i> e substituição por zero/elipse em <i>"Só que [Ø] brigavam tanto que [Ø] não davam..."</i>).</div>
+            <div class="question-text">Leia os textos a seguir. O texto II é uma proposta de reescrita para o texto I. Na reescrita do texto I, foram empregados recursos para torná-lo mais enxuto e menos repetitivo.<br><br><b>Texto I</b><br>Era uma vez um menino e uma menina. O menino e a menina eram irmãos. O menino e a menina viviam brigando por tudo. O menino e a menina conviviam com um cãozinho. Só que o menino e a menina brigavam tanto que o menino e a menina não davam nenhuma atenção ao cãozinho.<br><i>(NASCIMENTO, Anderson U.S. Coesão Textual. Globo.com. Educação).</i><br><br><b>Texto II</b><br>Era uma vez um menino e uma menina. Os dois eram irmãos. Eles viviam brigando por tudo. As crianças conviviam com um cãozinho. Só que brigavam tanto que não davam nenhuma atenção ao cãozinho.<br><br>Na reescrita do texto I, para estabelecer a coesão entre os elementos do texto, foram utilizados recursos de coesão:<br><br><b>Alternativas:</b></div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">por sequenciação temporal.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">por reiteração por repetição do mesmo item lexical.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">referencial por substituição.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">recorrencial por recorrência de termos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">recorrencial por paráfrase.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1 — Quadro 3.3, p. 85–86):</b><br>- No Texto II, evitou-se a repetição exaustiva de <i>"o menino e a menina"</i> por meio da <b>coesão referencial por substituição</b> (pronominalização com <i>"Os dois"</i>, <i>"Eles"</i>, substituição vocabular/hiperonímia com <i>"As crianças"</i> e substituição por zero/elipse em <i>"Só que [Ø] brigavam tanto que [Ø] não davam..."</i>).</div>
+            </div>
         </div>
         <div class="question-container" id="q12" data-unit="4">
-            <span class="unit-badge unit-4">UNIDADE 4</span>
-            <div class="question-text">12. <b>TEXTO 1</b><br>“O resumo é um gênero textual muito comum, que requer duas habilidades básicas: síntese e objetividade. O produto final é um texto em que são apresentados os pontos essenciais, as ideias ou os fatos principais que foram desenvolvidos no decorrer de um outro texto. Tudo isso é exposto de forma abreviada, sempre respeitando uma ordem cronológica do que aparece no original a ser resumido.”<br><i>(Fonte: SANTOS, Ângela Kroetz dos; FONSECA, Gilberto (orgs.) Comunicação e linguagem. Canoas, RS: Universidade La Salle EAD, 2019. p. 101).</i><br><br><b>TEXTO 2</b><br>No romance "Memórias Póstumas de Brás Cubas", de Machado de Assis, o personagem narrador-defunto (Brás Cubas) conta suas experiências de vida permeadas pelas futilidades sociais e pelo desprezo que manifesta em relação à sociedade e às pessoas com suas paixões que não o comovem a ponto de constituir uma família. Além disso, ironiza tanto sua trajetória quanto os costumes sociais, afirmando que a vida é uma miséria, cujo legado não deve ser perpetuado por meio de filhos.<br><i>(Fonte: RESUMO de livro: Memórias Póstumas de Brás Cubas. Ensino: guia de educação, [2022]).</i><br><br>Considerando-se os textos-base, é correto afirmar que:<br><br><b>Alternativas:</b></div>
-            <div class="options">
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>o Texto II é um exemplo do gênero textual resenha bibliográfica.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>o Texto II aponta a cronologia como principal aspecto de um resumo.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>o Texto I sinaliza duas qualidades que não estão presentes no Texto II</span></label>
-                <label data-correct="true"><input type="radio" name="q12"><span class="letter-prefix"></span><span>o Texto II é um exemplo do conceito de resumo apresentado no Texto I.</span></label>
-                <label><input type="radio" name="q12"><span class="letter-prefix"></span><span>o Texto II é um exemplo do gênero textual sinopse.</span></label>
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">12</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
             </div>
-            <div class="feedback"></div>
-            <div class="explicacao"><b>Justificativa / Gabarito Comentado:</b><br><b>📚 Embasamento no E-book (Unidade 4, Seção 4.2.2 "Resumo", p. 101):</b><br>- O <b>Texto I</b> apresenta a definição teórica de <b>resumo</b> (síntese, objetividade e exposição abreviada dos fatos/ideias principais sem juízo crítico pessoal), enquanto o <b>Texto II</b> materializa exatamente esse conceito ao sintetizar de forma objetiva o enredo central de <i>Memórias Póstumas de Brás Cubas</i> (diferenciando-se da <i>resenha</i>, que exigiria apreciação crítica/juízo de valor do resenhista).</div>
+            <div class="question-text"><b>TEXTO 1</b><br>“O resumo é um gênero textual muito comum, que requer duas habilidades básicas: síntese e objetividade. O produto final é um texto em que são apresentados os pontos essenciais, as ideias ou os fatos principais que foram desenvolvidos no decorrer de um outro texto. Tudo isso é exposto de forma abreviada, sempre respeitando uma ordem cronológica do que aparece no original a ser resumido.”<br><br><b>TEXTO 2</b><br>No romance "Memórias Póstumas de Brás Cubas", de Machado de Assis, o personagem narrador-defunto (Brás Cubas) conta suas experiências de vida permeadas pelas futilidades sociais e pelo desprezo que manifesta em relação à sociedade e às pessoas com suas paixões que não o comovem a ponto de constituir uma família. Além disso, ironiza tanto sua trajetória quanto os costumes sociais, afirmando que a vida é uma miséria, cujo legado não deve ser perpetuado por meio de filhos.<br><br>Considerando-se os textos-base, é correto afirmar que:<br><br><b>Alternativas:</b></div>
+            <div class="fonte-tag">Fonte: > *(Fonte: RESUMO de livro: Memórias Póstumas de Brás Cubas. Ensino: guia de educação, [2022]).</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">o Texto II é um exemplo do gênero textual resenha bibliográfica.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">o Texto II aponta a cronologia como principal aspecto de um resumo.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">o Texto I sinaliza duas qualidades que não estão presentes no Texto II</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">o Texto II é um exemplo do conceito de resumo apresentado no Texto I.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">o Texto II é um exemplo do gênero textual sinopse.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 4, Seção 4.2.2 "Resumo", p. 101):</b><br>- O <b>Texto I</b> apresenta a definição teórica de <b>resumo</b> (síntese, objetividade e exposição abreviada dos fatos/ideias principais sem juízo crítico pessoal), enquanto o <b>Texto II</b> materializa exatamente esse conceito ao sintetizar de forma objetiva o enredo central de <i>Memórias Póstumas de Brás Cubas</i> (diferenciando-se da <i>resenha</i>, que exigiria apreciação crítica/juízo de valor do resenhista).</div>
+            </div>
         </div>
 
-        <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar Simulado Completo (12 Questões)</button>
+            <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar e Enviar Questionário (12 Questões)</button>
 
-        <div id="resultado" class="result-box"></div>
-    </form>
+            <div id="resultado" class="result-box"></div>
+        </form>
+    </main>
 
     <script>
         const TOTAL = 12;
@@ -253,32 +1504,38 @@
             box.appendChild(img);
         }
 
-        // Embaralhamento inicial ao carregar (F5)
+        // Embaralhamento inicial (F5)
         (function() {
             const form = document.getElementById('quizForm');
             const submitBtn = document.querySelector('.btn-submit');
 
-            // 1. Embaralha as questoes (etiqueta de unidade acompanha cada questao)
+            // 1. Embaralha as perguntas mantendo seus atributos e etiquetas
             const questions = Array.from(document.querySelectorAll('.question-container'));
             for (let i = questions.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [questions[i], questions[j]] = [questions[j], questions[i]];
             }
 
-            // 2. Renumera e reinsere no DOM
+            // 2. Renumera o círculo roxo e reatribui radio names
             questions.forEach((q, index) => {
                 const newNum = index + 1;
                 const newId = 'q' + newNum;
                 q.id = newId;
-                q.querySelectorAll('input[type="radio"]').forEach(r => { r.name = newId; r.checked = false; });
-                const qText = q.querySelector('.question-text');
-                if (qText) qText.innerHTML = qText.innerHTML.replace(/^\s*\d+\.\s*/, newNum + '. ');
+
+                const circleNum = q.querySelector('.q-circle-number');
+                if (circleNum) circleNum.innerText = newNum;
+
+                q.querySelectorAll('input[type="radio"]').forEach(r => {
+                    r.name = newId;
+                    r.checked = false;
+                });
+
                 form.insertBefore(q, submitBtn);
 
-                // 3. Embaralha as alternativas e reatribui as letras A, B, C, D, E
+                // 3. Embaralha as alternativas de cada pergunta
                 const optionsDiv = q.querySelector('.options');
                 if (optionsDiv) {
-                    const labels = Array.from(optionsDiv.querySelectorAll('label'));
+                    const labels = Array.from(optionsDiv.querySelectorAll('.option-row'));
                     const letters = ['A', 'B', 'C', 'D', 'E'];
                     for (let i = labels.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -287,7 +1544,7 @@
                     optionsDiv.innerHTML = '';
                     labels.forEach((label, idx) => {
                         const prefix = label.querySelector('.letter-prefix');
-                        if (prefix) prefix.innerText = letters[idx] + ') ';
+                        if (prefix) prefix.innerText = letters[idx] + '. ';
                         const input = label.querySelector('input');
                         if (input) input.value = letters[idx];
                         optionsDiv.appendChild(label);
@@ -300,8 +1557,14 @@
             let acertos = 0;
             const porUnidade = {};
 
-            document.querySelectorAll('.options label').forEach(l => l.classList.remove('correct-answer', 'wrong-answer'));
-            document.querySelectorAll('.feedback').forEach(fb => { fb.classList.remove('correct', 'incorrect'); fb.style.display = 'none'; fb.innerHTML = ''; });
+            // Limpa estilos anteriores
+            document.querySelectorAll('.option-row').forEach(l => {
+                l.classList.remove('is-correct-answer', 'is-wrong-answer');
+            });
+            document.querySelectorAll('.status-pill-ava').forEach(sp => {
+                sp.className = 'status-pill-ava';
+                sp.style.display = 'none';
+            });
 
             for (let i = 1; i <= TOTAL; i++) {
                 const q = document.getElementById('q' + i);
@@ -309,46 +1572,95 @@
                 porUnidade[unidade] = porUnidade[unidade] || { ok: 0, total: 0 };
                 porUnidade[unidade].total++;
 
+                const statusPill = q.querySelector('.status-pill-ava');
+                const scoreBadge = q.querySelector('.q-score-badge');
                 const options = document.getElementsByName('q' + i);
-                const feedbackDiv = q.querySelector('.feedback');
-                let respondeu = false, acertou = false;
+
+                let respondeu = false;
+                let acertou = false;
 
                 for (const option of options) {
-                    const label = option.closest('label');
+                    const label = option.closest('.option-row');
                     const isCorrect = label.getAttribute('data-correct') === 'true';
+
                     if (option.checked) {
                         respondeu = true;
                         if (isCorrect) {
                             acertou = true;
-                            label.classList.add('correct-answer');
-                            feedbackDiv.innerHTML = '✔ Resposta Correta!';
-                            feedbackDiv.classList.add('correct');
+                            label.classList.add('is-correct-answer');
                         } else {
-                            label.classList.add('wrong-answer');
-                            const cl = label.parentElement.querySelector('label[data-correct="true"]');
-                            const letra = cl ? cl.querySelector('input').value : '?';
-                            feedbackDiv.innerHTML = `✖ Resposta Incorreta. A alternativa correta é a ${letra}.`;
-                            feedbackDiv.classList.add('incorrect');
+                            label.classList.add('is-wrong-answer');
+                            const tag = label.querySelector('.option-tag');
+                            if (tag) {
+                                tag.innerText = 'Sua resposta (Incorreta)';
+                                tag.style.display = 'inline';
+                            }
                         }
                     }
-                    if (isCorrect) label.classList.add('correct-answer');
+
+                    if (isCorrect) {
+                        label.classList.add('is-correct-answer');
+                        const tag = label.querySelector('.option-tag');
+                        if (tag) {
+                            tag.innerText = 'Resposta correta';
+                            tag.style.display = 'inline';
+                        }
+                    }
                 }
-                if (acertou) { acertos++; porUnidade[unidade].ok++; }
+
+                if (acertou) {
+                    acertos++;
+                    porUnidade[unidade].ok++;
+                    if (statusPill) {
+                        statusPill.innerText = 'CORRETO';
+                        statusPill.className = 'status-pill-ava correto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,4 / 0,4';
+                } else if (respondeu) {
+                    if (statusPill) {
+                        statusPill.innerText = 'INCORRETO';
+                        statusPill.className = 'status-pill-ava incorreto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                } else {
+                    if (statusPill) {
+                        statusPill.innerText = 'NÃO RESPONDIDO';
+                        statusPill.className = 'status-pill-ava vazio';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                }
+
                 mostrarReacao(q, acertou);
-                if (!respondeu) {
-                    feedbackDiv.innerHTML = '⚠ Questão não respondida.';
-                    feedbackDiv.classList.add('incorrect');
-                }
-                feedbackDiv.style.display = 'block';
+
+                // Exibe justificativa
                 const ex = q.querySelector('.explicacao');
                 if (ex) ex.style.display = 'block';
             }
 
+            // Atualiza nota no Banner Superior (estilo Print 5)
+            const notaEscala10 = ((acertos / TOTAL) * 10).toFixed(1).replace('.', ',');
+            const headerPill = document.getElementById('header-score-pill');
+            if (headerPill) headerPill.innerText = notaEscala10 + ' / 10,0';
+
+            const headerSub = document.getElementById('header-score-sub');
+            if (headerSub) {
+                const now = new Date();
+                const horaStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                headerSub.innerHTML = '<strong>ENVIADO:</strong> ' + horaStr + ' (BRT)';
+            }
+
+            // Exibe caixa de resultado final
             const resultBox = document.getElementById('resultado');
             resultBox.style.display = 'block';
             const aproveitamento = ((acertos / TOTAL) * 100).toFixed(0);
             const detalhe = Object.keys(porUnidade).sort().map(u => `Unidade ${u}: ${porUnidade[u].ok}/${porUnidade[u].total}`).join(' &nbsp;|&nbsp; ');
-            resultBox.innerHTML = `Você acertou ${acertos} de ${TOTAL} questões!<br><span style="font-size: 0.8em; color: #7f8c8d; font-weight: normal;">Aproveitamento: ${aproveitamento}%</span><div class="by-unit">${detalhe}</div>`;
+
+            resultBox.innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>${TOTAL}</strong> questões! (Nota: <strong>${notaEscala10}</strong>)</div>
+                <div style="font-size: 0.85em; font-weight: normal; margin-top: 4px;">Aproveitamento Total: ${aproveitamento}%</div>
+                <div class="by-unit">${detalhe}</div>
+                <button type="button" class="btn-retry" onclick="window.location.reload()">🔄 Refazer Simulado (Embaralhar Novamente)</button>
+            `;
             resultBox.className = 'result-box ' + (acertos >= MIN_APROVACAO ? 'pass' : 'fail');
             resultBox.scrollIntoView({ behavior: 'smooth' });
         }
