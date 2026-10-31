@@ -370,137 +370,143 @@
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header">
-            <div class="meta-pills">
-                <span class="meta-pill highlight">📅 Prova: 05/11/2026</span>
-                <span class="meta-pill">📍 Sala 308 - Prédio 1 LABIN</span>
-                <span class="meta-pill">⏰ 20h00 às 20h15</span>
-                <span class="meta-pill">💡 Unidades 1 a 4</span>
-            </div>
-            <h1>Direito Digital — Resumo Executivo e Tópicos de Prova</h1>
-            <p>Síntese das Unidades 1 a 4, Teoria dos Sujeitos, Registro de Software no INPI (Hash & RPC), Obrigações, Marco Civil da Internet (art. 19 e 21) e LGPD.</p>
-        </header>
+    
+    <div id="resumo-lock" style="max-width: 480px; margin: 80px auto; padding: 36px 28px; background: #111827; border-radius: 16px; border: 1px solid #374151; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; color: #f3f4f6;">
+        <div style="font-size: 40px; margin-bottom: 16px;">📖</div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Resumo Executivo Restrito</h2>
+        <p style="font-size: 14px; color: #9ca3af; line-height: 1.5; margin-bottom: 24px;">Conteúdo criptografado com AES-256. Informe a senha de acesso para descriptografar:</p>
+        <form onsubmit="event.preventDefault(); unlockResumo();" style="display: flex; flex-direction: column; gap: 14px;">
+            <input type="password" id="resumoPwd" placeholder="Chave de segurança..." style="width: 100%; padding: 12px 16px; border: 1.5px solid #4b5563; background: #1f2937; color: #f9fafb; border-radius: 8px; font-size: 15px; outline: none; box-sizing: border-box;" required autofocus>
+            <div id="resumoError" style="display: none; color: #ef4444; font-size: 13px; font-weight: 600;">Chave incorreta! Tente novamente.</div>
+            <button type="submit" id="btnResUnlock" style="background: #2563eb; color: #ffffff; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 700; cursor: pointer;">Desbloquear Resumo</button>
+        </form>
+    </div>
 
-        <article class="content">
-            <h1>📚 Resumo Executivo e Tópicos de Prova — Direito Digital (Unidades 1 a 4)</h1>
-<p><strong>Disciplina:</strong> Direito Digital (Unilasalle / Sagah)<br />
-<strong>Data da Prova Presencial (Bloco 1):</strong> 05/11/2026 (20h00 às 20h15 — Sala 308, Prédio 1 LABIN)<br />
-<strong>Validação:</strong> Baseado integralmente no livro oficial da disciplina e nas 12 questões dos questionários oficiais.</p>
-<hr />
-<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
-<div class="mermaid">
-flowchart LR
-    DD["⚖️ DIREITO DIGITAL"]
-
-    DD --> U1["📌 UNIDADE 1: Teoria Geral & Sujeitos"]
-    DD --> U2["📌 UNIDADE 2: Propriedade Intelectual & Software"]
-    DD --> U3["📌 UNIDADE 3: Obrigações & Responsabilidade"]
-    DD --> U4["📌 UNIDADE 4: Marco Civil & LGPD"]
-
-    U1 --> U1A["Direito Público x Privado"]
-    U1 --> U1B["Capacidade de Gozo x de Fato (art. 1º CC)"]
-    U1 --> U1C["Nascituro protegido (art. 2º CC)"]
-    U1 --> U1D["PJ: Início no Registro art. 45 CC"]
-    U1 --> U1E["Autarquias e Fundações Públicas (Dir. Público)"]
-
-    U2 --> U2A["Software: Bens Intangíveis (Custos Fixos Altos / Marginais Baixos)"]
-    U2 --> U2B["Copyright (Expressão Literal) x Patente (Funcionalidade)"]
-    U2 --> U2C["RPC no INPI protegido por Hash Criptográfico"]
-    U2 --> U2D["Autorização prévia/expressa para uso da obra"]
-
-    U3 --> U3A["Elementos: Sujeitos, Objeto e Vínculo Jurídico"]
-    U3 --> U3B["Prestação de Dar, Fazer e Não Fazer"]
-    U3 --> U3C["Princípio da Socialidade (Função Social art. 421 CC)"]
-    U3 --> U3D["Água = Obrigação Pessoal (NÃO propter rem)"]
-    U3 --> U3E["Jogos de azar = Obrigação Natural (Sem cobrança civil)"]
-
-    U4 --> U4A["Marco Civil: Liberdade de Expressão + Privacidade + Neutralidade"]
-    U4 --> U4B["Responsabilidade Subjetiva Provedor Aplicação: art. 19 (Ordem Judicial)"]
-    U4 --> U4C["Exceção Intimidade Sexual: art. 21 (Notificação Extrajudicial)"]
-    U4 --> U4D["LGPD nas Relações Trabalhistas (Candidatos, Ativos e Desligados)"]
-    U4 --> U4E["Princípios: Licitude, Lealdade, Transparência e Finalidade"]
-</div>
-
-<hr />
-<h2>📌 UNIDADE 1 — Teoria Geral do Direito e Sujeitos de Direito Privado</h2>
-<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinha Clássica de Prova (Questões 2 e 3 do Questionário):**</div></div>
-<blockquote>
-<ol>
-<li>O Código Civil (art. 1º) <strong>combina capacidade com personalidade</strong> ("toda pessoa é capaz de direitos e deveres na ordem civil").</li>
-<li><strong>Nem toda pessoa tem capacidade de fato (exercício):</strong> Um bebê recém-nascido tem capacidade de direito (gozo), mas é absolutamente incapaz de exercer pessoalmente os atos da vida civil.</li>
-<li><strong>A personalidade jurídica das empresas NÃO começa com a assinatura do contrato social</strong>, mas sim com o <strong>REGISTRO/INSCRIÇÃO</strong> do ato constitutivo no órgão competente (Junta Comercial / Cartório de Registro Civil de PJ, conforme art. 45 do CC).</li>
-<li><strong>O nascituro é protegido pela lei</strong> desde a concepção (art. 2º do CC).</li>
-</ol>
-</blockquote>
-<h3>1.1 Classificação das Pessoas Jurídicas no Código Civil</h3>
-<ul>
-<li><strong>Pessoas Jurídicas de Direito Público Interno (art. 41 do CC):</strong></li>
-<li>União, Estados, DF, Municípios.</li>
-<li><strong>Autarquias</strong> (ex.: INSS, Banco Central).</li>
-<li><strong>Fundações públicas/estatais</strong>.</li>
-<li><strong>Pessoas Jurídicas de Direito Privado (art. 44 do CC):</strong></li>
-<li><strong>Associações</strong> (sem fins econômicos).</li>
-<li><strong>Sociedades</strong> (empresariais e simples).</li>
-<li><strong>Fundações privadas</strong>.</li>
-<li><strong>Organizações religiosas</strong>.</li>
-<li><strong>Partidos políticos</strong>.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 2 — Propriedade Intelectual e Proteção de Software</h2>
-<h3>2.1 Natureza Econômica e Jurídica do Software</h3>
-<ul>
-<li><strong>Características:</strong> O software é <strong>intangível</strong>, possui <strong>altos custos fixos de produção</strong> e <strong>baixos custos marginais de reprodução</strong> (Shapiro &amp; Varian). Seu preço é fixado pelo valor que o usuário está disposto a pagar, e não pelo custo da cópia física.</li>
-<li><strong>Copyright vs. Patentes:</strong></li>
-<li><strong>Copyright (Direito do Autor - Lei 9.609/98 e 9.610/98):</strong> Protege a <strong>expressão literal</strong> do código (código-fonte e objeto) contra pirataria e cópia direta. Não depende de registro para ter proteção, mas o registro confere segurança probatória.</li>
-<li><strong>Patente:</strong> Protege a <strong>funcionalidade técnica/ideias</strong> e invenções implementadas por computador. Evita a cópia por concorrentes de métodos técnicos inovadores.</li>
-</ul>
-<h3>2.2 Registro de Programa de Computador (RPC) no INPI</h3>
-<ul>
-<li>O registro no <strong>INPI (Instituto Nacional da Propriedade Industrial)</strong> utiliza uma <strong>função hash criptográfica</strong>.</li>
-<li>O algoritmo <strong>hash</strong> gera uma impressão digital única do código do software, garantindo a <strong>autenticidade e integridade</strong> do arquivo guardado pelo titular sem necessidade de envio do código-fonte em texto aberto.</li>
-<li>O direito autoral no Brasil define que qualquer utilização da obra depende de <strong>autorização prévia e expressa do titular</strong>.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 3 — Direito das Obrigações e Responsabilidade Civil</h2>
-<h3>3.1 Estrutura da Relação Obrigacional</h3>
-<p>Toda obrigação jurídica é composta por 3 elementos fundamentais:
-1. <strong>Elemento Subjetivo:</strong> Sujeito Ativo (credor) e Sujeito Passivo (devedor).
-2. <strong>Elemento Objetivo (Prestação):</strong> Conduta devida de <strong>Dar</strong> (coisa certa ou incerta), <strong>Fazer</strong> ou <strong>Não Fazer</strong> (abstenção).
-3. <strong>Elemento Imaterial / Vínculo Jurídico:</strong> O enlace legal que compele o devedor a adimplir a prestação sob pena de responder com seu patrimônio (responsabilidade civil).</p>
-<h3>3.2 Princípio da Socialidade (art. 421 do CC)</h3>
-<ul>
-<li>Vinculado à <strong>Função Social dos Contratos e das Obrigações</strong>.</li>
-<li>As partes não devem apenas respeitar a boa-fé subjetiva entre si, mas devem pactuar e executar o negócio <strong>de modo a não prejudicar a coletividade e o interesse social</strong>.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 4 — Marco Civil da Internet (Lei 12.965/14) e LGPD (Lei 13.709/18)</h2>
-<h3>4.1 Marco Civil da Internet (Lei nº 12.965/2014)</h3>
-<ul>
-<li><strong>Responsabilidade Civil por Danos de Conteúdo de Terceiros (Regra Geral x Exceção):</strong></li>
-<li><strong>Regra Geral (art. 19):</strong> Para assegurar a liberdade de expressão e evitar a censura privada prévia, o provedor de aplicações <strong>só responde civilmente se, após ordem judicial específica</strong>, não tomar as providências para indisponibilizar o conteúdo no prazo assinalado.</li>
-<li><strong>Exceção de Intimidade Sexual (art. 21):</strong> Em casos de divulgação não autorizada de imagens, vídeos ou materiais contendo nudez ou atos sexuais de caráter privado (pornografia de vingança), o provedor responderá subsidiariamente se não remover o material <strong>após simples notificação extrajudicial realizada pela própria vítima ou seu representante legal</strong>.</li>
-</ul>
-<h3>4.2 LGPD nas Relações de Trabalho (Lei nº 13.709/2018)</h3>
-<ul>
-<li>Aplica-se integralmente a todas as fases da relação de emprego (art. 1º e 5º da LGPD):</li>
-<li><strong>Fase Pré-contratual:</strong> Candidatos a vagas de emprego, currículos e processos seletivos.</li>
-<li><strong>Fase Contratual:</strong> Empregados ativos (dados de saúde, biométricos, sindicais).</li>
-<li><strong>Fase Pós-contratual:</strong> Ex-funcionários desligados (guarda de prontuários, rescisões).</li>
-</ul>
-        </article>
-    </main>
+    <div id="decrypted-resumo-mount" style="display: none;"></div>
 
     <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            themeVariables: {
-                fontFamily: 'Plus Jakarta Sans',
-                primaryColor: '#1e3a8a',
-                primaryBorderColor: '#3b82f6',
-                primaryTextColor: '#f3f4f6',
-                lineColor: '#60a5fa'
+        
+(function() {
+    'use strict';
+    // Bloqueia clique com botão direito
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+    // Bloqueia atalhos de inspeção e desenvolvedor
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    });
+
+    // Anti-debugger loop em thread secundária
+    setInterval(function() {
+        try {
+            (function() {
+                return false;
+            }['constructor']('debugger')());
+        } catch(e) {}
+    }, 700);
+
+    // Limpeza de console para evitar inspeção de variáveis em memória
+    setInterval(function() {
+        try { console.clear(); } catch(e) {}
+    }, 1800);
+})();
+
+
+        const _RESUMO_PAYLOAD = {"s": "qdyd4JtmJ4UlSAyhHo58gQ==", "v": "7sYUd58FT6Zmi8MJ", "d": "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"};
+        const _SESSION_KEY = '__ads_auth_vault_token';
+
+        
+async function _decryptVault(pwd, payload) {
+    const salt = Uint8Array.from(atob(payload.s), c => c.charCodeAt(0));
+    const iv = Uint8Array.from(atob(payload.v), c => c.charCodeAt(0));
+    const ct = Uint8Array.from(atob(payload.d), c => c.charCodeAt(0));
+    
+    const enc = new TextEncoder();
+    const passKey = await window.crypto.subtle.importKey(
+        'raw',
+        enc.encode(pwd),
+        { name: 'PBKDF2' },
+        false,
+        ['deriveKey']
+    );
+    
+    const key = await window.crypto.subtle.deriveKey(
+        {
+            name: 'PBKDF2',
+            salt: salt,
+            iterations: 100000,
+            hash: 'SHA-256'
+        },
+        passKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+    );
+    
+    const decrypted = await window.crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        ct
+    );
+    
+    return new TextDecoder().decode(decrypted);
+}
+
+
+        async function unlockResumo(savedPassword) {
+            const input = document.getElementById('resumoPwd');
+            const errorEl = document.getElementById('resumoError');
+            const lockBox = document.getElementById('resumo-lock');
+            const mount = document.getElementById('decrypted-resumo-mount');
+            const btn = document.getElementById('btnResUnlock');
+
+            const pwd = savedPassword || (input ? input.value.trim() : '');
+            if (!pwd) return;
+
+            if (btn) btn.disabled = true;
+
+            try {
+                const decryptedHtml = await _decryptVault(pwd, _RESUMO_PAYLOAD);
+                sessionStorage.setItem(_SESSION_KEY, pwd);
+
+                if (lockBox) lockBox.style.display = 'none';
+                if (mount) {
+                    mount.innerHTML = decryptedHtml;
+                    mount.style.display = 'block';
+
+                    // Inicializa os diagramas Mermaid
+                    if (window.mermaid) {
+                        mermaid.run();
+                    }
+
+                    const scripts = mount.querySelectorAll('script');
+                    scripts.forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                        oldScript.parentNode.replaceChild(newScript, oldScript);
+                    });
+                }
+            } catch(err) {
+                if (btn) btn.disabled = false;
+                if (errorEl) errorEl.style.display = 'block';
+                if (input) {
+                    input.value = '';
+                    input.focus();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cachedToken = sessionStorage.getItem(_SESSION_KEY);
+            if (cachedToken) {
+                unlockResumo(cachedToken);
             }
         });
     </script>

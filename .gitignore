@@ -5,3 +5,11 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Security & Build automation
+sync_git.sh
+crypto_vault.py
+build_encrypted_portal.py
+*.key
+_source_templates/
+build_encrypted_system.py

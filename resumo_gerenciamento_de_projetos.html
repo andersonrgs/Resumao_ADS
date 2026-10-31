@@ -370,143 +370,143 @@
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header">
-            <div class="meta-pills">
-                <span class="meta-pill highlight">📅 Prova: 12/11/2026</span>
-                <span class="meta-pill">📍 Sala 607 - Prédio 15</span>
-                <span class="meta-pill">⏰ 18h45 às 19h00</span>
-                <span class="meta-pill">💡 Unidades 1 a 4</span>
-            </div>
-            <h1>Gerenciamento de Projetos — Resumo Executivo e Tópicos de Prova</h1>
-            <p>Síntese das Unidades 1 a 4, PMBOK, EAP/WBS, Análise de Valor Agregado (EVM), Estruturas Matriciais, PMO e Código de Ética do PMI.</p>
-        </header>
+    
+    <div id="resumo-lock" style="max-width: 480px; margin: 80px auto; padding: 36px 28px; background: #111827; border-radius: 16px; border: 1px solid #374151; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; color: #f3f4f6;">
+        <div style="font-size: 40px; margin-bottom: 16px;">📖</div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Resumo Executivo Restrito</h2>
+        <p style="font-size: 14px; color: #9ca3af; line-height: 1.5; margin-bottom: 24px;">Conteúdo criptografado com AES-256. Informe a senha de acesso para descriptografar:</p>
+        <form onsubmit="event.preventDefault(); unlockResumo();" style="display: flex; flex-direction: column; gap: 14px;">
+            <input type="password" id="resumoPwd" placeholder="Chave de segurança..." style="width: 100%; padding: 12px 16px; border: 1.5px solid #4b5563; background: #1f2937; color: #f9fafb; border-radius: 8px; font-size: 15px; outline: none; box-sizing: border-box;" required autofocus>
+            <div id="resumoError" style="display: none; color: #ef4444; font-size: 13px; font-weight: 600;">Chave incorreta! Tente novamente.</div>
+            <button type="submit" id="btnResUnlock" style="background: #2563eb; color: #ffffff; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 700; cursor: pointer;">Desbloquear Resumo</button>
+        </form>
+    </div>
 
-        <article class="content">
-            <h1>📚 Resumo Executivo e Tópicos de Prova — Gerenciamento de Projetos (Unidades 1 a 4)</h1>
-<p><strong>Disciplina:</strong> Gerenciamento de Projetos (Unilasalle EAD)<br />
-<strong>Data da Prova Presencial (Bloco 2):</strong> 12/11/2026 (18h45 às 19h00 — Sala 607, Prédio 15)<br />
-<strong>Validação:</strong> Baseado integralmente nos 4 e-books tutores da disciplina, no PMBOK e nas 12 questões dos questionários oficiais comentados.</p>
-<hr />
-<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
-<div class="mermaid">
-flowchart LR
-    GP["📊 GERENCIAMENTO DE PROJETOS"]
-
-    GP --> U1["📌 UNIDADE 1: Conceitos & Ciclo de Vida"]
-    GP --> U2["📌 UNIDADE 2: Áreas do PMBOK"]
-    GP --> U3["📌 UNIDADE 3: Estruturas & Governança"]
-    GP --> U4["📌 UNIDADE 4: Competências & Ética PMI"]
-
-    U1 --> U1A["Projeto: Temporário, Único e Progressivo"]
-    U1 --> U1B["Projetos vs. Operações Rotineiras Contínuas"]
-    U1 --> U1C["Principais Causas de Fracasso (Escopo, Comunicação, Prazos)"]
-    U1 --> U1D["Ciclos de Vida: Preditivo, Adaptativo/Ágil e Híbrido"]
-
-    U2 --> U2A["Escopo: EAP / WBS e Dicionário da EAP"]
-    U2 --> U2B["Cronograma: Caminho Crítico (CPM) e Folgas"]
-    U2 --> U2C["Custos: Orçamento e Valor Agregado (EVM: VP, VA, CR)"]
-    U2 --> U2D["Riscos: Matriz de Probabilidade x Impacto e Respostas"]
-
-    U3 --> U3A["Estruturas: Funcional x Projetizada x Matricial"]
-    U3 --> U3B["Matricial Forte: GP com Autoridade Alta e Dedicação Integral"]
-    U3 --> U3C["Modelos de PMO / EGP: Suporte, Controle e Diretivo"]
-    U3 --> U3D["Estudos de Mercado e Viabilidade Técnico-Econômica"]
-
-    U4 --> U4A["Modelo PMCDF: Dimensões de Conhecimento, Pessoal e Desempenho"]
-    U4 --> U4B["Competências: Técnicas, Comportamentais e Contextuais"]
-    U4 --> U4C["Código de Ética do PMI: Responsabilidade, Respeito, Justiça e Honestidade"]
-    U4 --> U4D["Práticas Ágeis: Scrum (Papéis, Cerimônias e Artefatos)"]
-</div>
-
-<hr />
-<h2>📌 UNIDADE 1 — Fundamentos do Gerenciamento de Projetos</h2>
-<h3>1.1 Definição de Projeto vs. Operações (Questão 3 do Questionário U1)</h3>
-<ul>
-<li><strong>Projeto (PMI / PMBOK):</strong> Um empreendimento <strong>temporário</strong> (tem início, meio e fim definidos) conduzido para criar um produto, serviço ou resultado <strong>único / exclusivo</strong>.</li>
-<li><strong>Operações Contínuas:</strong> Atividades repetitivas, rotineiras e permanentes voltadas a sustentar o negócio da empresa no dia a dia (ex.: suporte ao cliente, folha de pagamento, manufatura em série).</li>
-<li><strong>Elaboração Progressiva (Questão 6):</strong> Significa desenvolver em etapas e continuar por incrementos à medida que mais detalhes e informações se tornam disponíveis ao longo do projeto.</li>
-</ul>
-<h3>1.2 Causas Comuns de Fracasso em Projetos (Questão 5)</h3>
-<ul>
-<li>Objetivos e escopo mal definidos ou frequentemente alterados sem controle.</li>
-<li>Estimativas de prazos e custos irrealistas.</li>
-<li>Comunicação ineficiente entre a equipe e as partes interessadas (<em>stakeholders</em>).</li>
-<li>Falta de engajamento do patrocinador (<em>sponsor</em>) e liderança ineficaz.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 2 — Áreas de Conhecimento do PMBOK</h2>
-<h3>2.1 Gerenciamento do Escopo e EAP (Questão 1)</h3>
-<ul>
-<li><strong>Estrutura Analítica do Projeto (EAP / WBS):</strong> Decomposição hierárquica orientada a entregas do trabalho total a ser executado pela equipe do projeto.</li>
-<li>A EAP organiza e define o escopo total do projeto; o menor nível da EAP é chamado de <strong>Pacote de Trabalho (Work Package)</strong>.</li>
-</ul>
-<h3>2.2 Gerenciamento de Custos e Análise de Valor Agregado (EVM) (Questão 2)</h3>
-<ul>
-<li><strong>VP (Valor Planejado):</strong> Orçamento autorizado atribuído ao trabalho planejado.</li>
-<li><strong>VA (Valor Agregado):</strong> Medida do trabalho executado expressa em termos do orçamento autorizado para esse trabalho.</li>
-<li><strong>CR (Custo Real):</strong> Custo total efetivamente incorrido na execução do trabalho.</li>
-<li><strong>Índices de Desempenho:</strong></li>
-<li><em>IDP (Índice de Desempenho de Prazos) = VA / VP</em> (IDP &gt; 1: adiantado; IDP &lt; 1: atrasado).</li>
-<li><em>IDC (Índice de Desempenho de Custos) = VA / CR</em> (IDC &gt; 1: abaixo do orçamento/economia; IDC &lt; 1: acima do orçamento).</li>
-</ul>
-<h3>2.3 Gerenciamento de Riscos (Questão 4)</h3>
-<ul>
-<li>O risco em projetos é um evento ou condição incerta que, se ocorrer, terá um efeito positivo (oportunidade) ou negativo (ameaça) em pelo menos um objetivo do projeto (prazo, custo, escopo ou qualidade).</li>
-<li>Estratégias de resposta para riscos negativos: <strong>Prevenir/Evitar, Mitigar, Transferir ou Aceitar</strong>.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 3 — Estruturas Organizacionais e Escritório de Projetos (PMO)</h2>
-<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinhas Clássicas sobre Estruturas Organizacionais (Questões 1 e 2 do Questionário U3):**</div></div>
-<blockquote>
-<ul>
-<li><strong>Estrutura Funcional Clássica:</strong> Hierarquia tradicional dividida por departamentos (TI, RH, Vendas). O gerente funcional tem toda a autoridade; o projeto tem prioridade baixa e o gestor atua apenas como coordenador de meio período.</li>
-<li><strong>Estrutura Projetizada:</strong> A organização é orientada a projetos. O gerente de projeto possui <strong>autoridade total</strong>, controla os recursos e a equipe trabalha em tempo integral dedicada ao projeto.</li>
-<li><strong>Estrutura Matricial (Fraca, Balanceada e Forte):</strong></li>
-<li><em>Matricial Fraca:</em> Semelhante à funcional (papel do gestor é facilitador/expedidor).</li>
-<li><em>Matricial Balanceada:</em> Compartilhamento de poder entre gerente funcional e gerente de projetos.</li>
-<li><em>Matricial Forte:</em> <strong>O gerente de projetos tem alta autoridade</strong>, equipe dedicada e controle significativo sobre o orçamento, mantendo as especialidades funcionais.</li>
-</ul>
-</blockquote>
-<h3>3.1 Modelos de Escritório de Gerenciamento de Projetos (EGP / PMO) (Questão 5)</h3>
-<ol>
-<li><strong>PMO de Suporte:</strong> Fornece políticas, metodologias, modelos e lições aprendidas (grau de controle <strong>baixo</strong>).</li>
-<li><strong>PMO de Controle:</strong> Exige conformidade com frameworks, governança e ferramentas (grau de controle <strong>médio</strong>).</li>
-<li><strong>PMO Diretivo:</strong> Assume a gestão direta dos projetos e designa os gerentes de projeto (grau de controle <strong>alto</strong>).</li>
-</ol>
-<h3>3.2 Ciclos de Vida do Projeto (Questão 6)</h3>
-<ul>
-<li><strong>Preditivo (Cascata / Tradicional):</strong> Escopo, prazo e custo são definidos o mais cedo possível no início do projeto.</li>
-<li><strong>Iterativo e Incremental:</strong> O escopo inicial é decomposto em entregas progressivas que agregam funcionalidade.</li>
-<li><strong>Adaptativo / Ágil:</strong> Ciclos curtos (sprints), alta colaboração com o cliente e escopo aberto a mudanças contínuas.</li>
-<li><strong>Híbrido:</strong> Combina abordagem preditiva para partes estáveis com ágil para partes de alta incerteza.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 4 — Competências do Gestor e Código de Ética</h2>
-<h3>4.1 Modelo PMCDF e Competências (PMI)</h3>
-<p>O gestor de projetos deve equilibrar três dimensões fundamentais:
-* <strong>Conhecimento (Técnico):</strong> Domínio das técnicas, ferramentas e práticas consagradas de gerenciamento.
-* <strong>Desempenho (Prático):</strong> Capacidade de aplicar o conhecimento para gerar resultados e gerenciar restrições.
-* <strong>Pessoal (Comportamental):</strong> Liderança, inteligência emocional, negociação, ética, postura assertiva e comunicação.</p>
-<h3>4.2 Código de Ética e Conduta Profissional do PMI</h3>
-<p>Os quatro pilares éticos universais:
-1. <strong>Responsabilidade:</strong> Assumir a propriedade das decisões tomadas e de suas consequências.
-2. <strong>Respeito:</strong> Demonstrar consideração e apreço pelos recursos humanos, culturais e ambientais.
-3. <strong>Imparcialidade (Justiça):</strong> Tomar decisões de forma equânime, transparente e livre de conflitos de interesse.
-4. <strong>Honestidade:</strong> Agir com veracidade e transparência nas comunicações e relatórios do projeto.</p>
-        </article>
-    </main>
+    <div id="decrypted-resumo-mount" style="display: none;"></div>
 
     <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            themeVariables: {
-                fontFamily: 'Plus Jakarta Sans',
-                primaryColor: '#1e3a8a',
-                primaryBorderColor: '#3b82f6',
-                primaryTextColor: '#f3f4f6',
-                lineColor: '#60a5fa'
+        
+(function() {
+    'use strict';
+    // Bloqueia clique com botão direito
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+    // Bloqueia atalhos de inspeção e desenvolvedor
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    });
+
+    // Anti-debugger loop em thread secundária
+    setInterval(function() {
+        try {
+            (function() {
+                return false;
+            }['constructor']('debugger')());
+        } catch(e) {}
+    }, 700);
+
+    // Limpeza de console para evitar inspeção de variáveis em memória
+    setInterval(function() {
+        try { console.clear(); } catch(e) {}
+    }, 1800);
+})();
+
+
+        const _RESUMO_PAYLOAD = {"s": "r+hpYY6CSc6kRAIBXKDW5A==", "v": "01nyw8ybF9PnsBjM", "d": "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"};
+        const _SESSION_KEY = '__ads_auth_vault_token';
+
+        
+async function _decryptVault(pwd, payload) {
+    const salt = Uint8Array.from(atob(payload.s), c => c.charCodeAt(0));
+    const iv = Uint8Array.from(atob(payload.v), c => c.charCodeAt(0));
+    const ct = Uint8Array.from(atob(payload.d), c => c.charCodeAt(0));
+    
+    const enc = new TextEncoder();
+    const passKey = await window.crypto.subtle.importKey(
+        'raw',
+        enc.encode(pwd),
+        { name: 'PBKDF2' },
+        false,
+        ['deriveKey']
+    );
+    
+    const key = await window.crypto.subtle.deriveKey(
+        {
+            name: 'PBKDF2',
+            salt: salt,
+            iterations: 100000,
+            hash: 'SHA-256'
+        },
+        passKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+    );
+    
+    const decrypted = await window.crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        ct
+    );
+    
+    return new TextDecoder().decode(decrypted);
+}
+
+
+        async function unlockResumo(savedPassword) {
+            const input = document.getElementById('resumoPwd');
+            const errorEl = document.getElementById('resumoError');
+            const lockBox = document.getElementById('resumo-lock');
+            const mount = document.getElementById('decrypted-resumo-mount');
+            const btn = document.getElementById('btnResUnlock');
+
+            const pwd = savedPassword || (input ? input.value.trim() : '');
+            if (!pwd) return;
+
+            if (btn) btn.disabled = true;
+
+            try {
+                const decryptedHtml = await _decryptVault(pwd, _RESUMO_PAYLOAD);
+                sessionStorage.setItem(_SESSION_KEY, pwd);
+
+                if (lockBox) lockBox.style.display = 'none';
+                if (mount) {
+                    mount.innerHTML = decryptedHtml;
+                    mount.style.display = 'block';
+
+                    // Inicializa os diagramas Mermaid
+                    if (window.mermaid) {
+                        mermaid.run();
+                    }
+
+                    const scripts = mount.querySelectorAll('script');
+                    scripts.forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                        oldScript.parentNode.replaceChild(newScript, oldScript);
+                    });
+                }
+            } catch(err) {
+                if (btn) btn.disabled = false;
+                if (errorEl) errorEl.style.display = 'block';
+                if (input) {
+                    input.value = '';
+                    input.focus();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cachedToken = sessionStorage.getItem(_SESSION_KEY);
+            if (cachedToken) {
+                unlockResumo(cachedToken);
             }
         });
     </script>

@@ -370,145 +370,143 @@
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header">
-            <div class="meta-pills">
-                <span class="meta-pill highlight">📅 Prova: 12/11/2026</span>
-                <span class="meta-pill">📍 Sala 607 - Prédio 15</span>
-                <span class="meta-pill">⏰ 18h45 às 19h00</span>
-                <span class="meta-pill">💡 Unidades 1 a 4</span>
-            </div>
-            <h1>Requisitos de Software — Resumo Executivo e Tópicos de Prova</h1>
-            <p>Síntese das Unidades 1 a 4, ISO/IEC/IEEE 29148 e 12207, FURPS+, Elicitação, User Stories INVEST, Verificação vs. Validação e Baseline.</p>
-        </header>
+    
+    <div id="resumo-lock" style="max-width: 480px; margin: 80px auto; padding: 36px 28px; background: #111827; border-radius: 16px; border: 1px solid #374151; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; color: #f3f4f6;">
+        <div style="font-size: 40px; margin-bottom: 16px;">📖</div>
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Resumo Executivo Restrito</h2>
+        <p style="font-size: 14px; color: #9ca3af; line-height: 1.5; margin-bottom: 24px;">Conteúdo criptografado com AES-256. Informe a senha de acesso para descriptografar:</p>
+        <form onsubmit="event.preventDefault(); unlockResumo();" style="display: flex; flex-direction: column; gap: 14px;">
+            <input type="password" id="resumoPwd" placeholder="Chave de segurança..." style="width: 100%; padding: 12px 16px; border: 1.5px solid #4b5563; background: #1f2937; color: #f9fafb; border-radius: 8px; font-size: 15px; outline: none; box-sizing: border-box;" required autofocus>
+            <div id="resumoError" style="display: none; color: #ef4444; font-size: 13px; font-weight: 600;">Chave incorreta! Tente novamente.</div>
+            <button type="submit" id="btnResUnlock" style="background: #2563eb; color: #ffffff; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 700; cursor: pointer;">Desbloquear Resumo</button>
+        </form>
+    </div>
 
-        <article class="content">
-            <h1>📚 Resumo Executivo e Tópicos de Prova — Requisitos de Software (Unidades 1 a 4)</h1>
-<p><strong>Disciplina:</strong> Requisitos de Software (Unilasalle EAD)<br />
-<strong>Data da Prova Presencial (Bloco 2):</strong> 12/11/2026 (18h45 às 19h00 — Sala 607, Prédio 15)<br />
-<strong>Validação:</strong> Baseado integralmente nos 4 e-books oficiais da disciplina e nas 12 questões dos questionários oficiais comentados.</p>
-<hr />
-<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
-<div class="mermaid">
-flowchart LR
-    RS["⚙️ REQUISITOS DE SOFTWARE"]
-
-    RS --> U1["📌 UNIDADE 1: Fundamentos & Especificação"]
-    RS --> U2["📌 UNIDADE 2: Elicitação & Modelagem"]
-    RS --> U3["📌 UNIDADE 3: Verificação & Validação"]
-    RS --> U4["📌 UNIDADE 4: Gerenciamento & Rastreabilidade"]
-
-    U1 --> U1A["ISO/IEC/IEEE 29148: Características de Bom Requisito"]
-    U1 --> U1B["Mensurável, Verificável e sem Ambiguidade"]
-    U1 --> U1C["O Que vs. Como (Não especificar solução técnica)"]
-    U1 --> U1D["Requisitos Funcionais vs. Não-Funcionais (FURPS+)"]
-
-    U2 --> U2A["Técnicas de Elicitação: Entrevistas, Questionários, JAD, Etnografia"]
-    U2 --> U2B["Casos de Uso UML: Atores, Cenários e Relações Include/Extend"]
-    U2 --> U2C["User Stories Ágeis (Como um... Quero... Para que...)"]
-    U2 --> U2D["Critérios INVEST e Critérios de Aceitação"]
-
-    U3 --> U3A["ISO/IEC/IEEE 12207: Diferença Verificação x Validação"]
-    U3 --> U3B["Verificação: 'Construindo o produto corretamente?' (Conformidade)"]
-    U3 --> U3C["Validação: 'Construindo o produto correto?' (Necessidade do Cliente)"]
-    U3 --> U3D["Testes desenvolvidos concomitantemente aos requisitos"]
-    U3 --> U3E["Gerenciamento de Resultados e Aceite Formal"]
-
-    U4 --> U4A["Baseline de Requisitos (Acordo formal entre devs e stakeholders)"]
-    U4 --> U4B["Desenvolvimento de Requisitos vs. Gerenciamento de Requisitos"]
-    U4 --> U4C["6 Causas de Mudança (Mercado, Gestão, Usuários, Leis, Processos, Lições)"]
-    U4 --> U4D["Matriz de Rastreabilidade Bidirecional e Comitê de Mudanças (CCB)"]
-</div>
-
-<hr />
-<h2>📌 UNIDADE 1 — Fundamentos da Engenharia de Requisitos</h2>
-<div class="alert-box alert-important"><span>⚠️</span><div>> **Norma ISO/IEC/IEEE 29148 (2018) — Requisito Bem Especificado (Questões 1, 2 e 5 do Questionário):**</div></div>
-<blockquote>
-<ol>
-<li>Um requisito de software deve definir <strong>O QUÊ</strong> o sistema deve fazer, e <strong>NUNCA COMO</strong> a solução técnica será implementada (linguagem, banco de dados ou detalhes de arquitetura pertencem ao design).</li>
-<li>Deve ser <strong>mensurável</strong> (com condições quantificáveis claras) e <strong>verificável</strong> (deve existir um método prático de teste ou demonstração para provar que foi atendido).</li>
-<li>Deve ser <strong>não ambíguo</strong> (ter apenas uma interpretação possível tanto pela equipe técnica quanto pelos usuários).</li>
-<li>Deve atender a uma necessidade real de um <strong>stakeholder</strong> específico.</li>
-</ol>
-</blockquote>
-<h3>1.1 Classificação dos Requisitos (Modelo FURPS+)</h3>
-<ul>
-<li><strong>Requisitos Funcionais (F):</strong> Ações, comportamentos, cálculos, regras de negócio e serviços que o sistema deve executar diretamente.</li>
-<li><strong>Requisitos Não-Funcionais (URPS):</strong></li>
-<li><strong>Usability (Usabilidade):</strong> Facilidade de aprendizado, ergonomia, estética da interface.</li>
-<li><strong>Reliability (Confiabilidade):</strong> MTBF (tempo médio entre falhas), disponibilidade (99,9%), segurança contra falhas.</li>
-<li><strong>Performance (Desempenho):</strong> Tempo de resposta de transações, vazão, uso de memória/CPU.</li>
-<li><strong>Supportability (Suportabilidade):</strong> Facilidade de manutenção, portabilidade, testabilidade e extensibilidade.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 2 — Elicitação e Modelagem de Requisitos</h2>
-<h3>2.1 Técnicas de Elicitação</h3>
-<ul>
-<li><strong>Entrevistas (Abertas ou Estruturadas):</strong> Diálogo direto com os stakeholders; excelente para aprofundar problemas complexos.</li>
-<li><strong>Questionários:</strong> Ideais quando os usuários estão dispersos geograficamente ou quando se busca dados estatísticos com amostras grandes.</li>
-<li><strong>JAD (Joint Application Design):</strong> Workshops colaborativos e estruturados reunindo usuários, analistas e desenvolvedores.</li>
-<li><strong>Observação Direta / Etnografia:</strong> O analista observa o usuário em seu ambiente real de trabalho para descobrir requisitos tácitos e reais.</li>
-<li><strong>Prototipação:</strong> Criação de telas e simulações de fluxo para obter validação precoce do usuário.</li>
-</ul>
-<h3>2.2 Modelagem de Requisitos</h3>
-<ul>
-<li><strong>Casos de Uso (UML):</strong> Representam as interações entre <strong>Atores</strong> (usuários ou sistemas externos) e o sistema.</li>
-<li><em>Include:</em> Inclusão obrigatória de um subcomportamento (ex.: Validar Login no caso de uso Realizar Transferência).</li>
-<li><em>Extend:</em> Extensão condicional / opcional de um comportamento em ponto específico.</li>
-<li><strong>User Stories (Histórias de Usuário):</strong> Sintéticas e centradas no valor de negócio:</li>
-<li>Formato: <em>"Como [tipo de usuário], eu quero [funcionalidade] para que [benefício/valor]."</em></li>
-<li><strong>Critérios INVEST:</strong> <strong>I</strong>ndependente, <strong>N</strong>egociável, <strong>V</strong>aliosa, <strong>E</strong>stimável, <strong>S</strong>mall (pequena) e <strong>T</strong>estável.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 3 — Verificação e Validação de Requisitos</h2>
-<div class="alert-box alert-important"><span>⚠️</span><div>> **Pegadinha Clássica de Prova (Questão 6 do Questionário):**</div></div>
-<blockquote>
-<ul>
-<li><strong>Verificação (ISO/IEC/IEEE 12207):</strong> Confirmação, por meio de evidência objetiva, de que os requisitos especificados foram atendidos. Pergunta-chave: <em>"Estamos construindo o produto corretamente?"</em> (Foco na conformidade com o documento/normas).</li>
-<li><strong>Validação (ISO/IEC/IEEE 12207):</strong> Confirmação de que os requisitos para um uso ou aplicação pretendida específica foram atendidos. Pergunta-chave: <em>"Estamos construindo o produto correto?"</em> (Foco na real necessidade e satisfação do cliente).</li>
-</ul>
-</blockquote>
-<h3>3.1 Testes Concomitantes aos Requisitos (Questão 5)</h3>
-<ul>
-<li>O grande benefício de desenvolver casos de teste <strong>concomitantemente à especificação de requisitos</strong> (ou logo após) é que os testes funcionam como uma ferramenta de <strong>revisão e validação precoce</strong>, permitindo identificar ambiguidades, incompletudes e contradições antes de qualquer linha de código ser escrita.</li>
-</ul>
-<h3>3.2 Gerenciamento dos Resultados da Validação (Questão 1)</h3>
-<ul>
-<li>Ao concluir a validação, se o produto estiver conforme, formaliza-se o <strong>aceite</strong>.</li>
-<li>Se houver divergências ou defeitos, os resultados devem ser documentados e gerenciados para garantir o retrabalho corretivo e a reavaliação.</li>
-</ul>
-<hr />
-<h2>📌 UNIDADE 4 — Gerenciamento e Rastreabilidade de Requisitos</h2>
-<h3>4.1 Baseline de Requisitos (Questão 2)</h3>
-<ul>
-<li>Uma <strong>Baseline</strong> é uma versão estável e formalmente acordada de um conjunto de requisitos.</li>
-<li>A partir do momento em que a baseline é estabelecida, nenhuma alteração pode ser realizada de forma informal ou direta; qualquer mudança passa obrigatoriamente pelo fluxo formal de <strong>Controle de Mudanças (CCB - Change Control Board)</strong>.</li>
-</ul>
-<h3>4.2 Desenvolvimento vs. Gerenciamento de Requisitos (Questão 3)</h3>
-<p>A Engenharia de Requisitos é dividida em dois grandes grupos:
-1. <strong>Desenvolvimento de Requisitos:</strong> Elicitação, Análise, Especificação e Validação (fase de criação e descoberta).
-2. <strong>Gerenciamento de Requisitos:</strong> Controle de versão, controle de mudanças, rastreabilidade e monitoramento do status dos requisitos (fase de manutenção e governança durante todo o ciclo de vida).</p>
-<h3>4.3 Causas de Solicitações de Mudança (Questão 4)</h3>
-<p>As 6 causas fundamentais de mudanças de requisitos:
-1. Mudanças no ambiente operacional de mercado.
-2. <strong>Decisões estratégicas ou operacionais da gerência da organização.</strong>
-3. Requisitos esquecidos ou novos desejos dos usuários finais.
-4. Novas leis, regulamentações ou atos governamentais.
-5. Melhoria de processos organizacionais.
-6. Lições aprendidas e anomalias de projetos anteriores.</p>
-        </article>
-    </main>
+    <div id="decrypted-resumo-mount" style="display: none;"></div>
 
     <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            themeVariables: {
-                fontFamily: 'Plus Jakarta Sans',
-                primaryColor: '#1e3a8a',
-                primaryBorderColor: '#3b82f6',
-                primaryTextColor: '#f3f4f6',
-                lineColor: '#60a5fa'
+        
+(function() {
+    'use strict';
+    // Bloqueia clique com botão direito
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+    // Bloqueia atalhos de inspeção e desenvolvedor
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode === 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    });
+
+    // Anti-debugger loop em thread secundária
+    setInterval(function() {
+        try {
+            (function() {
+                return false;
+            }['constructor']('debugger')());
+        } catch(e) {}
+    }, 700);
+
+    // Limpeza de console para evitar inspeção de variáveis em memória
+    setInterval(function() {
+        try { console.clear(); } catch(e) {}
+    }, 1800);
+})();
+
+
+        const _RESUMO_PAYLOAD = {"s": "VbPXhyAtqwHx2Kxw5TATFw==", "v": "OYc9i+3bg3SyWVFE", "d": "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"};
+        const _SESSION_KEY = '__ads_auth_vault_token';
+
+        
+async function _decryptVault(pwd, payload) {
+    const salt = Uint8Array.from(atob(payload.s), c => c.charCodeAt(0));
+    const iv = Uint8Array.from(atob(payload.v), c => c.charCodeAt(0));
+    const ct = Uint8Array.from(atob(payload.d), c => c.charCodeAt(0));
+    
+    const enc = new TextEncoder();
+    const passKey = await window.crypto.subtle.importKey(
+        'raw',
+        enc.encode(pwd),
+        { name: 'PBKDF2' },
+        false,
+        ['deriveKey']
+    );
+    
+    const key = await window.crypto.subtle.deriveKey(
+        {
+            name: 'PBKDF2',
+            salt: salt,
+            iterations: 100000,
+            hash: 'SHA-256'
+        },
+        passKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+    );
+    
+    const decrypted = await window.crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: iv },
+        key,
+        ct
+    );
+    
+    return new TextDecoder().decode(decrypted);
+}
+
+
+        async function unlockResumo(savedPassword) {
+            const input = document.getElementById('resumoPwd');
+            const errorEl = document.getElementById('resumoError');
+            const lockBox = document.getElementById('resumo-lock');
+            const mount = document.getElementById('decrypted-resumo-mount');
+            const btn = document.getElementById('btnResUnlock');
+
+            const pwd = savedPassword || (input ? input.value.trim() : '');
+            if (!pwd) return;
+
+            if (btn) btn.disabled = true;
+
+            try {
+                const decryptedHtml = await _decryptVault(pwd, _RESUMO_PAYLOAD);
+                sessionStorage.setItem(_SESSION_KEY, pwd);
+
+                if (lockBox) lockBox.style.display = 'none';
+                if (mount) {
+                    mount.innerHTML = decryptedHtml;
+                    mount.style.display = 'block';
+
+                    // Inicializa os diagramas Mermaid
+                    if (window.mermaid) {
+                        mermaid.run();
+                    }
+
+                    const scripts = mount.querySelectorAll('script');
+                    scripts.forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                        oldScript.parentNode.replaceChild(newScript, oldScript);
+                    });
+                }
+            } catch(err) {
+                if (btn) btn.disabled = false;
+                if (errorEl) errorEl.style.display = 'block';
+                if (input) {
+                    input.value = '';
+                    input.focus();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cachedToken = sessionStorage.getItem(_SESSION_KEY);
+            if (cachedToken) {
+                unlockResumo(cachedToken);
             }
         });
     </script>
