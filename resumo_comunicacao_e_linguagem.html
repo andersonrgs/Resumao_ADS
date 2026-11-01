@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Anti-Debug & Anti-Inspection Guard -->
+    <script>
+        (function() {
+            'use strict';
+            // Desabilita menu de contexto (botão direito)
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+            // Bloqueia atalhos de desenvolvedor (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U)
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Anti-debugger trap loop
+            setInterval(function() {
+                try {
+                    (function() {
+                        return false;
+                    }['constructor']('debugger')());
+                } catch(e) {}
+            }, 700);
+
+            // Limpeza periódica do console
+            setInterval(function() {
+                try { console.clear(); } catch(e) {}
+            }, 1800);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comunicação e Linguagem — Resumo e Mapas Mentais — Resumo ADS 2026.2</title>
@@ -370,143 +404,391 @@
         </div>
     </header>
 
-    
-    <div id="resumo-lock" style="max-width: 480px; margin: 80px auto; padding: 36px 28px; background: #111827; border-radius: 16px; border: 1px solid #374151; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; color: #f3f4f6;">
-        <div style="font-size: 40px; margin-bottom: 16px;">📖</div>
-        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Resumo Executivo Restrito</h2>
-        <p style="font-size: 14px; color: #9ca3af; line-height: 1.5; margin-bottom: 24px;">Conteúdo criptografado com AES-256. Informe a senha de acesso para descriptografar:</p>
-        <form onsubmit="event.preventDefault(); unlockResumo();" style="display: flex; flex-direction: column; gap: 14px;">
-            <input type="password" id="resumoPwd" placeholder="Chave de segurança..." style="width: 100%; padding: 12px 16px; border: 1.5px solid #4b5563; background: #1f2937; color: #f9fafb; border-radius: 8px; font-size: 15px; outline: none; box-sizing: border-box;" required autofocus>
-            <div id="resumoError" style="display: none; color: #ef4444; font-size: 13px; font-weight: 600;">Chave incorreta! Tente novamente.</div>
-            <button type="submit" id="btnResUnlock" style="background: #2563eb; color: #ffffff; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 700; cursor: pointer;">Desbloquear Resumo</button>
-        </form>
-    </div>
+    <main class="container">
+        <header class="page-header">
+            <div class="meta-pills">
+                <span class="meta-pill highlight">📅 Prova: 05/11/2026</span>
+                <span class="meta-pill">📍 Sala 308 - Prédio 1 LABIN</span>
+                <span class="meta-pill">⏰ 20h00 às 20h15</span>
+                <span class="meta-pill">💡 Unidades 1 a 4</span>
+            </div>
+            <h1>Comunicação e Linguagem — Resumo e Mapas Mentais</h1>
+            <p>Síntese completa das Unidades 1 a 4, 6 Funções da Linguagem de Jakobson, Estratégias PCN, 7 Fatores de Textualidade e Gêneros Acadêmicos.</p>
+        </header>
 
-    <div id="decrypted-resumo-mount" style="display: none;"></div>
+        <article class="content">
+            <h1>📚 Resumo Executivo e Mapas Mentais — Comunicação e Linguagem (Unidades 1 a 4)</h1>
+<p><strong>Disciplina:</strong> Comunicação e Linguagem (Unilasalle EAD)
+<strong>Autores do E-book:</strong> Ângela Kroetz dos Santos e Gilberto Fonseca
+<strong>Data da Prova Presencial (Bloco 1):</strong> 05/11/2026 (20h00 às 20h15 — Sala 308, Prédio 1 LABIN)</p>
+<hr />
+<h2>🧠 Mapa Mental Geral da Disciplina (4 Unidades)</h2>
+<div class="mermaid">
+flowchart LR
+    CL["🗣️ COMUNICAÇÃO E LINGUAGEM"]
+
+    CL --> U1["📌 UNIDADE 1: Processo Comunicativo"]
+    CL --> U2["📌 UNIDADE 2: Leitura e Compreensão"]
+    CL --> U3["📌 UNIDADE 3: Articulação da Escrita"]
+    CL --> U4["📌 UNIDADE 4: O Texto em Ação"]
+
+    U1 --> U1A["6 Elementos de Jakobson + Feedback"]
+    U1 --> U1B["Ruído na Comunicação"]
+    U1 --> U1C["6 Funções da Linguagem"]
+    U1 --> U1D["Interlocutor e Adequação (Roupa)"]
+    U1 --> U1E["Gênero x Tipo x Domínio Textual"]
+
+    U2 --> U2A["Decodificar ≠ Compreender/Interpretar"]
+    U2 --> U2B["Conhecimentos Prévios: Linguístico, Mundo, Interacional"]
+    U2 --> U2C["Estratégias PCN: Seleção, Antecipação, Inferência, Verificação"]
+    U2 --> U2D["Intertextualidade e Paródia"]
+    U2 --> U2E["Textos Verbais, Não Verbais e Mistos"]
+
+    U3 --> U3A["Frase, Oração, Período e Parágrafo"]
+    U3 --> U3B["Parágrafo Padrão: Tópico Frasal + Desenv. + Conclusão"]
+    U3 --> U3C["7 Fatores de Textualidade"]
+    U3 --> U3D["Coesão (Articuladores, Pronomes, Substituição, Elipse)"]
+    U3 --> U3E["Coerência (Lógica/Sentido) e Texto Argumentativo"]
+
+    U4 --> U4A["Resenha (Descritiva + Apreciação Crítica)"]
+    U4 --> U4B["Resumo (Síntese + Objetividade + Ordem)"]
+    U4 --> U4C["Ensaio (Reflexão Crítica Original Livre)"]
+    U4 --> U4D["Mapa Mental (Esquema Hierárquico) e Seminário Oral"]
+    U4 --> U4E["Dúvidas Gramaticais Recorrentes (Norma Padrão)"]
+</div>
+
+<hr />
+<h2>📌 UNIDADE 1 — O Processo da Comunicação (p. 9–34)</h2>
+<h3>1.1 Origem da Comunicação</h3>
+<ul>
+<li><strong>Gesto e "Grito da Natureza" (Rousseau):</strong> Antes da palavra falada/escrita, o ser humano comunicava-se por gestos e gritos instintivos (socorro/dor).</li>
+<li><strong>Evolução da Escrita:</strong> Pinturas rupestres (~8.000 anos, necessidade agrícola/sedentária de medir colheita e rebanho) → sinais pictóricos → alfabeto hebraico (1700–1500 a.C.) → alfabeto grego (400 a.C.) → alfabeto latino.</li>
+<li><strong>Sociedade Contemporânea:</strong> Passou de uma perspectiva predominantemente <strong>oral</strong> para uma dimensão de <strong>escrita</strong> (redes sociais, WhatsApp, EaD), porém com textos curtos e interações virtuais.</li>
+</ul>
+<h3>1.2 Elementos da Comunicação (Jakobson + Feedback) e Funções da Linguagem</h3>
+<div class="alert-box alert-important"><span>⚠️</span><div>> **Tema campeão de prova!** Cada um dos 6 elementos de Roman Jakobson (baseado em Claude Shannon) corresponde a uma **Função da Linguagem**, de acordo com a ênfase da mensagem. O **Feedback** (resposta do receptor que torna o processo interacional) não estava no modelo original de Jakobson, mas fecha o ciclo comunicativo.</div></div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Elemento da Comunicação</th>
+<th style="text-align: left;">Conceito-Chave</th>
+<th style="text-align: left;">Função da Linguagem Correspondente</th>
+<th style="text-align: left;">Características e Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Contexto (ou Referente)</strong></td>
+<td style="text-align: left;">O assunto/fato da mensagem</td>
+<td style="text-align: left;"><strong>Função Referencial (ou Denotativa)</strong></td>
+<td style="text-align: left;">Foco na informação objetiva, impessoal, 3ª pessoa. Ex.: <em>Notícias de jornal, textos científicos/acadêmicos</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Emissor (ou Remetente)</strong></td>
+<td style="text-align: left;">Quem envia a mensagem</td>
+<td style="text-align: left;"><strong>Função Emotiva (ou Expressiva)</strong></td>
+<td style="text-align: left;">Foco na subjetividade, sentimentos e opiniões do emissor (1ª pessoa). Ex.: <em>Diários, comentários opinativos, desabafos</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Receptor (ou Destinatário)</strong></td>
+<td style="text-align: left;">Para quem a mensagem é enviada</td>
+<td style="text-align: left;"><strong>Função Apelativa (ou Conativa)</strong></td>
+<td style="text-align: left;">Foco em persuadir/convencer o interlocutor (verbos no imperativo, vocativos). Ex.: <em>Propagandas, anúncios publicitários</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mensagem</strong></td>
+<td style="text-align: left;">O conteúdo/conjunto de informações</td>
+<td style="text-align: left;"><strong>Função Poética</strong></td>
+<td style="text-align: left;">Foco no <strong>como</strong> se diz (elaboração estética, ritmo, rimas, sonoridade, conotação). Ex.: <em>Poemas, músicas, textos literários</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Canal</strong></td>
+<td style="text-align: left;">Meio físico/virtual por onde circula</td>
+<td style="text-align: left;"><strong>Função Fática</strong></td>
+<td style="text-align: left;">Foco em <strong>abrir, testar/manter ou fechar</strong> o canal de contato. Sempre breve. Ex.: <em>"Alô?", "Está me ouvindo?", "Até logo"</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Código</strong></td>
+<td style="text-align: left;">Sistema de signos partilhado (língua)</td>
+<td style="text-align: left;"><strong>Função Metalinguística</strong></td>
+<td style="text-align: left;">O código explicando o próprio código (a linguagem falando dela mesma). Ex.: <em>Dicionário, vídeo ensinando a gravar vídeo, poema sobre fazer poesia</em>.</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 Ruído, Interlocutor e Adequação Linguística</h3>
+<ul>
+<li><strong>Ruído na Comunicação:</strong> Qualquer falha ou interferência em um dos elementos que prejudique a compreensão (ex.: dicção ruim, receptor desatento/seletivo, erro de digitação em um e-mail corporativo trocando dia "16" por "26", ambiguidade contextual).</li>
+<li><strong>Papel Ativo do Interlocutor:</strong> O receptor <strong>não é passivo</strong>; ele mobiliza seu repertório para construir sentido e alterna de papel com o emissor.</li>
+<li><strong>Adequação da Linguagem ("A língua é como a roupa"):</strong></li>
+<li>Não existe comunicação sem intenção. O bom comunicador adapta o registro (formal x informal) ao <strong>interlocutor</strong>, ao <strong>gênero</strong> e à <strong>situação comunicativa</strong>.</li>
+<li><em>Exemplos de falha de adequação cobrados em prova:</em><ol>
+<li>Mandar um bilhete erudito (<em>"Venho mui respeitosamente..."</em>) para um colega de infância = ir de smoking/terno e sapatos de verniz a um piquenique.</li>
+<li>Enviar e-mail corporativo para uma Universidade usando gírias (<em>"E aí, galera, td certo? mto legal"</em>).</li>
+<li>Usar <em>internetês</em> pesado (<em>"naum quero + tc com vc"</em>, <em>"bisc8"</em>) no WhatsApp com a mãe que não domina essa variedade: <strong>adequado ao gênero (WhatsApp), mas inadequado ao interlocutor (mãe)</strong>.</li>
+</ol>
+</li>
+</ul>
+<h3>1.4 Gênero Textual x Tipo Textual x Domínio Discursivo (Marcuschi)</h3>
+<ul>
+<li><strong>Gênero Textual:</strong> Textos concretos, empíricos e <strong>relativamente estáveis</strong> usados no cotidiano (definidos por <em>Objetivo, Tema, Estrutura, Linguagem e Esfera de Circulação</em>). Ex.: <em>e-mail, notícia, reportagem, receita médica, contrato, bula, resumo, resenha, conversa de WhatsApp</em>.</li>
+<li><strong>Tipo Textual (Modo Textual):</strong> Natureza linguística/estrutural da composição (sequências internas). São apenas 5: <strong>Narração, Argumentação, Exposição, Descrição e Injunção</strong>.</li>
+<li><strong>Heterogeneidade Tipológica:</strong> Um mesmo gênero textual (ex.: <em>reportagem</em>) costuma combinar vários tipos textuais (sequências narrativas, expositivas e argumentativas).</li>
+<li><strong>Domínio Discursivo (ou Textual):</strong> A esfera da atividade humana onde os gêneros circulam. Ex.: <em>Domínio Jornalístico, Acadêmico/Instrucional, Jurídico, Religioso, Comercial, Saúde, Interpessoal</em>.</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 2 — Da Leitura à Compreensão Textual (p. 35–68)</h2>
+<h3>2.1 Decodificação x Compreensão e os 3 Conhecimentos Prévios</h3>
+<ul>
+<li><strong>Decodificar ≠ Compreender:</strong> Decodificar é apenas reconhecer os sinais gráficos/letras (quem só decodifica sem compreender é considerado <em>analfabeto funcional</em>). <strong>Interpretar</strong> é <em>"localizar as pistas e sinalizações deixadas no texto pelo autor e atribuir-lhes significado"</em> (Guimarães, 2011), sem fantasiar ou extrapolar os limites do texto.</li>
+<li><strong>Três Tipos de Conhecimentos Prévios (mobilizados na leitura):</strong></li>
+<li><strong>Conhecimento Linguístico:</strong> Domínio da língua, gramática, léxico e funcionamento dos gêneros.</li>
+<li><strong>Conhecimento de Mundo (Enciclopédico):</strong> Bagagem cultural, histórica e vivências armazenadas na memória.</li>
+<li><strong>Conhecimento Interacional:</strong> Conhecimentos partilhados entre autor e leitor sobre as intenções e convenções da interação.</li>
+</ul>
+<h3>2.2 As Estratégias de Leitura (PCNs)</h3>
+<div class="mermaid">
+flowchart LR
+    OBJ["🎯 Objetivo de Leitura"] --> SEL["1. Seleção<br/>(Leitura rápida/filtragem)"]
+    SEL --> ANT["2. Antecipação<br/>(Hipóteses: Veículo, Imagens, Autoria, Época, Gênero)"]
+    ANT --> INF["3. Inferência<br/>(Deduções nas entrelinhas)"]
+    INF --> VER["4. Verificação<br/>(Confirmação ou correção das hipóteses)"]
+    VER --> ACP["🧠 Ativação de Conhecimentos Prévios"]
+</div>
+
+<h3>2.3 Intertextualidade, Paródia e Textos Não Verbais</h3>
+<ul>
+<li><strong>Intertextualidade (Bakhtin / Koch &amp; Elias):</strong> Todo discurso dialoga com discursos anteriores (<em>"nada do que falamos é novo"</em>). Pode ser explícita ou implícita (exige conhecimento prévio do leitor para ser percebida) e ocorre tanto em textos verbais quanto não verbais.</li>
+<li><strong>Paródia:</strong> Recriação de uma obra já existente e consagrada com finalidade <strong>satírica, irônica, crítica ou humorística</strong>, subvertendo ou reconstruindo o texto original.</li>
+<li>⚠️ <strong>Atenção à direção da paródia em prova:</strong> O texto novo é que faz paródia do texto original consagrado (ex.: o anúncio <em>"Horta de Elite"</em> é paródia do filme <em>"Tropa de Elite"</em>, e não o inverso!).</li>
+<li><strong>Textos Não Verbais e Mistos:</strong> Obras de arte (ex.: <em>Operários</em>, de Tarsila do Amaral — crítica à massificação/coisificação na Era Vargas), charges, tirinhas e anúncios publicitários (ex.: anúncio da <em>Cimento Itambé</em> onde pás de cimento formam árvores; ou anúncio de papel e celulose citando personagens literários que "saem da floresta" reflorestada).</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 3 — A Articulação da Escrita (p. 69–96)</h2>
+<h3>3.1 Frase, Oração, Período e Parágrafo Padrão</h3>
+<ul>
+<li><strong>Frase:</strong> Enunciado de sentido completo. Pode ser <strong>nominal</strong> (sem verbo), <strong>oração</strong> (1 verbo, estruturada em <em>Sujeito + Verbo + Complemento</em>) ou <strong>período</strong> (mais de um verbo).</li>
+<li><strong>Equilíbrio Frasal:</strong> Evitar tanto a <strong>frase excessivamente longa</strong> (um único ponto final com ideias sobrepostas que fazem o leitor perder o fio da meada) quanto <strong>frases fragmentadas</strong> (curtas e picotadas demais, que quebram a relação lógica).</li>
+<li><strong>Estrutura do Parágrafo Padrão:</strong>
+  $$\text{Parágrafo Padrão} = \text{Tópico Frasal (ideia-núcleo)} + \text{Desenvolvimento (ideias secundárias)} + \text{Conclusão}$$</li>
+<li><strong>Tipos de Tópico Frasal (Garcia, 2003):</strong><ol>
+<li><strong>Declaração Inicial:</strong> Afirmação genérica/ampla que será explicada na sequência.</li>
+<li><strong>Definição:</strong> Apresenta o conceito/significado de um termo logo no início.</li>
+<li><strong>Divisão:</strong> Divide o tópico em partes/segmentos que serão contrastados ou explicados.</li>
+</ol>
+</li>
+</ul>
+<h3>3.2 Uso da Vírgula (Regra de Ouro)</h3>
+<ul>
+<li><strong>JAMAIS</strong> separar com uma única vírgula o <strong>Sujeito</strong> do <strong>Predicado (Verbo + Complemento)</strong>.</li>
+<li><strong>Usa-se vírgula:</strong></li>
+<li>Para isolar <strong>termo intercalado</strong> entre sujeito e verbo (obrigatoriamente <strong>duas vírgulas</strong>, uma antes e outra depois: <em>"Os alunos, ontem à noite, apresentaram o seminário"</em>).</li>
+<li>Para enumerar termos de um <strong>sujeito composto</strong> (<em>"Ana, Carlos, Joana e Sandra..."</em>).</li>
+<li>Após <strong>adjunto adverbial deslocado</strong> para o início da frase (<em>"Naquela tarde, professores..."</em>).</li>
+</ul>
+<h3>3.3 Os 7 Fatores de Textualidade</h3>
+<ol>
+<li><strong>Coesão:</strong> Articulação na <strong>materialidade linguística</strong> do texto (gramática, conectores, retomadas). Depende do autor.</li>
+<li><strong>Coerência:</strong> Articulação no <strong>nível das ideias/sentido</strong> (lógica, não contradição, ordem e transição). Depende da interação autor-leitor.</li>
+<li><strong>Informatividade:</strong> Grau de novidade/informações relevantes que fazem o texto progredir (não repetir apenas o óbvio).</li>
+<li><strong>Intencionalidade:</strong> Propósito do autor ao produzir o texto.</li>
+<li><strong>Aceitabilidade:</strong> Atitude do leitor em aceitar o texto como coerente e compreensível.</li>
+<li><strong>Situacionalidade:</strong> Adequação do texto ao ambiente, época e situação comunicativa.</li>
+<li><strong>Intertextualidade:</strong> Diálogo com outros textos prévios.</li>
+</ol>
+<h3>3.4 Mecanismos de Coesão Textual</h3>
+<ul>
+<li><strong>Articuladores Textuais:</strong></li>
+<li><strong>Preposições:</strong> Ligam dois termos subordinando o segundo ao primeiro (<em>de, do, da, em, no, por, pelo, com, para</em>).</li>
+<li><strong>Advérbios:</strong> Modificam verbo, adjetivo ou oração indicando circunstância de tempo, lugar, modo ou intensidade (<em>aqui, lá, completamente, mais</em>).</li>
+<li><strong>Conjunções (Principais Relações cobradas em prova — Figura 3.7, p. 84):</strong><ul>
+<li><strong>Adição:</strong> <em>e, nem, também, além disso, não só... mas também</em>.</li>
+<li><strong>Oposição (Adversativas):</strong> <em>mas, porém, contudo, todavia, no entanto, entretanto</em>.</li>
+<li><strong>Conclusão:</strong> <em>logo, portanto, por isso, assim, dessa forma, por conseguinte</em>.</li>
+<li><strong>Concessão:</strong> <em>ainda que, embora, mesmo que, conquanto, a despeito de</em>.</li>
+<li><strong>Causa:</strong> <em>já que, como (no início), uma vez que, visto que, porque</em>.</li>
+<li><strong>Explicação:</strong> <em>porque, pois</em>.</li>
+<li><strong>Condição:</strong> <em>se, caso, desde que (+ subjuntivo), a não ser que</em>.</li>
+<li><strong>Tempo:</strong> <em>quando, enquanto, depois que, desde que (+ indicativo, sentido de "desde o momento em que"), logo que, assim que</em>.</li>
+<li><strong>Conformidade:</strong> <em>como, conforme, consoante, de acordo com, segundo</em>.</li>
+<li><strong>Consequência:</strong> <em>tanto que, a ponto de, tal que</em>.</li>
+<li><strong>Finalidade:</strong> <em>para, para que, a fim de que</em>.</li>
+<li><strong>Proporção:</strong> <em>à medida que, à proporção que</em>.</li>
+</ul>
+</li>
+<li><strong>Coesão Referencial (para evitar repetição de termos — Quadro 3.3, p. 86):</strong></li>
+<li><strong>Pronominalização:</strong> Retomar um termo por pronome (<em>ele, os dois, o, lo, seu, esta</em>).</li>
+<li><strong>Substituição Vocabular (Sinonímia/Hiperonímia):</strong> Retomar um termo por palavra/expressão equivalente (<em>"Amor Líquido"</em> → <em>"o livro"</em>; <em>"o menino e a menina"</em> → <em>"as crianças"</em>).</li>
+<li><strong>Elipse:</strong> Supressão de um termo facilmente identificável pelo contexto (<em>"Bauman não tem receio [...]. [Ø] Mostra que..."</em>).</li>
+</ul>
+<hr />
+<h2>📌 UNIDADE 4 — O Texto em Ação (p. 97–121)</h2>
+<h3>4.1 Quadro Comparativo dos Gêneros Acadêmicos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Gênero Acadêmico</th>
+<th style="text-align: left;">Modalidade</th>
+<th style="text-align: left;">Características Essenciais (Como cai na prova!)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Resenha</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Combina <strong>parte descritiva</strong> (apresentação da obra) + <strong>parte crítica</strong> (apreciação/juízo de valor fundamentado em argumentos). Comum sobre livros, filmes e séries.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resumo</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Exige <strong>síntese e objetividade</strong>. Apresenta apenas as ideias principais do texto original de forma abreviada e <strong>respeitando a ordem cronológica</strong> do original, <strong>sem emitir opinião/crítica pessoal</strong>. Usa <strong>paráfrase</strong> (reescrever com as próprias palavras mantendo a autoria).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ensaio</strong></td>
+<td style="text-align: left;">Escrito</td>
+<td style="text-align: left;">Texto <em>discursivo-argumentativo-expositivo</em> mais <strong>livre de convenções formais</strong>, voltado à reflexão crítica autoral e conclusões originais (criado por Michel de Montaigne no séc. XVI).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mapa Mental</strong></td>
+<td style="text-align: left;">Escrito / Visual</td>
+<td style="text-align: left;"><em>"Resumo do resumo"</em> em formato de <strong>esquema hierárquico/árvore</strong>, ligando palavras-chave a partir de um eixo central. Pode partir de um texto-base (respeitando suas relações) ou de um <em>brainstorming</em> livre.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Seminário / Apresentação</strong></td>
+<td style="text-align: left;">Oral (+ Slides)</td>
+<td style="text-align: left;">Gênero oral expositivo para compartilhar pesquisa. Exige roteiro prévio, ensaio, postura, linguagem formal (sem vícios orais como <em>"né?", "tipo assim"</em>), slides com <strong>fundo branco</strong>, textos curtos, imagens e sem caneta laser/excesso de animações (<em>"menos é mais"</em>).</td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 Tabela Definitiva das Dúvidas Gramaticais Recorrentes (p. 117–119)</h3>
+<blockquote>
+<p>[!WARNING]
+<strong>Leitura obrigatória de véspera!</strong> As questões de gramática da prova saem literalmente desta tabela do e-book:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">❌ Forma Inadequada</th>
+<th style="text-align: left;">✅ Forma Correta (Norma Padrão)</th>
+<th style="text-align: left;">Regra Rápida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><em>Mau entendido / Mal humor</em></td>
+<td style="text-align: left;"><strong>Mal entendido / Mau humor</strong></td>
+<td style="text-align: left;"><strong>Mal</strong> ≠ Bem (<em>bem entendido</em>); <strong>Mau</strong> ≠ Bom (<em>bom humor</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Fazem cinco anos</em></td>
+<td style="text-align: left;"><strong>Faz cinco anos</strong></td>
+<td style="text-align: left;"><em>Fazer</em> indicando tempo decorrido é impessoal (sempre no singular).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Houveram muitos atrasos</em></td>
+<td style="text-align: left;"><strong>Houve muitos atrasos</strong></td>
+<td style="text-align: left;"><em>Haver</em> no sentido de <em>existir/acontecer</em> é impessoal (invariável). Já o verbo <em>existir</em> vai para o plural (<em>Existem muitas esperanças</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Para mim fazer</em></td>
+<td style="text-align: left;"><strong>Para eu fazer</strong></td>
+<td style="text-align: left;"><em>Mim</em> não conjuga verbo (não pode ser sujeito).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Entre eu e você</em></td>
+<td style="text-align: left;"><strong>Entre mim e você</strong></td>
+<td style="text-align: left;">Após preposição (<em>entre</em>), usa-se pronome oblíquo (<em>mim, ti</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Há cinco meses atrás</em></td>
+<td style="text-align: left;"><strong>Há cinco meses</strong> <em>ou</em> <strong>Cinco meses atrás</strong></td>
+<td style="text-align: left;">Nunca usar <em>há</em> e <em>atrás</em> juntos (redundância/pleonasmo).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Chegou a duas horas / Daqui há 5 min</em></td>
+<td style="text-align: left;"><strong>Chegou há duas horas / Daqui a 5 min</strong></td>
+<td style="text-align: left;"><strong>Há</strong> = passado (<em>faz</em>); <strong>A</strong> = futuro ou distância.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Nunca lhe vi</em></td>
+<td style="text-align: left;"><strong>Nunca o vi</strong></td>
+<td style="text-align: left;"><em>Lhe</em> é objeto indireto; o verbo <em>ver</em> pede objeto direto (<em>o, a</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Chegou em Porto Alegre</em></td>
+<td style="text-align: left;"><strong>Chegou a Porto Alegre</strong></td>
+<td style="text-align: left;">Verbos de movimento (<em>ir, chegar, levar</em>) exigem preposição <strong>a</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Seção de cinema</em></td>
+<td style="text-align: left;"><strong>Sessão de cinema</strong></td>
+<td style="text-align: left;"><strong>Sessão</strong> = tempo de evento/reunião; <strong>Seção</strong> = setor/divisão (<em>seção eleitoral</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Ela era meia transtornada</em></td>
+<td style="text-align: left;"><strong>Ela era meio transtornada</strong></td>
+<td style="text-align: left;"><em>Meio</em> (advérbio = <em>um pouco</em>) é invariável.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Nada haver com você</em></td>
+<td style="text-align: left;"><strong>Nada a ver com você</strong></td>
+<td style="text-align: left;">Expressão correta é <em>ter a ver</em> (ou <em>nada que ver</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Um dos que chegou antes</em></td>
+<td style="text-align: left;"><strong>Um dos que chegaram antes</strong></td>
+<td style="text-align: left;">A expressão <em>um dos que</em> pede verbo no plural.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Tinha chego atrasado</em></td>
+<td style="text-align: left;"><strong>Tinha chegado atrasado</strong></td>
+<td style="text-align: left;">Com <em>ter/haver</em>, usa-se particípio regular (<strong>chegado</strong>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Eles tem razão</em></td>
+<td style="text-align: left;"><strong>Eles têm razão</strong></td>
+<td style="text-align: left;">Plural de <em>tem</em> e <em>vem</em> leva acento circunflexo (<strong>têm / vêm</strong>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>De encontro aos desejos (favorável)</em></td>
+<td style="text-align: left;"><strong>Ao encontro dos desejos</strong></td>
+<td style="text-align: left;"><strong>Ao encontro de</strong> = a favor/harmonia; <strong>De encontro a</strong> = contra/choque.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Já é 8 horas</em></td>
+<td style="text-align: left;"><strong>Já são 8 horas</strong> (mas: <em>Já é 1h / meio-dia</em>)</td>
+<td style="text-align: left;"><em>Ser</em> indicando horas concorda com o numeral.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Sobre a mira do assaltante</em></td>
+<td style="text-align: left;"><strong>Sob a mira do assaltante</strong></td>
+<td style="text-align: left;"><strong>Sob</strong> = debaixo de; <strong>Sobre</strong> = em cima de / a respeito de.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Estudou, mais não passou</em></td>
+<td style="text-align: left;"><strong>Estudou, mas não passou</strong></td>
+<td style="text-align: left;"><strong>Mas</strong> = porém (oposição); <strong>Mais</strong> = quantidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Tranqüilo</em></td>
+<td style="text-align: left;"><strong>Tranquilo</strong></td>
+<td style="text-align: left;">O trema foi abolido em palavras vernáculas (só resta em nomes próprios estrangeiros como <em>Müller</em>).</td>
+</tr>
+</tbody>
+</table>
+        </article>
+    </main>
 
     <script>
-        
-(function() {
-    'use strict';
-    // Bloqueia clique com botão direito
-    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
-
-    // Bloqueia atalhos de inspeção e desenvolvedor
-    document.addEventListener('keydown', function(e) {
-        if (e.keyCode === 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
-            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }
-    });
-
-    // Anti-debugger loop em thread secundária
-    setInterval(function() {
-        try {
-            (function() {
-                return false;
-            }['constructor']('debugger')());
-        } catch(e) {}
-    }, 700);
-
-    // Limpeza de console para evitar inspeção de variáveis em memória
-    setInterval(function() {
-        try { console.clear(); } catch(e) {}
-    }, 1800);
-})();
-
-
-        const _RESUMO_PAYLOAD = {"s": "Jdy1dg5ftrMdM1+yQzlZtw==", "v": "XnrkfOLN6g+LczI+", "d": "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"};
-        const _SESSION_KEY = '__ads_auth_vault_token';
-
-        
-async function _decryptVault(pwd, payload) {
-    const salt = Uint8Array.from(atob(payload.s), c => c.charCodeAt(0));
-    const iv = Uint8Array.from(atob(payload.v), c => c.charCodeAt(0));
-    const ct = Uint8Array.from(atob(payload.d), c => c.charCodeAt(0));
-    
-    const enc = new TextEncoder();
-    const passKey = await window.crypto.subtle.importKey(
-        'raw',
-        enc.encode(pwd),
-        { name: 'PBKDF2' },
-        false,
-        ['deriveKey']
-    );
-    
-    const key = await window.crypto.subtle.deriveKey(
-        {
-            name: 'PBKDF2',
-            salt: salt,
-            iterations: 100000,
-            hash: 'SHA-256'
-        },
-        passKey,
-        { name: 'AES-GCM', length: 256 },
-        false,
-        ['decrypt']
-    );
-    
-    const decrypted = await window.crypto.subtle.decrypt(
-        { name: 'AES-GCM', iv: iv },
-        key,
-        ct
-    );
-    
-    return new TextDecoder().decode(decrypted);
-}
-
-
-        async function unlockResumo(savedPassword) {
-            const input = document.getElementById('resumoPwd');
-            const errorEl = document.getElementById('resumoError');
-            const lockBox = document.getElementById('resumo-lock');
-            const mount = document.getElementById('decrypted-resumo-mount');
-            const btn = document.getElementById('btnResUnlock');
-
-            const pwd = savedPassword || (input ? input.value.trim() : '');
-            if (!pwd) return;
-
-            if (btn) btn.disabled = true;
-
-            try {
-                const decryptedHtml = await _decryptVault(pwd, _RESUMO_PAYLOAD);
-                sessionStorage.setItem(_SESSION_KEY, pwd);
-
-                if (lockBox) lockBox.style.display = 'none';
-                if (mount) {
-                    mount.innerHTML = decryptedHtml;
-                    mount.style.display = 'block';
-
-                    // Inicializa os diagramas Mermaid
-                    if (window.mermaid) {
-                        mermaid.run();
-                    }
-
-                    const scripts = mount.querySelectorAll('script');
-                    scripts.forEach(oldScript => {
-                        const newScript = document.createElement('script');
-                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                        oldScript.parentNode.replaceChild(newScript, oldScript);
-                    });
-                }
-            } catch(err) {
-                if (btn) btn.disabled = false;
-                if (errorEl) errorEl.style.display = 'block';
-                if (input) {
-                    input.value = '';
-                    input.focus();
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const cachedToken = sessionStorage.getItem(_SESSION_KEY);
-            if (cachedToken) {
-                unlockResumo(cachedToken);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Plus Jakarta Sans',
+                primaryColor: '#1e3a8a',
+                primaryBorderColor: '#3b82f6',
+                primaryTextColor: '#f3f4f6',
+                lineColor: '#60a5fa'
             }
         });
     </script>

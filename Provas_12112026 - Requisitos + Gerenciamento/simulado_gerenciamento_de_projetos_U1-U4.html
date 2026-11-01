@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Anti-Debug & Anti-Inspection Guard -->
+    <script>
+        (function() {
+            'use strict';
+            // Desabilita menu de contexto (botão direito)
+            document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+
+            // Bloqueia atalhos de desenvolvedor (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U)
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Anti-debugger trap loop
+            setInterval(function() {
+                try {
+                    (function() {
+                        return false;
+                    }['constructor']('debugger')());
+                } catch(e) {}
+            }, 700);
+
+            // Limpeza periódica do console
+            setInterval(function() {
+                try { console.clear(); } catch(e) {}
+            }, 1800);
+        })();
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação: Gerenciamento de Projetos — Blackboard Ultra (Simulado ADS)</title>
@@ -555,142 +589,1123 @@
         </div>
     </div>
 
-    
-    <!-- Container Protegido Blackboard Ultra -->
-    <div id="bb-vault-lock" style="max-width: 500px; margin: 60px auto; padding: 32px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; border: 1px solid #e2e8f0; font-family: inherit;">
-        <div style="font-size: 44px; margin-bottom: 16px;">🛡️</div>
-        <h2 style="font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Avaliação Oficial Protegida</h2>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.5; margin-bottom: 24px;">As questões e o gabarito oficial estão criptografados em AES-256. Digite a senha para carregar o simulado em memória:</p>
-        <form id="simuladoUnlockForm" onsubmit="event.preventDefault(); unlockSimulado();" style="display: flex; flex-direction: column; gap: 14px;">
-            <input type="password" id="simuladoPwd" placeholder="Chave de segurança..." style="width: 100%; padding: 12px 16px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; box-sizing: border-box;" required autofocus>
-            <div id="simError" style="display: none; color: #e11d48; font-size: 13px; font-weight: 600;">Chave incorreta! Verifique e tente novamente.</div>
-            <button type="submit" id="btnSimUnlock" style="background: #6b21a8; color: #ffffff; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: 700; cursor: pointer;">Desbloquear Simulado</button>
-        </form>
-    </div>
+    <main class="bb-container">
+        <!-- Aviso de Embaralhamento -->
+        <div class="bb-alert-bar">
+            <span>🔄 <strong>Modo Simulado Ativo:</strong> A cada carregamento (<strong>F5</strong>), as questões e alternativas mudam de posição como no exame real.</span>
+            <span style="font-size: 0.8em; color: #856404; font-weight: 700;">Simulado G2 Presencial</span>
+        </div>
 
-    <div id="decrypted-quiz-mount" style="display: none;"></div>
+        <form id="quizForm">
+
+        <div class="question-container" id="q1" data-unit="2">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">1</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP).<br><br><div class="porque-separator">PORQUE</div><br><br>A EAP é um diagrama que organiza e define o escopo total do projeto e apresenta o processo, a subdivisão do trabalho e das entregas do projeto em componentes menores.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q1" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.1.4.1, p. 44):</b><br>- Citação literal da página 44 do e-book: <i>"Uma das principais saídas de processos do gerenciamento do escopo é a Estrutura Analítica do Projeto (EAP), <b>pois</b> ela apresenta o processo e a subdivisão do trabalho e das entregas do projeto em componentes menores e de mais fácil gerenciamento. A EAP é um diagrama que organiza e define o escopo total do projeto por meio da representação em forma de árvore..."</i></div>
+            </div>
+        </div>
+        <div class="question-container" id="q2" data-unit="2">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">2</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">A empresa de locação de veículos chamada “Na Pista” está trabalhando em seu projeto para locação de veículos para motoristas de aplicativos. O projeto da empresa encontra-se numa encruzilhada na fase do gerenciamento de custos. O principal problema é que alguns interessados no projeto estão avaliando os custos de forma diferente e não no mesmo ritmo dos demais.<br><br>Com base nas informações apresentadas, avalie as afirmações a seguir:<br><br>I. A possibilidade das partes entrarem em consenso está no planejamento adequado dos custos, o qual envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e o uso dos mesmos para a realização das atividades do projeto.<br>II. O consenso pode ser buscado na correta orçamentação dos custos, buscando impedir que mudanças não apropriadas sejam incluídas e não se esquecendo de informar os envolvidos e envolvidas sobre quaisquer mudanças nos custos.<br>III. As informações de entrada como: recursos requeridos, custo unitário de recursos, estimativa de duração da atividade, informações históricas, plano contábil podem ser incluídas na estimativa de custos e, consequentemente, se refletir numa melhor relação entre os interessados no projeto.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q2" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.2.1 e Figura 2.9, p. 49–50):</b><br>- <b>I e II (Verdadeiras — p. 50):</b> <i>"O planejamento dos custos envolve determinar os recursos e as respectivas quantidades de pessoas, equipamentos e materiais, e como eles devem ser usados para realizar as atividades do projeto. [...] A orçamentação dos custos busca alocar as estimativas aos itens de trabalho, a fim de estabelecer uma base de controle e de mensurar o desempenho do projeto, que será medido no controle de custos. Esse controle monitora o desempenho, busca impedir que mudanças não apropriadas sejam incluídas e informar as partes envolvidas sobre quaisquer mudanças nos custos (PMI, 2017)."</i><br>- <b>III (Verdadeira — Figura 2.9, p. 50):</b> Na caixa <b>Estimativa de Custos → Entradas</b>, constam exatamente: <i>EAP, Recursos requeridos, Custo unitário de recursos, Estimativas de duração da atividade, Informações históricas e Plano contábil</i>.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q3" data-unit="1">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">3</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">Segundo o PMBOK (<i>Project Management Body of Knowledge</i>), projeto “é um esforço temporário empreendido para criar um produto, serviço ou resultado exclusivo” (PMI, 2013). É considerado temporário, porque todos os projetos devem possuir um início e fim definido.<br><br>Portanto, podemos considerar um projeto:<br>I - construção de uma casa<br>II - fabricação de carros<br>III - realização de uma viagem<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q3" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.1 — Figura 1.2, p. 14):</b><br>- Conforme a <b>Figura 1.2 (p. 14 — Projetos x Não projetos)</b>:<br>- <b>PROJETOS (temporários e exclusivos):</b> <i>Construção de uma casa (I)</i>, <i>Redação de um livro</i>, <i>Lançamento de um produto ou serviço</i>, <i>Realização de uma viagem (III)</i>, <i>Desenvolvimento de um software</i>.<br>- <b>NÃO PROJETOS (operações contínuas e repetitivas):</b> <i>Compra de materiais (operação regular)</i>, <b><i>Fabricação de carros (II)</b></i>, <i>Gerenciamento de um setor administrativo</i>, <i>Venda de produto ou serviços</i>, <i>Pagamento de produtos ou serviços</i>.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q4" data-unit="2">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">4</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-2">UNIDADE 2</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">A identificação dos riscos consiste em determinar aqueles que têm <b>menor</b> probabilidade de afetar o projeto e documentar as características de cada um.<br><br><div class="porque-separator">PORQUE</div><br><br>Os riscos são mutáveis ao longo da execução do processo de identificação, o qual deve ser feito ao longo de todo o projeto.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q4" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 2, Seção 2.3.2, p. 59):</b><br>- Veja o primeiro parágrafo da página 59: <i>"A identificação dos riscos consiste em determinar aqueles que têm <b>maior</b> probabilidade de afetar o projeto e documentar as características de cada um, identificando os eventos incertos que podem representar ameaças ou oportunidades para o projeto. [...] Esse processo deve ser feito ao longo de todo o projeto, pois os riscos são mutáveis ao longo de sua execução (PMI, 2017)."</i><br>- Logo, a 1ª asserção é <b>falsa</b> (trocou <b>maior</b> por <i>menor</i>), e a 2ª asserção é <b>verdadeira</b>.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q5" data-unit="1">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">5</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">É possível que projetos apresentem falhas em sua construção. Portanto, é importante estudar as experiências anteriores para enfrentar os novos projetos e diminuir as chances de fracasso.<br><br>Selecione a alternativa abaixo que representa o fracasso de um projeto:</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Entrega de requisitos incompletos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Cumprir a expectativa do cliente.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Envolvimento com usuários.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Entrega no prazo definido.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q5" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Manutenção dos requisitos e especificações.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.1.2, p. 15):</b><br>- Conforme o quadro <b>DESTAQUE (p. 15 — <i>Os fracassos: por que os projetos falham?</i>)</b> baseado no <i>Chaos Report (2019)</i>, as 5 principais causas de falha são:<br>1. <b>Requisitos incompletos</b>;<br>2. Falta de envolvimento dos usuários;<br>3. Expectativas irreais do cliente;<br>4. Alterações nos requisitos e especificações;<br>5. Não ter mais necessidades das capacidades envolvidas.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q6" data-unit="1">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">6</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-1">UNIDADE 1</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda.<br><br>Sendo assim, podemos afirmar que:</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Se o prazo for longo não haverá riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, menos riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, menos falhas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto menor o prazo de planejamento, mais riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q6" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Quanto mais longo o prazo de planejamento, mais riscos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Fundamentação no E-book (Unidade 1, Seção 1.2.3, p. 22):</b><br>- Citação literal da página 22: <i>"A elaboração progressiva, também conhecida como elaboração por ondas sucessivas, sugere que um projeto seja organizado em estágios, de modo que os estágios mais próximos serão detalhados de forma mais profunda; estágios de prazo médio são detalhados de forma intermediária e, os mais longos, em virtude do tempo/distância, acabam sendo menos detalhados. <b>Quanto mais longo o prazo de planejamento, mais riscos</b>, erros e falhas a etapa proporciona."</i></div>
+            </div>
+        </div>
+        <div class="question-container" id="q7" data-unit="3">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">7</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida.<br><br><div class="porque-separator">PORQUE</div><br><br>A estrutura organizacional define o modo como as equipes são formadas e como os projetos são conduzidos.<br><br>Acerca dessas asserções e da relação proposta entre elas, assinale a alternativa correta.</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição verdadeira, e a segunda, uma proposição falsa.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A primeira asserção é uma proposição falsa, e a segunda, uma proposição verdadeira.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q7" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Tanto a primeira quanto a segunda asserções são proposições falsas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.4.1, p. 97):</b><br>- Cópia literal da página 97 do livro: <i>"A estrutura organizacional é um fator ambiental interno que afeta a estratégia estabelecida, <b>pois</b> define o modo como as equipes são formadas e como os projetos são conduzidos. Além disso, a estrutura organizacional define a distribuição do poder, da autoridade [...] e da responsabilidade (CRAWFORD, 2011)."</i></div>
+            </div>
+        </div>
+        <div class="question-container" id="q8" data-unit="3">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">8</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">Um escritório de gerenciamento de projetos pode assumir um papel muito importante em qualquer dos três tipos de estruturas organizacionais.<br><br>Sobre as estruturas organizacionais, podemos afirmar que:<br>I) Na Estrutura Funcional existem níveis de autoridade e responsabilidade bem definidos.<br>II) Na Estrutura Matricial o gestor de projetos divide as responsabilidades com os gestores funcionais.<br>III) Na Estrutura Orientada para Projetos a autoridade é atribuída diretamente pelo mais alto escalão da organização.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q8" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.4.1.1.1 a 3.4.1.1.3, p. 98–102):</b><br>- <b>I (Verdadeira — p. 98):</b> <i>"3.4.1.1.1 Estrutura Funcional: Níveis de autoridade e responsabilidade bem definidos, canais de comunicação verticais bem estabelecidos e os gestores funcionais têm um controle absoluto sobre o orçamento e recursos."</i><br>- <b>II (Verdadeira — p. 99):</b> <i>"3.4.1.1.2 Estruturas Matriciais: Estrutura organizacional em que o gestor de projetos divide as responsabilidades com os gestores funcionais, desde a atribuição de prioridades até a orientação do trabalho..."</i><br>- <b>III (Verdadeira — p. 102):</b> <i>"3.4.1.1.3 Estrutura Orientada Para Projetos: [...] A sua autoridade é atribuída diretamente pelo mais alto escalão da organização, permitindo que ele tenha total autonomia e melhor visão holística do projeto."</i></div>
+            </div>
+        </div>
+        <div class="question-container" id="q9" data-unit="4">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">9</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">À medida que a empresa busca se consolidar no segmento em que atua, consequentemente, novos projetos serão demandados vindo a solicitar a formação de uma estrutura que coordene todos os projetos da organização e otimize a utilização de recursos. A criação de um escritório de gerenciamento de projetos - EGP (PMO), com funções claras de orientação e coordenação de projetos por ele amparados, insere uma mudança cultural na organização, atingindo desde os colaboradores até a alta administração, que deve ser o seu maior incentivador.<br><br>Com base nas informações apresentadas, assinale a alternativa correta:</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O desenvolvimento de projetos de curto e longo prazo, mesmo com poucas limitações de recursos e ambiente, tem levado a criação de EGP/ PMO.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O sucesso da implantação do EGP/PMO depende exclusivamente da análise dos pontos fortes e fracos e das oportunidades e ameaças que podem atingir a gestão organizacional.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">As principais finalidades do EGP/PMO são a redução de custos das funções de gerência de projetos e o aprimoramento da escolha do grupo que trabalhará no projeto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q9" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Um fator que motiva a criação do EGP/PMO é a capacidade dos gestores guiarem seus projetos de acordo com as diretrizes informadas pelo PMBOK.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.3.2 e 3.3.3, p. 90–91):</b><br>- <b>A (Correta — p. 91):</b> Cópia literal da seção 3.3.3 (p. 91): <i>"O processo de planejamento de um EGP/PMO inicia-se com a apresentação das definições da missão e visão do escritório de projetos."</i><br>- <b>Erros das demais (p. 90–91):</b><br>- <b>B (p. 91):</b> Ocorre quando desenvolvem projetos muito grandes, complexos <b>e com limitações de recursos</b> (e não "poucas limitações").<br>- <b>C (p. 91):</b> Não depende <i>exclusivamente</i> da análise SWOT (envolve também maturidade, cultura, estrutura e fatores críticos de sucesso).<br>- <b>D (p. 90):</b> A primeira finalidade é a redução de custos e o aprimoramento <b>da qualidade da informação sobre os projetos</b> (e não "da escolha do grupo").<br>- <b>E (p. 91):</b> O que motiva a criação é justamente a <b>falta de capacidade</b> dos gerentes para guiar seus projetos de acordo com as diretrizes da organização.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q10" data-unit="3">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">10</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">Não podemos desvincular a gestão de projetos da administração de empresas, porque a primeira é uma das partes que constitui a administração, logo, também não podemos pensar em projetos sem relacioná-los ao mercado e, principalmente, à pesquisa de mercado. Aliás, se as empresas estiverem olhando atentamente para a gestão de seus projetos, isto vai ao encontro de identificar e analisar as necessidades do consumidor e a realidade da concorrência.<br><br>Sobre a pesquisa de mercado e sua relação com a gestão de projetos podemos concluir que:</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A pesquisa qualitativa serve para gerar dados estatísticos a fim de extrair uma resposta concreta que valha para o segmento de pessoas que estão sendo analisadas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">A pesquisa de mercado é muito usada para identificar os principais fornecedores do produto ou serviço que sendo adquirido pela empresa e seus concorrentes.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">No estudo de mercado são aplicados apenas questionários quantitativos, o emprego de questionários ou entrevistas qualitativas não é usual.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Cada empresa terá que escolher a melhor maneira de distribuir essa pesquisa, online ou offline, entretanto, é necessário terceirizar este serviço.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q10" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O estudo de mercado é muito utilizado no início de um projeto, sendo importante em todas as ocasiões em que é preciso agir em busca do crescimento da organização.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.2, p. 83–84):</b><br>- <b>E (Correta — p. 83):</b> Cópia literal da p. 83: <i>"Normalmente, o estudo de mercado é muito utilizado no início de um projeto, mas também são importantes em todas as ocasiões em que é preciso agir em busca do crescimento da organização."</i><br>- <b>Erros das demais (p. 83–84):</b><br>- <b>A (p. 84):</b> Quem gera dados estatísticos é a pesquisa <b>quantitativa</b>; a <i>qualitativa</i> visa gerar insumos sobre as dores da <i>persona</i> e <i>insights</i>.<br>- <b>C (p. 84):</b> Podem ser aplicados questionários tanto de valor qualitativo quanto quantitativo.<br>- <b>D (p. 83):</b> Fica a critério da empresa escolher <b>se é preciso terceirizar ou não</b> esse serviço.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q11" data-unit="4">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">11</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-4">UNIDADE 4</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">Existe uma previsão no mercado que tanto a existência da estrutura de escritório de projetos dentro da organização quanto a valorização do profissional PMO deve crescer consideravelmente. O Project Management Office (PMO) ou Escritório de Gerenciamento de Projetos é responsável por padronizar os processos de governança relacionados a projetos, podendo incluir uma perspectiva empresarial. Seu foco é em pessoas, processos e ferramentas.<br><br>Neste contexto, há três modelos principais de escritório de projetos. Sobre esses modelos, analise os itens a seguir:<br>I – Escritório corporativo de projetos: está posicionado dentro da alta administração, e os projetos são o desdobramento dos objetivos, metas e fatores críticos de sucesso do plano estratégico do negócio.<br>II – Escritório divisional de projetos: está posicionado dentro de uma divisão da organização, e o gerente de projetos responde ao diretor dessa divisão.<br>III – Escritório setorial de projetos: está posicionado dentro de um setor da organização, como o setor de operações.<br><br>É correto o que se afirma em:</div>
+            <div class="options">
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I e II, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, II e III.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">II e III, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q11" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">I, apenas.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seções 3.6.1 a 3.6.3, p. 104–106):</b><br>- Todas as três definições (<b>I, II e III</b>) são transcrições literais das seções <b>3.6.1 Escritório Corporativo de Projetos (p. 104)</b>, <b>3.6.2 Escritório Divisional de Projetos (p. 105)</b> e <b>3.6.3 Escritório Setorial de Projetos (p. 106)</b>.</div>
+            </div>
+        </div>
+        <div class="question-container" id="q12" data-unit="3">
+            <div class="q-header">
+                <div class="q-header-left">
+                    <div class="q-circle-number">12</div>
+                    <span class="q-type-label">MÚLTIPLA ESCOLHA</span>
+                    <span class="status-pill-ava"></span>
+                    <span class="unit-pill unit-3">UNIDADE 3</span>
+                </div>
+                <div class="q-header-right">
+                    <span class="q-score-badge">0,4 / 0,4</span>
+                    <span class="q-chevron">▲</span>
+                </div>
+            </div>
+            <div class="question-text">O Guia PMBOK aborda três tipos de ciclo de vida do projeto: o ciclo preditivo, o iterativo e incremental e o adaptativo.<br><br>Assinale a alternativa que apresenta uma das características do ciclo preditivo:</div>
+            <div class="options">
+                <label class="option-row" data-correct="true">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, desenvolve-se um plano de entrega do produto e segue-se para as fases de execução do plano.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O ciclo preditivo implica ter uma expertise, de modo que a equipe vai aprendendo com o desenvolvimento do produto a ser entregue.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">Após a equipe definir o escopo do projeto e produto, lida-se com um ambiente de grande mutação com uma velocidade alta das iterações.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+                <label class="option-row" data-correct="false">
+                    <div class="option-left">
+                        <input type="radio" name="q12" value="">
+                        <div class="option-content">
+                            <span class="letter-prefix"></span>
+                            <span class="correta-highlight">Correta:</span>
+                            <span class="option-text">O ciclo preditivo é lento até que a equipe de projetos compreenda o produto.</span>
+                        </div>
+                    </div>
+                    <span class="option-tag"></span>
+                </label>
+            </div>
+            <div class="explicacao">
+                <b class="expl-title">💬 Fundamentação Oficial no E-book:</b>
+                <div><b>📚 Embasamento no E-book (Unidade 3, Seção 3.1.2 — Quadro 3.2, p. 72):</b><br>- <b>A (Correta — Quadro 3.2, p. 72):</b> No <b>Ciclo de vida preditivo</b>, <i>"No início do projeto, a equipe concentra-se em definir o escopo do projeto e do produto a ser gerado; depois, desenvolve um plano de entrega do produto e segue as fases necessárias para a execução do plano."</i> (Expertise alta com produto dominado por completo desde o início).<br>- As alternativas B, C e E descrevem o ciclo <i>iterativo e incremental</i>, enquanto a D descreve o ciclo <i>adaptativo</i>.</div>
+            </div>
+        </div>
+
+            <button type="button" class="btn-submit" onclick="calcularNota()">Finalizar e Enviar Questionário (12 Questões)</button>
+
+            <div id="resultado" class="result-box"></div>
+        </form>
+    </main>
 
     <script>
-        
-(function() {
-    'use strict';
-    // Bloqueia clique com botão direito
-    document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        const TOTAL = 12;
+        const MIN_APROVACAO = 8;
+        const PASTA_GIFS = 'gifs/';
+        const GIFS_EMBUTIDOS = {};
+        const LISTA_GIFS = { acertou: ["Acertou_7.gif"], errou: ["Errou_7.gif"] };
 
-    // Bloqueia atalhos de inspeção e desenvolvedor
-    document.addEventListener('keydown', function(e) {
-        if (e.keyCode === 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
-            (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
+        function mostrarReacao(q, acertou) {
+            const tipo = acertou ? 'acertou' : 'errou';
+            let box = q.querySelector('.reacao');
+            if (!box) {
+                box = document.createElement('div');
+                q.insertBefore(box, q.querySelector('.question-text'));
+            }
+            const lista = LISTA_GIFS[tipo];
+            const nome = lista[Math.floor(Math.random() * lista.length)];
+            const emojis = acertou ? ['🎉','🥳','😄','👏'] : ['😢','😞','🤦','😵'];
+            box.className = 'reacao ' + tipo;
+            box.style.display = 'block';
+            box.innerHTML = '';
+            const img = document.createElement('img');
+            img.alt = acertou ? 'Acertou!' : 'Errou';
+            img.onerror = () => {
+                box.innerHTML = '<span class="emoji">' + emojis[Math.floor(Math.random() * emojis.length)] + '</span>';
+            };
+            img.src = GIFS_EMBUTIDOS[nome] || (PASTA_GIFS + nome);
+            box.appendChild(img);
         }
-    });
 
-    // Anti-debugger loop em thread secundária
-    setInterval(function() {
-        try {
-            (function() {
-                return false;
-            }['constructor']('debugger')());
-        } catch(e) {}
-    }, 700);
+        // Embaralhamento inicial (F5)
+        (function() {
+            const form = document.getElementById('quizForm');
+            const submitBtn = document.querySelector('.btn-submit');
 
-    // Limpeza de console para evitar inspeção de variáveis em memória
-    setInterval(function() {
-        try { console.clear(); } catch(e) {}
-    }, 1800);
-})();
+            // 1. Embaralha as perguntas mantendo seus atributos e etiquetas
+            const questions = Array.from(document.querySelectorAll('.question-container'));
+            for (let i = questions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [questions[i], questions[j]] = [questions[j], questions[i]];
+            }
 
+            // 2. Renumera o círculo roxo e reatribui radio names
+            questions.forEach((q, index) => {
+                const newNum = index + 1;
+                const newId = 'q' + newNum;
+                q.id = newId;
 
-        const _SIMULADO_PAYLOAD = {"s": "TKz22WSn3w4OXPZIJ5sfBA==", "v": "Od7xdJF+QsS2RruW", "d": "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"};
-        const _SESSION_KEY = '__ads_auth_vault_token';
+                const circleNum = q.querySelector('.q-circle-number');
+                if (circleNum) circleNum.innerText = newNum;
 
-        
-async function _decryptVault(pwd, payload) {
-    const salt = Uint8Array.from(atob(payload.s), c => c.charCodeAt(0));
-    const iv = Uint8Array.from(atob(payload.v), c => c.charCodeAt(0));
-    const ct = Uint8Array.from(atob(payload.d), c => c.charCodeAt(0));
-    
-    const enc = new TextEncoder();
-    const passKey = await window.crypto.subtle.importKey(
-        'raw',
-        enc.encode(pwd),
-        { name: 'PBKDF2' },
-        false,
-        ['deriveKey']
-    );
-    
-    const key = await window.crypto.subtle.deriveKey(
-        {
-            name: 'PBKDF2',
-            salt: salt,
-            iterations: 100000,
-            hash: 'SHA-256'
-        },
-        passKey,
-        { name: 'AES-GCM', length: 256 },
-        false,
-        ['decrypt']
-    );
-    
-    const decrypted = await window.crypto.subtle.decrypt(
-        { name: 'AES-GCM', iv: iv },
-        key,
-        ct
-    );
-    
-    return new TextDecoder().decode(decrypted);
-}
+                q.querySelectorAll('input[type="radio"]').forEach(r => {
+                    r.name = newId;
+                    r.checked = false;
+                });
 
+                form.insertBefore(q, submitBtn);
 
-        async function unlockSimulado(savedPassword) {
-            const input = document.getElementById('simuladoPwd');
-            const errorEl = document.getElementById('simError');
-            const lockBox = document.getElementById('bb-vault-lock');
-            const mount = document.getElementById('decrypted-quiz-mount');
-            const btn = document.getElementById('btnSimUnlock');
-
-            const pwd = savedPassword || (input ? input.value.trim() : '');
-            if (!pwd) return;
-
-            if (btn) btn.disabled = true;
-
-            try {
-                const decryptedHtml = await _decryptVault(pwd, _SIMULADO_PAYLOAD);
-                sessionStorage.setItem(_SESSION_KEY, pwd);
-
-                if (lockBox) lockBox.style.display = 'none';
-                if (mount) {
-                    mount.innerHTML = decryptedHtml;
-                    mount.style.display = 'block';
-
-                    // Executa os scripts internos do simulado
-                    const scripts = mount.querySelectorAll('script');
-                    scripts.forEach(oldScript => {
-                        const newScript = document.createElement('script');
-                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                        oldScript.parentNode.replaceChild(newScript, oldScript);
+                // 3. Embaralha as alternativas de cada pergunta
+                const optionsDiv = q.querySelector('.options');
+                if (optionsDiv) {
+                    const labels = Array.from(optionsDiv.querySelectorAll('.option-row'));
+                    const letters = ['A', 'B', 'C', 'D', 'E'];
+                    for (let i = labels.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [labels[i], labels[j]] = [labels[j], labels[i]];
+                    }
+                    optionsDiv.innerHTML = '';
+                    labels.forEach((label, idx) => {
+                        const prefix = label.querySelector('.letter-prefix');
+                        if (prefix) prefix.innerText = letters[idx] + '. ';
+                        const input = label.querySelector('input');
+                        if (input) input.value = letters[idx];
+                        optionsDiv.appendChild(label);
                     });
                 }
-            } catch(err) {
-                if (btn) btn.disabled = false;
-                if (errorEl) errorEl.style.display = 'block';
-                if (input) {
-                    input.value = '';
-                    input.focus();
-                }
-            }
-        }
+            });
+        })();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const cachedToken = sessionStorage.getItem(_SESSION_KEY);
-            if (cachedToken) {
-                unlockSimulado(cachedToken);
+        function calcularNota() {
+            let acertos = 0;
+            const porUnidade = {};
+
+            // Limpa estilos anteriores
+            document.querySelectorAll('.option-row').forEach(l => {
+                l.classList.remove('is-correct-answer', 'is-wrong-answer');
+            });
+            document.querySelectorAll('.status-pill-ava').forEach(sp => {
+                sp.className = 'status-pill-ava';
+                sp.style.display = 'none';
+            });
+
+            for (let i = 1; i <= TOTAL; i++) {
+                const q = document.getElementById('q' + i);
+                const unidade = q.getAttribute('data-unit');
+                porUnidade[unidade] = porUnidade[unidade] || { ok: 0, total: 0 };
+                porUnidade[unidade].total++;
+
+                const statusPill = q.querySelector('.status-pill-ava');
+                const scoreBadge = q.querySelector('.q-score-badge');
+                const options = document.getElementsByName('q' + i);
+
+                let respondeu = false;
+                let acertou = false;
+
+                for (const option of options) {
+                    const label = option.closest('.option-row');
+                    const isCorrect = label.getAttribute('data-correct') === 'true';
+
+                    if (option.checked) {
+                        respondeu = true;
+                        if (isCorrect) {
+                            acertou = true;
+                            label.classList.add('is-correct-answer');
+                        } else {
+                            label.classList.add('is-wrong-answer');
+                            const tag = label.querySelector('.option-tag');
+                            if (tag) {
+                                tag.innerText = 'Sua resposta (Incorreta)';
+                                tag.style.display = 'inline';
+                            }
+                        }
+                    }
+
+                    if (isCorrect) {
+                        label.classList.add('is-correct-answer');
+                        const tag = label.querySelector('.option-tag');
+                        if (tag) {
+                            tag.innerText = 'Resposta correta';
+                            tag.style.display = 'inline';
+                        }
+                    }
+                }
+
+                if (acertou) {
+                    acertos++;
+                    porUnidade[unidade].ok++;
+                    if (statusPill) {
+                        statusPill.innerText = 'CORRETO';
+                        statusPill.className = 'status-pill-ava correto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,4 / 0,4';
+                } else if (respondeu) {
+                    if (statusPill) {
+                        statusPill.innerText = 'INCORRETO';
+                        statusPill.className = 'status-pill-ava incorreto';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                } else {
+                    if (statusPill) {
+                        statusPill.innerText = 'NÃO RESPONDIDO';
+                        statusPill.className = 'status-pill-ava vazio';
+                    }
+                    if (scoreBadge) scoreBadge.innerText = '0,0 / 0,4';
+                }
+
+                mostrarReacao(q, acertou);
+
+                // Exibe justificativa
+                const ex = q.querySelector('.explicacao');
+                if (ex) ex.style.display = 'block';
             }
-        });
+
+            // Atualiza nota no Banner Superior (estilo Print 5)
+            const notaEscala10 = ((acertos / TOTAL) * 10).toFixed(1).replace('.', ',');
+            const headerPill = document.getElementById('header-score-pill');
+            if (headerPill) headerPill.innerText = notaEscala10 + ' / 10,0';
+
+            const headerSub = document.getElementById('header-score-sub');
+            if (headerSub) {
+                const now = new Date();
+                const horaStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                headerSub.innerHTML = '<strong>ENVIADO:</strong> ' + horaStr + ' (BRT)';
+            }
+
+            // Exibe caixa de resultado final
+            const resultBox = document.getElementById('resultado');
+            resultBox.style.display = 'block';
+            const aproveitamento = ((acertos / TOTAL) * 100).toFixed(0);
+            const detalhe = Object.keys(porUnidade).sort().map(u => `Unidade ${u}: ${porUnidade[u].ok}/${porUnidade[u].total}`).join(' &nbsp;|&nbsp; ');
+
+            resultBox.innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>${TOTAL}</strong> questões! (Nota: <strong>${notaEscala10}</strong>)</div>
+                <div style="font-size: 0.85em; font-weight: normal; margin-top: 4px;">Aproveitamento Total: ${aproveitamento}%</div>
+                <div class="by-unit">${detalhe}</div>
+                <button type="button" class="btn-retry" onclick="window.location.reload()">🔄 Refazer Simulado (Embaralhar Novamente)</button>
+            `;
+            resultBox.className = 'result-box ' + (acertos >= MIN_APROVACAO ? 'pass' : 'fail');
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
