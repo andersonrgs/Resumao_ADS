@@ -80,10 +80,35 @@ DISCIPLINAS = [
 ]
 
 def inline(txt):
+    def replace_img(match):
+        alt = match.group(1)
+        src = match.group(2)
+        img_file = BASE / src
+        if not img_file.exists():
+            img_file = BASE / "img" / Path(src).name
+        if not img_file.exists():
+            img_file = BASE / "prova_05062026 -Direito + comunicação" / "img" / Path(src).name
+            
+        if img_file.exists():
+            b64 = base64.b64encode(img_file.read_bytes()).decode('ascii')
+            img_src = f"data:image/png;base64,{b64}"
+        else:
+            img_src = src
+            
+        return f'<div class="question-img-wrapper"><img src="{img_src}" alt="{alt}" class="question-img"></div>'
+
+    imgs = []
+    def save_img(m):
+        imgs.append(replace_img(m))
+        return f"__IMG_TOKEN_{len(imgs)-1}__"
+
+    txt = re.sub(r"!\[(.*?)\]\((.*?)\)", save_img, txt)
     t = html.escape(txt, quote=False)
     t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
     t = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", t)
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    for i, im_html in enumerate(imgs):
+        t = t.replace(f"__IMG_TOKEN_{i}__", im_html)
     return t
 
 def paragrafos(linhas):
@@ -130,7 +155,7 @@ def parse_markdown_questions(md_path, unidades):
                 continue
             if s in ("**Alternativas:**", "Alternativas:"):
                 continue
-            if "Fonte:" in l or "Página" in l or "página" in l:
+            if ("Página" in l or "página" in l or "E-book" in l) and not ("http" in l or "brasilescola" in l or "amoniteroi" in l):
                 fonte_info = l.strip().strip("*").strip("()").strip()
                 continue
             enun_linhas.append(l)
@@ -944,6 +969,32 @@ def gerar_simulado_blackboard(disc):
     doc = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Anti-Debug & Anti-Inspection Guard -->
+    <script>
+        (function() {{
+            'use strict';
+            document.addEventListener('contextmenu', function(e) {{ e.preventDefault(); return false; }});
+            document.addEventListener('keydown', function(e) {{
+                if (e.keyCode === 123 || 
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                    (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83))) {{
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }}
+            }});
+            setInterval(function() {{
+                try {{
+                    (function() {{
+                        return false;
+                    }}['constructor']('debugger')());
+                }} catch(e) {{}}
+            }}, 700);
+            setInterval(function() {{
+                try {{ console.clear(); }} catch(e) {{}}
+            }}, 1800);
+        }})();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação: {disc["nome"]} — Blackboard Ultra (Simulado ADS)</title>

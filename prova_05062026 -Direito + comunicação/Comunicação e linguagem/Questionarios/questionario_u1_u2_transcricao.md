@@ -52,10 +52,21 @@ Quais as funções da linguagem, respectivamente, dos textos acima?
 
 **Enunciado:**
 Leia os anúncios publicitários a seguir:
-- **Texto I:** Anúncio da rede Hortifruti com um tomate usando boina preta e a frase *"HORTA DE ELITE — Se não for Hortifruti, pede pra sair"* (`Fonte: https://brasilescola.uol.com.br/redacao/tipos-intertextualidade.htm`).
-- **Texto II:** Cartaz oficial do filme *"TROPA DE ELITE — Missão dada é missão cumprida"* com o Capitão Nascimento de boina preta (`Fonte: http://amoniteroi.com.br/eventos/cinemas/filme-tropa-de-elite-2/`).
+
+Texto I
+
+![Texto I - Horta de Elite](img/horta_de_elite.png)
+
+Fonte: https://brasilescola.uol.com.br/redacao/tipos-intertextualidade.htm
+
+Texto II
+
+![Texto II - Tropa de Elite](img/tropa_de_elite.png)
+
+Fonte: http://amoniteroi.com.br/eventos/cinemas/filme-tropa-de-elite-2/
 
 Um texto pode revelar, na forma e/ou conteúdo, sua relação com um ou mais textos.
+
 Comparando-se o texto I com o texto II, pode-se afirmar corretamente:
 
 I – Ocorre, entre os dois textos, uma relação de intertextualidade, observada nos textos verbais e não-verbais.

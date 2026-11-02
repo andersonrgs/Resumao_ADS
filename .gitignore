@@ -14,3 +14,4 @@ build_encrypted_portal.py
 _source_templates/
 build_encrypted_system.py
 apply_simulado_direct_access.py
+update_image_question.py

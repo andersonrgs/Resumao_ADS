@@ -5,10 +5,7 @@
     <script>
         (function() {
             'use strict';
-            // Desabilita menu de contexto (botão direito)
             document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
-
-            // Bloqueia atalhos de desenvolvedor (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U)
             document.addEventListener('keydown', function(e) {
                 if (e.keyCode === 123 || 
                     (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
@@ -18,8 +15,6 @@
                     return false;
                 }
             });
-
-            // Anti-debugger trap loop
             setInterval(function() {
                 try {
                     (function() {
@@ -27,14 +22,11 @@
                     }['constructor']('debugger')());
                 } catch(e) {}
             }, 700);
-
-            // Limpeza periódica do console
             setInterval(function() {
                 try { console.clear(); } catch(e) {}
             }, 1800);
         })();
     </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avaliação: Direito Digital — Blackboard Ultra (Simulado ADS)</title>
